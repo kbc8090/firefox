@@ -1,0 +1,627 @@
+/* Reduce Tab height a bit */
+:root {
+  --tab-min-height: 28px !important;
+}
+
+/* Make the tab close button circular */
+.tab-close-button { 
+  width: 18px !important;
+  height: 18px !important;
+  padding: 4px !important;
+  margin: -2px !important;
+  border-radius: 50% !important;
+}
+
+/* Adds correct color to the close tab button */
+.tab-close-button:hover[selected] {
+  color: var(--toolbar-color) !important;
+  background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+/* Adds correct inactive color to the close tab button */
+.tab-close-button:hover:not([selected]) {
+  color: var(--toolbar-color) !important;
+  background-color: color-mix(in srgb, currentColor 18%, transparent) !important;
+}
+
+
+/* Disables the Add Engine from the right click context menu on the URL bar */
+.menuitem-iconic.context-menu-add-engine,
+.menuseparator-add-engine {
+    display: none !important;
+}
+
+/* Adds color to hovering over inactive tabs */
+.tabbrowser-tab:hover:not([visuallyselected],[multiselected]) .tab-background
+{
+  background-color: color-mix(in srgb, var(--toolbarbutton-hover-background) 20%, transparent) !important;
+}
+
+/* Adds 1px of padding underneath bookmark toolbar items and 2px around the hover button */
+toolbarbutton.bookmark-item:not(.subviewbutton) { 
+  padding-block: 2px !important;
+  margin: 0 0 3px !important;
+}
+
+/* Increases padding between bookmark toolbar items */
+#PlacesToolbarItems > .bookmark-item {
+  margin-inline: 2px !important;
+}
+
+/*.tabbrowser-tab:hover:not([visuallyselected],[multiselected]) .tab-content
+{
+    color: var(--toolbar-color) !important;
+}
+
+.tabbrowser-tab:hover[selected] .tab-background
+{
+    background: var(--toolbar-bgcolor) !important;
+}
+*/
+
+/* Creates inactive tab separators like Chrome */
+.tabbrowser-tab {
+  border-inline-end: 1px solid transparent !important;
+  border-image: 0 1 linear-gradient(
+    transparent 25%,
+    color-mix(in srgb, currentColor 45%, transparent) 25%,
+    color-mix(in srgb, currentColor 45%, transparent) 75%,
+    transparent 75%
+  );
+}
+
+.tabbrowser-tab:hover,
+.tabbrowser-tab[beforehovered],
+.tabbrowser-tab[selected],
+.tabbrowser-tab[last-visible-tab],
+.tabbrowser-tab[beforeselected-visible] {
+  border-image: none !important; 
+}
+
+/* Hide Search with Google or enter address in url bar */
+#urlbar-input::placeholder {
+    opacity: 0 !important;
+}
+  
+  /* Hide All Tabs Button at top in tab bar */
+#alltabs-button {
+  display: none !important;
+}
+  
+  /* Disable all context menus about sending things to other devices */
+#context-sendpagetodevice, #context-sep-sendpagetodevice,
+#context-sendlinktodevice, #context-sep-sendlinktodevice,
+#context_sendTabToDevice, #context_sendTabToDevice_separator {
+  display: none !important;
+}
+
+/* Make Selected Tab Font Color White 
+.tabbrowser-tab[selected] .tab-content {
+    color: #FFFFFF;
+}
+*/
+
+/* Make unselected tabs a little less bright 
+.tabbrowser-tab:not([selected]) .tab-content {
+    color: #919fc2;
+  }
+*/
+
+/* Make background tabs not as vibrant as selected tab
+.tabbrowser-tab:not([selected=true]):not([multiselected=true]) .tab-background {
+    background-color: color-mix(in srgb, currentColor 4%, transparent);
+}*/
+  
+  /* Source file https://github.com/MrOtherGuy/firefox-csshacks/tree/master/chrome/proton_dark_light_notifications.css made available under Mozilla Public License v. 2.0
+  See the above repository for updates as well as full license text. */
+  
+  /* Makes web notifications use dark/light theme based on your selected theme, and makes them fit a bit better to rounded proton style. */
+
+@-moz-document url("chrome://global/content/alerts/alert.xhtml") {
+  
+  /* Color scheme definitions
+    * Intentionally let Firefox override these on Windows10
+    */
+  :root {
+    --menu-border-color: #67679b;
+    --menu-color: #e4e9ff;
+    --menu-background-color: #1f2335;
+    --menuitem-hover-background-color: #ff0000;
+    --notify-bgcolor: var(--toolbar-bgcolor);
+  }
+
+  @media (-moz-toolbar-prefers-color-scheme:dark) {
+    :root {
+      --menu-border-color: #5b5b66;
+      --menu-color: #fbfbfe;
+      --menu-background-color: #2b2a33;
+      --menuitem-hover-background-color: #52525e;
+    }
+    #alertSourceLabel { 
+      color: rgb(5,209,241) !important;
+    }
+  }
+  /* The line below removes background "layer" from the notification on linux, Windows and macOS don't have that layer in the first place
+  :root{ background: transparent !important; }*/
+  
+  /* Make Firefox actually use the colors set above */
+
+  #alertBox {
+    color: var(--toolbar-color) !important;
+    /* background: linear-gradient(45deg, #161929, #2f354e); */
+    background-color: #293649 !important;
+    border-color: var(--menu-border-color) !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-family: "Segoe UI" !important;
+    -moz-window-shadow: cliprounded !important;
+      animation-name: slide !important;
+      animation-duration: 180ms !important;
+      animation-timing-function: ease-in-out !important;
+  }
+      
+  @keyframes slide {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+#alertSettings {
+  fill: currentColor !important;
+  color: inherit !important;
+  border-radius: 0 !important;
+  margin-inline: 0 !important;
+  margin-bottom: -4px !important;
+}
+
+.close-icon,
+#alertSettings {
+  background: transparent !important
+}
+
+.close-icon:hover > .toolbarbutton-icon,
+#alertSettings:is(:hover,[open]) > .button-box > .box-inherit {
+  background-color: color-mix(in srgb, currentColor 25%, transparent) !important;
+}
+  
+/* Reshape and move the buttons a bit */
+.close-icon > .toolbarbutton-icon,
+#alertSettings > .button-box > .box-inherit {
+  border-radius: 4px !important;
+  padding: 2px !important;
+  margin: 2px 2px -2px 0 !important;
+}
+
+#alertSettings > .button-box > .box-inherit {
+  margin: -4px 4px 3px 0 !important;
+}
+
+#alertSettings > .button-box > .box-inherit > .button-icon {
+  padding: 1px;
+}
+
+/***  Firefox Color Hack-on: Color all context menus and popups ***/
+
+ menupopup {
+  --panel-color: white !important;
+  --panel-background: rgba(64, 79, 100, 0.95) !important;
+  --panel-border-color: rgba(140, 203, 236, 0.42) !important;
+}
+
+menupopup, .menupopup-arrowscrollbox {
+  border-radius: var(--arrowpanel-border-radius) !important;
+}
+
+menu[disabled="true"], menuitem[disabled="true"], menu[_moz-menuactive="true"][disabled="true"], menuitem[_moz-menuactive="true"][disabled="true"] {
+  color: color-mix(in srgb, var(--toolbar-color) 50%, transparent) !important;
+}
+
+menupopup menuseparator {
+  -moz-appearance: none !important;
+  appearance: none !important;
+  min-height: 0 !important;
+  border-top: 1px solid var(--panel-separator-color) !important;
+  border-bottom: none !important;
+  margin: var(--panel-separator-margin) !important;
+  padding: 0 !important;
+}
+
+menuitem:hover, menu:hover {
+  -moz-appearance: none !important;
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+}
+
+menupopup > menuitem, menupopup > menu {
+  border-radius: 4px !important;
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+  padding-inline-start: 8px !important;
+}
+
+.panel-header > .subviewbutton {
+  border-radius: 12px !important;
+}
+
+menupopup:not(.in-menulist) > menuitem, 
+menupopup:not(.in-menulist) > menu {
+  padding-block: 3px !important;
+}
+
+menupopup[needsgutter] menu:not([icon], .menu-iconic), menupopup[needsgutter] menuitem:not([checked="true"], [icon], .menuitem-iconic) {
+  padding-inline-start: 12px !important;
+}
+
+/* Disable navigation buttons on right click of page */
+#context-back image,
+#context-forward image,
+#context-reload image,
+#context-stop image,
+#context-bookmarkpage image,
+#context-navigation,
+#context-sep-navigation {
+  display: none !important;
+}
+
+
+@-moz-document url(chrome://browser/content/places/places.xhtml) {
+
+/* Change colors here */
+:root { --background: #404F64; }
+:root { --odd-bg-row: #293649; }
+:root { --textcolor: white; }
+:root { --iconcolor: white; }
+:root { --selected-iconcolor: white; }
+:root { --hover-iconcolor: white; }
+:root { --bordercolor: rgba(140, 203, 236, 0.42); }
+:root { --hover-bg-row: #52ACD5; }
+:root { --hover-text-row: white; }
+:root { --selected-text-row: white; }
+:root { --organizer-hover-background: #52ACD5 !important; }
+
+/* Link to filter generator I used for some icons on down, not mine. https://codepen.io/sosuke/pen/Pjoqqp */
+
+/* Library Background */
+window#places[title="Library"] {
+  background-color: var(--background) !important;
+}
+
+/* Toolbar buttons */
+#placesMenu > menu {
+  border: none !important;
+}
+
+/* Toolbar button hover */
+#placesMenu > menu:hover {
+  -moz-appearance: none !important;
+  background-color: var(--hover-bg-row) !important;
+}
+
+/* Toolbar button open */
+#placesMenu > menu[open] {
+  -moz-appearance: none !important;
+  background-color: var(--hover-bg-row) !important;
+}
+
+/* Toolbar */
+#placesToolbar {
+ background-color: var(--background) !important;
+ border-bottom: 0px !important;
+}
+
+/* Forward and Back Buttons Disabled */
+#placesToolbar > toolbarbutton[disabled] > .toolbarbutton-icon {
+  opacity: .45 !important
+}
+
+/* Forward and Back Buttons */
+#placesToolbar > #back-button > .toolbarbutton-icon,
+#placesToolbar > #forward-button > .toolbarbutton-icon {
+  fill: var(--iconcolor) !important;
+}
+
+/* Toolbar Text */
+#placesMenu > menu > .menubar-text {
+  color: var(--textcolor) !important;
+}
+
+/* Toolbar Spacer */
+#libraryToolbarSpacer {
+  max-width: 20px !important;
+  padding: 3px !important;
+  margin-right: 15px !important;
+  margin-left: 4px !important;
+/*box-shadow: 0 0 1px var(--iconcolor) !important;*/ /* To see spacer */
+}
+
+/* Toolbar Icons, Menupopup arrows & ckeckmarks (limegreen). Not The Forward or Back Buttons */
+#placesMenu menupopup .menu-right,
+#placesMenu > menu > .menubar-left,
+#placesMenu menupopup > menuitem[type="checkbox"] > .menu-iconic-left, 
+#placesMenu menupopup > menuitem[checked="true"] > .menu-iconic-left {
+  filter: invert(56%) blue(80%) saturate(2591%) hue-rotate(81deg) brightness(118%) contrast(128%) !important;
+}
+
+/* Menu items disabled */
+#placesMenu menupopup menuitem[disabled] {
+  color: var(--textcolor) !important;
+  opacity: .45 !important;
+}
+
+/* Menupopup separator */
+#placesMenu menupopup menuseparator {
+  display: none !important;
+}
+
+/* Downloads Box */
+#downloadsListBox {
+  background-color: var(--background) !important;
+  border-bottom: 1px solid var(--bordercolor) !important;
+  color: var(--textcolor) !important;
+  scrollbar-color: rgba(140, 203, 236, 0.42) rgba(64, 79, 100, 1.0) !important;
+}
+
+#downloadsListBox:hover {
+  scrollbar-color: rgba(140, 203, 236, 0.76) rgba(64, 79, 100, 1.0) !important;
+}
+
+#downloadsListBox:active {
+  scrollbar-color: rgba(140, 203, 236, 1.0) rgba(64, 79, 100, 1.0) !important;
+}
+
+richlistbox {
+  border: 0px !important;
+  border-top: 1px solid var(--bordercolor) !important;
+}
+
+/* All List Colors */
+#placesView,
+#placesView .scrollbox-innerbox,
+#infoPane, #placesList, #placeContent {
+  -moz-appearance: none !important;
+  background-color: var(--background) !important;
+  color: var(--textcolor) !important;
+}
+
+/* List Header */
+#placeContent treecol {
+  -moz-appearance: none !important;
+  background-color: var(--background) !important;
+  padding: 3px !important;
+  color: var(--textcolor) !important;
+  border-top: 1px solid var(--bordercolor) !important;
+  border-right: 0px !important;
+  border-bottom: 0px !important;
+}
+
+#contentView treecol {
+  box-shadow: inset 0 -1px var(--bordercolor) !important;
+}
+/* List Header Hover */
+#placeContent treecol:hover {
+  -moz-appearance: none !important;
+  background-color: var(--hoverBGcolor) !important;
+  color: var(--hover-text-row) !important;
+}
+
+/* Spitter */
+#placesView > splitter {
+  border-inline-end: 1px solid var(--bordercolor) !important;
+}
+
+/* Right side list border */
+#placesList {
+  border-top: 1px solid var(--bordercolor) !important;
+  border-bottom: 1px solid var(--bordercolor) !important;
+}
+
+/* Right side list text */
+#placeContent treechildren::-moz-tree-cell-text(hover) {
+  color: var(--hover-text-row) !important;
+}
+#placeContent treechildren::-moz-tree-cell-text(selected) {
+  color: var(--selected-text-row) !important;
+}
+#placeContent treechildren::-moz-tree-row {
+  background-color: var(--background) !important
+}
+
+/* Odd rows background */
+#placeContent treechildren::-moz-tree-row(odd) {
+  background-color: var(--odd-bg-row) !important;
+}
+
+/* Right side list background */
+#placesView treechildren::-moz-tree-row(hover) {
+  background-color: var(--hover-bg-row) !important;
+}
+#placesView treechildren::-moz-tree-row(selected) {
+  background-color: var(--hover-bg-row) !important;
+}
+
+/* Right side list Icons */
+#placesView treechildren::-moz-tree-image {
+  fill: var(--iconcolor) !important;
+}
+#placesView treechildren::-moz-tree-image(title hover) {
+  fill: var(--hover-iconcolor) !important;
+}
+#placesView treechildren::-moz-tree-image(title selected) {
+  fill: var(--selected-iconcolor) !important;
+}
+/* Right side Folders */
+#placesView treechildren::-moz-tree-image(container selected) {
+  fill: var(--selected-iconcolor) !important;
+}
+
+/* Left side list Icons */
+#placesList treechildren::-moz-tree-image {
+  fill: var(--iconcolor) !important;
+}
+/* Hover Left side Icons */
+#placesList treechildren::-moz-tree-image(title hover) {
+  fill: var(--hover-iconcolor) !important;
+}
+/* Hover Left side Folders */
+#placesList treechildren::-moz-tree-image(container hover) {
+  fill: var(--hover-iconcolor) !important;
+}
+/* Selected left side icons */
+#placesList treechildren::-moz-tree-image(title selected) {
+  fill: var(--selected-iconcolor) !important;
+}
+/* Selected Left side Folders */
+#placesList treechildren::-moz-tree-image(container selected) {
+  fill: var(--selected-iconcolor) !important;
+}
+
+/* Left Side Rows Hover */
+#placesList treechildren::-moz-tree-row(hover) {
+  background-color: var(--hover-bg-row) !important;
+}
+/* Left Side Rows Selected */
+#placesList treechildren::-moz-tree-row(selected) {
+  background-color: var(--hover-bg-row) !important;
+}
+/* Left Side Text Hover */
+#placesList treechildren::-moz-tree-cell-text(hover) {
+  color: var(--hover-text-row) !important;
+}
+/* Left Side Text Selected */
+#placesList treechildren::-moz-tree-cell-text(selected) {
+  color: var(--selected-text-row) !important;
+}
+
+/* Searchbox */
+#searchFilter {
+  -moz-appearance: none !important;
+  background-color: var(--odd-bg-row) !important;
+  border: 1px solid var(--bordercolor) !important;
+  color: var(--textcolor) !important;
+  padding-block: 4px !important;
+}
+/* Search Icon */
+.textbox-search-sign {
+  filter: invert(56%) blue(80%) saturate(2591%) hue-rotate(81deg) brightness(118%) contrast(128%) !important
+}
+/* Searchbox Focus */
+#searchFilter[focused] {
+  box-shadow: var(--input-field-focus-shadow) !important;
+  background-color: var(--odd-bg-row) !important;
+  color: var(--textcolor) !important;
+}
+/* Clear Text Icon (Not sure how to style this) */
+.textbox-search-clear {
+}
+/* Clear Downloads Button */
+#clearDownloadsButton {
+  color: var(--textcolor) !important;
+}
+#clearDownloadsButton[disabled] {
+  opacity: .5 !important;
+}
+
+/* Details */
+#detailsDeck {
+  background-color: var(--background) !important;
+  color: var(--textcolor) !important;
+  border-top: 1px solid var(--bordercolor) !important;
+}
+
+/* Textbox, Field, Selector (some of this may change other places) */
+#infoBox textbox, 
+#infoBox listbox,
+#editBMPanel_namePicker,
+#editBMPanel_tagsField,
+#editBMPanel_tagsSelector,
+#editBMPanel_keywordField,
+#editBMPanel_locationField {
+  -moz-appearance: none !important;
+  border: 1px solid var(--bordercolor) !important;
+  background-color: var(--background) !important;
+  color: var(--textcolor) !important;
+}
+
+/* Details button (limegreen)*/
+#detailsDeck button {
+  -moz-appearance: none !important;
+  filter: invert(56%) blue(80%) saturate(2591%) hue-rotate(81deg) brightness(118%) contrast(128%) !important;
+}
+
+#detailsPane {
+  background-color: var(--odd-bg-row) !important;
+  border-top: 1px solid var(--bordercolor) !important;
+}
+
+#editBookmarkPanelRows .expander-up, #editBookmarkPanelRows .expander-down {
+  padding: 0px !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  border: 1px solid var(--bordercolor) !important;
+  color: var(--iconcolor) !important;
+  background-color: var(--background) !important;
+}
+
+#editBookmarkPanelRows .expander-up:hover, #editBookmarkPanelRows .expander-down:hover {
+  -moz-appearance: none !important;
+  background-color: var(--hover-bg-row) !important;
+}
+
+scrollbar {
+  scrollbar-color: rgba(140, 203, 236, 0.42) rgba(64, 79, 100, 1.0) !important;
+ }
+scrollbar:hover {
+  scrollbar-color: rgba(140, 203, 236, 0.76) rgba(64, 79, 100, 1.0) !important;
+ }
+scrollbar:active {
+  scrollbar-color: rgba(140, 203, 236, 1.0) rgba(64, 79, 100, 1.0) !important;
+ }
+
+}
+
+#search-box {
+  -moz-appearance: none !important;
+  background-color: #293649 !important;
+  border: 1px solid rgba(140, 203, 236, 0.42) !important;
+  color: white !important;
+  border-radius: 4px !important;
+  padding-block: 4px !important;
+}
+
+.panel-subview-body {
+  scrollbar-color: rgba(140, 203, 236, 0.42) rgba(64, 79, 100, 1.0) !important;
+ }
+ .panel-subview-body:hover {
+  scrollbar-color: rgba(140, 203, 236, 0.76) rgba(64, 79, 100, 1.0) !important;
+ }
+ .panel-subview-body:active {
+  scrollbar-color: rgba(140, 203, 236, 1.0) rgba(64, 79, 100, 1.0) !important;
+ }
+
+ #permList, scrollbar {
+  scrollbar-color: rgba(140, 203, 236, 0.42) rgba(64, 79, 100, 1.0) !important;
+ }
+ #permList, scrollbar:hover {
+  scrollbar-color: rgba(140, 203, 236, 0.76) rgba(64, 79, 100, 1.0) !important;
+ }
+ #permList, scrollbar:active {
+  scrollbar-color: rgba(140, 203, 236, 1.0) rgba(64, 79, 100, 1.0) !important;
+ }
+
+ #viewButton {
+  -moz-appearance: none !important;
+  border-radius: 4px !important;
+  padding: 2px 4px !important;
+  color: inherit !important;
+  background-color: var(--lwt-sidebar-background-color) !important;
+  border-color: rgba(140, 203, 236, 0.42) !important;
+}
+
+#viewButton:hover {
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+}
