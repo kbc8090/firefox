@@ -239,7 +239,7 @@ menupopup > menuitem, menupopup > menu {
   border-radius: 4px !important;
   margin-left: 4px !important;
   margin-right: 4px !important;
-  padding-inline-start: 8px !important;
+  padding-inline-start: 10px !important;
 }
 
 .panel-header > .subviewbutton {
@@ -252,7 +252,7 @@ menupopup:not(.in-menulist) > menu {
 }
 
 menupopup[needsgutter] menu:not([icon], .menu-iconic), menupopup[needsgutter] menuitem:not([checked="true"], [icon], .menuitem-iconic) {
-  padding-inline-start: 12px !important;
+  padding-inline-start: 10px !important;
 }
 
 /* Disable navigation buttons on right click of page */
@@ -266,7 +266,7 @@ menupopup[needsgutter] menu:not([icon], .menu-iconic), menupopup[needsgutter] me
   display: none !important;
 }
 
-
+/* Themeing of the Library window for Bookmarks/Downloads/History */
 @-moz-document url(chrome://browser/content/places/places.xhtml) {
 
 /* Change colors here */
@@ -551,11 +551,13 @@ richlistbox {
   filter: invert(56%) blue(80%) saturate(2591%) hue-rotate(81deg) brightness(118%) contrast(128%) !important;
 }
 
+/* Details pane Bottom background color */
 #detailsPane {
   background-color: var(--odd-bg-row) !important;
   border-top: 1px solid var(--bordercolor) !important;
 }
 
+/* Change color of the expander button in the details pane */
 #editBookmarkPanelRows .expander-up, #editBookmarkPanelRows .expander-down {
   padding: 0px !important;
   padding-left: 5px !important;
@@ -572,6 +574,7 @@ richlistbox {
   background-color: var(--hover-bg-row) !important;
 }
 
+/* Scrollbar colors in the Library pane, kinda */
 scrollbar {
   scrollbar-color: rgba(140, 203, 236, 0.42) rgba(64, 79, 100, 1.0) !important;
  }
@@ -584,6 +587,7 @@ scrollbar:active {
 
 }
 
+/* Change colors/shape of search box in bookmark or history sidebar */
 #search-box {
   -moz-appearance: none !important;
   background-color: #293649 !important;
@@ -593,6 +597,7 @@ scrollbar:active {
   padding-block: 4px !important;
 }
 
+/* Scrollbar colors */
 .panel-subview-body {
   scrollbar-color: rgba(140, 203, 236, 0.42) rgba(64, 79, 100, 1.0) !important;
  }
@@ -613,6 +618,7 @@ scrollbar:active {
   scrollbar-color: rgba(140, 203, 236, 1.0) rgba(64, 79, 100, 1.0) !important;
  }
 
+/* Change color of view button in bookmark/history sidebar */
  #viewButton {
   -moz-appearance: none !important;
   border-radius: 4px !important;
@@ -624,4 +630,88 @@ scrollbar:active {
 
 #viewButton:hover {
   background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+}
+
+/* Hide minimize/maximize/close buttons until mouseover */
+.titlebar-min {
+  list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
+  opacity: 1 !important;
+  border-radius: 4px !important;
+  padding-block: 0px !important;
+
+}
+
+.titlebar-min:hover {
+  list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
+  opacity: 1 !important;
+  border-radius: 4px !important;
+  padding-block: 0px !important;
+  background-color: var(--toolbarbutton-hover-background) !important;
+
+}
+
+.titlebar-max {
+  list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
+  opacity: 1 !important;
+  border-radius: 4px !important;
+  padding-block: 0px !important;
+
+}
+
+.titlebar-max:hover {
+  list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
+  opacity: 1 !important;
+  border-radius: 4px !important;
+  padding-block: 0px !important;
+  background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+.titlebar-close {
+  list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
+  opacity: 1 !important;
+}
+
+.titlebar-close:hover {
+  list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
+  opacity: 1 !important;
+}
+
+.titlebar-restore {
+  list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
+  opacity: 1 !important;
+  border-radius: 4px !important;
+  padding-block: 0px !important;
+}
+
+.titlebar-restore:hover {
+  list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
+  opacity: 1 !important;
+  border-radius: 4px !important;
+  padding-block: 0px !important;
+  background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+/* Colors some of the tooltips */
+tooltip {
+  appearance: none !important;
+  -moz-appearance: none !important;
+  border-radius: 4px !important;
+  background-color: #293649 !important;
+  border-color: rgba(140, 203, 236, 0.42) !important;
+  color: white !important;
+  padding: 6px !important;
+}
+
+/* Colors the bottom left mouseover/loading label */
+#statuspanel-label {
+  color: white !important;
+  background-color: #293649 !important;
+  border-color: rgba(140, 203, 236, 0.42) !important;
+  padding: 2px !important;
+}
+
+/* Colors the urlbar border on mouseover */
+#urlbar-input-container:hover, #searchbox {
+  border-color: rgba(145, 194, 246, 0.6) !important;
+  box-shadow: 0 0 1px 2px rgba(145, 194, 246, 0.10) !important;
 }
