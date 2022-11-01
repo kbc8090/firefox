@@ -123,19 +123,18 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     * Intentionally let Firefox override these on Windows10
     */
   :root {
-    --menu-border-color: #67679b;
-    --menu-color: #e4e9ff;
-    --menu-background-color: #1f2335;
-    --menuitem-hover-background-color: #ff0000;
-    --notify-bgcolor: var(--toolbar-bgcolor);
+    --menu-border-color: rgba(140, 203, 236, 0.42);
+    --menu-color: white;
+    --menu-background-color: rgba(41, 54, 73, 0.95);
+    --menuitem-hover-background-color: color-mix(in srgb, currentColor 17%, transparent);
   }
 
   @media (-moz-toolbar-prefers-color-scheme:dark) {
     :root {
-      --menu-border-color: #5b5b66;
-      --menu-color: #fbfbfe;
-      --menu-background-color: #2b2a33;
-      --menuitem-hover-background-color: #52525e;
+      --menu-border-color: rgba(140, 203, 236, 0.42);
+      --menu-color: white;
+      --menu-background-color: rgba(41, 54, 73, 0.95);
+      --menuitem-hover-background-color: color-mix(in srgb, currentColor 17%, transparent);
     }
     #alertSourceLabel { 
       color: rgb(5,209,241) !important;
@@ -149,10 +148,10 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   #alertBox {
     color: var(--toolbar-color) !important;
     /* background: linear-gradient(45deg, #161929, #2f354e); */
-    background-color: #293649 !important;
+    background-color: var(--menu-background-color) !important;
     border-color: var(--menu-border-color) !important;
-    border-radius: 6px !important;
-    font-size: 14px !important;
+    border-radius: 8px !important;
+    font-size: 13px !important;
     font-family: "Segoe UI" !important;
     -moz-window-shadow: cliprounded !important;
       animation-name: slide !important;
@@ -193,11 +192,10 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 #alertSettings > .button-box > .box-inherit {
   border-radius: 4px !important;
   padding: 2px !important;
-  margin: 2px 2px -2px 0 !important;
+  margin: 2px 2px -1px 0 !important;
 }
-
 #alertSettings > .button-box > .box-inherit {
-  margin: -4px 4px 3px 0 !important;
+  margin: -2px 1px 1px 0 !important;
 }
 
 #alertSettings > .button-box > .box-inherit > .button-icon {
@@ -266,6 +264,33 @@ menupopup[needsgutter] menu:not([icon], .menu-iconic), menupopup[needsgutter] me
   display: none !important;
 }
 
+:root {--default-focusring-width: 0px !important; }
+:root {--default-focusring: var(--default-focusring-width) solid !important; }
+
+treechildren::-moz-tree-row(hover) {
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+  color: white !important;
+}
+
+treechildren::-moz-tree-row(active) {
+  background-color: rgba(90, 177, 217, 0.84) !important;
+  color: white !important;
+}
+
+treechildren::-moz-tree-row(container selected) {
+  background-color: rgba(90, 177, 217, 0.84) !important;
+  color: white !important;
+}
+
+treechildren::-moz-tree-row(selected) {
+  background-color: rgba(90, 177, 217, 0.84) !important;
+  color: white !important;
+}
+
+.sidebar-placesTree treechildren::-moz-tree-cell-text {
+  color: white !important;
+}
+
 /* Themeing of the Library window for Bookmarks/Downloads/History */
 @-moz-document url(chrome://browser/content/places/places.xhtml) {
 
@@ -277,10 +302,16 @@ menupopup[needsgutter] menu:not([icon], .menu-iconic), menupopup[needsgutter] me
 :root { --selected-iconcolor: white; }
 :root { --hover-iconcolor: white; }
 :root { --bordercolor: rgba(140, 203, 236, 0.42); }
-:root { --hover-bg-row: #52ACD5; }
+:root { --hover-bg-row: rgba(90, 177, 217, 0.84) !important;; }
 :root { --hover-text-row: white; }
 :root { --selected-text-row: white; }
-:root { --organizer-hover-background: #52ACD5 !important; }
+:root { --organizer-hover-background: rgba(90, 177, 217, 0.84) !important; }
+:root {--default-focusring-width: 0px !important; }
+:root {--default-focusring: var(--default-focusring-width) solid !important; }
+
+:root {--focus-outline-width: 6px !important; }
+:root {--focus-outline-color: white !important; }
+:root {--focus-outline: var(--focus-outline-width) solid var(--focus-outline-color) !important; }
 
 /* Link to filter generator I used for some icons on down, not mine. https://codepen.io/sosuke/pen/Pjoqqp */
 
@@ -359,7 +390,6 @@ window#places[title="Library"] {
 /* Downloads Box */
 #downloadsListBox {
   background-color: var(--background) !important;
-  border-bottom: 1px solid var(--bordercolor) !important;
   color: var(--textcolor) !important;
   scrollbar-color: rgba(140, 203, 236, 0.42) rgba(64, 79, 100, 1.0) !important;
 }
@@ -372,9 +402,40 @@ window#places[title="Library"] {
   scrollbar-color: rgba(140, 203, 236, 1.0) rgba(64, 79, 100, 1.0) !important;
 }
 
+#downloadsListBox:focus > richlistitem[selected] {
+  color: white !important;
+  background-color: var(--odd-bg-row) !important;
+  border: 0px !important;
+  outline: none !important;
+}
+
+richlistitem[selected="true"] {
+  color: white !important;
+  background-color: var(--odd-bg-row) !important;
+  border: 0px !important;
+  outline: none !important;
+}
+
+richlistbox:focus > richlistitem[selected] {
+  background-color: black !important;
+  color: red !important;
+  }
+
+  #downloadsRichListBox > richlistitem[selected] {
+    outline: none !important;
+    outline-offset: 0 !important;
+    -moz-outline-radius: 0 !important;
+    border: 0px !important;
+  }
+
 richlistbox {
   border: 0px !important;
   border-top: 1px solid var(--bordercolor) !important;
+}
+
+richlistbox > richlistitem[selected] {
+  background-color: var(--odd-bg-row) !important;
+  color: white !important;
 }
 
 /* All List Colors */
@@ -415,7 +476,6 @@ richlistbox {
 /* Right side list border */
 #placesList {
   border-top: 1px solid var(--bordercolor) !important;
-  border-bottom: 1px solid var(--bordercolor) !important;
 }
 
 /* Right side list text */
@@ -436,7 +496,7 @@ richlistbox {
 
 /* Right side list background */
 #placesView treechildren::-moz-tree-row(hover) {
-  background-color: var(--hover-bg-row) !important;
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
 }
 #placesView treechildren::-moz-tree-row(selected) {
   background-color: var(--hover-bg-row) !important;
@@ -480,7 +540,7 @@ richlistbox {
 
 /* Left Side Rows Hover */
 #placesList treechildren::-moz-tree-row(hover) {
-  background-color: var(--hover-bg-row) !important;
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
 }
 /* Left Side Rows Selected */
 #placesList treechildren::-moz-tree-row(selected) {
@@ -647,7 +707,6 @@ scrollbar:active {
   border-radius: 4px !important;
   padding-block: 0px !important;
   background-color: var(--toolbarbutton-hover-background) !important;
-
 }
 
 .titlebar-max {
@@ -655,7 +714,6 @@ scrollbar:active {
   opacity: 1 !important;
   border-radius: 4px !important;
   padding-block: 0px !important;
-
 }
 
 .titlebar-max:hover {
@@ -699,7 +757,7 @@ tooltip {
   background-color: #293649 !important;
   border-color: rgba(140, 203, 236, 0.42) !important;
   color: white !important;
-  padding: 6px !important;
+  padding: 4px !important;
 }
 
 /* Colors the bottom left mouseover/loading label */
@@ -714,4 +772,31 @@ tooltip {
 #urlbar-input-container:hover, #searchbox {
   border-color: rgba(145, 194, 246, 0.6) !important;
   box-shadow: 0 0 1px 2px rgba(145, 194, 246, 0.10) !important;
+}
+
+/* Colors the notification dropdown bar */
+.container.infobar {
+  background: var(--toolbar-field-background-color) !important;
+  color: var(--toolbar-color) !important;
+}
+
+button.small-button {
+  background-color: var(--toolbar-bgcolor) !important;
+  color: var(--toolbar-color) !important;
+  border-color: rgba(140, 203, 236, 0.42) !important;
+}
+
+button.small-button:hover {
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+}
+
+/* Colors the notification drop down bar button */
+.notification-button {
+  background-color: var(--toolbar-bgcolor) !important;
+  color: var(--toolbar-color) !important;
+  border-color: rgba(140, 203, 236, 0.42) !important;
+}
+
+.notification-button:hover {
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
 }
