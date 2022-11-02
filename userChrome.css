@@ -800,3 +800,15 @@ button.small-button:hover {
 .notification-button:hover {
   background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
 }
+
+#private-browsing-indicator-with-label > label {
+	display: none;
+}
+
+#downloadsPanel-blockedSubview, #downloadsPanel-mainView {
+  padding: 4px !important;
+}
+
+#context-sendimage {
+  display: none !important
+  }
