@@ -261,7 +261,7 @@ menupopup menuitem[_moz-menuactive]:not([disabled=true]) {
 
 menupopup menuitem:hover:active:not([disabled=true]),
 menupopup menu:hover:active:not([disabled=true]) {
-  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+  background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
   color: inherit !important;
 }
 
