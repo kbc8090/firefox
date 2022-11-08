@@ -628,7 +628,7 @@ richlistbox > richlistitem[selected] {
 #editBMPanel_locationField {
   -moz-appearance: none !important;
   border: 1px solid var(--bordercolor) !important;
-  background-color: var(--background) !important;
+  background-color: var(--odd-bg-row) !important;
   color: var(--textcolor) !important;
 }
 
@@ -640,7 +640,7 @@ richlistbox > richlistitem[selected] {
 
 /* Details pane Bottom background color */
 #detailsPane {
-  background-color: var(--odd-bg-row) !important;
+  background-color: var(--background) !important;
   border-top: 1px solid var(--bordercolor) !important;
 }
 
