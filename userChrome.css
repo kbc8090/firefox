@@ -1,6 +1,20 @@
 /* Reduce Tab height a bit */
 :root {
-  --tab-min-height: 28px !important;
+  --ease-in: cubic-bezier(.4, 0, 1, 1) !important;
+	--ease-out: cubic-bezier(0, 0, .2, 1) !important;
+	--ease-basic: linear !important;
+  --tab-min-height: 30px !important;
+  --panel-separator-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+  --panel-separator-margin: 4px !important;
+  --panel-disabled-color: color-mix(in srgb, white 32%, transparent) !important;
+  --arrowpanel-border-radius: 4px !important;
+  --arrowpanel-menuitem-border-radius: 2px !important;
+}
+
+/* New Tab Button Circular */
+#tabs-newtab-button > .toolbarbutton-icon {
+  border-radius: 50% !important; 
+  color: white !important;
 }
 
 /* Make the tab close button circular */
@@ -21,7 +35,7 @@
 /* Adds correct inactive color to the close tab button */
 .tab-close-button:hover:not([selected]) {
   color: var(--toolbar-color) !important;
-  background-color: color-mix(in srgb, currentColor 18%, transparent) !important;
+  background-color: color-mix(in srgb, currentColor 16%, transparent) !important;
 }
 
 
@@ -34,13 +48,19 @@
 /* Adds color to hovering over inactive tabs */
 .tabbrowser-tab:hover:not([visuallyselected],[multiselected]) .tab-background
 {
-  background-color: color-mix(in srgb, var(--toolbarbutton-hover-background) 20%, transparent) !important;
+  background-color: color-mix(in srgb, currentColor 8%, transparent) !important;
 }
 
 /* Adds 1px of padding underneath bookmark toolbar items and 2px around the hover button */
-toolbarbutton.bookmark-item:not(.subviewbutton) { 
+toolbarbutton.bookmark-item:not(.subviewbutton) {
+  transition-duration: .2s !important;
+	transition-timing-function:
+		var(--ease-basic),
+		var(--ease-out),
+		var(--ease-basic) !important;
   padding-block: 2px !important;
   margin: 0 0 3px !important;
+  border-radius: 4px !important;
 }
 
 /* Increases padding between bookmark toolbar items */
@@ -70,6 +90,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   );
 }
 
+/* Makes sure tab separators act appropriately */
 .tabbrowser-tab:hover,
 .tabbrowser-tab[beforehovered],
 .tabbrowser-tab[selected],
@@ -125,7 +146,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
   :root {
     --menu-border-color: rgba(140, 203, 236, 0.42);
     --menu-color: white;
-    --menu-background-color: rgba(41, 54, 73, 0.95);
+    --menu-background-color: rgba(41, 54, 73, 0.98);
     --menuitem-hover-background-color: color-mix(in srgb, currentColor 17%, transparent);
   }
 
@@ -133,7 +154,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     :root {
       --menu-border-color: rgba(140, 203, 236, 0.42);
       --menu-color: white;
-      --menu-background-color: rgba(41, 54, 73, 0.95);
+      --menu-background-color: rgba(41, 54, 73, 0.98);
       --menuitem-hover-background-color: color-mix(in srgb, currentColor 17%, transparent);
     }
     #alertSourceLabel { 
@@ -150,13 +171,12 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
     /* background: linear-gradient(45deg, #161929, #2f354e); */
     background-color: var(--menu-background-color) !important;
     border-color: var(--menu-border-color) !important;
-    border-radius: 8px !important;
+    border-radius: 4px !important;
     font-size: 13px !important;
     font-family: "Segoe UI" !important;
     -moz-window-shadow: cliprounded !important;
-      animation-name: slide !important;
-      animation-duration: 180ms !important;
-      animation-timing-function: ease-in-out !important;
+      transition: 160ms !important;
+      transition-timing-function: linear, linear, linear !important;
   }
       
   @keyframes slide {
@@ -190,7 +210,7 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 /* Reshape and move the buttons a bit */
 .close-icon > .toolbarbutton-icon,
 #alertSettings > .button-box > .box-inherit {
-  border-radius: 4px !important;
+  border-radius: 2px !important;
   padding: 2px !important;
   margin: 2px 2px -1px 0 !important;
 }
@@ -204,40 +224,56 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 
 /***  Firefox Color Hack-on: Color all context menus and popups ***/
 
- menupopup {
+ menupopup, panel {
   --panel-color: white !important;
-  --panel-background: rgba(64, 79, 100, 0.95) !important;
+  --panel-background: rgba(64, 79, 100, 0.98) !important;
   --panel-border-color: rgba(140, 203, 236, 0.42) !important;
+  --windows-panel-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.479) !important;
 }
 
 menupopup, .menupopup-arrowscrollbox {
   border-radius: var(--arrowpanel-border-radius) !important;
 }
 
-menu[disabled="true"], menuitem[disabled="true"], menu[_moz-menuactive="true"][disabled="true"], menuitem[_moz-menuactive="true"][disabled="true"] {
-  color: color-mix(in srgb, var(--toolbar-color) 50%, transparent) !important;
-}
-
 menupopup menuseparator {
   -moz-appearance: none !important;
   appearance: none !important;
   min-height: 0 !important;
-  border-top: 1px solid var(--panel-separator-color) !important;
+  border-top: 1px solid color-mix(in srgb, currentColor 17%, transparent) !important;
   border-bottom: none !important;
-  margin: var(--panel-separator-margin) !important;
+  margin: 4px !important;
   padding: 0 !important;
 }
 
-menuitem:hover, menu:hover {
-  -moz-appearance: none !important;
+menupopup menu[disabled="true"],
+menupopup menuitem[disabled="true"] {
+  color: color-mix(in srgb, white 32%, transparent) !important;
+  background: none !important;
+}
+
+menupopup menu:hover:not([disabled=true]),
+menupopup menuitem:hover:not([disabled=true]),
+menupopup menu[_moz-menuactive]:not([disabled=true]),
+menupopup menuitem[_moz-menuactive]:not([disabled=true]) {
   background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+  color: inherit !important;
+}
+
+menupopup menuitem:hover:active:not([disabled=true]),
+menupopup menu:hover:active:not([disabled=true]) {
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+  color: inherit !important;
 }
 
 menupopup > menuitem, menupopup > menu {
-  border-radius: 4px !important;
+  border-radius: 2px !important;
   margin-left: 4px !important;
   margin-right: 4px !important;
   padding-inline-start: 10px !important;
+}
+
+menupopup .menu-right {
+  color: rgb(174, 181, 190) !important;
 }
 
 .panel-header > .subviewbutton {
@@ -368,23 +404,14 @@ window#places[title="Library"] {
 /*box-shadow: 0 0 1px var(--iconcolor) !important;*/ /* To see spacer */
 }
 
-/* Toolbar Icons, Menupopup arrows & ckeckmarks (limegreen). Not The Forward or Back Buttons */
-#placesMenu menupopup .menu-right,
-#placesMenu > menu > .menubar-left,
-#placesMenu menupopup > menuitem[type="checkbox"] > .menu-iconic-left, 
-#placesMenu menupopup > menuitem[checked="true"] > .menu-iconic-left {
-  filter: invert(56%) blue(80%) saturate(2591%) hue-rotate(81deg) brightness(118%) contrast(128%) !important;
+  /* Toolbar Icons, Menupopup arrows & ckeckmarks (limegreen). Not The Forward or Back Buttons */
+  #placesMenu menupopup .menu-right {
+    color: rgb(174, 181, 190) !important;
 }
 
 /* Menu items disabled */
 #placesMenu menupopup menuitem[disabled] {
-  color: var(--textcolor) !important;
-  opacity: .45 !important;
-}
-
-/* Menupopup separator */
-#placesMenu menupopup menuseparator {
-  display: none !important;
+  color: color-mix(in srgb, var(--textcolor) 50%, transparent) !important;
 }
 
 /* Downloads Box */
@@ -801,14 +828,23 @@ button.small-button:hover {
   background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
 }
 
+/* Remove "Private Browsing Mode" text on top bar in Private Mode */
 #private-browsing-indicator-with-label > label {
-	display: none;
+	display: none !important;
 }
 
+/* Correct padding for downloads dropdown box */
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
   padding: 4px !important;
 }
 
+/* Delete "Email Image" in right click context menu */
 #context-sendimage {
   display: none !important
-  }
+}
+
+/* Change normal tab max width to 240px like Chrome and Edge */
+.tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"])
+{
+	max-width: 240px !important;
+}
