@@ -393,7 +393,7 @@ window#places[title="Library"] {
 
 /* Forward and Back Buttons Disabled */
 #placesToolbar > toolbarbutton[disabled] > .toolbarbutton-icon {
-  opacity: .45 !important
+  opacity: .32 !important
 }
 
 /* Forward and Back Buttons */
@@ -423,7 +423,7 @@ window#places[title="Library"] {
 
 /* Menu items disabled */
 #placesMenu menupopup menuitem[disabled] {
-  color: color-mix(in srgb, var(--textcolor) 50%, transparent) !important;
+  color: color-mix(in srgb, var(--textcolor) 32%, transparent) !important;
 }
 
 /* Downloads Box */
@@ -620,7 +620,7 @@ richlistbox > richlistitem[selected] {
   color: var(--textcolor) !important;
 }
 #clearDownloadsButton[disabled] {
-  opacity: .5 !important;
+  color: color-mix(in srgb, white 32%, transparent) !important;
 }
 
 /* Details */
