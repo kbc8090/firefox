@@ -26,16 +26,28 @@
   border-radius: 50% !important;
 }
 
-/* Adds correct color to the close tab button */
+/* Adds correct color to the close tab button on hover */
 .tab-close-button:hover[selected] {
   color: var(--toolbar-color) !important;
   background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+/* Adds correct color to the close tab button on active */
+.tab-close-button:active[selected] {
+  color: var(--toolbar-color) !important;
+  background-color: var(--toolbarbutton-active-background) !important;
 }
 
 /* Adds correct inactive color to the close tab button */
 .tab-close-button:hover:not([selected]) {
   color: var(--toolbar-color) !important;
   background-color: color-mix(in srgb, currentColor 16%, transparent) !important;
+}
+
+/* Adds correct inactive color to the close tab button when activated */
+.tab-close-button:active:not([selected]) {
+  color: var(--toolbar-color) !important;
+  background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
 }
 
 
@@ -719,6 +731,10 @@ scrollbar:active {
   background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
 }
 
+#viewButton:active {
+  background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
+}
+
 /* Hide minimize/maximize/close buttons until mouseover */
 .titlebar-min {
   list-style-image: url(chrome://browser/skin/window-controls/minimize.svg);
@@ -847,4 +863,26 @@ button.small-button:hover {
 .tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"])
 {
 	max-width: 240px !important;
+}
+
+button {
+  -moz-appearance: none !important;    
+  color: white !important;
+  border-radius: 4px !important;
+  padding: 2px 4px !important;
+  background-color: rgba(64, 79, 100, 0.98) !important;
+  border-color: rgba(140, 203, 236, 0.42) !important;
+}
+
+button:hover {
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+}
+
+button:active {
+  background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
+}
+
+dialog {
+  background-color: rgba(64, 79, 100, 0.98) !important;
+  color: white !important;
 }
