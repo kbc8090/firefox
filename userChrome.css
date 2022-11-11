@@ -402,6 +402,14 @@ window#places[title="Library"] {
   fill: var(--iconcolor) !important;
 }
 
+#placesToolbar > toolbarbutton:not([disabled]):active {
+  background-color: var(--hover-bg-row) !important;
+  }
+
+  #placesToolbar > toolbarbutton:not([disabled]):hover:active {
+  background-color: var(--hover-bg-row) !important;
+  }
+
 /* Toolbar Text */
 #placesMenu > menu > .menubar-text {
   color: var(--textcolor) !important;
