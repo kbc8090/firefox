@@ -11,6 +11,13 @@
   --arrowpanel-menuitem-border-radius: 2px !important;
 }
 
+#editBookmarkPanelRows > vbox > html|input, #editBookmarkPanelRows > vbox > hbox > html|input {
+  color: white !important;
+  background-color: green !important;
+  border: 1px solid !important;
+  border-color: white !important;
+}
+
 /* New Tab Button Circular */
 #tabs-newtab-button > .toolbarbutton-icon {
   border-radius: 50% !important; 
@@ -237,7 +244,8 @@ toolbarbutton.bookmark-item:not(.subviewbutton) {
 /***  Firefox Color Hack-on: Color all context menus and popups ***/
 
  menupopup, panel {
-  --panel-color: white !important;
+  -moz-appearance: none !important;
+  color: white !important;
   --panel-background: rgba(64, 79, 100, 0.98) !important;
   --panel-border-color: rgba(140, 203, 236, 0.42) !important;
   --windows-panel-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.479) !important;
@@ -874,7 +882,8 @@ button.small-button:hover {
 }
 
 button {
-  -moz-appearance: none !important;    
+  -moz-appearance: none !important;
+  border: 1px solid !important;
   color: white !important;
   border-radius: 4px !important;
   padding: 2px 4px !important;
@@ -893,4 +902,60 @@ button:active {
 dialog {
   background-color: rgba(64, 79, 100, 0.98) !important;
   color: white !important;
+}
+
+.panel-footer > button {
+  -moz-appearance: none !important;
+  border: 1px solid !important;
+  color: white !important;
+  border-radius: 4px !important;
+  padding: 2px 4px !important;
+  background-color: rgba(64, 79, 100, 0.98) !important;
+  border-color: rgba(140, 203, 236, 0.42) !important;
+}
+
+.panel-footer > button:hover {
+  background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+}
+
+.panel-footer > button:active {
+  background-color: color-mix(in srgb, currentColor 30%, transparent) !important;
+}
+
+#editBookmarkPanelRows > vbox > input, #editBookmarkPanelRows > vbox > hbox > input {
+  background-color: var(--toolbar-field-background-color) !important;
+  border-color: rgba(140, 203, 236, 0.42) !important;
+  color: white !important;
+}
+
+#editBookmarkPanelRows > vbox > input:active, #editBookmarkPanelRows > vbox > hbox > input:active {
+  background-color: var(--toolbar-field-background-color) !important;
+  border: 2px solid !important;
+  border-color: var(--toolbar-field-focus-border-color) !important;
+  color: white !important;
+}
+
+richlistbox {
+  background-color: var(--toolbar-field-background-color) !important;
+  border: 1px solid var(--toolbar-field-border-color) !important;
+}
+
+treechildren {
+  background-color: var(--toolbar-field-background-color) !important;
+  border: 1px solid var(--toolbar-field-border-color) !important;
+  color: white !important;
+}
+
+tree {
+  background-color: var(--toolbar-field-background-color) !important;
+  border: 1px solid var(--toolbar-field-border-color) !important;
+  color: white !important;    
+}
+
+tree:hover {
+  border: 1px solid var(--toolbar-field-border-color) !important;
+}
+
+tree:active {
+  border: 1px solid var(--toolbar-field-border-color) !important;
 }
