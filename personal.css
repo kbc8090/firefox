@@ -1,0 +1,58 @@
+/* Disabled add search engine context menu item */
+.menuitem-iconic.context-menu-add-engine,
+.menuseparator-add-engine {
+    display: none !important;
+}
+
+/* Disabled strip on share context menu item */
+#strip-on-share {
+    display: none !important;
+}
+
+/* Hide Search with Google or enter address in url bar */
+#urlbar-input::placeholder {
+    opacity: 0 !important;
+}
+  
+/* Hide All Tabs Button at top in tab bar */
+#alltabs-button {
+    display: none !important;
+}
+
+/* Hide Various other context menu items that are stupid */
+#context-sendpagetodevice, #context-sep-sendpagetodevice,
+#context-sendlinktodevice, #context-sep-sendlinktodevice,
+#context_sendTabToDevice, #context_sendTabToDevice_separator, #context-stripOnShareLink {
+    display: none !important;
+}
+
+/* Disable navigation buttons on right click of page */
+#context-back image,
+#context-forward image,
+#context-reload image,
+#context-stop image,
+#context-bookmarkpage image,
+#context-navigation,
+#context-sep-navigation {
+    display: none !important;
+}
+
+/* Remove "Private Browsing Mode" text on top bar */
+#private-browsing-indicator-with-label > label {
+	display: none !important;
+}
+
+/* Remove "Share" from tab context menu */
+#tabContextMenu .share-tab-url-item {
+    display: none !important;
+}
+
+/* Delete "Email Image" in right click context menu */
+#context-sendimage {
+    display: none !important
+}
+
+/* Make background tabs not as vibrant as selected tab
+.tabbrowser-tab:not([selected=true]):not([multiselected=true]) .tab-background {
+    background-color: color-mix(in srgb, currentColor 4%, transparent);
+ } */
