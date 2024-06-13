@@ -49,10 +49,21 @@
 
 /* Delete "Email Image" in right click context menu */
 #context-sendimage {
-    display: none !important
+    display: none !important;
 }
 
 /* Make background tabs not as vibrant as selected tab
 .tabbrowser-tab:not([selected=true]):not([multiselected=true]) .tab-background {
     background-color: color-mix(in srgb, currentColor 4%, transparent);
- } */
+} */
+
+/* Make unselected tabs a little less bright */
+.tabbrowser-tab:not([selected]) .tab-content {
+      color: color-mix(in srgb, currentColor 55%, transparent) !important;
+}
+
+/* Make unselected tab title color the selected tab color */
+.tabbrowser-tab:hover:not([visuallyselected],[multiselected]) .tab-content
+{
+     color: currentColor !important;
+}
