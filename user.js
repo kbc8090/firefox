@@ -21,9 +21,12 @@
 user_pref("content.notify.interval", 100000);
 
 /** GFX ***/
+user_pref("gfx.canvas.accelerated", true);
 user_pref("gfx.canvas.accelerated.cache-items", 4096);
 user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("gfx.content.skia-font-cache-size", 20);
+user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
+user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 
 /** DISK CACHE ***/
 user_pref("browser.cache.jsbc_compression_level", 3);
@@ -71,6 +74,8 @@ user_pref("browser.helperApps.deleteTempFileOnExit", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
+user_pref("browser.contentblocking.report.hide_vpn_banner", true);
+user_pref("browser.contentblocking.report.show_mobile_app", false);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
@@ -131,7 +136,7 @@ user_pref("permissions.default.geo", 2);
 user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");
-user_pref("reader.parse-on-load.enabled, false);
+user_pref("reader.parse-on-load.enabled", false);
 
 /** TELEMETRY ***/
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
@@ -181,10 +186,13 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("browser.aboutConfig.showWarning", false);
+user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutwelcome.enabled", false);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("svg.context-properties.content.enabled", true);
+user_pref("layout.css.color-mix.enabled", true);
 user_pref("browser.compactmode.show", true);
 user_pref("browser.display.focus_ring_on_anything", true);
 user_pref("browser.display.focus_ring_style", 0);
@@ -231,6 +239,7 @@ user_pref("browser.download.open_pdf_attachments_inline", true);
 
 /** TAB BEHAVIOR ***/
 user_pref("browser.bookmarks.openInTabClosesMenu", false);
+user_pref("browser.bookmarks.showMobileBookmarks", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.word_select.eat_space_to_next_word", false);
@@ -241,8 +250,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
-
-user_pref("gfx.canvas.accelerated", true);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
@@ -260,8 +267,8 @@ user_pref("general.smoothScroll.mouseWheel.durationMinMS", 100);
 user_pref("general.smoothScroll.mouseWheel.migrationPercent", 0);
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 620);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 2900);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 800);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 3000);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 50);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", "0.4");
 user_pref("general.smoothScroll.other.durationMaxMS", 125);

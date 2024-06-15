@@ -20,9 +20,13 @@
 }
 
 /* Hide Various other context menu items that are stupid */
-#context-sendpagetodevice, #context-sep-sendpagetodevice,
-#context-sendlinktodevice, #context-sep-sendlinktodevice,
-#context_sendTabToDevice, #context_sendTabToDevice_separator, #context-stripOnShareLink {
+#context-sendpagetodevice,
+#context-sep-sendpagetodevice,
+#context-sendlinktodevice,
+#context-sep-sendlinktodevice,
+#context_sendTabToDevice,
+#context_sendTabToDevice_separator,
+#context-stripOnShareLink {
     display: none !important;
 }
 
@@ -62,8 +66,12 @@
       color: color-mix(in srgb, currentColor 55%, transparent) !important;
 }
 
-/* Make unselected tab title color the selected tab color */
+/* Make unselected tab title color on hover the selected tab color */
 .tabbrowser-tab:hover:not([visuallyselected],[multiselected]) .tab-content
 {
      color: currentColor !important;
 }
+
+/* Remove Ugly yellow dotted selection from Library Pane */
+:root {--default-focusring-width: 0px !important; }
+:root {--default-focusring: var(--default-focusring-width) solid !important; }
