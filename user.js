@@ -76,6 +76,7 @@ user_pref("privacy.globalprivacycontrol.enabled", true);
 user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("browser.contentblocking.report.hide_vpn_banner", true);
 user_pref("browser.contentblocking.report.show_mobile_app", false);
+user_pref("dom.private-attribution.submission.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
@@ -133,7 +134,6 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("geo.enabled", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
-user_pref("geo.provider.network.url", "https://location.services.mozilla.com/v1/geolocate?key=%MOZILLA_API_KEY%");
 user_pref("permissions.manager.defaultsUrl", "");
 user_pref("webchannel.allowObject.urlWhitelist", "");
 user_pref("reader.parse-on-load.enabled", false);
@@ -185,9 +185,11 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
+user_pref("browser.tabs.cardPreview.enabled", true);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutwelcome.enabled", false);
+user_pref("devtools.accessibility.enabled", false);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -267,8 +269,8 @@ user_pref("general.smoothScroll.mouseWheel.durationMinMS", 100);
 user_pref("general.smoothScroll.mouseWheel.migrationPercent", 0);
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 800);
-user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 3000);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 1200);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 3200);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 50);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", "0.4");
 user_pref("general.smoothScroll.other.durationMaxMS", 125);
