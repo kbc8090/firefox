@@ -14,10 +14,17 @@
     opacity: 0 !important;
 }
   
-/* Hide All Tabs Button at top in tab bar */
+/* Hide All Tabs Button at top in tab bar
 #alltabs-button {
-    display: none !important;
-}
+    min-width: 11px !important;
+    max-width: 11px !important;
+    visibility: hidden !important;
+} */
+
+/* Colors the URL bar on mouseover 
+#urlbar-input-container:not([selected=true]):not([multiselected=true]):hover, #searchbox {
+    background-color: color-mix(in srgb, currentColor 12%, transparent) !important;
+} */
 
 /* Hide Various other context menu items that are stupid */
 #context-sendpagetodevice,
@@ -27,17 +34,6 @@
 #context_sendTabToDevice,
 #context_sendTabToDevice_separator,
 #context-stripOnShareLink {
-    display: none !important;
-}
-
-/* Disable navigation buttons on right click of page */
-#context-back image,
-#context-forward image,
-#context-reload image,
-#context-stop image,
-#context-bookmarkpage image,
-#context-navigation,
-#context-sep-navigation {
     display: none !important;
 }
 
@@ -61,17 +57,209 @@
     background-color: color-mix(in srgb, currentColor 4%, transparent);
 } */
 
+/* Adjust the new tab button positioning to be more even */
+#tabs-newtab-button, #TabsToolbar #new-tab-button {
+    margin-inline-start: -2px !important;
+}
+
+
 /* Make unselected tabs a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
-      color: color-mix(in srgb, currentColor 55%, transparent) !important;
+      color: color-mix(in srgb, currentColor 65%, transparent) !important;
 }
 
 /* Make unselected tab title color on hover the selected tab color */
 .tabbrowser-tab:hover:not([visuallyselected],[multiselected]) .tab-content
 {
-     color: currentColor !important;
+    color: color-mix(in srgb, currentColor 65%, transparent) !important;
 }
 
 /* Remove Ugly yellow dotted selection from Library Pane */
-:root {--default-focusring-width: 0px !important; }
-:root {--default-focusring: var(--default-focusring-width) solid !important; }
+:root {
+    --default-focusring-width: 0px !important; 
+    --default-focusring: var(--default-focusring-width) solid !important;
+    --arrowpanel-border-radius: 8px !important;
+    --arrowpanel-menuitem-border-radius: 4px !important;
+}
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    .menupopup-arrowscrollbox {
+        border: 2px solid !important;
+        border-color: var(--md-menu-border-color) !important;
+    }
+}
+
+/* Coloring some of the tooltips */
+tooltip {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border-radius: 8px !important;
+    border: 2px solid !important;
+    background-color: var(--md-background-color-0) !important;
+    border-color: var(--md-menu-border-color) !important;
+    color: var(--md-text-primary) !important;
+    padding: 6px !important;
+}
+
+/* Styling the bottom left mouseover URL hover/loading thing */
+#statuspanel-label {
+    color: var(--md-text-primary) !important;
+    background-color: var(--md-background-color-50) !important;
+    border-left: none !important;
+    border-right: 2px solid !important;
+    border-bottom: none !important;
+    border-top: 2px solid !important;
+    border-color: var(--md-menu-border-color) !important;
+    border-radius: 0 8px 0px 0px !important;
+    padding: 5px !important;
+}
+
+/* Change height of bookmark bar */
+:root,
+#PersonalToolbar {
+  --bookmarks-toolbar-overlapping-browser-heigh: max(30px, 2em) !important;
+}
+
+:root[BookmarksToolbarOverlapsBrowser] #PersonalToolbar {
+    height: var(--bookmarks-toolbar-overlapping-browser-heigh) !important;
+}
+
+#PlacesToolbar,
+#PlacesToolbarItems {
+  align-items: center !important;
+  height: 30px !important;
+  margin-bottom: 2px !important;
+  margin-top: 0px !important;
+}
+/*
+#PlacesToolbar menuitem:hover, .menu-iconic.bookmark-item:hover {
+    background-color: red !important;
+}*/
+
+/* Make URL bar fade in and out on mouse hover like Chrome */
+#urlbar:not([focused]) #urlbar-background, #searchbar {
+    background-color: var(--md-background-color-50) !important;
+    transition-duration: 185ms !important;
+	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+}
+
+#urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
+    background-color: color-mix(in srgb, var(--md-background-color-50) 50%, transparent) !important;
+}
+
+/* Materialfox already does this, but also here in case.. */
+#tabbrowser-tab-tooltip {
+    display: inherit !important;
+}
+
+/* Puts tooltip on close button on tab */
+#tabbrowser-tab-tooltip:not([data-l10n-id="tabbrowser-close-tabs-tooltip"]){
+    visibility: hidden !important;
+  }
+
+/* Hide Materialfox new tab previews */
+
+.tabbrowser-tab:not([selected]):after {
+    display: none !important;
+}
+
+.tabbrowser-tab:hover[selected]:after {
+    display: none !important;
+}
+
+/* Make URLbar indent slightly and bold text */
+.urlbar-input {
+    #urlbar > .urlbar-input-container > .urlbar-input-box > & {
+        padding-left: 2px !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+    }
+}
+
+/*
+.urlbar-input {
+    #urlbar[focused] > .urlbar-input-container > .urlbar-input-box > & {
+        padding-left: 20px !important;
+    }
+}
+
+ /*
+  #urlbar-input {
+    transition: transform 110ms linear;
+    transform: translateX(0);
+    position: inherit;
+    width: 100%;
+    text-align: left !important;
+    }
+
+    #urlbar-input #urlbar[focused] > .urlbar-input-container > .urlbar-input-box > & {
+    position: inherit;
+    transform: translateX(0);
+    transition: all 110ms ease;
+    width: 100%;
+    text-align: left !important;
+    padding-inline: 20px !important;
+    }*/
+
+
+/* Fade in the minimize/maximize/close buttons */
+.titlebar-button {
+    transition: background-color 0.30s ease !important;
+}
+
+/* Animate the search breakout window like FFPlus */
+#urlbar[open] .urlbarView,
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+	animation-name: fp-urlbar-animation !important;
+	animation-duration: 400ms !important;
+	transform-origin: top !important;
+	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+}
+
+@keyframes fp-urlbar-animation {
+	from {
+		opacity: 0;
+		transform: scaleY(0);
+	}
+
+	to {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}
+
+/* Making the context and other mensu look a little better and even */
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    menupopup, panel:not(#autoscroller) {
+        --panel-border-radius: 8px !important;
+        border-radius: var(--panel-border-radius) !important;
+        --panel-padding: 4px !important;
+    }
+}
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    menu, menuitem {
+        margin-inline-start: 0px !important;
+        margin-inline-end: 0px !important;
+    }
+}
+
+menuseparator::before {
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+}
+
+menuseparator {
+    padding-inline: 0 !important;
+}
+
+.toolbar-menupopup {
+    &, & menupopup {
+      margin-left: -3px !important;
+    }
+  }
+
+/* Changing border radius on the bookmark toolbar items */
+#PlacesToolbarItems > .bookmark-item {
+    border-radius: 8px !important;
+}

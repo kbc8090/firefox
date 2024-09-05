@@ -1,0 +1,52 @@
+/* use variables when about:config variable userChrome.theme-dracula is true */
+@import "personal.css";
+@media (-moz-bool-pref: "userChrome.theme-dracula") {
+  @-moz-document url("about:home"), url("about:newtab"){
+    body {
+      background-color: #212533 !important;
+      }
+    }
+    :root,
+    html,
+    body {
+      --md-text-primary: #f4ecff;
+      --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
+      --md-accent-color: #6da1f7;
+      --md-background-color-0: #212533;
+      --md-background-color-50: #282a36;
+      --md-background-color-100: #3B3D51;
+      --md-tab-background-color-hover: color-mix(in srgb, currentColor 7%, transparent);
+      --md-menu-background-color-hover: color-mix(in srgb, currentColor 16%, transparent);
+      --md-menu-background-color: var(--md-background-color-0);
+      --md-selection-text-color: var(--md-black);
+      --md-selection-background-color: #85B4EA;
+      --md-menu-border-color: #3d444d;
+      --md-content-separator-color: #30363db3;
+
+    }
+  }
+
+@media (-moz-bool-pref: "userChrome.theme-github") {
+  @-moz-document url("about:home"), url("about:newtab"){
+    body {
+      background-color: #222931 !important;
+      }
+    }
+  :root,
+  html,
+  body {
+    --md-text-primary: #e6edf3;
+    --md-text-secondary: #7d8590;
+    --md-accent-color: #2f81f7;
+    --md-background-color-0: #222931;
+    --md-background-color-50: #212830;
+    --md-background-color-100: #323b46;
+    --md-tab-background-color-hover: color-mix(in srgb, currentColor 7%, transparent);
+    --md-menu-background-color: #1e242e;
+    --md-menu-border-color: #3c434d;
+    --md-content-separator-color: #394149b3;
+    --md-selection-text-color: var(--md-white);
+    --md-selection-background-color: #1f6febb3;
+    --md-text-on-accent: var(--md-white);
+  }
+}
