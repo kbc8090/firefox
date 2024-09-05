@@ -27,6 +27,7 @@ user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("gfx.content.skia-font-cache-size", 20);
 user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible",true);
 
 /** DISK CACHE ***/
 user_pref("browser.cache.jsbc_compression_level", 3);
@@ -245,6 +246,7 @@ user_pref("browser.bookmarks.showMobileBookmarks", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.word_select.eat_space_to_next_word", false);
+user_pref("nglayout.enable_drag_images", false);
 
 /****************************************************************************
  * START: MY OVERRIDES                                                      *
