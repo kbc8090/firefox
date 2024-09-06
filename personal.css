@@ -52,6 +52,16 @@
     display: none !important;
 }
 
+/* Disable navigation buttons on right click of page */
+#context-back image,
+#context-forward image,
+#context-reload image,
+#context-stop image,
+#context-bookmarkpage image,
+#context-navigation {
+    display: none !important;
+}
+
 /* Make background tabs not as vibrant as selected tab
 .tabbrowser-tab:not([selected=true]):not([multiselected=true]) .tab-background {
     background-color: color-mix(in srgb, currentColor 4%, transparent);
@@ -68,11 +78,11 @@
       color: color-mix(in srgb, currentColor 65%, transparent) !important;
 }
 
-/* Make unselected tab title color on hover the selected tab color */
+/* Make unselected tab title color on hover the selected tab color 
 .tabbrowser-tab:hover:not([visuallyselected],[multiselected]) .tab-content
 {
     color: color-mix(in srgb, currentColor 65%, transparent) !important;
-}
+}*/
 
 /* Remove Ugly yellow dotted selection from Library Pane */
 :root {
@@ -80,6 +90,7 @@
     --default-focusring: var(--default-focusring-width) solid !important;
     --arrowpanel-border-radius: 8px !important;
     --arrowpanel-menuitem-border-radius: 4px !important;
+    --button-active-bgcolor: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
@@ -241,16 +252,17 @@ tooltip {
     menu, menuitem {
         margin-inline-start: 0px !important;
         margin-inline-end: 0px !important;
+        padding-block: 14px !important;
     }
 }
 
 menuseparator::before {
-    margin-inline-start: 0 !important;
-    margin-inline-end: 0 !important;
+    margin-inline-start: 0px !important;
+    margin-inline-end: 0px !important;
 }
 
 menuseparator {
-    padding-inline: 0 !important;
+    padding-inline: 0px !important;
 }
 
 .toolbar-menupopup {
@@ -261,5 +273,20 @@ menuseparator {
 
 /* Changing border radius on the bookmark toolbar items */
 #PlacesToolbarItems > .bookmark-item {
-    border-radius: 8px !important;
+    border-radius: 4px !important;
 }
+
+menuitem {
+    &[_moz-menuactive]:not([disabled="true"]):active {
+      background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+    }
+  }
+
+  .browserContainer > findbar {
+    margin: 1px 1px 0 0 !important;
+  }
+
+  findbar {
+    border: 2px solid var(--md-menu-border-color) !important;
+  }
+

@@ -11,15 +11,15 @@
     body {
       --md-text-primary: #f4ecff;
       --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
-      --md-accent-color: #6da1f7;
+      --md-accent-color: #649cf5;
       --md-background-color-0: #212533;
       --md-background-color-50: #282a36;
       --md-background-color-100: #3B3D51;
       --md-tab-background-color-hover: color-mix(in srgb, currentColor 7%, transparent);
-      --md-menu-background-color-hover: color-mix(in srgb, currentColor 16%, transparent);
+      --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
       --md-menu-background-color: var(--md-background-color-0);
-      --md-selection-text-color: var(--md-black);
-      --md-selection-background-color: #85B4EA;
+      --md-selection-text-color: var(--md-white);
+      --md-selection-background-color: #3b7ce6;
       --md-menu-border-color: #3d444d;
       --md-content-separator-color: #30363db3;
 
@@ -41,8 +41,9 @@
     --md-background-color-0: #222931;
     --md-background-color-50: #212830;
     --md-background-color-100: #323b46;
-    --md-tab-background-color-hover: color-mix(in srgb, currentColor 7%, transparent);
-    --md-menu-background-color: #1e242e;
+    --md-tab-background-color-hover: #29333d;
+    --md-menu-background-color: var(--md-background-color-0);
+    --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
     --md-menu-border-color: #3c434d;
     --md-content-separator-color: #394149b3;
     --md-selection-text-color: var(--md-white);
