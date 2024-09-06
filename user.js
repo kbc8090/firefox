@@ -228,6 +228,8 @@ user_pref("browser.urlbar.oneOffSearches", false);
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
+user_pref("browser.newtabpage.activity-stream.showWeather", false);
+user_pref("browser.newtabpage.activity-stream.system.showWeather", false);
 
 /*** POCKET ***/
 user_pref("extensions.pocket.enabled", false);
