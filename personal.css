@@ -94,6 +94,7 @@
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
     .menupopup-arrowscrollbox {
+        margin: var(--panel-shadow-margin) 20px 20px 20px !important;
         border: 2px solid !important;
         border-color: var(--md-menu-border-color) !important;
     }
@@ -180,7 +181,7 @@ tooltip {
 /* Make URLbar indent slightly and bold/bigger text */
 .urlbar-input {
     #urlbar > .urlbar-input-container > .urlbar-input-box > & {
-        padding-left: 2px !important;
+        padding-left: 3px !important;
         font-size: 15px !important;
         font-weight: 500 !important;
     }
@@ -265,12 +266,12 @@ menuseparator {
     padding-inline: 0px !important;
 }
 
-/* Avoid clipping of the bookmark menu items */
+/* Avoid clipping of the bookmark menu items
 .toolbar-menupopup {
     &, & menupopup {
       margin-left: -3px !important;
     }
-  }
+  } */
 
 /* Changing border radius on the bookmark toolbar items
 #PlacesToolbarItems > .bookmark-item {
@@ -292,4 +293,3 @@ menuitem {
   findbar {
     border: 2px solid var(--md-menu-border-color) !important;
   }
-
