@@ -72,8 +72,7 @@
     margin-inline-start: -2px !important;
 }
 
-
-/* Make unselected tabs a little less bright */
+/* Make unselected tabs foreground color a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
       color: color-mix(in srgb, currentColor 65%, transparent) !important;
 }
@@ -178,7 +177,7 @@ tooltip {
     display: none !important;
 }
 
-/* Make URLbar indent slightly and bold text */
+/* Make URLbar indent slightly and bold/bigger text */
 .urlbar-input {
     #urlbar > .urlbar-input-container > .urlbar-input-box > & {
         padding-left: 2px !important;
@@ -215,7 +214,7 @@ tooltip {
 
 /* Fade in the minimize/maximize/close buttons */
 .titlebar-button {
-    transition: background-color 0.30s ease !important;
+    transition: background-color 0.25s ease !important;
 }
 
 /* Animate the search breakout window like FFPlus */
@@ -256,6 +255,7 @@ tooltip {
     }
 }
 
+/* Reduce padding on context menu separators */
 menuseparator::before {
     margin-inline-start: 0px !important;
     margin-inline-end: 0px !important;
@@ -265,23 +265,26 @@ menuseparator {
     padding-inline: 0px !important;
 }
 
+/* Avoid clipping of the bookmark menu items */
 .toolbar-menupopup {
     &, & menupopup {
       margin-left: -3px !important;
     }
   }
 
-/* Changing border radius on the bookmark toolbar items */
+/* Changing border radius on the bookmark toolbar items
 #PlacesToolbarItems > .bookmark-item {
-    border-radius: 4px !important;
-}
+    border-radius: 100px !important;
+}*/
 
+/* More consistent active button color */
 menuitem {
     &[_moz-menuactive]:not([disabled="true"]):active {
       background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
     }
   }
 
+  /* Adjusting find bar border/position */
   .browserContainer > findbar {
     margin: 1px 1px 0 0 !important;
   }
