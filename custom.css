@@ -15,7 +15,7 @@
       --md-background-color-0: #212533;
       --md-background-color-50: #282a36;
       --md-background-color-100: #3B3D51;
-      --md-tab-background-color-hover: color-mix(in srgb, currentColor 7%, transparent);
+      --md-tab-background-color-hover: #2c3142;
       --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
       --md-menu-background-color: var(--md-background-color-0);
       --md-selection-text-color: var(--md-white);
