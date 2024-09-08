@@ -51,3 +51,29 @@
     --md-text-on-accent: var(--md-white);
   }
 }
+
+@media (-moz-bool-pref: "userChrome.theme-slate") {
+  @-moz-document url("about:home"), url("about:newtab"){
+    body {
+      background-color: #212533 !important;
+      }
+    }
+    :root,
+    html,
+    body {
+      --md-text-primary: #d8e7ff;
+      --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
+      --md-accent-color: #7ea7d6;
+      --md-background-color-0: #293649;
+      --md-background-color-50: #2d3b50;
+      --md-background-color-100: #404f64;
+      --md-tab-background-color-hover: #334154;
+      --md-menu-background-color: var(--md-background-color-0);
+      --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
+      --md-selection-text-color: var(--md-white);
+      --md-selection-background-color: #5d86b4;
+      --md-menu-border-color: #415e74;
+      --md-content-separator-color: #5f6a7d;
+
+    }
+  }

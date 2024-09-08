@@ -16,10 +16,10 @@
   
 /* Hide All Tabs Button at top in tab bar
 #alltabs-button {
-    min-width: 11px !important;
-    max-width: 11px !important;
+    min-width: 14px !important;
+    max-width: 14px !important;
     visibility: hidden !important;
-} */
+}*/
 
 /* Colors the URL bar on mouseover 
 #urlbar-input-container:not([selected=true]):not([multiselected=true]):hover, #searchbox {
@@ -181,7 +181,7 @@ tooltip {
 /* Make URLbar indent slightly and bold/bigger text */
 .urlbar-input {
     #urlbar > .urlbar-input-container > .urlbar-input-box > & {
-        padding-left: 3px !important;
+        padding-left: 2px !important;
         font-size: 15px !important;
         font-weight: 500 !important;
     }
@@ -293,3 +293,11 @@ menuitem {
   findbar {
     border: 2px solid var(--md-menu-border-color) !important;
   }
+
+  /* .tab-label-container[textoverflow]:not([pinned]) { mask-image: unset !important; } */
+
+  /* Making mousehover on tabs not change the label in any way */
+.tabbrowser-tab {
+    --tab-label-mask-size: 10px !important;
+    text-shadow: 1px 1px 3px #000000 !important;
+}
