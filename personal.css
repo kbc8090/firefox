@@ -74,7 +74,7 @@
 
 /* Make unselected tabs foreground color a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
-      color: color-mix(in srgb, currentColor 65%, transparent) !important;
+      color: color-mix(in srgb, var(--md-text-primary) 65%, transparent) !important;
 }
 
 /* Make unselected tab title color on hover the selected tab color 
@@ -89,7 +89,12 @@
     --default-focusring: var(--default-focusring-width) solid !important;
     --arrowpanel-border-radius: 8px !important;
     --arrowpanel-menuitem-border-radius: 4px !important;
+    --arrowpanel-color: var(--md-tab-label-color) !important;
     --button-active-bgcolor: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+}
+
+body {
+    --arrowpanel-color: var(--md-tab-label-color) !important;
 }
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
@@ -148,7 +153,7 @@ tooltip {
 }*/
 
 /* Make URL bar fade in and out on mouse hover like Chrome */
-#urlbar:not([focused]) #urlbar-background, #searchbar {
+#urlbar-background, #searchbar {
     background-color: var(--md-background-color-50) !important;
     transition-duration: 185ms !important;
 	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
@@ -253,6 +258,7 @@ tooltip {
         margin-inline-start: 0px !important;
         margin-inline-end: 0px !important;
         padding-block: 14px !important;
+        color: var(--md-tab-label-color) !important;
     }
 }
 
@@ -318,3 +324,16 @@ menuitem {
         transition: all 150ms ease;
         padding-right: 18px !important;
     } */
+
+toolbarbutton.bookmark-item > .toolbarbutton-text {
+    color: var(--md-tab-label-color) !important;
+    }
+
+    /*:is(menupopup, panel):where([type="arrow"]) */
+
+
+@media not (-moz-bool-pref: "userChrome.ui-no-menu-icons") {
+    .panel-subview-body > .subviewbutton:not([disabled]) {
+        fill: var(--md-tab-label-color) !important;
+    }
+    }

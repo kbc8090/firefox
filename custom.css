@@ -1,33 +1,35 @@
 /* use variables when about:config variable userChrome.theme-dracula is true */
 @import "personal.css";
 @media (-moz-bool-pref: "userChrome.theme-dracula") {
-  @-moz-document url("about:home"), url("about:newtab"){
+  @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
     body {
       background-color: #212533 !important;
       }
     }
-    :root,
-    html,
-    body {
-      --md-text-primary: #f4ecff;
-      --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
-      --md-accent-color: #649cf5;
-      --md-background-color-0: #212533;
-      --md-background-color-50: #282a36;
-      --md-background-color-100: #3B3D51;
-      --md-tab-background-color-hover: #2c3142;
-      --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
-      --md-menu-background-color: var(--md-background-color-0);
-      --md-selection-text-color: var(--md-white);
-      --md-selection-background-color: #3b7ce6;
-      --md-menu-border-color: #3d444d;
-      --md-content-separator-color: #30363db3;
+  :root,
+  html,
+  body {
+    --md-text-primary: #ddd8f8;
+    --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
+    --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 75%, white) !important;
+    --md-accent-color: #649cf5;
+    --md-background-color-0: #212533;
+    --md-background-color-50: #282a36;
+    --md-background-color-100: #3B3D51;
+    --md-tab-background-color-hover: #2c3142;
+    /*--md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 80%, #bfd7ff); */
+    --md-menu-background-color-hover: var(--md-background-color-100);
+    --md-menu-background-color: var(--md-background-color-0);
+    --md-selection-text-color: var(--md-white);
+    --md-selection-background-color: #3b7ce6;
+    --md-menu-border-color: #3d444d;
+    --md-content-separator-color: #3d444db0;
 
-    }
   }
+}
 
 @media (-moz-bool-pref: "userChrome.theme-github") {
-  @-moz-document url("about:home"), url("about:newtab"){
+  @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
     body {
       background-color: #222931 !important;
       }
@@ -38,14 +40,16 @@
     --md-text-primary: #e6edf3;
     --md-text-secondary: #7d8590;
     --md-accent-color: #2f81f7;
+    --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 65%, white) !important;
     --md-background-color-0: #222931;
     --md-background-color-50: #212830;
     --md-background-color-100: #323b46;
     --md-tab-background-color-hover: #29333d;
     --md-menu-background-color: var(--md-background-color-0);
-    --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
+    /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
+    --md-menu-background-color-hover: var(--md-background-color-100);
     --md-menu-border-color: #3c434d;
-    --md-content-separator-color: #394149b3;
+    --md-content-separator-color: #394149b9;
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: #1f6febb3;
     --md-text-on-accent: var(--md-white);
@@ -53,27 +57,28 @@
 }
 
 @media (-moz-bool-pref: "userChrome.theme-slate") {
-  @-moz-document url("about:home"), url("about:newtab"){
+  @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
     body {
-      background-color: #212533 !important;
+      background-color: #243042 !important;
       }
     }
-    :root,
-    html,
-    body {
-      --md-text-primary: #d8e7ff;
-      --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
-      --md-accent-color: #7ea7d6;
-      --md-background-color-0: #293649;
-      --md-background-color-50: #2d3b50;
-      --md-background-color-100: #404f64;
-      --md-tab-background-color-hover: #334154;
-      --md-menu-background-color: var(--md-background-color-0);
-      --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
-      --md-selection-text-color: var(--md-white);
-      --md-selection-background-color: #5d86b4;
-      --md-menu-border-color: #415e74;
-      --md-content-separator-color: #5f6a7d;
+  :root,
+  html,
+  body {
+    --md-text-primary: #ced8e9;
+    --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
+    --md-accent-color: #7ea7d6;
+    --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 65%, white) !important;
+    --md-background-color-0: #243042;
+    --md-background-color-50: #293547;
+    --md-background-color-100: #384558;
+    --md-tab-background-color-hover: #334154;
+    --md-menu-background-color: var(--md-background-color-0);
+    --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
+    --md-selection-text-color: var(--md-white);
+    --md-selection-background-color: #5d86b4;
+    --md-menu-border-color: #415e74bb;
+    --md-content-separator-color: #5f6a7d8c;
 
-    }
   }
+}
