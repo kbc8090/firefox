@@ -301,3 +301,20 @@ menuitem {
     --tab-label-mask-size: 10px !important;
     text-shadow: 1px 1px 3px #000000 !important;
 }
+
+#urlbar[pageproxystate="invalid"] #identity-box {
+    transition: all 190ms ease;
+    padding-right: 18px !important;
+    }
+
+#urlbar[pageproxystate="invalid"]:not([open]) #identity-box {
+    transition: all 110ms ease;
+    padding-right: 0px !important;
+    }
+/*
+    #urlbar[pageproxystate="invalid"][breakout][focused] #identity-box {
+        position: inherit;
+        transform: translateX(0);
+        transition: all 150ms ease;
+        padding-right: 18px !important;
+    } */
