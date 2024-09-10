@@ -188,7 +188,7 @@ tooltip {
     #urlbar > .urlbar-input-container > .urlbar-input-box > & {
         padding-left: 2px !important;
         font-size: 15px !important;
-        font-weight: 500 !important;
+        font-weight: 600 !important;
         font-family: "Inter Display" !important;
     }
 }
@@ -306,7 +306,7 @@ menuitem {
   /* Making mousehover on tabs not change the label in any way */
 .tabbrowser-tab {
     --tab-label-mask-size: 20px !important;
-    text-shadow: 1px 1px 3px #000000 !important;
+    /* text-shadow: 1px 1px 2px #000 !important; */
 }
 
 #urlbar[pageproxystate="invalid"] #identity-box {
@@ -345,4 +345,28 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
         width: 1px !important;
         height: 18px !important;
     }
+}
+
+.bookmark-item[container="true"] {
+    fill: var(--md-text-secondary) !important;
+} 
+
+.menu-right {
+    fill: var(--md-accent-color) !important;
+    margin-inline-end: 6px !important;
+}
+
+#PlacesChevron:not([collapsed]) .toolbarbutton-icon {
+    fill: var(--md-text-secondary) !important;
+  }
+
+.panel-header {
+    padding: 4px 2px 2px 0px !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 5px #000 !important;
+    font-size: 13px !important;
+}
+
+#appMenu-popup #appMenu-header-description {
+ padding: 0px !important;
 }
