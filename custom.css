@@ -68,16 +68,18 @@
     --md-text-primary: #ced8e9;
     --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
     --md-accent-color: #7ea7d6;
-    --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 65%, white) !important;
-    --md-background-color-0: #243042;
-    --md-background-color-50: #293547;
+    --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 75%, white) !important;
+    --md-background-color-0: #222c3b;
+    --md-background-color-50: #263041;
     --md-background-color-100: #384558;
     --md-tab-background-color-hover: #334154;
     --md-menu-background-color: var(--md-background-color-0);
-    --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white);
+    /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
+    --md-menu-background-color-hover: var(--md-background-color-100);
+    --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-selection-text-color: var(--md-white);
-    --md-selection-background-color: #5d86b4;
-    --md-menu-border-color: #415e74bb;
+    --md-selection-background-color: #4a72a0;
+    --md-menu-border-color: #415e74ab;
     --md-content-separator-color: #5f6a7d8c;
 
   }

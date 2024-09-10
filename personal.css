@@ -189,6 +189,7 @@ tooltip {
         padding-left: 2px !important;
         font-size: 15px !important;
         font-weight: 500 !important;
+        font-family: "Inter Display" !important;
     }
 }
 
@@ -304,7 +305,7 @@ menuitem {
 
   /* Making mousehover on tabs not change the label in any way */
 .tabbrowser-tab {
-    --tab-label-mask-size: 10px !important;
+    --tab-label-mask-size: 20px !important;
     text-shadow: 1px 1px 3px #000000 !important;
 }
 
@@ -336,4 +337,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     .panel-subview-body > .subviewbutton:not([disabled]) {
         fill: var(--md-tab-label-color) !important;
     }
+}
+
+.tab-content {
+    &::before,
+    &::after {
+        width: 1px !important;
+        height: 18px !important;
     }
+}
