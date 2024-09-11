@@ -1,3 +1,8 @@
+html {
+    /* text-rendering: optimizeLegibility; */
+    text-rendering: optimizelegibility !important;
+}
+
 /* Disabled add search engine context menu item */
 .menuitem-iconic.context-menu-add-engine,
 .menuseparator-add-engine {
@@ -303,21 +308,22 @@ menuitem {
 
   /* .tab-label-container[textoverflow]:not([pinned]) { mask-image: unset !important; } */
 
-  /* Making mousehover on tabs not change the label in any way */
+  /* Making mousehover on tabs not change the label fading thing in any way */
 .tabbrowser-tab {
     --tab-label-mask-size: 20px !important;
     /* text-shadow: 1px 1px 2px #000 !important; */
 }
 
+/* Indent the search to match the breakout box indentation like Chrome */
 #urlbar[pageproxystate="invalid"] #identity-box {
     transition: all 190ms ease;
     padding-right: 18px !important;
-    }
+}
 
 #urlbar[pageproxystate="invalid"]:not([open]) #identity-box {
     transition: all 110ms ease;
     padding-right: 0px !important;
-    }
+}
 /*
     #urlbar[pageproxystate="invalid"][breakout][focused] #identity-box {
         position: inherit;
@@ -326,19 +332,21 @@ menuitem {
         padding-right: 18px !important;
     } */
 
+/* Change text on bookmark items to match the theme */
 toolbarbutton.bookmark-item > .toolbarbutton-text {
     color: var(--md-tab-label-color) !important;
-    }
+}
 
     /*:is(menupopup, panel):where([type="arrow"]) */
 
-
+/*  Change svg icon color to match text color */
 @media not (-moz-bool-pref: "userChrome.ui-no-menu-icons") {
     .panel-subview-body > .subviewbutton:not([disabled]) {
         fill: var(--md-tab-label-color) !important;
     }
 }
 
+/* Tab separator 1px */
 .tab-content {
     &::before,
     &::after {
@@ -347,19 +355,22 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     }
 }
 
+/* Bookmark folders same as secondary text color */
 .bookmark-item[container="true"] {
     fill: var(--md-text-secondary) !important;
 } 
 
+/* Right arrows same color as accent color */
 .menu-right {
     fill: var(--md-accent-color) !important;
     margin-inline-end: 6px !important;
 }
-
+/* Bookmark menu chevron overflow icon same as secondary text color */
 #PlacesChevron:not([collapsed]) .toolbarbutton-icon {
     fill: var(--md-text-secondary) !important;
   }
 
+/* Changed panel header padding/font to look better/more consistent */
 .panel-header {
     padding: 4px 2px 2px 0px !important;
     font-weight: 600 !important;
@@ -368,5 +379,25 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 }
 
 #appMenu-popup #appMenu-header-description {
- padding: 0px !important;
+    padding: 0px !important;
+}
+/* Bookmark and History scrollbar colors */
+.panel-subview-body {
+    scrollbar-color: var(--md-menu-border-color) var(--md-menu-background-color) !important;
+}
+.panel-subview-body:hover {
+    scrollbar-color: color-mix(in srgb, var(--md-menu-border-color) 90%, white) var(--md-menu-background-color) !important;
+}
+.panel-subview-body:active {
+    scrollbar-color: color-mix(in srgb, var(--md-menu-border-color) 70%, white) var(--md-menu-background-color) !important;
+}
+
+#permList, scrollbar {
+    scrollbar-color: var(--md-menu-border-color) var(--md-menu-background-color) !important;
+}
+#permList, scrollbar:hover {
+    scrollbar-color: color-mix(in srgb, var(--md-menu-border-color) 90%, white) var(--md-menu-background-color) !important;
+}
+#permList, scrollbar:active {
+    scrollbar-color: color-mix(in srgb, var(--md-menu-border-color) 70%, white) var(--md-menu-background-color) !important;
 }
