@@ -11,7 +11,7 @@
   body {
     --md-text-primary: #ddd8f8;
     --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 34%, transparent) !important;
-    --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 75%, white) !important;
+    --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 80%, white) !important;
     --md-accent-color: #649cf5;
     --md-background-color-0: #212533;
     --md-background-color-50: #282a36;
@@ -20,6 +20,7 @@
     /*--md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 80%, #bfd7ff); */
     --md-menu-background-color-hover: var(--md-background-color-100);
     --md-menu-background-color: var(--md-background-color-0);
+    --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: #3b7ce6;
     --md-menu-border-color: #3d444d;
@@ -37,7 +38,7 @@
   :root,
   html,
   body {
-    --md-text-primary: #e6edf3;
+    --md-text-primary: #d1d7e0;
     --md-text-secondary: #7d8590;
     --md-accent-color: #2f81f7;
     --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 65%, white) !important;
@@ -48,6 +49,7 @@
     --md-menu-background-color: var(--md-background-color-0);
     /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
     --md-menu-background-color-hover: var(--md-background-color-100);
+    --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-menu-border-color: #3c434d;
     --md-content-separator-color: #394149b9;
     --md-selection-text-color: var(--md-white);
