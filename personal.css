@@ -1,6 +1,5 @@
 *, html, body {
-    /* text-rendering: optimizeLegibility; */
-    text-rendering: optimizelegibility !important;
+  text-rendering: optimizelegibility !important;
 	font-smooth: always !important;
 }
 
@@ -96,6 +95,7 @@
     --arrowpanel-border-radius: 8px !important;
     --arrowpanel-menuitem-border-radius: 4px !important;
     --arrowpanel-color: var(--md-tab-label-color) !important;
+    --arrowpanel-background: var(--md-menu-background-color) !important;
     --button-active-bgcolor: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
 
@@ -253,7 +253,7 @@ tooltip {
 
 #urlbar[open] #urlbar-background, #urlbar[open] #searchbar {
   box-shadow: rgb(0, 0, 0, 0.65) 0px 14px 66px 4px !important;
-  margin-top: 1px !important;
+  margin-top: 2px !important;
 }
 
 .urlbarView-row {
@@ -467,6 +467,39 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 	z-index: 1 !important;
 }
 
+.container.infobar {
+  color: var(--md-text-primary) !important;
+  background-color: var(--md-background-color-50) !important;
+}
+
+/*.urlbar-input-container:active {
+  border-color: red !important;
+} */
+
+#urlbar[focused]:not([suppress-focus-border]) > #urlbar-background {
+  box-shadow: 0 1px 4px #00000054 !important;
+}
+
+/*
+button {
+  -moz-appearance: none !important;   
+  border: 2px solid !important;
+  color: var(--md-text-primary) !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
+  background-color: var(--md-background-color-0) !important;
+  border-color: var(--md-menu-border-color) !important;
+}
+
+button:hover {
+  background-color: var(--md-menu-background-color-hover) !important;
+}
+
+button:active {
+  background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+}
+  */
+
 /* ----------------------------------------------- Downloads and History Window -------------------------------------------------- */
 
 treechildren::-moz-tree-row(hover) {
@@ -496,16 +529,16 @@ treechildren::-moz-tree-row(hover) {
   @-moz-document url(chrome://browser/content/places/places.xhtml) {
 
     /* Change colors here */
-    :root { --background: #404F64; }
-    :root { --odd-bg-row: #293649; }
-    :root { --textcolor: white; }
-    :root { --iconcolor: white; }
-    :root { --selected-iconcolor: white; }
-    :root { --hover-iconcolor: white; }
-    :root { --bordercolor: rgba(140, 203, 236, 0.42); }
-    :root { --hover-bg-row: rgba(90, 177, 217, 0.84) !important;; }
-    :root { --hover-text-row: white; }
-    :root { --selected-text-row: white; }
+    :root { --background: var(--md-background-color-100); }
+    :root { --odd-bg-row: var(--md-background-color-0); }
+    :root { --textcolor: var(--md-text-primary); }
+    :root { --iconcolor: var(--md-text-primary); }
+    :root { --selected-iconcolor: var(--md-text-primary); }
+    :root { --hover-iconcolor: var(--md-text-primary); }
+    :root { --bordercolor: var(--md-accent-color); }
+    :root { --hover-bg-row: var(--md-menu-background-color-hover); }
+    :root { --hover-text-row: var(--md-text-primary); }
+    :root { --selected-text-row: var(--md-text-primary); }
     :root { --organizer-hover-background: rgba(90, 177, 217, 0.84) !important; }
     :root {--default-focusring-width: 0px !important; }
     :root {--default-focusring: var(--default-focusring-width) solid !important; }
