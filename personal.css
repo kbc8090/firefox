@@ -309,11 +309,7 @@ menuitem {
 
   /* Adjusting find bar border/position */
   .browserContainer > findbar {
-    margin: 1px 1px 0 0 !important;
-  }
-
-  findbar {
-    border: 2px solid var(--md-menu-border-color) !important;
+    margin: 2px 2px 0 0 !important;
   }
 
   /* .tab-label-container[textoverflow]:not([pinned]) { mask-image: unset !important; } */
@@ -388,7 +384,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     font-size: 13px !important;
 }
 
-/* Bookmark and History scrollbar colors */
+/* Bookmark and History scrollbar colors in the Arrowpanel menu */
 .panel-subview-body {
     scrollbar-color: var(--md-menu-border-color) var(--md-menu-background-color) !important;
 }
@@ -451,7 +447,8 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 .tabbrowser-tab[visuallyselected]:not([usercontextid]) .tab-background
 {
-    box-shadow: inset 0 8px 2px -7px color-mix(in srgb, var(--md-background-color-100) 75%, var(--md-accent-color)) !important;
+    box-shadow: inset 0 8px 1px -6px color-mix(in srgb, var(--md-background-color-100) 55%, var(--md-accent-color)) !important;
+    /* box-shadow: inset 0 2px 0 var(--md-accent-color) !important; */
 }
 
 .tabbrowser-tab:is([selected], [multiselected]):-moz-lwtheme {
@@ -479,6 +476,32 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #urlbar[focused]:not([suppress-focus-border]) > #urlbar-background {
   box-shadow: 0 1px 4px #00000054 !important;
 }
+
+findbar {
+  border: 2px solid var(--md-menu-border-color) !important;
+  padding-left: 8px !important;
+
+  &[hidden='true'] {
+    animation: 0.5s findbar-scale-out;
+  }
+}
+
+.findbar-textbox {
+  &[status="notfound"] {
+    background-color: rgba(255, 0, 0, 0.3) !important;
+    border-color: transparent !important;
+    border-radius: 4px !important;
+  }
+}
+
+/*
+menuitem#context-copyimage .menu-text {
+  display: none;
+}
+menuitem#context-copyimage::before {
+  content: "Copy Image Address" !important;
+}
+*/
 
 /*
 button {
