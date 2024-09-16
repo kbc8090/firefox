@@ -489,12 +489,8 @@ findbar {
 .findbar-textbox {
   &[status="notfound"] {
     background-color: rgba(255, 0, 0, 0.3) !important;
-    border-color: red !important;
+    border-color: transparent !important;
     border-radius: 4px !important;
-    border-width: 1px !important;
-    border-top: 2px !important;
-    border-left: 2px !important;
-    border-bottom: 1px !important;
   }
 }
 
