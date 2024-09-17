@@ -90,7 +90,8 @@
 
 /* Remove Ugly yellow dotted selection from Library Pane */
 :root {
-    --default-focusring-width: 0px !important; 
+    --default-focusring-width: 0px !important;
+    --sidebar-border-color: var(--md-menu-border-color) !important;
     --default-focusring: var(--default-focusring-width) solid !important;
     --arrowpanel-border-radius: 8px !important;
     --arrowpanel-menuitem-border-radius: 4px !important;
@@ -498,6 +499,57 @@ findbar {
 	min-width: 84px !important;
 }
 
+#sidebar-header {
+  color: var(--md-tab-label-color) !important;
+  background-color: var(--md-background-color-0) !important;
+  text-shadow: 1px 1px 4px #000 !important;
+}
+
+treechildren::-moz-tree-row(hover) {
+  background-color: var(--md-menu-background-color-hover) !important;
+  color: var(--md-tab-label-color) !important;
+}
+
+treechildren::-moz-tree-row(active) {
+  background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+  color: var(--md-tab-label-color) !important;
+}
+
+treechildren::-moz-tree-row(container selected) {
+  background-color: var(--md-accent-color) !important;
+  color: var(--md-tab-label-color) !important;
+}
+
+treechildren::-moz-tree-row(selected) {
+  background-color: var(--md-accent-color) !important;
+  color: var(--md-tab-label-color) !important;
+}
+
+.sidebar-placesTree treechildren::-moz-tree-cell-text {
+  color: var(--md-tab-label-color) !important;
+}
+
+.sidebar-placesTree::-moz-tree-image,
+.sidebar-placesTreechildren::-moz-tree-image {
+  fill: var(--md-text-secondary) !important;
+}
+
+search-textbox#search-box {
+  appearance: none !important;
+  background-color: var(--md-background-color-50) !important;
+  border: 2px solid var(--md-menu-border-color) !important;
+  color: var(--md-text-primary) !important;
+  padding: 8px !important;
+  border-radius: 100px !important;
+  transition-property: background-color !important;
+  transition-duration: 185ms !important;
+	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+}
+
+search-textbox#search-box:hover {
+  background-color: color-mix(in srgb, var(--md-background-color-50) 95%, white) !important;
+}
+
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
@@ -528,30 +580,6 @@ button:active {
   */
 
 /* ----------------------------------------------- Downloads and History Window -------------------------------------------------- */
-
-treechildren::-moz-tree-row(hover) {
-    background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
-    color: white !important;
-  }
-  
-  treechildren::-moz-tree-row(active) {
-    background-color: rgba(90, 177, 217, 0.84) !important;
-    color: white !important;
-  }
-  
-  treechildren::-moz-tree-row(container selected) {
-    background-color: rgba(90, 177, 217, 0.84) !important;
-    color: white !important;
-  }
-  
-  treechildren::-moz-tree-row(selected) {
-    background-color: rgba(90, 177, 217, 0.84) !important;
-    color: white !important;
-  }
-  
-  .sidebar-placesTree treechildren::-moz-tree-cell-text {
-    color: white !important;
-  }
 
   @-moz-document url(chrome://browser/content/places/places.xhtml) {
 
@@ -776,7 +804,7 @@ treechildren::-moz-tree-row(hover) {
   
   /* Right side list background */
   #placesView treechildren::-moz-tree-row(hover) {
-    background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+    background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
   }
   #placesView treechildren::-moz-tree-row(selected) {
     color: var(--md-selection-text-color) !important;
@@ -821,7 +849,7 @@ treechildren::-moz-tree-row(hover) {
   
   /* Left Side Rows Hover */
   #placesList treechildren::-moz-tree-row(hover) {
-    background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
+    background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
   }
   /* Left Side Rows Selected */
   #placesList treechildren::-moz-tree-row(selected) {
