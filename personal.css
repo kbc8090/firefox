@@ -74,7 +74,7 @@
 
 /* Adjust the new tab button positioning to be more even */
 #tabs-newtab-button, #TabsToolbar #new-tab-button {
-    margin-inline-start: -2px !important;
+    margin-inline-start: -3px !important;
 }
 
 /* Make unselected tabs foreground color a little less bright */
@@ -447,7 +447,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 .tabbrowser-tab[visuallyselected]:not([usercontextid]) .tab-background
 {
-    box-shadow: inset 0 8px 1px -6px color-mix(in srgb, var(--md-background-color-100) 55%, var(--md-accent-color)) !important;
+    box-shadow: inset 0 7px 2px -6px color-mix(in srgb, var(--md-background-color-100) 55%, var(--md-accent-color)) !important;
     /* box-shadow: inset 0 2px 0 var(--md-accent-color) !important; */
 }
 
@@ -497,6 +497,7 @@ findbar {
 .tabbrowser-tab:is([visuallyselected], [multiselected]):not([pinned]) {
 	min-width: 84px !important;
 }
+
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
@@ -561,24 +562,30 @@ treechildren::-moz-tree-row(hover) {
     :root { --iconcolor: var(--md-text-primary); }
     :root { --selected-iconcolor: var(--md-text-primary); }
     :root { --hover-iconcolor: var(--md-text-primary); }
-    :root { --bordercolor: var(--md-accent-color); }
+    :root { --bordercolor: var(--md-menu-border-color); }
     :root { --hover-bg-row: var(--md-menu-background-color-hover); }
     :root { --hover-text-row: var(--md-text-primary); }
     :root { --selected-text-row: var(--md-text-primary); }
-    :root { --organizer-hover-background: rgba(90, 177, 217, 0.84) !important; }
+    :root { --organizer-hover-background: var(--md-menu-background-color-hover) !important; }
     :root {--default-focusring-width: 0px !important; }
     :root {--default-focusring: var(--default-focusring-width) solid !important; }
     
     :root {--focus-outline-width: 6px !important; }
-    :root {--focus-outline-color: white !important; }
+    :root {--focus-outline-color: var(--md-text-primary) !important; }
     :root {--focus-outline: var(--focus-outline-width) solid var(--focus-outline-color) !important; }
+
+    @media (-moz-platform: windows), (-moz-platform: linux) {
+      menu, menuitem {
+        border-radius: 4px !important;
+      }
+    }
     
     
     /* Link to filter generator I used for some icons on down, not mine. https://codepen.io/sosuke/pen/Pjoqqp */
     
     /* Library Background */
     window#places[title="Library"] {
-      background-color: var(--background) !important;
+      background-color: var(--md-background-color-0) !important;
     }
     
     /* Toolbar buttons */
@@ -600,7 +607,7 @@ treechildren::-moz-tree-row(hover) {
     
     /* Toolbar */
     #placesToolbar {
-     background-color: var(--background) !important;
+     background-color: var(--md-background-color-0) !important;
      border-bottom: 0px !important;
     }
     
@@ -652,24 +659,25 @@ treechildren::-moz-tree-row(hover) {
     #downloadsListBox {
         background-color: var(--background) !important;
         color: var(--textcolor) !important;
-        scrollbar-color: rgba(140, 203, 236, 0.42) rgba(64, 79, 100, 1.0) !important;
+        scrollbar-color: var(--md-menu-border-color) var(--md-menu-background-color) !important;
       }
       
       #downloadsListBox:hover {
-        scrollbar-color: rgba(140, 203, 236, 0.76) rgba(64, 79, 100, 1.0) !important;
+        scrollbar-color: color-mix(in srgb, var(--md-menu-border-color) 90%, white) var(--md-menu-background-color) !important;
       }
       
       #downloadsListBox:active {
-        scrollbar-color: rgba(140, 203, 236, 1.0) rgba(64, 79, 100, 1.0) !important;
+        scrollbar-color: color-mix(in srgb, var(--md-menu-border-color) 70%, white) var(--md-menu-background-color) !important;
       }
 
       #downloadsListBox:focus > richlistitem[selected] {
-        color: white !important;
-        background-color: var(--odd-bg-row) !important;
+        color: var(--md-selection-text-color) !important;
+        background-color: var(--md-accent-color) !important;
         border: 0px !important;
         outline: none !important;
+        border-radius: 0px !important;
       }
-      
+     /* 
       richlistitem[selected="true"] {
         color: white !important;
         background-color: var(--odd-bg-row) !important;
@@ -681,6 +689,14 @@ treechildren::-moz-tree-row(hover) {
         background-color: black !important;
         color: red !important;
         }
+*/
+        richlistitem[selected] {
+          background-image: none !important;
+          border: 0px !important;
+          outline: none !important;
+          border-radius: 0px !important;
+          font-weight: 600 !important;
+      }
       
         #downloadsRichListBox > richlistitem[selected] {
           outline: 0px !important;
@@ -696,7 +712,7 @@ treechildren::-moz-tree-row(hover) {
       
       richlistbox > richlistitem[selected] {
         background-color: var(--odd-bg-row) !important;
-        color: white !important;
+        color: var(--md-text-primary) !important;
       }
     
     /* All List Colors */
@@ -704,19 +720,22 @@ treechildren::-moz-tree-row(hover) {
     #placesView .scrollbox-innerbox,
     #infoPane, #placesList, #placeContent {
       -moz-appearance: none !important;
-      background-color: var(--background) !important;
+      background-color: var(--md-background-color-0) !important;
       color: var(--textcolor) !important;
     }
     
     /* List Header */
     #placeContent treecol {
       -moz-appearance: none !important;
-      background-color: var(--background) !important;
+      background-color: var(--md-background-color-0) !important;
       padding: 3px !important;
       color: var(--textcolor) !important;
       border-top: 1px solid var(--bordercolor) !important;
       border-right: 0px !important;
       border-bottom: 0px !important;
+    }
+    treecol {
+      border-inline-start: 1px solid var(--bordercolor) !important;
     }
     
     #contentView treecol {
@@ -744,7 +763,7 @@ treechildren::-moz-tree-row(hover) {
     color: var(--hover-text-row) !important;
   }
   #placeContent treechildren::-moz-tree-cell-text(selected) {
-    color: var(--selected-text-row) !important;
+    color: var(--md-selection-text-color) !important;
   }
   #placeContent treechildren::-moz-tree-row {
     background-color: var(--background) !important
@@ -760,7 +779,8 @@ treechildren::-moz-tree-row(hover) {
     background-color: color-mix(in srgb, currentColor 17%, transparent) !important;
   }
   #placesView treechildren::-moz-tree-row(selected) {
-    background-color: var(--hover-bg-row) !important;
+    color: var(--md-selection-text-color) !important;
+    background-color: var(--md-accent-color) !important;
   }
   
   /* Right side list Icons */
