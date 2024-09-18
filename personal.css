@@ -440,6 +440,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 .toolbarbutton-1:is(#back-button, #forward-button) {
     list-style-image: url("Back.svg") !important;
+    fill: red !important;
 }
 
 #PlacesToolbarItems > .bookmark-item {
@@ -543,7 +544,7 @@ search-textbox#search-box {
   background-color: var(--md-background-color-50) !important;
   border: 2px solid var(--md-menu-border-color) !important;
   color: var(--md-text-primary) !important;
-  padding: 8px !important;
+  padding: 6px !important;
   border-radius: 100px !important;
   transition-property: background-color !important;
   transition-duration: 185ms !important;
@@ -556,6 +557,7 @@ search-textbox#search-box:hover {
 
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]) {
   border: 2px solid !important;
+  margin: 0px !important;
 }
 
 /*
@@ -603,27 +605,30 @@ button:active {
     :root { --hover-text-row: var(--md-text-primary); }
     :root { --selected-text-row: var(--md-text-primary); }
     :root { --organizer-hover-background: var(--md-menu-background-color-hover) !important; }
-    :root {--default-focusring-width: 0px !important; }
-    :root {--default-focusring: var(--default-focusring-width) solid !important; }
+    :root { --default-focusring-width: 0px !important; }
+    :root { --default-focusring: var(--default-focusring-width) solid !important; }
+    :root { --organizer-color: var(--md-text-primary) !important;}
+    :root { 
+      --organizer-deemphasized-color: var(--md-text-secondary) !important;
+      --toolbarbutton-icon-fill: red !important;
+    }
     
     :root {--focus-outline-width: 6px !important; }
     :root {--focus-outline-color: var(--md-text-primary) !important; }
     :root {--focus-outline: var(--focus-outline-width) solid var(--focus-outline-color) !important; }
 
     @media (-moz-platform: windows), (-moz-platform: linux) {
-      menu, menuitem {
+      #placesMenu > menu {
+        padding-block: 8px !important;
         border-radius: 4px !important;
       }
     }
-    
-    
-    /* Link to filter generator I used for some icons on down, not mine. https://codepen.io/sosuke/pen/Pjoqqp */
-    
-    /* Library Background */
-    window#places[title="Library"] {
-      background-color: var(--md-background-color-0) !important;
+    @media (-moz-platform: windows), (-moz-platform: linux) {
+      #placesMenu > menuitem {
+        padding-block: 14px !important;
+      }
     }
-    
+
     /* Toolbar buttons */
     #placesMenu > menu {
       border: none !important;
@@ -638,32 +643,47 @@ button:active {
     /* Toolbar button open */
     #placesMenu > menu[open] {
       -moz-appearance: none !important;
-      background-color: var(--hover-bg-row) !important;
+      background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+    }
+    
+    
+    /* Link to filter generator I used for some icons on down, not mine. https://codepen.io/sosuke/pen/Pjoqqp */
+    
+    /* Library Background */
+    window#places[title="Library"] {
+      background-color: var(--md-background-color-0) !important;
     }
     
     /* Toolbar */
     #placesToolbar {
      background-color: var(--md-background-color-0) !important;
      border-bottom: 0px !important;
+     padding: 8px !important;
     }
     
     /* Forward and Back Buttons Disabled */
     #placesToolbar > toolbarbutton[disabled] > .toolbarbutton-icon {
-      opacity: .32 !important
+      fill: var(--md-text-secondary) !important;
     }
     
     /* Forward and Back Buttons */
-    #placesToolbar > #back-button > .toolbarbutton-icon,
-    #placesToolbar > #forward-button > .toolbarbutton-icon {
+    #placesToolbar > #back-button > .toolbarbutton-icon {
       fill: var(--iconcolor) !important;
+      height: 20px !important;
     }
 
+    #placesToolbar > #forward-button > .toolbarbutton-icon {
+      fill: var(--iconcolor) !important;
+      height: 20px !important;
+    }
+
+    
     #placesToolbar > toolbarbutton:not([disabled]):active {
     background-color: var(--hover-bg-row) !important;
     }
 
     #placesToolbar > toolbarbutton:not([disabled]):hover:active {
-    background-color: var(--hover-bg-row) !important;
+    background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
     }
     
     /* Toolbar Text */
@@ -671,25 +691,26 @@ button:active {
       color: var(--textcolor) !important;
     }
     
-    /* Toolbar Spacer */
+    /* Toolbar Spacer
     #libraryToolbarSpacer {
       max-width: 20px !important;
       padding: 3px !important;
       margin-right: 15px !important;
       margin-left: 4px !important;
+  }
     /*box-shadow: 0 0 1px var(--iconcolor) !important;*/ /* To see spacer */
-    }
+    
     
     /* Toolbar Icons, Menupopup arrows & ckeckmarks (limegreen). Not The Forward or Back Buttons */
     #placesMenu menupopup .menu-right {
         color: rgb(174, 181, 190) !important;
     }
     
-    /* Menu items disabled */
+    /* Menu items disabled 
     #placesMenu menupopup menuitem[disabled] {
       color: var(--textcolor) !important;
       opacity: .32 !important;
-    }
+    }*/
     
     /* Downloads Box */
     #downloadsListBox {
@@ -751,8 +772,8 @@ button:active {
       }
       
       richlistbox > richlistitem[selected] {
-        background-color: var(--odd-bg-row) !important;
-        color: var(--md-text-primary) !important;
+        background-color: var(--md-accent-color) !important;
+        color: var(--md-selection-text-color) !important;
       }
     
     /* All List Colors */
@@ -835,12 +856,12 @@ button:active {
   }
   /* Right side Folders */
   #placesView treechildren::-moz-tree-image(container selected) {
-    fill: var(--selected-iconcolor) !important;
+    fill: var(--md-text-secondary) !important;
   }
   
   /* Left side list Icons */
   #placesList treechildren::-moz-tree-image {
-    fill: var(--iconcolor) !important;
+    fill: var(--md-tab-label-color) !important;
   }
   /* Hover Left side Icons */
   #placesList treechildren::-moz-tree-image(title hover) {
@@ -878,11 +899,22 @@ button:active {
     
     /* Searchbox */
     #searchFilter {
-      -moz-appearance: none !important;
-      background-color: var(--odd-bg-row) !important;
-      border: 1px solid var(--bordercolor) !important;
-      color: var(--textcolor) !important;
-    }
+
+        appearance: none !important;
+        background-color: var(--md-background-color-50) !important;
+        border: 2px solid var(--md-menu-border-color) !important;
+        color: var(--md-text-primary) !important;
+        padding: 4px !important;
+        border-radius: 100px !important;
+        transition-property: background-color !important;
+        transition-duration: 185ms !important;
+        transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+      }
+      
+      search-textbox#searchFilter:hover {
+        background-color: color-mix(in srgb, var(--md-background-color-50) 95%, white) !important;
+      }
+
     /* Search Icon */
     .textbox-search-sign {
       filter: invert(56%) blue(80%) saturate(2591%) hue-rotate(81deg) brightness(118%) contrast(128%) !important
@@ -899,9 +931,12 @@ button:active {
     /* Clear Downloads Button */
     #clearDownloadsButton {
       color: var(--textcolor) !important;
+      padding: 8px !important;
     }
     #clearDownloadsButton[disabled] {
-      opacity: .32 !important;
+      color: var(--md-text-secondary) !important;
+      padding: 8px !important;
+      opacity: 1 !important;
     }
     
     /* Details */
@@ -932,7 +967,7 @@ button:active {
     }
     
     #detailsPane {
-      background-color: var(--background) !important;
+      background-color: var(--md-background-color-100) !important;
       border-top: 1px solid var(--bordercolor) !important;
     }
     
