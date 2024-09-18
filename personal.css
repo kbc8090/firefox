@@ -616,6 +616,7 @@ button:active {
     :root {--focus-outline-color: var(--md-text-primary) !important; }
     :root {--focus-outline: var(--focus-outline-width) solid var(--focus-outline-color) !important; }
 
+   /* Correct context menu padding in Library Window */
     @media (-moz-platform: windows), (-moz-platform: linux) {
       #placesMenu > menu {
         padding-block: 8px !important;
@@ -970,20 +971,25 @@ button:active {
       border-top: 1px solid var(--bordercolor) !important;
     }
     
-    #editBookmarkPanelRows .expander-up, #editBookmarkPanelRows .expander-down {
+    .expander-up, .expander-down {
       padding: 0px !important;
       padding-left: 5px !important;
       padding-right: 5px !important;
       padding-top: 0px !important;
       padding-bottom: 0px !important;
-      border: 1px solid var(--bordercolor) !important;
+      border: 2px solid var(--bordercolor) !important;
       color: var(--iconcolor) !important;
-      background-color: var(--background) !important;
+      background-color: var(--md-background-color-0) !important;
     }
     
-    #editBookmarkPanelRows .expander-up:hover, #editBookmarkPanelRows .expander-down:hover {
+    .expander-up:hover, .expander-down:hover {
       -moz-appearance: none !important;
-      background-color: var(--hover-bg-row) !important;
+      background-color: var(--md-menu-background-color-hover) !important;
+    }
+
+    .expander-up:active, .expander-down:active {
+      -moz-appearance: none !important;
+      background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
     }
     
     
