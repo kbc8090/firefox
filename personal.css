@@ -440,7 +440,6 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 .toolbarbutton-1:is(#back-button, #forward-button) {
     list-style-image: url("Back.svg") !important;
-    fill: red !important;
 }
 
 #PlacesToolbarItems > .bookmark-item {
@@ -515,11 +514,11 @@ treechildren::-moz-tree-row(active) {
 }
 
 treechildren::-moz-tree-row(container selected) {
-  background-color: var(--md-accent-color) !important;
+  background-color: var(--md-selection-background-color) !important;
 }
 
 treechildren::-moz-tree-row(selected) {
-  background-color: var(--md-accent-color) !important;
+  background-color: var(--md-selection-background-color) !important;
 }
 
 .sidebar-placesTree treechildren::-moz-tree-cell-text {
@@ -729,7 +728,7 @@ button:active {
 
       #downloadsListBox:focus > richlistitem[selected] {
         color: var(--md-selection-text-color) !important;
-        background-color: var(--md-accent-color) !important;
+        background-color: var(--md-selection-background-color) !important;
         border: 0px !important;
         outline: none !important;
         border-radius: 0px !important;
@@ -772,7 +771,7 @@ button:active {
       }
       
       richlistbox > richlistitem[selected] {
-        background-color: var(--md-accent-color) !important;
+        background-color: var(--md-selection-background-color) !important;
         color: var(--md-selection-text-color) !important;
       }
     
@@ -841,7 +840,7 @@ button:active {
   }
   #placesView treechildren::-moz-tree-row(selected) {
     color: var(--md-selection-text-color) !important;
-    background-color: var(--md-accent-color) !important;
+    background-color: var(--md-selection-background-color) !important;
   }
   
   /* Right side list Icons */
@@ -852,11 +851,11 @@ button:active {
     fill: var(--hover-iconcolor) !important;
   }
   #placesView treechildren::-moz-tree-image(title selected) {
-    fill: var(--selected-iconcolor) !important;
+    fill: var(--md-selection-text-color) !important;
   }
   /* Right side Folders */
   #placesView treechildren::-moz-tree-image(container selected) {
-    fill: var(--md-text-secondary) !important;
+    fill: var(--md-selection-text-color) !important;
   }
   
   /* Left side list Icons */
