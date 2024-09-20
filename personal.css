@@ -521,22 +521,44 @@ treechildren::-moz-tree-row(selected) {
   background-color: var(--md-selection-background-color) !important;
 }
 
+/* Selected bright text color */
+treechildren::-moz-tree-cell-text(selected),
+treechildren::-moz-tree-image(selected),
+treechildren::-moz-tree-twisty(selected) { 
+  color: var(--md-selection-text-color) !important;
+}
+
 .sidebar-placesTree treechildren::-moz-tree-cell-text {
   color: var(--md-tab-label-color) !important;
 }
 
 .sidebar-placesTree treechildren::-moz-tree-cell-text(hover) {
-  color: var(--md-selection-text-color) !important;
-}
-
-.sidebar-placesTree treechildren::-moz-tree-cell-text(selected) {
-  color: var(--md-selection-text-color) !important;
+  color: var(--md-tab-label-color) !important;
 }
 
 .sidebar-placesTree::-moz-tree-image,
 .sidebar-placesTreechildren::-moz-tree-image {
   fill: var(--md-text-secondary) !important;
 }
+
+.sidebar-placesTree treechildren::-moz-tree-cell-text(selected),
+treechildren::-moz-tree-image(selected),
+treechildren::-moz-tree-twisty(selected),
+.sidebar-placesTreechildren::-moz-tree-image(selected),
+.sidebar-placesTreechildren::-moz-tree-image(active) {
+  color: var(--md-selection-text-color) !important;
+  fill: var(--md-selection-text-color) !important;
+}
+
+#viewButton {
+  border-radius: 8px !important;
+  border-width: 2px !important;
+}
+
+#viewButton:hover {
+  background-color: var(--md-menu-background-color-hover) !important;
+}
+
 
 search-textbox#search-box {
   appearance: none !important;
@@ -556,7 +578,22 @@ search-textbox#search-box:hover {
 
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]) {
   border: 2px solid !important;
-  margin: 0px !important;
+  margin: 2px !important;
+}
+
+tree {
+  color: var(--md-text-primary) !important;
+  background-color: var(--md-menu-background-color) !important;
+  border-color: var(--md-menu-border-color) !important;
+  border-width: 2px !important;
+}
+
+#editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
+  background-color: var(--md-menu-background-color-hover) !important;
+}
+
+#editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
+  fill: var(--md-text-primary) !important;
 }
 
 /*
