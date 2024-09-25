@@ -353,6 +353,28 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     }
 }
 
+#allTabsMenu-containerTabsButton,
+#allTabsMenu-searchTabs,
+#panelMenu_showAllBookmarks,
+#PanelUI-historyMore,
+#appmenu-developer-tools-view > .subviewbutton,
+#unified-extensions-manage-extensions,
+#identity-popup-more-info,
+#identity-popup-clear-sitedata-button,
+#appMenu-library-recentlyClosedWindows > .restoreallitem,
+#appMenu-library-recentlyClosedTabs > .restoreallitem {
+  -moz-context-properties: fill !important;
+
+  & > .toolbarbutton-icon {
+    -moz-context-properties: fill !important;
+    fill: var(--md-tab-label-color) !important;
+  }
+}
+
+.toolbarbutton-1 {
+  fill: var(--md-text-primary) !important;
+}
+
 /* Tab separator 1px */
 .tab-content {
     &::before,
@@ -438,8 +460,24 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     margin: 0px !important;
 }
 
-.toolbarbutton-1:is(#back-button, #forward-button) {
-    list-style-image: url("Back.svg") !important;
+.toolbarbutton-1:is(#back-button, #forward-button),
+#context-back,
+#context-forward,
+.subviewbutton-back,
+.identity-popup-expander {
+  list-style-image: url("Back.svg") !important;
+}
+
+
+.unified-nav-forward[_moz-menuactive]:-moz-locale-dir(ltr),
+.unidied-nav-back[_moz-menuactive]:-moz-locale-dir(rtl) {
+  list-style-image: url("Forward.svg") !important;
+}
+
+
+.unified-nav-back[_moz-menuactive]:-moz-locale-dir(ltr),
+.unidied-nav-forward[_moz-menuactive]:-moz-locale-dir(rtl) {
+  list-style-image: url("Back.svg") !important;
 }
 
 #PlacesToolbarItems > .bookmark-item {
@@ -717,22 +755,24 @@ button:active {
     
     /* Forward and Back Buttons */
     #placesToolbar > #back-button > .toolbarbutton-icon {
+      list-style-image: url("Back.svg") !important;
       fill: var(--iconcolor) !important;
-      height: 20px !important;
+      padding: 3px !important;
     }
 
     #placesToolbar > #forward-button > .toolbarbutton-icon {
+      list-style-image: url("Forward.svg") !important;
       fill: var(--iconcolor) !important;
-      height: 20px !important;
+      padding: 3px !important;
     }
 
     
     #placesToolbar > toolbarbutton:not([disabled]):active {
-    background-color: var(--hover-bg-row) !important;
+      background-color: var(--hover-bg-row) !important;
     }
 
     #placesToolbar > toolbarbutton:not([disabled]):hover:active {
-    background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+      background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
     }
     
     /* Toolbar Text */
