@@ -596,6 +596,18 @@ tree {
   fill: var(--md-text-primary) !important;
 }
 
+  /* uBlock Origin -> custom svg icon
+  :is(.webextension-browser-action, .eom-addon-button
+  )[data-extensionid="uBlock0@raymondhill.net"] .toolbarbutton-icon {
+      list-style-image: url("ublock.svg");
+  }*/
+
+
+#bookmarks-menu-button {
+    fill: var(--md-accent-color) !important;
+    filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color))
+  }
+
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
@@ -976,13 +988,16 @@ button:active {
     #clearDownloadsButton {
       list-style-image: url("chrome://global/skin/icons/delete.svg") !important;
       color: var(--textcolor) !important;
-      padding: 8px !important;
+      padding-left: 5px !important;
+      padding-right: 7px !important;
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
     }
  
     #clearDownloadsButton > .toolbarbutton-icon {
       display: inline-flex !important;
       display: -moz-inline-box !important;
-      margin-inline-end: 4px;
+      margin-inline-end: 4px !important;
     }    
     
     /* Details */
