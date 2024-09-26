@@ -486,7 +486,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 .tabbrowser-tab[visuallyselected]:not([usercontextid]) .tab-background
 {
-    box-shadow: inset 0 7px 2px -6px color-mix(in srgb, var(--md-background-color-100) 55%, var(--md-accent-color)) !important;
+    box-shadow: inset 0 7px 1px -7px color-mix(in srgb, var(--md-background-color-100) 5%, var(--md-accent-color)) !important;
     /* box-shadow: inset 0 2px 0 var(--md-accent-color) !important; */
 }
 
@@ -645,7 +645,7 @@ tree {
     fill: var(--md-accent-color) !important;
     filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color))
   }
-
+  
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
@@ -1092,6 +1092,10 @@ button:active {
     .expander-up:active, .expander-down:active {
       -moz-appearance: none !important;
       background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+    }
+
+    .textbox-search-sign {
+      margin-left: 3px !important;
     }
     
     
