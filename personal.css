@@ -79,7 +79,7 @@
 
 /* Make unselected tabs foreground color a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
-      color: color-mix(in srgb, var(--md-text-primary) 65%, transparent) !important;
+      color: color-mix(in srgb, var(--md-text-primary) 70%, transparent) !important;
 }
 
 /* Make unselected tab title color on hover the selected tab color 
@@ -109,6 +109,7 @@ body {
         margin: var(--panel-shadow-margin) 20px 20px 20px !important;
         border: 2px solid !important;
         border-color: var(--md-menu-border-color) !important;
+        background: light-dark(Menu, var(--md-menu-background-color)) !important;
     }
 }
 
@@ -195,8 +196,8 @@ tooltip {
     #urlbar > .urlbar-input-container > .urlbar-input-box > & {
         padding-left: 2px !important;
         font-size: 15px !important;
-        font-weight: 500 !important;
-        font-family: "Inter Display" !important;
+        font-weight: 600 !important;
+        font-family: "Segoe UI" !important;
     }
 }
 
@@ -275,7 +276,7 @@ tooltip {
         margin-inline-start: 0px !important;
         margin-inline-end: 0px !important;
         padding-block: 14px !important;
-        color: var(--md-tab-label-color) !important;
+        color: light-dark(MenuText, var(--md-tab-label-color)) !important;
     }
 }
 
@@ -304,13 +305,16 @@ menuseparator {
 /* More consistent active button color */
 menuitem {
     &[_moz-menuactive]:not([disabled="true"]):active {
-      background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+      background-color: light-dark(color-mix(in srgb, AccentColor 86%, white), color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white)) !important;
+    }
+    &:where([_moz-menuactive="true"]):not([disabled="true"]) {
+      color: light-dark(AccentColorText, var(--md-tab-label-color)) !important;
     }
   }
 
   /* Adjusting find bar border/position */
   .browserContainer > findbar {
-    margin: 2px 2px 0 0 !important;
+    margin: 2px 15px 0 0 !important;
   }
 
   /* .tab-label-container[textoverflow]:not([pinned]) { mask-image: unset !important; } */
@@ -822,6 +826,7 @@ button:active {
         border: 0px !important;
         outline: none !important;
         border-radius: 0px !important;
+        background-image: none !important;
       }
 
       richlistitem:hover {
@@ -845,7 +850,6 @@ button:active {
           border: 0px !important;
           outline: none !important;
           border-radius: 0px !important;
-          font-weight: 600 !important;
       }
       
         #downloadsRichListBox > richlistitem[selected] {
