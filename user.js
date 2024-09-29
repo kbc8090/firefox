@@ -27,6 +27,8 @@ user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("gfx.content.skia-font-cache-size", 20);
 user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
+user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible",true);
 
 /** DISK CACHE ***/
@@ -53,14 +55,13 @@ user_pref("network.ssl_tokens_cache_capacity", 10240);
 
 /** SPECULATIVE LOADING ***/
 user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 
 /** EXPERIMENTAL ***/
-user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 user_pref("layout.css.has-selector.enabled", true);
-user_pref("dom.security.sanitizer.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -78,6 +79,7 @@ user_pref("privacy.globalprivacycontrol.functionality.enabled", true);
 user_pref("browser.contentblocking.report.hide_vpn_banner", true);
 user_pref("browser.contentblocking.report.show_mobile_app", false);
 user_pref("dom.private-attribution.submission.enabled", false);
+user_pref("dom.text_fragments.enabled", true);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
@@ -192,6 +194,7 @@ user_pref("browser.aboutConfig.showWarning", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutwelcome.enabled", false);
 user_pref("devtools.accessibility.enabled", false);
+user_pref("devtools.debugger.prompt-connection", false);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
@@ -257,6 +260,8 @@ user_pref("nglayout.enable_drag_images", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
+
+user_pref("widget.non-native-theme.scrollbar.style", 1);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
