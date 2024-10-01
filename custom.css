@@ -12,7 +12,7 @@
     --md-text-primary: light-dark(color-mix(in srgb, #ddd8f8 70%, black), #ddd8f8) !important;
     --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #ddd8f8 44%, transparent)) !important;
     --md-tab-label-color: color-mix(in srgb, #ddd8f8 80%, white) !important;
-    --md-accent-color: #649cf5;
+    --md-accent-color: #bd93f9;
     --md-background-color-0: #212533;
     --md-background-color-50: #272a3a;
     --md-background-color-100: #3B3D51;
@@ -22,12 +22,13 @@
     --md-menu-background-color: var(--md-background-color-0);
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-selection-text-color: var(--md-white);
-    --md-selection-background-color: #3b7ce6;
+    --md-selection-background-color: #965be9;
+    --md-icon-color-secondary: var(--md-text-secondary);
     --md-menu-border-color: #3d444d;
-    --md-content-separator-color: #3d444db0;
+    --md-content-separator-color: #3d444de5;
     --md-menu-border-size: 2px solid;
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-      --tab-min-height: 38px !important;
+      --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }
@@ -58,10 +59,11 @@
     --md-content-separator-color: #394149b9;
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: #1f6febb3;
+    --md-icon-color-secondary: var(--md-text-secondary);
     --md-text-on-accent: var(--md-white);
     --md-menu-border-size: 2px solid;
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-      --tab-min-height: 38px !important;
+      --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }
@@ -91,7 +93,8 @@
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: #406fa5;
     --md-menu-border-color: light-dark(MenuText, #415e74ab);
-    --md-content-separator-color: #5f6a7d8c;
+    --md-icon-color-secondary: var(--md-text-secondary);
+    --md-content-separator-color: #5f6a7da1;
     --md-menu-border-size: 2px solid;
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;

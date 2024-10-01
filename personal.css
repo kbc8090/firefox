@@ -98,6 +98,7 @@
     --arrowpanel-color: var(--md-tab-label-color) !important;
     --arrowpanel-background: var(--md-menu-background-color) !important;
     --button-active-bgcolor: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+    --toolbarbutton-active-background: var(--md-selection-background-color) !important;
 }
 
 body {
@@ -165,6 +166,7 @@ tooltip {
     background-color: var(--md-background-color-50) !important;
     transition-duration: 185ms !important;
 	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+  border: 1px solid color-mix(in srgb, var(--md-accent-color) 20%, transparent) !important;
 }
 
 #urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
@@ -374,6 +376,21 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     fill: var(--md-tab-label-color) !important;
   }
 }
+#allTabsMenu-containerTabsButton:hover,
+#allTabsMenu-searchTabs:hover,
+#panelMenu_showAllBookmarks:hover,
+#PanelUI-historyMore:hover,
+#appmenu-developer-tools-view > .subviewbutton:hover,
+#unified-extensions-manage-extensions:hover,
+#identity-popup-more-info:hover,
+#identity-popup-clear-sitedata-button:hover,
+#appMenu-library-recentlyClosedWindows > .restoreallitem:hover,
+#appMenu-library-recentlyClosedTabs > .restoreallitem:hover {
+  & > .toolbarbutton-icon {
+    -moz-context-properties: fill !important;
+    fill: var(--md-accent-color) !important;
+  }  /* Web Developer Tools */
+}
 
 .toolbarbutton-1 {
   fill: var(--md-text-primary) !important;
@@ -394,10 +411,26 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 } 
 
 /* Right arrows same color as accent color */
+#protections-popup-mainView .subviewbutton-nav:not(.notFound)::after,
+#identity-popup-mainView .subviewbutton-nav::after,
+.widget-overflow-list .subviewbutton-nav::after,
+.PanelUI-subView .subviewbutton-nav::after,
 .menu-right {
-    fill: var(--md-text-secondary) !important;
-    margin-inline-end: 6px !important;
+  -moz-context-properties: fill, fill-opacity !important;
+    height: 16px !important;
+    width: 16px !important;
+    fill: var(--md-accent-color) !important;
+    fill-opacity: 1 !important;
 }
+
+.menu-right {
+  margin-inline-end: 6px !important;
+}
+
+.subviewbutton-iconic:not([class*="identity-color-"]) > .toolbarbutton-icon {
+  fill: var(--md-accent-color) !important;
+}
+
 /* Bookmark menu chevron overflow icon same as secondary text color */
 #PlacesChevron:not([collapsed]) .toolbarbutton-icon {
     fill: var(--md-text-secondary) !important;
@@ -482,6 +515,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 .unified-nav-back[_moz-menuactive]:-moz-locale-dir(ltr),
 .unidied-nav-forward[_moz-menuactive]:-moz-locale-dir(rtl) {
   list-style-image: url("Back.svg") !important;
+}
+
+:is(panelview .toolbarbutton-1, toolbarbutton.subviewbutton, .widget-overflow-list .toolbarbutton-1, .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton) {
+  &:not([disabled]):hover {
+    fill: var(--md-accent-color) !important;
+  }
 }
 
 #PlacesToolbarItems > .bookmark-item:active {
@@ -589,11 +628,16 @@ treechildren::-moz-tree-twisty(selected),
 
 #viewButton {
   border-radius: 8px !important;
-  border-width: 2px !important;
+  border: var(--md-menu-border-size) !important;
+  border-color: var(--md-menu-border-color) !important;
 }
 
 #viewButton:hover {
   background-color: var(--md-menu-background-color-hover) !important;
+}
+
+#viewButton[open] {
+  background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
 
 
@@ -623,7 +667,6 @@ tree {
   color: var(--md-text-primary) !important;
   background-color: var(--md-menu-background-color) !important;
   border-color: var(--md-menu-border-color) !important;
-  border-width: 2px !important;
 }
 
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
@@ -645,6 +688,13 @@ tree {
     fill: var(--md-accent-color) !important;
     filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color))
   }
+
+  #identity-box[pageproxystate="valid"] {
+    &:is(.verifiedDomain, .mixedActiveBlocked) #identity-icon {
+      fill: var(--md-text-primary) !important;
+      filter: drop-shadow(0 0 3px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color))
+    }
+  }
   
   @media (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
     .tabbrowser-tab[visuallyselected]:not([usercontextid]) .tab-background
@@ -654,6 +704,7 @@ tree {
     }
   }
 
+  
 @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
       margin-left: 12px !important;
@@ -683,13 +734,6 @@ tree {
       display: none !important;
       visibility: hidden !important;
   }
-
-
-    #identity-box[pageproxystate="valid"] {
-      &:is(.verifiedDomain, .mixedActiveBlocked) #identity-icon {
-        list-style-image: var(--md-page-info) !important;
-      }
-    }
   
     #identity-box {
       padding-bottom: 2px !important;
@@ -763,7 +807,6 @@ tree {
       }
     }
   }
-
 
 
 /*
