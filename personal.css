@@ -194,13 +194,11 @@ tooltip {
 }
 
 /* Make URLbar indent slightly and bold/bigger text */
-.urlbar-input {
-    #urlbar > .urlbar-input-container > .urlbar-input-box > & {
-        padding-left: 2px !important;
-        font-size: 15px !important;
-        font-weight: 600 !important;
-        font-family: "Segoe UI" !important;
-    }
+#urlbar-input, #searchbar {
+  padding-left: 2px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI" !important;
 }
 
 /*
@@ -667,6 +665,7 @@ tree {
   color: var(--md-text-primary) !important;
   background-color: var(--md-menu-background-color) !important;
   border-color: var(--md-menu-border-color) !important;
+  border-width: 2px !important;
 }
 
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
