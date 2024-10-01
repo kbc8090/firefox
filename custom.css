@@ -94,7 +94,7 @@
     --md-content-separator-color: #5f6a7d8c;
     --md-menu-border-size: 2px solid;
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-      --tab-min-height: 38px !important;
+      --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }

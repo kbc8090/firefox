@@ -74,7 +74,7 @@
 
 /* Adjust the new tab button positioning to be more even */
 #tabs-newtab-button, #TabsToolbar #new-tab-button {
-    margin-inline-start: -3px !important;
+    margin-inline-start: -2px !important;
 }
 
 /* Make unselected tabs foreground color a little less bright */
@@ -659,6 +659,12 @@ tree {
       margin-left: 12px !important;
     }
 
+      /* Arrowpanel Menu Border size */
+  *[part="content"] {
+    border-width: 1px !important;
+  }
+
+
     #tabs-newtab-button,
     #new-tab-button {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
@@ -735,7 +741,30 @@ tree {
     #urlbar-label-box {
       background-color: var(--md-background-color-100) !important;
     }
+
+    :is(.all-tabs-secondary-button, .tab-icon-overlay)[soundplaying],
+    .tab-icon-sound {
+      list-style-image: url("icons/audio.svg") !important;
+    }
+
+    .all-tabs-secondary-button,
+    .tab-icon-overlay,
+    .tab-icon-sound {
+      &[muted] {
+        list-style-image: url("icons/audio-muted.svg")  !important;
+      }
+    }
+
+    .all-tabs-secondary-button,
+    .tab-icon-overlay,
+    .tab-icon-sound {
+      &[activemedia-blocked] {
+        list-style-image: url("icons/audio-muted.svg")  !important;
+      }
+    }
   }
+
+
 
 /*
 menuitem#context-copyimage .menu-text {
