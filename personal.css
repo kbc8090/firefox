@@ -194,7 +194,7 @@ tooltip {
 }
 
 /* Make URLbar indent slightly and bold/bigger text */
-#urlbar-input, #searchbar {
+#urlbar-input {
   padding-left: 2px !important;
   font-size: 15px !important;
   font-weight: 600 !important;
@@ -551,6 +551,8 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   box-shadow: 0 1px 4px #00000054 !important;
 }
 
+/*----------------========================------------------------===================== */
+
 findbar {
   border: var(--md-menu-border-size) !important;
   border-color: var(--md-menu-border-color) !important;
@@ -691,7 +693,7 @@ tree {
   #identity-box[pageproxystate="valid"] {
     &:is(.verifiedDomain, .mixedActiveBlocked) #identity-icon {
       fill: var(--md-text-primary) !important;
-      filter: drop-shadow(0 0 3px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color))
+      filter: drop-shadow(0 0 3px var(--md-selection-background-color)) drop-shadow(0 0 1px var(--md-accent-color))
     }
   }
   
@@ -807,6 +809,17 @@ tree {
     }
   }
 
+#urlbar-zoom-button {
+  &:hover {
+    background-color: var(--urlbar-box-hover-bgcolor);
+    color: var(--urlbar-box-hover-text-color);
+  }
+}
+
+#urlbar-zoom-button {
+  font-weight: 600 !important;
+  font-size: 12px !important;
+}
 
 /*
 menuitem#context-copyimage .menu-text {
