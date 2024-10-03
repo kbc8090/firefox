@@ -1,3 +1,9 @@
+@-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
+  body {
+    background-color: var(--md-background-color-0) !important;
+    }
+  }
+
 *, html, body {
   text-rendering: optimizelegibility !important;
 	font-smooth: always !important;
@@ -166,7 +172,7 @@ tooltip {
     background-color: var(--md-background-color-50) !important;
     transition-duration: 185ms !important;
 	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
-  border: 1px solid color-mix(in srgb, var(--md-accent-color) 20%, transparent) !important;
+  border: 1px solid color-mix(in srgb, var(--md-accent-color) 18%, transparent) !important;
 }
 
 #urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
@@ -197,8 +203,8 @@ tooltip {
 #urlbar-input {
   padding-left: 2px !important;
   font-size: 15px !important;
-  font-weight: 600 !important;
-  font-family: "Segoe UI" !important;
+  font-weight: 500 !important;
+  font-family: "Roboto" !important;
 }
 
 /*
@@ -431,7 +437,11 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 /* Bookmark menu chevron overflow icon same as secondary text color */
 #PlacesChevron:not([collapsed]) .toolbarbutton-icon {
-    fill: var(--md-text-secondary) !important;
+    fill: var(--md-icon-color-secondary) !important;
+    width: calc(2 * var(--toolbarbutton-inner-padding) + 14px) !important;
+    align-items: center !important;
+    justify-content: center !important;
+    filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 3px var(--md-selection-background-color)) !important;
   }
 
 /* Changed panel header padding/font to look better/more consistent */
@@ -687,13 +697,13 @@ tree {
 
 #bookmarks-menu-button {
     fill: var(--md-accent-color) !important;
-    filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color))
+    filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
   }
 
   #identity-box[pageproxystate="valid"] {
     &:is(.verifiedDomain, .mixedActiveBlocked) #identity-icon {
       fill: var(--md-text-primary) !important;
-      filter: drop-shadow(0 0 3px var(--md-selection-background-color)) drop-shadow(0 0 1px var(--md-accent-color))
+      filter: drop-shadow(0 0 3px var(--md-selection-background-color)) drop-shadow(0 0 1px var(--md-accent-color)) !important;
     }
   }
   
@@ -731,9 +741,9 @@ tree {
       padding: 0 10px !important;
     }
 
-    #alltabs-button {
+    #tabbrowser-tabs:not([overflow]) ~ #alltabs-button {
       display: none !important;
-      visibility: hidden !important;
+      margin-left: 0px !important;
   }
   
     #identity-box {
@@ -810,17 +820,21 @@ tree {
   }
 
 #urlbar-zoom-button {
-  &:hover {
-    background-color: var(--urlbar-box-hover-bgcolor);
-    color: var(--urlbar-box-hover-text-color);
-  }
-}
-
-#urlbar-zoom-button {
   font-weight: 600 !important;
   font-size: 12px !important;
 }
 
+.titlebar-button {
+  color: var(--md-text-primary) !important;
+}
+
+.titlebar-min:hover, .titlebar-max:hover, .titlebar-restore:hover {
+  background-color: var(--md-menu-background-color-hover) !important;
+}
+
+.titlebar-min:active, .titlebar-max:active, .titlebar-restore:active {
+  background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+}
 /*
 menuitem#context-copyimage .menu-text {
   display: none;

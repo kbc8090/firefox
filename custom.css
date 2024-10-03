@@ -25,8 +25,9 @@
     --md-selection-background-color: #965be9;
     --md-icon-color-secondary: var(--md-text-secondary);
     --md-menu-border-color: #3d444d;
-    --md-content-separator-color: #3d444de5;
+    --md-content-separator-color: #565867ad;
     --md-menu-border-size: 2px solid;
+    --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
@@ -56,12 +57,13 @@
     --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-menu-border-color: #3c434d;
-    --md-content-separator-color: #394149b9;
+    --md-content-separator-color: #565867ad;
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: #1f6febb3;
     --md-icon-color-secondary: var(--md-text-secondary);
     --md-text-on-accent: var(--md-white);
     --md-menu-border-size: 2px solid;
+    --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
@@ -94,11 +96,125 @@
     --md-selection-background-color: #406fa5;
     --md-menu-border-color: light-dark(MenuText, #415e74ab);
     --md-icon-color-secondary: var(--md-text-secondary);
-    --md-content-separator-color: #5f6a7da1;
+    --md-content-separator-color: #565867ad;
     --md-menu-border-size: 2px solid;
+    --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
+    }
+  }
+}
+
+@media (-moz-bool-pref: "userChrome.theme-system-accent") {
+  /* use variables when dark mode */
+  @media (prefers-color-scheme: dark) {
+    :root,
+    html,
+    body {
+      --md-text-primary: color-mix(in srgb, AccentColor 17%, white) !important;
+      --md-text-secondary: color-mix(in srgb, var(--md-tab-label-color) 44%, transparent) !important;
+      --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 75%, white) !important;
+      --md-tab-label-color-inactive: var(--md-tab-label-color);
+      --md-icon-color-primary: var(--md-tab-label-color);
+      --md-icon-color-secondary: var(--md-text-primary);
+      --md-accent-color: color-mix(in srgb, var(--md-white) 15%, AccentColor);
+      --md-tab-background-color-hover: color-mix(
+        in srgb,
+        transparent 75%,
+        var(--md-accent-color)
+      );
+      --md-tab-opacity: 1.0;
+      --md-background-color-0: color-mix(
+        in srgb,
+        var(--md-grey-900) 85%,
+        var(--md-accent-color)
+      );
+      --md-background-color-50: color-mix(
+        in srgb,
+        var(--md-grey-900-white-4-percent) 85%,
+        var(--md-accent-color)
+      );
+      --md-background-color-100: color-mix(
+        in srgb,
+        var(--md-grey-900-white-5-percent) 85%,
+        var(--md-accent-color)
+      );
+      --md-menu-background-color-hover: light-dark(AccentColor, color-mix(
+        in srgb,
+        var(--md-grey-800) 85%,
+        var(--md-accent-color)
+      ));
+      --md-menu-border-color: color-mix(
+        in srgb,
+        var(--md-grey-800) 85%,
+        var(--md-accent-color)
+      );
+      --md-text-on-accent: var(--md-white);
+      --md-secondary-button-text: var(--md-text-primary);
+      --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 95%, transparent);
+      --md-selection-text-color: var(--md-text-on-accent);
+      --md-selection-background-color: var(--md-accent-color);
+      @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+        --tab-min-height: 36px !important;
+        --md-menu-border-size: 1px solid;
+      }
+    }
+  }
+
+  /* use variables when light mode */
+  @media (prefers-color-scheme: light) {
+    :root,
+    html,
+    body {
+      --md-accent-color: color-mix(
+        in srgb,
+        var(--md-grey-900) 15%,
+        AccentColor
+      );
+      --md-tab-background-color-hover: color-mix(
+        in srgb,
+        transparent 75%,
+        var(--md-accent-color)
+      );
+      --md-tab-opacity: 0.9;
+      --md-background-color-0: color-mix(
+        in srgb,
+        #dee1e6 90%,
+        var(--md-accent-color)
+      );
+      --md-background-color-50: color-mix(
+        in srgb,
+        var(--md-grey-100) 90%,
+        var(--md-accent-color)
+      );
+      --md-background-color-100: color-mix(
+        in srgb,
+        var(--md-white) 90%,
+        var(--md-accent-color)
+      );
+      --md-menu-background-color-hover: color-mix(
+        in srgb,
+        var(--md-background-color-0) 90%,
+        var(--md-accent-color)
+      );
+      --md-menu-border-color: color-mix(
+        in srgb,
+        var(--md-background-color-0) 90%,
+        var(--md-accent-color)
+      );
+      --md-content-separator-color: color-mix(
+        in srgb,
+        #dbdcdd 90%,
+        var(--md-accent-color)
+      );
+      --md-secondary-button-text: var(--md-accent-color);
+      --md-selection-text-color: var(--md-text-on-accent);
+      --md-selection-background-color: var(--md-accent-color);
+      @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+        --tab-min-height: 36px !important;
+        --md-menu-border-size: 1px solid;
+      }
     }
   }
 }
