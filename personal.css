@@ -1,9 +1,3 @@
-@-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
-  body {
-    background-color: var(--md-background-color-0) !important;
-    }
-  }
-
 *, html, body {
   text-rendering: optimizelegibility !important;
 	font-smooth: always !important;
@@ -105,6 +99,7 @@
     --arrowpanel-background: var(--md-menu-background-color) !important;
     --button-active-bgcolor: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
     --toolbarbutton-active-background: var(--md-selection-background-color) !important;
+    --urlbar-box-bgcolor: var(--md-background-color-100) !important;
 }
 
 body {
@@ -172,7 +167,7 @@ tooltip {
     background-color: var(--md-background-color-50) !important;
     transition-duration: 185ms !important;
 	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
-  border: 1px solid color-mix(in srgb, var(--md-accent-color) 18%, transparent) !important;
+  border: 1px solid var(--md-menu-border-color) !important;
 }
 
 #urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
@@ -820,6 +815,7 @@ tree {
   }
 
 #urlbar-zoom-button {
+  border: 1px solid var(--md-menu-border-color) !important;
   font-weight: 600 !important;
   font-size: 12px !important;
 }
