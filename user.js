@@ -9,8 +9,6 @@
 
 /****************************************************************************
  * Betterfox                                                                *
- * "Ad meliora"                                                             *
- * version: 119                                                             *
  * url: https://github.com/yokoffing/Betterfox                              *
 ****************************************************************************/
 
@@ -262,6 +260,7 @@ user_pref("nglayout.enable_drag_images", false);
 // Enter your personal overrides below this line:
 
 user_pref("widget.non-native-theme.scrollbar.style", 1);
+user_pref("widget.non-native-theme.use-theme-accent", true);
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *

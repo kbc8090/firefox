@@ -109,6 +109,11 @@
 @media (-moz-bool-pref: "userChrome.theme-system-accent") {
   /* use variables when dark mode */
   @media (prefers-color-scheme: dark) {
+    @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
+      body {
+        background-color: var(--md-background-color-0) !important;
+        }
+      }
     :root,
     html,
     body {
@@ -118,7 +123,7 @@
       --md-tab-label-color-inactive: var(--md-tab-label-color);
       --md-icon-color-primary: var(--md-tab-label-color);
       --md-icon-color-secondary: var(--md-text-primary);
-      --md-accent-color: color-mix(in srgb, var(--md-grey-600) 40%, AccentColor);
+      --md-accent-color: color-mix(in srgb, var(--md-grey-500) 40%, AccentColor);
       --md-tab-background-color-hover: color-mix(
         in srgb,
         transparent 75%,
@@ -140,11 +145,7 @@
         var(--md-grey-900-white-5-percent) 85%,
         var(--md-accent-color)
       );
-      --md-menu-background-color-hover: light-dark(AccentColor, color-mix(
-        in srgb,
-        var(--md-grey-800) 85%,
-        var(--md-accent-color)
-      ));
+      --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, var(--md-grey-800) 80%, var(--md-accent-color)));
       --md-menu-border-color: color-mix(
         in srgb,
         var(--md-grey-800) 85%,
@@ -152,9 +153,10 @@
       );
       --md-text-on-accent: var(--md-white);
       --md-secondary-button-text: var(--md-text-primary);
-      --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 95%, transparent);
+      --md-content-separator-color: var(--md-menu-border-color);
       --md-selection-text-color: var(--md-text-on-accent);
       --md-selection-background-color: var(--md-accent-color);
+      --md-menu-border-size: 2px solid;
       @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
         --tab-min-height: 36px !important;
         --md-menu-border-size: 1px solid;
@@ -211,6 +213,7 @@
       --md-secondary-button-text: var(--md-accent-color);
       --md-selection-text-color: var(--md-text-on-accent);
       --md-selection-background-color: var(--md-accent-color);
+      --md-menu-border-size: 2px solid;
       @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
         --tab-min-height: 36px !important;
         --md-menu-border-size: 1px solid;

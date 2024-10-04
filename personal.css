@@ -570,7 +570,7 @@ findbar {
 
 .findbar-textbox {
   &[status="notfound"] {
-    background-color: rgba(255, 0, 0, 0.3) !important;
+    background-color: rgba(255, 0, 0, 0.2) !important;
     border-color: transparent !important;
     border-radius: 4px !important;
   }
@@ -698,7 +698,7 @@ tree {
   #identity-box[pageproxystate="valid"] {
     &:is(.verifiedDomain, .mixedActiveBlocked) #identity-icon {
       fill: var(--md-text-primary) !important;
-      filter: drop-shadow(0 0 3px var(--md-selection-background-color)) drop-shadow(0 0 1px var(--md-accent-color)) !important;
+      filter: drop-shadow(0 0 2px var(--md-selection-background-color)) drop-shadow(0 0 1px var(--md-accent-color)) !important;
     }
   }
   
@@ -710,6 +710,9 @@ tree {
     }
   }
 
+  #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
+    margin-left: 5px !important;
+  }
   
 @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
@@ -736,9 +739,49 @@ tree {
       padding: 0 10px !important;
     }
 
+    #alltabs-button {
+      margin: 0 !important;
+      min-width: 34px !important;
+      max-width: 34px !important;
+      min-height: 35px !important;
+      max-height: 100% !important;
+    
+      justify-content: center !important;
+      align-content: center !important;
+    
+      .toolbarbutton-badge-stack {
+        transform: translate(0px, 1px) !important;
+    
+        min-width: 28px !important;
+        max-width: 28px !important;
+        min-height: 28px !important;
+        max-height: 28px !important;
+    
+        display: grid !important;
+        align-content: center !important;
+        place-content: center !important;
+        place-items: center !important;
+        justify-content: center !important;
+    
+        overflow: hidden !important;
+        border-radius: 100px !important;
+      }
+    
+      .toolbarbutton-icon {
+        width: 16px !important;
+        height: 16px !important;
+      }
+    }
+
     #tabbrowser-tabs:not([overflow]) ~ #alltabs-button {
       display: none !important;
       margin-left: 0px !important;
+  }
+
+  #alltabs-button .toolbarbutton-badge-stack {
+    transition-property: background-color !important;
+    transition-duration: get-var("short-duration") !important;
+    transition-timing-function: get-var("fade-in-out") !important;
   }
   
     #identity-box {
@@ -831,6 +874,7 @@ tree {
 .titlebar-min:active, .titlebar-max:active, .titlebar-restore:active {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
+
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
