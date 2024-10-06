@@ -206,6 +206,16 @@ user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
+user_pref("ui.prefersReducedMotion", 0);
+
+//** USERCHROME CUSTOM OPTIONS ***/
+user_pref("userChrome.theme-dracula", false);
+user_pref("userChrome.theme-github", false);
+user_pref("userChrome.theme-slate", false);
+user_pref("userChrome.theme-system-accent", true);
+user_pref("userChrome.ui-chrome-refresh", false);
+user_pref("userChrome.ui-compact-url-bar", false);
+user_pref("userChrome.ui-context-menu-icons", false);
 
 /** COOKIE BANNER HANDLING ***/
 user_pref("cookiebanners.service.mode", 1);
