@@ -198,8 +198,8 @@ tooltip {
 #urlbar-input {
   padding-left: 2px !important;
   font-size: 15px !important;
-  font-weight: 500 !important;
-  font-family: "Roboto" !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI" !important;
 }
 
 /*
@@ -663,9 +663,27 @@ search-textbox#search-box:hover {
   background-color: color-mix(in srgb, var(--md-background-color-50) 95%, white) !important;
 }
 
+#downloadsPanel-blockedSubview, #downloadsPanel-mainView {
+  min-width: 37em;
+  padding: 4px !important;
+  border-radius: 8px !important;
+}
+
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]) {
-  border: var(--md-menu-border-size) !important;
-  margin: 2px !important;
+  border: 0px !important;
+  margin: 0px !important;
+  border-radius: 4px !important;
+  color: var(--md-text-primary) !important;
+  padding: 6px !important;
+  text-shadow: 1px 1px 4px #000 !important;
+}
+
+#downloadsPanel #downloadsFooter #downloadsHistory:hover {
+  background-color: var(--md-menu-background-color-hover) !important;
+}
+
+#downloadsPanel #downloadsFooter #downloadsHistory:active {
+  background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
 
 tree {
@@ -679,8 +697,29 @@ tree {
   background-color: var(--md-menu-background-color-hover) !important;
 }
 
+#editBookmarkPanel .expander-up:active, #editBookmarkPanel .expander-down:active {
+  background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+}
+
 #editBookmarkPanel .expander-up, #editBookmarkPanel .expander-down {
   fill: var(--md-text-primary) !important;
+}
+
+#editBookmarkPanelCancelButton,
+#editBookmarkPanelRemoveButton {
+    margin-left: 8px !important;
+    border: var(--md-menu-border-size) var(--md-menu-border-color) !important;
+}
+
+#editBookmarkPanelCancelButton:hover,
+#editBookmarkPanelRemoveButton:hover {
+    background-color: var(--md-menu-background-color-hover) !important;
+}
+
+#editBookmarkPanelCancelButton:active,
+#editBookmarkPanelRemoveButton:active {
+    background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+    border: var(--md-menu-border-size) var(--md-accent-color) !important;
 }
 
   /* uBlock Origin -> custom svg icon
@@ -1244,9 +1283,9 @@ button:active {
       background-color: var(--odd-bg-row) !important;
       color: var(--textcolor) !important;
     }
-    /* Clear Text Icon (Not sure how to style this) */
+    /* Clear Text Icon (Not sure how to style this)
     .textbox-search-clear {
-    }
+    }*/
     
     /* Clear Downloads Button */
     #clearDownloadsButton[disabled] {

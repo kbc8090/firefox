@@ -117,13 +117,13 @@
     :root,
     html,
     body {
-      --md-text-primary: color-mix(in srgb, AccentColor 15%, white) !important;
+      --md-text-primary: color-mix(in srgb, AccentColor 13%, white) !important;
       --md-text-secondary: color-mix(in srgb, var(--md-tab-label-color) 44%, transparent) !important;
       --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 75%, white) !important;
       --md-tab-label-color-inactive: var(--md-tab-label-color);
       --md-icon-color-primary: var(--md-tab-label-color);
       --md-icon-color-secondary: var(--md-text-primary);
-      --md-accent-color: color-mix(in srgb, var(--md-grey-500) 40%, AccentColor);
+      --md-accent-color: color-mix(in srgb, var(--md-grey-400) 35%, AccentColor);
       --md-tab-background-color-hover: color-mix(
         in srgb,
         transparent 75%,

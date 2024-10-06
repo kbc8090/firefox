@@ -195,6 +195,8 @@ user_pref("devtools.accessibility.enabled", false);
 user_pref("devtools.debugger.prompt-connection", false);
 
 /** THEME ADJUSTMENTS ***/
+user_pref("widget.non-native-theme.scrollbar.style", 1);
+user_pref("widget.non-native-theme.use-theme-accent", true);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("svg.context-properties.content.enabled", true);
 user_pref("layout.css.color-mix.enabled", true);
@@ -259,8 +261,7 @@ user_pref("nglayout.enable_drag_images", false);
 // visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
 // Enter your personal overrides below this line:
 
-user_pref("widget.non-native-theme.scrollbar.style", 1);
-user_pref("widget.non-native-theme.use-theme-accent", true);
+
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
