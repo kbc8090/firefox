@@ -27,7 +27,8 @@ user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
-user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible",true);
+user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
+user_pref("gfx.webrender.all", true);
 
 /** DISK CACHE ***/
 user_pref("browser.cache.jsbc_compression_level", 3);
