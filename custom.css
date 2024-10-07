@@ -1,11 +1,5 @@
 /* use variables when about:config variable userChrome.theme-dracula is true */
-@import "personal.css";
 @media (-moz-bool-pref: "userChrome.theme-dracula") {
-  @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
-    body {
-      background-color: #212533 !important;
-      }
-    }
   :root,
   html,
   body {
@@ -36,11 +30,6 @@
 }
 
 @media (-moz-bool-pref: "userChrome.theme-github") {
-  @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
-    body {
-      background-color: #222931 !important;
-      }
-    }
   :root,
   html,
   body {
@@ -72,11 +61,6 @@
 }
 
 @media (-moz-bool-pref: "userChrome.theme-slate") {
-  @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
-    body {
-      background-color: #222c3b !important;
-      }
-    }
   :root,
   html,
   body {
@@ -109,17 +93,12 @@
 @media (-moz-bool-pref: "userChrome.theme-system-accent") {
   /* use variables when dark mode */
   @media (prefers-color-scheme: dark) {
-    @-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
-      body {
-        background-color: var(--md-background-color-0) !important;
-        }
-      }
     :root,
     html,
     body {
       --md-text-primary: color-mix(in srgb, AccentColor 13%, white) !important;
       --md-text-secondary: color-mix(in srgb, var(--md-tab-label-color) 44%, transparent) !important;
-      --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 75%, white) !important;
+      --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 72%, white) !important;
       --md-tab-label-color-inactive: var(--md-tab-label-color);
       --md-icon-color-primary: var(--md-tab-label-color);
       --md-icon-color-secondary: var(--md-text-primary);
@@ -158,7 +137,7 @@
       --md-selection-background-color: var(--md-accent-color);
       --md-menu-border-size: 2px solid;
       @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-        --tab-min-height: 36px !important;
+        --tab-min-height: 38px !important;
         --md-menu-border-size: 1px solid;
       }
     }

@@ -67,6 +67,7 @@
     display: none !important;
 }
 
+
 /* Make background tabs not as vibrant as selected tab
 .tabbrowser-tab:not([selected=true]):not([multiselected=true]) .tab-background {
     background-color: color-mix(in srgb, currentColor 4%, transparent);
@@ -80,6 +81,11 @@
 /* Make unselected tabs foreground color a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
       color: color-mix(in srgb, var(--md-text-primary) 70%, transparent) !important;
+}
+
+#tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+  box-shadow: unset !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
 }
 
 /* Make unselected tab title color on hover the selected tab color 
@@ -100,6 +106,8 @@
     --button-active-bgcolor: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
     --toolbarbutton-active-background: var(--md-selection-background-color) !important;
     --urlbar-box-bgcolor: var(--md-background-color-100) !important;
+    --message-bar-border-radius: 8px !important;
+    --message-bar-border-width: 1px !important;
 }
 
 body {
@@ -173,6 +181,7 @@ tooltip {
 #urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
     background-color: color-mix(in srgb, var(--md-background-color-50) 50%, transparent) !important;
 }
+
 
 /* Materialfox already does this, but also here in case.. */
 #tabbrowser-tab-tooltip {
@@ -281,6 +290,7 @@ tooltip {
     }
 }
 
+
 /* Reduce padding on context menu separators */
 menuseparator::before {
     margin-inline-start: 0px !important;
@@ -366,6 +376,11 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #unified-extensions-manage-extensions,
 #identity-popup-more-info,
 #identity-popup-clear-sitedata-button,
+#protections-popup-category-cookies,
+#protections-popup-category-trackers,
+#protections-popup-category-socialblock,
+#protections-popup-category-fingerprinters,
+#protections-popup-category-cryptominers,
 #appMenu-library-recentlyClosedWindows > .restoreallitem,
 #appMenu-library-recentlyClosedTabs > .restoreallitem {
   -moz-context-properties: fill !important;
@@ -383,12 +398,100 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #unified-extensions-manage-extensions:hover,
 #identity-popup-more-info:hover,
 #identity-popup-clear-sitedata-button:hover,
+#protections-popup-category-cookies:not([disabled]):hover,
+#protections-popup-category-trackers:not([disabled]):hover,
+#protections-popup-category-socialblock:not([disabled]):hover,
+#protections-popup-category-fingerprinters:not([disabled]):hover,
+#protections-popup-category-cryptominers:not([disabled]):hover,
 #appMenu-library-recentlyClosedWindows > .restoreallitem:hover,
 #appMenu-library-recentlyClosedTabs > .restoreallitem:hover {
   & > .toolbarbutton-icon {
     -moz-context-properties: fill !important;
     fill: var(--md-accent-color) !important;
   }  /* Web Developer Tools */
+}
+
+#protections-popup-category-cookies[disabled],
+#protections-popup-category-trackers[disabled],
+#protections-popup-category-socialblock[disabled],
+#protections-popup-category-fingerprinters[disabled],
+#protections-popup-category-cryptominers[disabled] {
+  & > .toolbarbutton-icon {
+    -moz-context-properties: fill !important;
+    fill: var(--md-text-secondary) !important;
+  }  
+}
+
+#protections-popup-settings-button > .protections-popup-settings-icon {
+  list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: var(--md-tab-label-color) !important;
+  margin-inline-end: 1em !important;
+}
+
+#protections-popup-settings-button:not([disabled]):hover {
+  & > .protections-popup-settings-icon {
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--md-accent-color) !important;
+  }
+}
+
+#protections-popup-show-report-button > .protections-popup-show-report-icon {
+  list-style-image: url("dashboard.svg") !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: var(--md-tab-label-color) !important;
+  margin-inline-end: 1em !important;
+}
+
+#protections-popup-show-report-button:not([disabled]):hover {
+  & > .protections-popup-show-report-icon {
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--md-accent-color) !important;
+  }
+}
+
+#protections-popup-trackersView-settings-button {
+  list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: var(--md-tab-label-color) !important;
+}
+
+#protections-popup-trackersView-settings-button:hover {
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--md-accent-color) !important;
+}
+
+#protections-popup-fingerprintersView-settings-button {
+  list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: var(--md-tab-label-color) !important;
+}
+
+#protections-popup-fingerprintersView-settings-button:hover {
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--md-accent-color) !important;
+}
+
+#protections-popup-socialblockView-settings-button {
+  list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: var(--md-tab-label-color) !important;
+}
+
+#protections-popup-socialblockView-settings-button:hover {
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--md-accent-color) !important;
+}
+
+#protections-popup-cryptominersView-settings-button {
+  list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: var(--md-tab-label-color) !important;
+}
+
+#protections-popup-cryptominersView-settings-button:hover {
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--md-accent-color) !important;
 }
 
 .toolbarbutton-1 {
@@ -543,9 +646,28 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 	z-index: 1 !important;
 }
 
-.container.infobar {
+.container.infobar, .container {
   color: var(--md-text-primary) !important;
-  background-color: var(--md-background-color-50) !important;
+  background-color: var(--md-background-color-0) !important;
+  border-radius: 8px !important;
+}
+
+:host(.infobar) {
+  &::before {
+    background-image: none !important;
+  }
+}
+
+.container #blockedPopupOptionsButton {
+  border: 2px solid #FF0000; /* Change border color */
+}
+
+.container #blockedPopupOptionsButton:hover {
+  background-color: #FFFF00; /* Change hover background color */
+}
+
+.container #blockedPopupOptionsButton:active {
+  background-color: #00FF00; /* Change active background color */
 }
 
 /*.urlbar-input-container:active {
@@ -673,9 +795,8 @@ search-textbox#search-box:hover {
   border: 0px !important;
   margin: 0px !important;
   border-radius: 4px !important;
-  color: var(--md-text-primary) !important;
+  color: var(--md-tab-label-color) !important;
   padding: 6px !important;
-  text-shadow: 1px 1px 4px #000 !important;
 }
 
 #downloadsPanel #downloadsFooter #downloadsHistory:hover {
@@ -684,6 +805,17 @@ search-textbox#search-box:hover {
 
 #downloadsPanel #downloadsFooter #downloadsHistory:active {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+}
+
+#downloadsHistory {
+  list-style-image: url("icons/download.svg");
+
+}
+
+#downloadsFooterButtons > button .button-icon {
+  width: 14px !important;
+  height: 14px !important;
+  margin-inline-end: 1em !important;
 }
 
 tree {
@@ -913,6 +1045,15 @@ tree {
 .titlebar-min:active, .titlebar-max:active, .titlebar-restore:active {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
+
+/* Standard Folder - Open */
+:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
+  .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
+:-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
+  treechildren::-moz-tree-image(title, container, open) {
+  list-style-image: url("folder-open.svg") !important;
+}
+
 
 /*
 menuitem#context-copyimage .menu-text {
@@ -1296,7 +1437,7 @@ button:active {
  
     #clearDownloadsButton {
       list-style-image: url("chrome://global/skin/icons/delete.svg") !important;
-      color: var(--textcolor) !important;
+      color: var(--md-tab-label-color) !important;
       padding-left: 5px !important;
       padding-right: 7px !important;
       padding-top: 8px !important;
