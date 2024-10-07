@@ -281,6 +281,12 @@ tooltip {
     }
 }
 
+menupopup, panel {
+  &::part(content) {
+    border-radius: 8px !important;
+  }
+}
+
 @media (-moz-platform: windows), (-moz-platform: linux) {
     menu, menuitem {
         margin-inline-start: 0px !important;
@@ -818,13 +824,6 @@ search-textbox#search-box:hover {
   margin-inline-end: 1em !important;
 }
 
-tree {
-  color: var(--md-text-primary) !important;
-  background-color: var(--md-menu-background-color) !important;
-  border-color: var(--md-menu-border-color) !important;
-  border-width: 2px !important;
-}
-
 #editBookmarkPanel .expander-up:hover, #editBookmarkPanel .expander-down:hover {
   background-color: var(--md-menu-background-color-hover) !important;
 }
@@ -1054,6 +1053,29 @@ tree {
   list-style-image: url("folder-open.svg") !important;
 }
 
+tree {
+  color: var(--md-text-primary) !important;
+  background-color: var(--md-menu-background-color) !important;
+  border: var(--md-menu-border-size) !important;
+  border-color: var(--md-menu-border-color) !important;
+}
+
+#editBMPanel_folderTree > placesTree {
+  border: 1px solid red !important;
+}
+
+#editBMPanel_newFolderButton {
+  border: var(--md-menu-border-size) var(--md-menu-border-color) !important;
+}
+
+#editBMPanel_newFolderButton:hover {
+  background-color: var(--md-menu-background-color-hover) !important;
+}
+
+#editBMPanel_newFolderButton:active {
+  background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+  border: var(--md-menu-border-size) var(--md-accent-color) !important;
+}
 
 /*
 menuitem#context-copyimage .menu-text {
