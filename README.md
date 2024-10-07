@@ -5,4 +5,4 @@ Installation should be pretty straightforward if you're reading this:
 2. install material-fox-updated by edelvarden
 3. download all the files in this directory and put them in your /chrome/ folder
 
-That's basically it.  I included the custom "userChrome.*" options in the user.js, so if you just type about:config and type in userchrome at the top there should be some themes and other things to choose from.
+That's basically it.  You can look in the user.js at the userChrome.* options you can set.  I run the commented out settings.
