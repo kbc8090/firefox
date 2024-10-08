@@ -911,9 +911,9 @@ search-textbox#search-box:hover {
 
     #alltabs-button {
       margin: 0 !important;
-      min-width: 34px !important;
-      max-width: 34px !important;
-      min-height: 35px !important;
+      min-width: 36px !important;
+      max-width: 36px !important;
+      min-height: 36px !important;
       max-height: 100% !important;
     
       justify-content: center !important;
@@ -1008,6 +1008,7 @@ search-textbox#search-box:hover {
     :is(.all-tabs-secondary-button, .tab-icon-overlay)[soundplaying],
     .tab-icon-sound {
       list-style-image: url("icons/audio.svg") !important;
+      fill: var(--md-tab-label-color) !important;
     }
 
     .all-tabs-secondary-button,
@@ -1015,6 +1016,7 @@ search-textbox#search-box:hover {
     .tab-icon-sound {
       &[muted] {
         list-style-image: url("icons/audio-muted.svg")  !important;
+        fill: var(--md-text-secondary) !important;
       }
     }
 
@@ -1023,6 +1025,7 @@ search-textbox#search-box:hover {
     .tab-icon-sound {
       &[activemedia-blocked] {
         list-style-image: url("icons/audio-muted.svg")  !important;
+        fill: var(--md-text-secondary) !important;
       }
     }
   }
@@ -1043,6 +1046,17 @@ search-textbox#search-box:hover {
 
 .titlebar-min:active, .titlebar-max:active, .titlebar-restore:active {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+}
+
+.bookmark-item[container],
+treechildren::-moz-tree-image(title, container),
+treechildren::-moz-tree-image(title, open) {
+  list-style-image: url("folder.svg") !important;
+}
+
+.downloadIconShow .button-icon,
+.folder-icon {
+  list-style-image: url("folder.svg") !important;
 }
 
 /* Standard Folder - Open */
@@ -1075,6 +1089,20 @@ tree {
 #editBMPanel_newFolderButton:active {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
   border: var(--md-menu-border-size) var(--md-accent-color) !important;
+}
+
+
+#unified-extensions-view > .unified-extensions-item-menu-button.subviewbutton:hover {
+  border-radius: 100px !important;
+}
+
+.unified-extensions-item-icon,
+.unified-extensions-item
+  .webextension-browser-action.subviewbutton
+  > .toolbarbutton-badge-stack
+  > .toolbarbutton-icon {
+  height: 20px !important;
+  width: 20px !important;
 }
 
 /*
