@@ -500,6 +500,17 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     fill: var(--md-accent-color) !important;
 }
 
+#protections-popup-cookiesView-settings-button {
+  list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: var(--md-tab-label-color) !important;
+}
+
+#protections-popup-cookiesView-settings-button:hover {
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--md-accent-color) !important;
+}
+
 .toolbarbutton-1 {
   fill: var(--md-text-primary) !important;
 }
