@@ -85,7 +85,7 @@
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
   box-shadow: unset !important;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
 }
 
 /* Make unselected tab title color on hover the selected tab color 
@@ -1053,11 +1053,18 @@ search-textbox#search-box:hover {
 
 .titlebar-min:hover, .titlebar-max:hover, .titlebar-restore:hover {
   background-color: var(--md-menu-background-color-hover) !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4)) !important;
+}
+
+.titlebar-close:hover {
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4)) !important;
 }
 
 .titlebar-min:active, .titlebar-max:active, .titlebar-restore:active {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
+
+
 
 .bookmark-item[container],
 treechildren::-moz-tree-image(title, container),
@@ -1152,13 +1159,13 @@ button:active {
     /* Change colors here */
     :root { --background: var(--md-background-color-100); }
     :root { --odd-bg-row: var(--md-background-color-0); }
-    :root { --textcolor: var(--md-text-primary); }
+    :root { --textcolor: var(--md-tab-label-color); }
     :root { --iconcolor: var(--md-text-primary); }
     :root { --selected-iconcolor: var(--md-text-primary); }
     :root { --hover-iconcolor: var(--md-text-primary); }
     :root { --bordercolor: var(--md-menu-border-color); }
     :root { --hover-bg-row: var(--md-menu-background-color-hover); }
-    :root { --hover-text-row: var(--md-text-primary); }
+    :root { --hover-text-row: var(--md-tab-label-color); }
     :root { --selected-text-row: var(--md-text-primary); }
     :root { --organizer-hover-background: var(--md-menu-background-color-hover) !important; }
     :root { --default-focusring-width: 0px !important; }
@@ -1412,38 +1419,47 @@ button:active {
   
   /* Right side list Icons */
   #placesView treechildren::-moz-tree-image {
-    fill: var(--iconcolor) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-secondary) !important;
   }
   #placesView treechildren::-moz-tree-image(title hover) {
-    fill: var(--hover-iconcolor) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-secondary) !important;
   }
   #placesView treechildren::-moz-tree-image(title selected) {
-    fill: var(--md-selection-text-color) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-primary) !important;
   }
   /* Right side Folders */
   #placesView treechildren::-moz-tree-image(container selected) {
-    fill: var(--md-selection-text-color) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-primary) !important;
   }
   
   /* Left side list Icons */
   #placesList treechildren::-moz-tree-image {
-    fill: var(--md-tab-label-color) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-secondary) !important;
   }
   /* Hover Left side Icons */
   #placesList treechildren::-moz-tree-image(title hover) {
-    fill: var(--hover-iconcolor) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-secondary) !important;
   }
   /* Hover Left side Folders */
   #placesList treechildren::-moz-tree-image(container hover) {
-    fill: var(--hover-iconcolor) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-secondary) !important;
   }
   /* Selected left side icons */
   #placesList treechildren::-moz-tree-image(title selected) {
-    fill: var(--selected-iconcolor) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-primary) !important;
   }
   /* Selected Left side Folders */
   #placesList treechildren::-moz-tree-image(container selected) {
-    fill: var(--selected-iconcolor) !important;
+    fill-opacity: 1 !important;
+    fill: var(--md-text-primary) !important;
   }
   
   /* Left Side Rows Hover */
@@ -1456,11 +1472,13 @@ button:active {
   }
   /* Left Side Text Hover */
   #placesList treechildren::-moz-tree-cell-text(hover) {
-    color: var(--hover-text-row) !important;
+    fill-opacity: 1 !important;
+    color: var(--md-tab-label-color) !important;
   }
   /* Left Side Text Selected */
   #placesList treechildren::-moz-tree-cell-text(selected) {
-    color: var(--selected-text-row) !important;
+    fill-opacity: 1 !important;
+    color: var(--md-selection-text-color) !important;
   }
     
     /* Searchbox */
