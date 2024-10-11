@@ -85,7 +85,7 @@
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
   box-shadow: unset !important;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35));
 }
 
 /* Make unselected tab title color on hover the selected tab color 
@@ -552,11 +552,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 /* Bookmark menu chevron overflow icon same as secondary text color */
 #PlacesChevron:not([collapsed]) .toolbarbutton-icon {
-    fill: var(--md-icon-color-secondary) !important;
-    width: calc(2 * var(--toolbarbutton-inner-padding) + 14px) !important;
+    fill: var(--md-text-primary) !important;
+    fill-opacity: 1 !important;
+    width: calc(2 * var(--toolbarbutton-inner-padding) + 15px) !important;
     align-items: center !important;
     justify-content: center !important;
-    filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 3px var(--md-selection-background-color)) !important;
+    /*filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 3px var(--md-selection-background-color)) !important; */
   }
 
 /* Changed panel header padding/font to look better/more consistent */

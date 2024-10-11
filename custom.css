@@ -18,7 +18,7 @@
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: #965be9;
     --md-icon-color-secondary: var(--md-text-secondary);
-    --md-menu-border-color: #3d444d;
+    --md-menu-border-color: color-mix(in srgb, var(--md-background-color-100) 96%, white);
     --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 95%, transparent);
     --md-menu-border-size: 2px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
@@ -137,7 +137,7 @@
       --md-selection-background-color: var(--md-accent-color);
       --md-menu-border-size: 2px solid;
       @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-        --tab-min-height: 38px !important;
+        --tab-min-height: 36px !important;
         --md-menu-border-size: 1px solid;
       }
     }
