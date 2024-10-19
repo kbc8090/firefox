@@ -370,7 +370,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 /*  Change svg icon color to match text color */
 @media not (-moz-bool-pref: "userChrome.ui-no-menu-icons") {
     .panel-subview-body > .subviewbutton:not([disabled]) {
-        fill: var(--md-tab-label-color) !important;
+        fill: var(--md-text-primary) !important;
     }
 }
 
@@ -393,7 +393,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
   & > .toolbarbutton-icon {
     -moz-context-properties: fill !important;
-    fill: var(--md-tab-label-color) !important;
+    fill: var(--md-text-primary) !important;
   }
 }
 #allTabsMenu-containerTabsButton:hover,
@@ -892,10 +892,33 @@ search-textbox#search-box:hover {
     }
   }
 
-  #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
+  /*#tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
     margin-left: 5px !important;
+  }*/
+  
+  scrollbox:is([orient="horizontal"], [smoothscroll="true"], [flex="1"]) {
+    padding-inline-start: 12px !important;
+    margin-inline-start: -12px !important;
+    padding-inline-end: 12px !important;
+    margin-inline-end: -12px !important;
   }
   
+  #scrollbutton-up {
+    z-index: 999 !important;
+  }
+
+  #scrollbutton-down {
+    z-index: 999 !important;
+  }
+
+  spacer:is([part="overflow-start-indicator"]) {
+    margin-inline: 0px 6px !important;
+  }
+
+  spacer:is([part="overflow-end-indicator"]) {
+    margin-inline: 6px 0px !important;
+  }
+
 @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
       margin-left: 12px !important;
@@ -1597,5 +1620,4 @@ button:active {
       margin-left: 3px !important;
     }
     
-    
-    }
+  }
