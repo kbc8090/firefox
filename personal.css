@@ -1039,29 +1039,35 @@ search-textbox#search-box:hover {
     #urlbar-label-box {
       background-color: var(--md-background-color-100) !important;
     }
+  }
 
-    :is(.all-tabs-secondary-button, .tab-icon-overlay)[soundplaying],
-    .tab-icon-sound {
-      list-style-image: url("icons/audio.svg") !important;
-      fill: var(--md-tab-label-color) !important;
+  :is(.all-tabs-secondary-button, .tab-icon-overlay)[soundplaying],
+  .tab-icon-sound {
+    list-style-image: url("icons/audio.svg") !important;
+    fill: var(--md-text-primary) !important;
+    background-color: transparent !important;
+    border: 0px !important;
+  }
+
+  .all-tabs-secondary-button,
+  .tab-icon-overlay,
+  .tab-icon-sound {
+    &[muted] {
+      list-style-image: url("icons/audio-muted.svg")  !important;
+      fill: var(--md-text-secondary) !important;
+      border: 0px !important;
+      background-color: transparent !important;
     }
+  }
 
-    .all-tabs-secondary-button,
-    .tab-icon-overlay,
-    .tab-icon-sound {
-      &[muted] {
-        list-style-image: url("icons/audio-muted.svg")  !important;
-        fill: var(--md-text-secondary) !important;
-      }
-    }
-
-    .all-tabs-secondary-button,
-    .tab-icon-overlay,
-    .tab-icon-sound {
-      &[activemedia-blocked] {
-        list-style-image: url("icons/audio-muted.svg")  !important;
-        fill: var(--md-text-secondary) !important;
-      }
+  .all-tabs-secondary-button,
+  .tab-icon-overlay,
+  .tab-icon-sound {
+    &[activemedia-blocked] {
+      list-style-image: url("icons/audio-muted.svg")  !important;
+      fill: var(--md-text-secondary) !important;
+      border: 0px !important;
+      background-color: transparent !important;
     }
   }
 
@@ -1087,6 +1093,12 @@ search-textbox#search-box:hover {
 .titlebar-min:active, .titlebar-max:active, .titlebar-restore:active {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
+
+/*.urlbarView {
+	background-image: url("noise-512x512.png") !important;
+	background-color: #2A2A2AC0 !important;
+	backdrop-filter: blur(32px) !important;
+} */
 
 
 
@@ -1145,6 +1157,22 @@ tree {
   > .toolbarbutton-icon {
   height: 20px !important;
   width: 20px !important;
+}
+
+#identity-box:not(.chromeUI):not(.extensionPage) {
+  #identity-icon-box.identity-box-button {
+    padding-inline: unset !important;
+  }
+}
+
+spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
+  border-color: var(--md-accent-color) !important;
+  filter: drop-shadow(0 0 3px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
+  border-bottom: none !important;
+}
+
+#tabbrowser-tabs {
+  min-height: unset !important;
 }
 
 /*
