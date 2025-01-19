@@ -246,7 +246,7 @@ tooltip {
 #urlbar[open] .urlbarView,
 #urlbar[breakout][breakout-extend] > #urlbar-background {
 	animation-name: fp-urlbar-animation !important;
-	animation-duration: 340ms !important;
+	animation-duration: 200ms !important;
 	transform-origin: top !important;
 	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) !important;
 }
