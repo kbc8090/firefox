@@ -243,12 +243,14 @@ tooltip {
 }
 
 /* Animate the search breakout window like FFPlus */
-#urlbar[open] .urlbarView,
-#urlbar[breakout][breakout-extend] > #urlbar-background {
-	animation-name: fp-urlbar-animation !important;
-	animation-duration: 200ms !important;
-	transform-origin: top !important;
-	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+@media not (prefers-reduced-motion: reduce) {
+  #urlbar[open] .urlbarView,
+  #urlbar[breakout][breakout-extend] > #urlbar-background {
+    animation-name: fp-urlbar-animation !important;
+    animation-duration: 200ms !important;
+    transform-origin: top !important;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) !important;
+  }
 }
 
 @keyframes fp-urlbar-animation {
@@ -344,8 +346,10 @@ menuitem {
 
 /* Indent the search to match the breakout box indentation like Chrome */
 #urlbar[pageproxystate="invalid"] #identity-box {
+  @media not (prefers-reduced-motion: reduce) {
     transition-duration: 90ms !important;
-	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+    transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+  }
     padding-right: 9px !important;
 }
 

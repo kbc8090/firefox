@@ -27,10 +27,12 @@ user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
+user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("gfx.webrender.all", true);
 
 /** DISK CACHE ***/
+user_pref("browser.cache.disk.enable", false); // disable disk cache
 user_pref("browser.cache.jsbc_compression_level", 3);
 
 /** MEDIA CACHE ***/
@@ -45,7 +47,7 @@ user_pref("image.mem.decode_bytes_at_a_time", 32768);
 user_pref("network.buffer.cache.size", 262144);
 user_pref("network.buffer.cache.count", 128);
 user_pref("network.http.max-connections", 1800);
-user_pref("network.http.max-persistent-connections-per-server", 10);
+user_pref("network.http.max-persistent-connections-per-server", 20);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheExpiration", 3600);
@@ -61,6 +63,7 @@ user_pref("network.predictor.enabled", false);
 /** EXPERIMENTAL ***/
 user_pref("dom.enable_web_task_scheduling", true);
 user_pref("layout.css.has-selector.enabled", true);
+user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -207,7 +210,7 @@ user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
-user_pref("ui.prefersReducedMotion", 0);
+user_pref("ui.prefersReducedMotion", 1);
 
 /** USERCHROME CUSTOM OPTIONS
 user_pref("userChrome.theme-dracula", false);
@@ -285,6 +288,7 @@ user_pref("mousewheel.default.delta_multiplier_y", 200);
 user_pref("mousewheel.system_scroll_override_on_root_content.horizontal.factor", 175);
 user_pref("mousewheel.system_scroll_override_on_root_content.vertical.factor", 175);
 
+user_pref("general.smoothScroll", true);
 user_pref("general.smoothScroll.lines.durationMaxMS", 125);
 user_pref("general.smoothScroll.lines.durationMinMS", 125);
 user_pref("general.smoothScroll.mouseWheel.durationMinMS", 100);
