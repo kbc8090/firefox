@@ -62,6 +62,7 @@ user_pref("network.predictor.enabled", false);
 
 /** EXPERIMENTAL ***/
 user_pref("dom.enable_web_task_scheduling", true);
+user_pref("dom.events.dataTransfer.imageAsFile.enabled", true);
 user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 
@@ -267,6 +268,8 @@ user_pref("browser.bookmarks.showMobileBookmarks", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.word_select.eat_space_to_next_word", false);
+user_pref("nglayout.initialpaint.delay", 10);
+user_pref("nglayout.initialpaint.delay_in_oopif", 10);
 user_pref("nglayout.enable_drag_images", false);
 
 /****************************************************************************

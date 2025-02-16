@@ -1,5 +1,6 @@
 *,
 *::before,
 *::after {
-  font-family: "Segoe UI" !important;
+  font-family: "Calibri" !important;
+  font-size: 13px !important;
 }

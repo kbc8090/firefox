@@ -85,7 +85,7 @@
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
   box-shadow: unset !important;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.55));
 }
 
 /* Make unselected tab title color on hover the selected tab color 
@@ -269,6 +269,7 @@ tooltip {
   box-shadow: rgb(0, 0, 0, 0.65) 0px 14px 66px 4px !important;
   margin-top: 2px !important;
 }
+
 
 .urlbarView-row {
   padding: 0px 0px !important;
@@ -1177,6 +1178,18 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 #tabbrowser-tabs {
   min-height: unset !important;
+}
+
+.tab-background {
+  border-radius: 4px 4px 0 0 !important;
+
+  &::before {
+    border-bottom-right-radius: 4px !important;
+  }
+
+  &::after {
+    border-bottom-left-radius: 4px !important;
+  }
 }
 
 /*
