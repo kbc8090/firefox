@@ -207,8 +207,8 @@ tooltip {
 #urlbar-input {
   padding-left: 2px !important;
   font-size: 15px !important;
-  font-weight: 600 !important;
-  font-family: "Segoe UI" !important;
+  font-weight: 500 !important;
+  font-family: "Noto Sans Display" !important;
 }
 
 /*
@@ -347,10 +347,8 @@ menuitem {
 
 /* Indent the search to match the breakout box indentation like Chrome */
 #urlbar[pageproxystate="invalid"] #identity-box {
-  @media not (prefers-reduced-motion: reduce) {
-    transition-duration: 90ms !important;
-    transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
-  }
+    transition-duration: 65ms !important;
+    transition-timing-function: cubic-bezier(0, 0, .2, 1) !important;
     padding-right: 9px !important;
 }
 
@@ -1046,9 +1044,23 @@ search-textbox#search-box:hover {
     }
   }
 
+  .tab-audio-button {
+    #tabbrowser-tabs:is([orient="vertical"][expanded], [orient="horizontal"]) &:not([pinned]):not([crashed]) {
+      &[soundplaying]::part(button) {
+        display: none !important;
+      }
+    }
+  }
+
+  .tab-audio-button {
+        display: none !important;
+  }
+
   :is(.all-tabs-secondary-button, .tab-icon-overlay)[soundplaying],
   .tab-icon-sound {
+    -moz-context-properties: fill, fill-opacity !important;
     list-style-image: url("icons/audio.svg") !important;
+    fill-opacity: 1 !important;
     fill: var(--md-text-primary) !important;
     background-color: transparent !important;
     border: 0px !important;
@@ -1058,7 +1070,9 @@ search-textbox#search-box:hover {
   .tab-icon-overlay,
   .tab-icon-sound {
     &[muted] {
+      -moz-context-properties: fill, fill-opacity !important;
       list-style-image: url("icons/audio-muted.svg")  !important;
+      fill-opacity: 1 !important;
       fill: var(--md-text-secondary) !important;
       border: 0px !important;
       background-color: transparent !important;
@@ -1069,7 +1083,9 @@ search-textbox#search-box:hover {
   .tab-icon-overlay,
   .tab-icon-sound {
     &[activemedia-blocked] {
+      -moz-context-properties: fill, fill-opacity !important;
       list-style-image: url("icons/audio-muted.svg")  !important;
+      fill-opacity: 1 !important;
       fill: var(--md-text-secondary) !important;
       border: 0px !important;
       background-color: transparent !important;
