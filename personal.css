@@ -1196,15 +1196,17 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   min-height: unset !important;
 }
 
-.tab-background {
-  border-radius: 4px 4px 0 0 !important;
+@media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+  .tab-background {
+    border-radius: 4px 4px 0 0 !important;
 
-  &::before {
-    border-bottom-right-radius: 4px !important;
-  }
+    &::before {
+      border-bottom-right-radius: 4px !important;
+    }
 
-  &::after {
-    border-bottom-left-radius: 4px !important;
+    &::after {
+      border-bottom-left-radius: 4px !important;
+    }
   }
 }
 
