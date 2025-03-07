@@ -18,6 +18,10 @@
 #urlbar-input::placeholder {
     opacity: 0 !important;
 }
+
+#allTabsMenu-syncedTabs {
+  display: none !important;
+}
   
 /* Hide All Tabs Button at top in tab bar
 #alltabs-button {
