@@ -928,7 +928,7 @@ search-textbox#search-box:hover {
 
 @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
-      margin-left: 12px !important;
+      margin-left: 10px !important;
     }
 
       /* Arrowpanel Menu Border size */

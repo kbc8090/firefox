@@ -5,8 +5,14 @@
 }
 
 
-@-moz-document url("about:home"), url("about:newtab"), url("about:blank") {
+@-moz-document url("about:home"), url("about:newtab"), url("about:blank"), url(about:privatebrowsing) {
 body {
     background-color: var(--md-background-color-0) !important;
+    }
+}
+
+@-moz-document url(about:privatebrowsing) {
+    .showPrivate {
+        display: none !important;
     }
 }
