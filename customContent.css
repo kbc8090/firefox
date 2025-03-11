@@ -1,6 +1,7 @@
 @import "custom.css";
 
 *, html, body {
+    font-smooth: always !important;
     text-rendering: optimizelegibility !important;
 }
 

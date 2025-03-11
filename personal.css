@@ -211,8 +211,10 @@ tooltip {
 #urlbar-input {
   padding-left: 2px !important;
   font-size: 15px !important;
-  font-weight: 500 !important;
-  font-family: "Noto Sans Display" !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI" !important;
+  font-smooth: always !important;
+  text-rendering: optimizelegibility !important;
 }
 
 /*
