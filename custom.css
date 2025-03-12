@@ -42,7 +42,6 @@
     --md-background-color-100: #323b46;
     --md-tab-background-color-hover: #29333d;
     --md-menu-background-color: var(--md-background-color-0);
-    --md-button-background-color-active: red !important;
     /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
     --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
     --md-tab-label-color-inactive: var(--md-tab-label-color);
