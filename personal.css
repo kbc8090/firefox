@@ -108,6 +108,7 @@
     --arrowpanel-color: var(--md-tab-label-color) !important;
     --arrowpanel-background: var(--md-menu-background-color) !important;
     --button-active-bgcolor: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+    --button-background-color-active: light-dark(color-mix(in srgb, AccentColor 88%, white), color-mix(in srgb, var(--md-menu-background-color-hover) 88%, white)) !important;
     --toolbarbutton-active-background: var(--md-selection-background-color) !important;
     --urlbar-box-bgcolor: var(--md-background-color-100) !important;
     --message-bar-border-radius: 8px !important;

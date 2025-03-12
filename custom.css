@@ -23,7 +23,7 @@
     --md-menu-border-size: 2px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-      --tab-min-height: 35px !important;
+      --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }
@@ -42,6 +42,7 @@
     --md-background-color-100: #323b46;
     --md-tab-background-color-hover: #29333d;
     --md-menu-background-color: var(--md-background-color-0);
+    --md-button-background-color-active: red !important;
     /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
     --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
     --md-tab-label-color-inactive: var(--md-tab-label-color);
@@ -54,7 +55,7 @@
     --md-menu-border-size: 2px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-      --tab-min-height: 35px !important;
+      --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }
@@ -137,7 +138,7 @@
       --md-selection-background-color: var(--md-accent-color);
       --md-menu-border-size: 2px solid;
       @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-        --tab-min-height: 35px !important;
+        --tab-min-height: 36px !important;
         --md-menu-border-size: 1px solid;
       }
     }
