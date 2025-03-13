@@ -46,7 +46,7 @@
     --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-menu-border-color: #3c434d;
-    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 95%, transparent);
+    --md-content-separator-color: var(--md-menu-border-color);
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: #1f6febb3;
     --md-icon-color-secondary: var(--md-text-secondary);
@@ -80,7 +80,7 @@
     --md-selection-background-color: #406fa5;
     --md-menu-border-color: light-dark(MenuText, #415e74ab);
     --md-icon-color-secondary: var(--md-text-secondary);
-    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 95%, transparent);
+    --md-content-separator-color: var(--md-menu-border-color);
     --md-menu-border-size: 2px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
