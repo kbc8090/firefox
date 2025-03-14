@@ -243,12 +243,6 @@ tooltip {
     padding-inline: 20px !important;
     }*/
 
-
-/* Fade in the minimize/maximize/close buttons */
-.titlebar-button {
-    transition: background-color 0.25s ease !important;
-}
-
 /* Animate the search breakout window like FFPlus */
 @media not (prefers-reduced-motion: reduce) {
   #urlbar[open] .urlbarView,
@@ -1105,6 +1099,11 @@ search-textbox#search-box:hover {
   font-size: 12px !important;
 }
 
+/* Fade in the minimize/maximize/close buttons */
+.titlebar-button:hover {
+  transition: background-color 0.20s ease !important;
+}
+
 .titlebar-button {
   color: var(--md-text-primary) !important;
 }
@@ -1116,11 +1115,17 @@ search-textbox#search-box:hover {
 
 .titlebar-close:hover {
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.4)) !important;
+  background-color: #E81123 !important;
 }
 
 .titlebar-min:active, .titlebar-max:active, .titlebar-restore:active {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
 }
+
+.titlebar-close:active {
+  background-color: #B71916 !important;
+}
+
 
 /*.urlbarView {
 	background-image: url("noise-512x512.png") !important;
