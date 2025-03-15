@@ -1123,7 +1123,7 @@ search-textbox#search-box:hover {
 }
 
 .titlebar-close:active {
-  background-color: color-mix(in srgb, #E81123 65%, transparent) !important; !important;
+  background-color: color-mix(in srgb, #E81123 65%, transparent) !important;
 }
 
 
