@@ -84,7 +84,18 @@
 
 /* Make unselected tabs foreground color a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
-      color: color-mix(in srgb, var(--md-text-primary) 70%, transparent) !important;
+      color: color-mix(in srgb, var(--md-text-primary) 72%, transparent) !important;
+}
+
+/* Make Selected tab brighter */
+.tabbrowser-tab[selected] .tab-content {
+  color: color-mix(in srgb, var(--md-text-primary) 50%, white) !important;
+}
+
+/* Tab close button the accent'ish color */
+.tab-close-button {
+  -moz-context-properties: fill, fill-opacity;
+  fill: var(--md-selection-background-color) !important;
 }
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
