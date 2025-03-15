@@ -89,7 +89,7 @@
 
 /* Make Selected tab brighter */
 .tabbrowser-tab[selected] .tab-content {
-  color: color-mix(in srgb, var(--md-text-primary) 50%, white) !important;
+  color: color-mix(in srgb, var(--md-text-primary) 54%, white) !important;
 }
 
 /* Tab close button the accent'ish color */
@@ -137,6 +137,12 @@ body {
         border-color: var(--md-menu-border-color) !important;
         background: light-dark(Menu, var(--md-menu-background-color)) !important;
     }
+}
+
+@media (-moz-platform: windows), (-moz-platform: linux) {
+  menu:where([_moz-menuactive="true"]):not([disabled="true"]), menuitem:where([_moz-menuactive="true"]):not([disabled="true"]) {
+    color: var(--md-tab-label-color) !important;
+  }
 }
 
 /* Coloring some of the tooltips */
