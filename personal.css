@@ -95,7 +95,7 @@
 /* Tab close button the accent'ish color */
 .tab-close-button {
   -moz-context-properties: fill, fill-opacity;
-  fill: var(--md-selection-background-color) !important;
+  fill: var(--md-accent-color) !important;
 }
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
@@ -259,7 +259,7 @@ tooltip {
   #urlbar[open] .urlbarView,
   #urlbar[breakout][breakout-extend] > #urlbar-background {
     animation-name: fp-urlbar-animation !important;
-    animation-duration: 200ms !important;
+    animation-duration: 220ms !important;
     transform-origin: top !important;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) !important;
   }
@@ -357,15 +357,22 @@ menuitem {
     /* text-shadow: 1px 1px 2px #000 !important; */
 }
 
-/* Indent the search to match the breakout box indentation like Chrome */
+/* Indent the search to match the breakout box indentation like Chrome
 #urlbar[pageproxystate="invalid"] #identity-box {
-    transition-duration: 65ms !important;
+    transition-duration: 105ms !important;
     transition-timing-function: cubic-bezier(0, 0, .2, 1) !important;
     padding-right: 9px !important;
-}
+} */
 
 #urlbar[pageproxystate="invalid"]:not([open]) #identity-box {
+  transition-duration: 85ms !important;
+  transition-timing-function: cubic-bezier(0, 0, .2, 1) !important;
     padding-right: 0px !important;
+}
+
+#urlbar[pageproxystate="invalid"][focused] #identity-box {
+  padding-right: 9px !important;
+  transition: none !important;
 }
 /*
     #urlbar[pageproxystate="invalid"][breakout][focused] #identity-box {
