@@ -139,6 +139,13 @@ body {
     }
 }
 
+@media (prefers-color-scheme: dark) {
+  [part="content"] {
+    border-width: unset !important;
+    border: var(--md-menu-border-size) var(--md-menu-border-color) !important;
+  }
+}
+
 @media (-moz-platform: windows), (-moz-platform: linux) {
   menu:where([_moz-menuactive="true"]):not([disabled="true"]), menuitem:where([_moz-menuactive="true"]):not([disabled="true"]) {
     color: var(--md-tab-label-color) !important;
@@ -961,10 +968,11 @@ search-textbox#search-box:hover {
       margin-left: 10px !important;
     }
 
-      /* Arrowpanel Menu Border size */
+      /* Arrowpanel Menu Border size
   *[part="content"] {
     border-width: 1px !important;
   }
+  */
 
 
     #tabs-newtab-button,
