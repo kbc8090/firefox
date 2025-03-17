@@ -6,4 +6,5 @@
   font-weight: 400 !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
+  -webkit-font-smoothing: antialiased !important;
 }
