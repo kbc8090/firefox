@@ -235,8 +235,8 @@ tooltip {
 #urlbar-input {
   padding-left: 2px !important;
   font-size: 15px !important;
-  font-weight: 500 !important;
-  font-family: "Noto Sans Display" !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
 }
@@ -707,6 +707,11 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 	z-index: 1 !important;
 }
 
+#alltabs-button {
+  box-shadow: unset !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.40)) !important;
+}
+
 .container.infobar, .container {
   color: var(--md-text-primary) !important;
   background-color: var(--md-background-color-0) !important;
@@ -994,6 +999,8 @@ search-textbox#search-box:hover {
       max-width: 36px !important;
       min-height: 36px !important;
       max-height: 100% !important;
+      box-shadow: unset !important;
+      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.55));
     
       justify-content: center !important;
       align-content: center !important;
@@ -1025,12 +1032,6 @@ search-textbox#search-box:hover {
     #tabbrowser-tabs:not([overflow]) ~ #alltabs-button {
       display: none !important;
       margin-left: 0px !important;
-  }
-
-  #alltabs-button .toolbarbutton-badge-stack {
-    transition-property: background-color !important;
-    transition-duration: get-var("short-duration") !important;
-    transition-timing-function: get-var("fade-in-out") !important;
   }
   
     #identity-box {
