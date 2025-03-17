@@ -371,8 +371,8 @@ menuitem {
 } */
 
 #urlbar[pageproxystate="invalid"]:not([open]) #identity-box {
-  transition-duration: 110ms !important;
-  transition-timing-function: ease-out !important;
+  transition-duration: 85ms !important;
+  transition-timing-function: cubic-bezier(0, 0, .2, 1) !important;
     padding-right: 0px !important;
 }
 
@@ -1588,7 +1588,7 @@ button:active {
   /* Selected left side icons */
   #placesList treechildren::-moz-tree-image(title selected) {
     fill-opacity: 1 !important;
-    fill: var(--md-text-primary) !important;
+    fill: var(--md-accent-color) !important;
   }
   /* Selected Left side Folders */
   #placesList treechildren::-moz-tree-image(container selected) {
