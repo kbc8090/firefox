@@ -108,7 +108,7 @@
     --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-selection-text-color: var(--md-white);
-    --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 84%, black);
+    --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 74%, black);
     --md-menu-border-color: color-mix(in srgb, var(--md-background-color-100) 96%, white);
     --md-icon-color-secondary: var(--md-text-secondary);
     --md-content-separator-color: var(--md-menu-border-color);
