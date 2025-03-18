@@ -105,7 +105,7 @@
     --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
     --md-menu-background-color: var(--md-background-color-0);
     /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
-    --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
+    --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 76%, var(--md-accent-color)));
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 80%, black);
@@ -114,6 +114,7 @@
     --md-content-separator-color: var(--md-menu-border-color);
     --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
+    --md-control-background-color: color-mix(in srgb, transparent 76%, var(--md-accent-color));
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;

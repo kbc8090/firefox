@@ -710,7 +710,16 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 #alltabs-button {
   box-shadow: unset !important;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.45)) !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.46)) !important;
+}
+
+@media (-moz-bool-pref: "userChrome.ui-chrome-refresh") and (-moz-platform: windows), (-moz-bool-pref: "userChrome.ui-chrome-refresh") and (-moz-platform: linux) {
+  #alltabs-button {
+    margin-top: -2px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 .container.infobar, .container {
