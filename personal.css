@@ -1340,7 +1340,7 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 #downloadsListBox:focus > richlistitem[selected] {
   .downloadProgress::-moz-progress-bar {
-    --download-progress-fill-color: color-mix(in srgb, var(--md-background-color-0) 50%, var(--md-accent-color)) !important;
+    --download-progress-fill-color: color-mix(in srgb, var(--md-background-color-0) 60%, var(--md-accent-color)) !important;
   }
 }
 /*
@@ -1522,6 +1522,15 @@ button:active {
         background-image: none !important;
       }
 
+      #downloadsListBox:focus > richlistitem[selected] {
+        .downloadProgress::-moz-progress-bar {
+          background-color: color-mix(in srgb, var(--md-background-color-0) 60%, var(--md-accent-color)) !important;
+        }
+      }
+
+        .downloadProgress::-moz-progress-bar {
+          background-color: var(--md-accent-color) !important;
+        }        
 
 
       richlistitem:hover {
