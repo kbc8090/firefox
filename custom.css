@@ -40,7 +40,8 @@
     --md-background-color-0: #222931;
     --md-background-color-50: #242c35;
     --md-background-color-100: #323b46;
-    --md-tab-background-color-hover: #29333d;
+    /*--md-tab-background-color-hover: #29333d; */
+    --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
     --md-menu-background-color: var(--md-background-color-0);
     /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
     --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));

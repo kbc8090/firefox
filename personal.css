@@ -93,11 +93,11 @@
   color: color-mix(in srgb, var(--md-text-primary) 54%, white) !important;
 }
 
-/* Tab close button the accent'ish color */
+/* Tab close button the accent'ish color
 .tab-close-button {
   -moz-context-properties: fill, fill-opacity;
   fill: var(--md-accent-color) !important;
-}
+}*/
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
   box-shadow: unset !important;
@@ -1015,9 +1015,27 @@ search-textbox#search-box:hover {
     margin-inline: 6px 0px !important;
   }
 
+  #tabs-newtab-button,
+  #new-tab-button {
+    &:not([disabled]):hover
+      > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+      background-color: var(--md-tab-background-color-hover) !important;
+    }
+  }
+
+  #tabs-newtab-button,
+  #new-tab-button {
+& > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+  width: calc(var(--tab-min-height) - 11px) !important;
+  height: calc(var(--tab-min-height) - 11px) !important;
+  padding: 7px !important;
+  margin-inline-start: -2px !important;
+  }
+}
+
 @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
-      margin-left: 8px !important;
+      margin-left: 10px !important;
     }
 
       /* Arrowpanel Menu Border size
@@ -1030,10 +1048,12 @@ search-textbox#search-box:hover {
     #tabs-newtab-button,
     #new-tab-button {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-    width: 30px !important;
-    height: 30px !important;
+    width: calc(var(--tab-min-height) - 5px) !important;
+    height: calc(var(--tab-min-height) - 5px) !important;
     padding: 8px !important;
-    margin-inline-start: 2px !important;
+    margin-inline-start: -2px !important;
+    border-radius: 4px !important;
+    margin-top: -1px !important;
     }
   }
 
@@ -1312,7 +1332,17 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
     }
   }
 }
+/*
+#downloads-indicator-progress-inner {
+  --toolbarbutton-icon-fill-attention: red !important;
+}
+*/
 
+#downloadsListBox:focus > richlistitem[selected] {
+  .downloadProgress::-moz-progress-bar {
+    --download-progress-fill-color: color-mix(in srgb, var(--md-background-color-0) 50%, var(--md-accent-color)) !important;
+  }
+}
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
@@ -1491,6 +1521,8 @@ button:active {
         border-radius: 0px !important;
         background-image: none !important;
       }
+
+
 
       richlistitem:hover {
         background-color: color-mix(in srgb, var(--md-background-color-50) 40%, transparent) !important;
