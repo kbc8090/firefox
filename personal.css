@@ -1343,6 +1343,8 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
     --download-progress-fill-color: color-mix(in srgb, var(--md-background-color-0) 60%, var(--md-accent-color)) !important;
   }
 }
+
+
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
