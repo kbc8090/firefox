@@ -83,6 +83,8 @@ user_pref("browser.contentblocking.report.hide_vpn_banner", true);
 user_pref("browser.contentblocking.report.show_mobile_app", false);
 user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("dom.text_fragments.enabled", true);
+user_pref("default-browser-agent", false);
+user_pref("app.update.service.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
