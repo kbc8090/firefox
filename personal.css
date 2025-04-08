@@ -93,15 +93,6 @@
   color: var(--md-tab-label-color) !important;
 }
 
-/*
-.tabbrowser-tab:not([selected="true"]):hover, .tabbrowser-tab[multiselected]:not([selected="true"]) {
-  --tab-background-color: var(--md-tab-background-color-hover) !important;
-  @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-    --tab-opacity: 0.4 !important;
-  }
-}
-*/
-
 /* Tab close button the accent'ish color
 .tab-close-button {
   -moz-context-properties: fill, fill-opacity;
@@ -131,15 +122,21 @@
     --button-active-bgcolor: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
     --button-background-color-active: light-dark(color-mix(in srgb, AccentColor 86%, white), color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white)) !important;
     --toolbarbutton-active-background: var(--md-selection-background-color) !important;
+    --toolbarbutton-border-radius: 4px !important;
     --urlbar-box-bgcolor: var(--md-background-color-100) !important;
     --message-bar-border-radius: 8px !important;
     --message-bar-border-width: 1px !important;
     --panel-subview-body-padding-block: 4px !important;
     --arrowpanel-menuitem-margin-inline: 4px !important;
+    /*--arrowpanel-header-min-height: 0px !important; */
 }
 
 body {
     --arrowpanel-color: var(--md-tab-label-color) !important;
+}
+
+panel, menupopup {
+  --arrowpanel-header-min-height: 0px !important;
 }
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
@@ -457,7 +454,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     /*:is(menupopup, panel):where([type="arrow"]) */
 
 /*  Change svg icon color to match text color */
-@media not (-moz-bool-pref: "userChrome.ui-no-menu-icons") {
+@media not (-moz-pref("userChrome.ui-no-menu-icons")) {
     .panel-subview-body > .subviewbutton:not([disabled]) {
         fill: var(--md-text-primary) !important;
     }
@@ -762,12 +759,26 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   margin-inline: 0px !important;
 }
 
-@media (-moz-bool-pref: "userChrome.ui-chrome-refresh") and (-moz-platform: windows), (-moz-bool-pref: "userChrome.ui-chrome-refresh") and (-moz-platform: linux) {
+@media (-moz-pref("userChrome.ui-chrome-refresh")) {
+  .tab-close-button {
+    margin-inline-end: calc(var(--tab-inline-padding) / -1.2) !important;
+  }
   #alltabs-button {
     margin-top: -2px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-bottom: 0 !important;
+  }
+  .tabbrowser-tab:is([visuallyselected], [selected]) .tab-background {
+    &::before {
+      background-color: transparent !important;
+      box-shadow: 4px 4px 0 4px var(--tab-background-color) !important;
+    }
+
+    &::after {
+      background-color: transparent !important;
+      box-shadow: -4px 4px 0 4px var(--tab-background-color) !important;
+    }
   }
 }
 
@@ -991,7 +1002,7 @@ search-textbox#search-box:hover {
     }
   }
   
-  @media (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+  @media (-moz-pref("userChrome.ui-chrome-refresh")) {
     .tabbrowser-tab[visuallyselected]:not([usercontextid]) .tab-background
     {
       box-shadow: inset 0 7px 1px -7px color-mix(in srgb, var(--md-background-color-100) 5%, var(--md-accent-color)) !important;
@@ -1046,7 +1057,7 @@ search-textbox#search-box:hover {
   }
 }
 
-@media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+@media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
       margin-left: 10px !important;
     }
@@ -1061,10 +1072,10 @@ search-textbox#search-box:hover {
     #tabs-newtab-button,
     #new-tab-button {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-    width: calc(var(--tab-min-height) - 5px) !important;
-    height: calc(var(--tab-min-height) - 5px) !important;
+    width: calc(var(--tab-min-height) - 6px) !important;
+    height: calc(var(--tab-min-height) - 6px) !important;
     padding: 8px !important;
-    margin-inline-start: -2px !important;
+    margin-inline-start: -1px !important;
     border-radius: 4px !important;
     margin-top: -1px !important;
     box-shadow: unset !important;
@@ -1123,7 +1134,7 @@ search-textbox#search-box:hover {
       margin-inline-end: 4px !important;
       margin-inline-start: 2px !important;
 
-      @media not (-moz-bool-pref: "userChrome.ui-force-old-icons") {
+      @media not (-moz-pref("userChrome.ui-force-old-icons")) {
         fill: var(--md-icon-color-primary) !important;
       }
     }
@@ -1221,6 +1232,10 @@ search-textbox#search-box:hover {
   border: 1px solid var(--md-menu-border-color) !important;
   font-weight: 600 !important;
   font-size: 12px !important;
+}
+
+#urlbar-zoom-button:hover {
+  border: 1px solid transparent !important;
 }
 
 /* Fade in the minimize/maximize/close buttons */
@@ -1334,16 +1349,39 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   min-height: unset !important;
 }
 
-@media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+.tab-close-button,
+.messageCloseButton>.toolbarbutton-icon {
+  height: 18px !important;
+  padding: 3px !important;
+  &:hover {
+    outline: 0px !important;
+  }
+}
+
+
+@media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+
+  #tabs-newtab-button, #new-tab-button{
+    --toolbarbutton-border-radius: 4px !important;
+  }
+
+#tabs-newtab-button:is(:active:hover, [checked], [open]):not([disabled])
+> :is(.toolbarbutton-icon, .toolbarbutton-badge-stack),
+#new-tab-button:is(:active:hover, [checked], [open]):not([disabled])
+> :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+  --md-circle-size: 0% !important;
+  background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+}
+
   .tab-background {
-    border-radius: 4px 4px 0 0 !important;
+    border-radius: 6px 6px 0 0 !important;
 
     &::before {
-      border-bottom-right-radius: 4px !important;
+      border-bottom-right-radius: 6px !important;
     }
 
     &::after {
-      border-bottom-left-radius: 4px !important;
+      border-bottom-left-radius: 6px !important;
     }
   }
 }

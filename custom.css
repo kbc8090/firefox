@@ -1,5 +1,5 @@
 /* use variables when about:config variable userChrome.theme-dracula is true */
-@media (-moz-bool-pref: "userChrome.theme-dracula") {
+@media -moz-pref("userChrome.theme-dracula") {
   :root,
   html,
   body {
@@ -13,7 +13,8 @@
     /*--md-tab-background-color-hover: #2c3142; */
     --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
     /*--md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 80%, #bfd7ff); */
-    --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
+    /*--md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100)); */
+    --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 76%, var(--md-accent-color)));
     --md-menu-background-color: var(--md-background-color-0);
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-selection-text-color: var(--md-white);
@@ -23,14 +24,15 @@
     --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 94%, white);
     --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
-    @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+    --md-control-background-color: color-mix(in srgb, transparent 76%, var(--md-accent-color));
+    @media not -moz-pref("userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }
 }
 
-@media (-moz-bool-pref: "userChrome.theme-github") {
+@media -moz-pref("userChrome.theme-github") {
   :root,
   html,
   body {
@@ -45,7 +47,8 @@
     --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
     --md-menu-background-color: var(--md-background-color-0);
     /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
-    --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
+    /*--md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100)); */
+    --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 76%, var(--md-accent-color)));
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-menu-border-color: #3c434d;
     --md-content-separator-color: var(--md-menu-border-color);
@@ -55,14 +58,15 @@
     --md-text-on-accent: var(--md-white);
     --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
-    @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+    --md-control-background-color: color-mix(in srgb, transparent 76%, var(--md-accent-color));
+    @media not -moz-pref("userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }
 }
 
-@media (-moz-bool-pref: "userChrome.theme-slate") {
+@media -moz-pref("userChrome.theme-slate") {
   :root,
   html,
   body {
@@ -85,14 +89,14 @@
     --md-content-separator-color: var(--md-menu-border-color);
     --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
-    @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+    @media not -moz-pref("userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }
 }
 
-@media (-moz-bool-pref: "userChrome.theme-tokyonight") {
+@media -moz-pref("userChrome.theme-tokyonight") {
   :root,
   html,
   body {
@@ -117,14 +121,14 @@
     --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
     --md-control-background-color: color-mix(in srgb, transparent 76%, var(--md-accent-color));
-    @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
-      --tab-min-height: 34px !important;
+    @media not -moz-pref("userChrome.ui-chrome-refresh") {
+      --tab-min-height: 36px !important;
       --md-menu-border-size: 1px solid;
     }
   }
 }
 
-@media (-moz-bool-pref: "userChrome.theme-system-accent") {
+@media -moz-pref("userChrome.theme-system-accent") {
   /* use variables when dark mode */
   @media (prefers-color-scheme: dark) {
     :root,
@@ -170,7 +174,7 @@
       --md-selection-text-color: var(--md-text-on-accent);
       --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 84%, black);
       --md-menu-border-size: 1px solid;
-      @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+      @media not -moz-pref("userChrome.ui-chrome-refresh") {
         --tab-min-height: 36px !important;
         --md-menu-border-size: 1px solid;
       }
@@ -227,7 +231,7 @@
       --md-selection-text-color: var(--md-text-on-accent);
       --md-selection-background-color: var(--md-accent-color);
       --md-menu-border-size: 2px solid;
-      @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+      @media not -moz-pref("userChrome.ui-chrome-refresh") {
         --tab-min-height: 36px !important;
         --md-menu-border-size: 1px solid;
       }
