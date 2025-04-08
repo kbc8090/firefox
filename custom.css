@@ -10,7 +10,8 @@
     --md-background-color-0: #212533;
     --md-background-color-50: #272a3a;
     --md-background-color-100: #3B3D51;
-    --md-tab-background-color-hover: #2c3142;
+    /*--md-tab-background-color-hover: #2c3142; */
+    --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
     /*--md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 80%, #bfd7ff); */
     --md-menu-background-color-hover: light-dark(AccentColor, var(--md-background-color-100));
     --md-menu-background-color: var(--md-background-color-0);
@@ -19,8 +20,8 @@
     --md-selection-background-color: #965be9;
     --md-icon-color-secondary: var(--md-text-secondary);
     --md-menu-border-color: color-mix(in srgb, var(--md-background-color-100) 96%, white);
-    --md-content-separator-color: var(--md-menu-border-color);
-    --md-menu-border-size: 2px solid;
+    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 94%, white);
+    --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
@@ -52,7 +53,7 @@
     --md-selection-background-color: #1f6febb3;
     --md-icon-color-secondary: var(--md-text-secondary);
     --md-text-on-accent: var(--md-white);
-    --md-menu-border-size: 2px solid;
+    --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
@@ -82,7 +83,7 @@
     --md-menu-border-color: light-dark(MenuText, #415e74ab);
     --md-icon-color-secondary: var(--md-text-secondary);
     --md-content-separator-color: var(--md-menu-border-color);
-    --md-menu-border-size: 2px solid;
+    --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
     @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
       --tab-min-height: 36px !important;
@@ -167,8 +168,8 @@
       --md-secondary-button-text: var(--md-text-primary);
       --md-content-separator-color: var(--md-menu-border-color);
       --md-selection-text-color: var(--md-text-on-accent);
-      --md-selection-background-color: var(--md-accent-color);
-      --md-menu-border-size: 2px solid;
+      --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 84%, black);
+      --md-menu-border-size: 1px solid;
       @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
         --tab-min-height: 36px !important;
         --md-menu-border-size: 1px solid;

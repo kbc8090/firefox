@@ -85,13 +85,22 @@
 
 /* Make unselected tabs foreground color a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
-      color: color-mix(in srgb, var(--md-text-primary) 76%, transparent) !important;
+      color: color-mix(in srgb, var(--md-text-primary) 86%, transparent) !important;
 }
 
 /* Make Selected tab brighter */
 .tabbrowser-tab[selected] .tab-content {
-  color: color-mix(in srgb, var(--md-text-primary) 54%, white) !important;
+  color: var(--md-tab-label-color) !important;
 }
+
+/*
+.tabbrowser-tab:not([selected="true"]):hover, .tabbrowser-tab[multiselected]:not([selected="true"]) {
+  --tab-background-color: var(--md-tab-background-color-hover) !important;
+  @media not (-moz-bool-pref: "userChrome.ui-chrome-refresh") {
+    --tab-opacity: 0.4 !important;
+  }
+}
+*/
 
 /* Tab close button the accent'ish color
 .tab-close-button {
@@ -125,6 +134,8 @@
     --urlbar-box-bgcolor: var(--md-background-color-100) !important;
     --message-bar-border-radius: 8px !important;
     --message-bar-border-width: 1px !important;
+    --panel-subview-body-padding-block: 4px !important;
+    --arrowpanel-menuitem-margin-inline: 4px !important;
 }
 
 body {
@@ -268,8 +279,8 @@ tooltip {
 #urlbar-input {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
   font-family: "Segoe UI" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
@@ -1030,6 +1041,8 @@ search-textbox#search-box:hover {
   height: calc(var(--tab-min-height) - 11px) !important;
   padding: 7px !important;
   margin-inline-start: -2px !important;
+  box-shadow: unset !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.46)) !important;
   }
 }
 
@@ -1054,6 +1067,8 @@ search-textbox#search-box:hover {
     margin-inline-start: -2px !important;
     border-radius: 4px !important;
     margin-top: -1px !important;
+    box-shadow: unset !important;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.46)) !important;
     }
   }
 
