@@ -129,15 +129,21 @@
     --panel-subview-body-padding-block: 4px !important;
     --arrowpanel-menuitem-margin-inline: 4px !important;
     /*--arrowpanel-header-min-height: 0px !important; */
+    --button-background-color-ghost-hover: var(--md-menu-background-color-hover) !important;
 }
 
 body {
     --arrowpanel-color: var(--md-tab-label-color) !important;
 }
 
-panel, menupopup {
-  --arrowpanel-header-min-height: 0px !important;
+panel {
+  --arrowpanel-header-min-height: calc(var(--arrowpanel-header-back-icon-full-width) + (var(--panel-separator-margin-horizontal))) !important;
 }
+
+panel#appMenu-popup {
+  --arrowpanel-header-min-height: calc(var(--arrowpanel-header-back-icon-full-width) + (var(--panel-separator-margin-horizontal) - 4)) !important;
+}
+
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
     .menupopup-arrowscrollbox {
