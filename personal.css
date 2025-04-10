@@ -713,6 +713,21 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     margin: 0px !important;
 }
 
+.toolbarbutton-badge {
+  color: var(--md-white) !important;
+  background-color: var(--md-selection-background-color) !important;
+  text-shadow: 1px 1px 2px #000 !important;
+  font-family: "Inter" !important;
+  font-smooth: always !important;
+  text-rendering: optimizelegibility !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding-left: 1px !important;
+  padding-right: 2px !important;
+  border: 0px solid transparent !important;
+  border-radius: 4px !important;
+}
+
 .toolbarbutton-1:is(#back-button, #forward-button),
 #context-back,
 #context-forward,
