@@ -53,7 +53,7 @@
     --md-menu-border-color: #3c434d;
     --md-content-separator-color: var(--md-menu-border-color);
     --md-selection-text-color: var(--md-white);
-    --md-selection-background-color: #1f6febb3;
+    --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 80%, black);
     --md-icon-color-secondary: var(--md-text-secondary);
     --md-text-on-accent: var(--md-white);
     --md-menu-border-size: 1px solid;

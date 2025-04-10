@@ -714,6 +714,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 }
 
 .toolbarbutton-badge {
+  min-width: fit-content !important;
   color: var(--md-white) !important;
   background-color: var(--md-selection-background-color) !important;
   text-shadow: 1px 1px 2px #000 !important;
@@ -721,10 +722,14 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
   font-size: 11px !important;
-  font-weight: 700 !important;
-  padding-left: 1px !important;
+  text-align: center !important;
+  justify-content: center !important;
+  font-weight: 500 !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  padding-left: 2px !important;
   padding-right: 2px !important;
-  border: 0px solid transparent !important;
+  border: 0px !important;
   border-radius: 4px !important;
 }
 
