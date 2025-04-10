@@ -101,7 +101,7 @@
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
   box-shadow: unset !important;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.55));
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.50));
 }
 
 /* Make unselected tab title color on hover the selected tab color 
@@ -717,7 +717,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   min-width: fit-content !important;
   color: var(--md-white) !important;
   background-color: var(--md-selection-background-color) !important;
-  text-shadow: 1px 1px 2px #000 !important;
+  text-shadow: 1px 1px 2px black !important;
   font-family: "Inter" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
@@ -731,6 +731,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   padding-right: 2px !important;
   border: 0px !important;
   border-radius: 4px !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35)) !important;
 }
 
 .toolbarbutton-1:is(#back-button, #forward-button),
@@ -1120,7 +1121,7 @@ search-textbox#search-box:hover {
       min-height: 36px !important;
       max-height: 100% !important;
       box-shadow: unset !important;
-      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.55));
+      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.50));
     
       justify-content: center !important;
       align-content: center !important;
