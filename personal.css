@@ -1078,9 +1078,9 @@ search-textbox#search-box:hover {
   width: calc(var(--tab-min-height) - 11px) !important;
   height: calc(var(--tab-min-height) - 11px) !important;
   padding: 7px !important;
-  margin-inline-start: -2px !important;
+  margin-inline-start: -3px !important;
   box-shadow: unset !important;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.46)) !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.40)) !important;
   }
 }
 
