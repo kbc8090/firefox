@@ -101,7 +101,7 @@
 
 #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
   box-shadow: unset !important;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.50));
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.45));
 }
 
 /* Make unselected tab title color on hover the selected tab color 
@@ -284,7 +284,7 @@ tooltip {
   padding-left: 2px !important;
   font-size: 15px !important;
   font-weight: 600 !important;
-  font-family: "Segoe UI" !important;
+  font-family: "Inter" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
 }
@@ -432,7 +432,7 @@ menuitem {
 }
 
 #urlbar[pageproxystate="invalid"][focused] #identity-box {
-  padding-right: 9px !important;
+  padding-right: 10px !important;
   transition: none !important;
 }
 
