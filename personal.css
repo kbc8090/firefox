@@ -130,6 +130,7 @@
     --arrowpanel-menuitem-margin-inline: 4px !important;
     /*--arrowpanel-header-min-height: 0px !important; */
     --button-background-color-ghost-hover: var(--md-menu-background-color-hover) !important;
+    --toolbarbutton-hover-background: var(--md-menu-background-color-hover) !important;
 }
 
 body {
@@ -282,8 +283,8 @@ tooltip {
 #urlbar-input {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
-  font-size: 15px !important;
-  font-weight: 600 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
   font-family: "Inter" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
@@ -1077,7 +1078,7 @@ search-textbox#search-box:hover {
 & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
   width: calc(var(--tab-min-height) - 11px) !important;
   height: calc(var(--tab-min-height) - 11px) !important;
-  padding: 7px !important;
+  padding: 8px !important;
   margin-inline-start: -3px !important;
   box-shadow: unset !important;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.40)) !important;
@@ -1095,13 +1096,16 @@ search-textbox#search-box:hover {
   }
   */
 
+  #tabs-newtab-button, #new-tab-button {
+    list-style-image: url(plus.svg) !important;
+  }
 
     #tabs-newtab-button,
     #new-tab-button {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
     width: calc(var(--tab-min-height) - 6px) !important;
     height: calc(var(--tab-min-height) - 6px) !important;
-    padding: 8px !important;
+    padding: 7px !important;
     margin-inline-start: -1px !important;
     border-radius: 4px !important;
     margin-top: -1px !important;
@@ -1385,11 +1389,17 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   }
 }
 
+.tabbrowser-tab:not([pinned]) {
+  .tab-close-button {
+    display: flex !important;
+  }
+}
+
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
 
   #tabs-newtab-button, #new-tab-button{
-    --toolbarbutton-border-radius: 4px !important;
+    --toolbarbutton-border-radius: 3px !important;
   }
 
 #tabs-newtab-button:is(:active:hover, [checked], [open]):not([disabled])
@@ -1401,14 +1411,14 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 }
 
   .tab-background {
-    border-radius: 6px 6px 0 0 !important;
+    border-radius: 4px 4px 0 0 !important;
 
     &::before {
-      border-bottom-right-radius: 6px !important;
+      border-bottom-right-radius: 4px !important;
     }
 
     &::after {
-      border-bottom-left-radius: 6px !important;
+      border-bottom-left-radius: 4px !important;
     }
   }
 }
