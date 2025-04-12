@@ -722,10 +722,10 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   font-family: "Inter" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
-  font-size: 11px !important;
+  font-size: 10px !important;
   text-align: center !important;
   justify-content: center !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   padding-top: 2px !important;
   padding-bottom: 2px !important;
   padding-left: 2px !important;
@@ -1386,6 +1386,7 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   padding: 3px !important;
   &:hover {
     outline: 0px !important;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.65)) !important;
   }
 }
 
