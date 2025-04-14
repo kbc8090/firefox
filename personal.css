@@ -427,7 +427,7 @@ menuitem {
 } */
 
 #urlbar[pageproxystate="invalid"]:not([open]) #identity-box {
-  transition-duration: 85ms !important;
+  transition-duration: 70ms !important;
   transition-timing-function: cubic-bezier(0, 0, .2, 1) !important;
     padding-right: 0px !important;
 }
@@ -870,6 +870,15 @@ findbar {
   color: var(--md-tab-label-color) !important;
   background-color: var(--md-background-color-0) !important;
   text-shadow: 1px 1px 4px #000 !important;
+  border-bottom: 1px solid var(--md-menu-border-color) !important;
+  padding: 6px !important;
+}
+
+#sidebar-header > #sidebar-switcher-target > #sidebar-icon {
+  fill: var(--md-accent-color) !important;
+  opacity: 1.0 !important;
+  min-height: 18px !important;
+  max-height: 18px !important;
 }
 
 treechildren::-moz-tree-row(hover) {
@@ -918,9 +927,10 @@ treechildren::-moz-tree-twisty(selected),
 }
 
 #viewButton {
-  border-radius: 8px !important;
+  border-radius: 4px !important;
   border: var(--md-menu-border-size) !important;
   border-color: var(--md-menu-border-color) !important;
+  max-height: 28px !important;
 }
 
 #viewButton:hover {
@@ -929,6 +939,15 @@ treechildren::-moz-tree-twisty(selected),
 
 #viewButton[open] {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+}
+
+@media not (forced-colors) {
+  .close-icon:hover {
+    background-color: var(--md-menu-background-color-hover) !important;
+  }
+  .close-icon:active {
+    background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+  }
 }
 
 
@@ -1087,7 +1106,7 @@ search-textbox#search-box:hover {
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
-      margin-left: 10px !important;
+      margin-left: 9px !important;
     }
 
       /* Arrowpanel Menu Border size
@@ -1323,6 +1342,10 @@ treechildren::-moz-tree-image(title, open) {
   treechildren::-moz-tree-image(title, container, open) {
   -moz-context-properties: fill, fill-opacity;
   list-style-image: url("folder-open.svg") !important;
+}
+
+:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu) .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"] {
+  -moz-context-properties: fill, fill-opacity !important;
   fill: var(--md-accent-color) !important;
 }
 
