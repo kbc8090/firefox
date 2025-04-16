@@ -867,6 +867,7 @@ findbar {
 }
 
 #sidebar-header {
+  font-size: larger !important;
   color: var(--md-tab-label-color) !important;
   background-color: var(--md-background-color-0) !important;
   text-shadow: 1px 1px 4px #000 !important;
@@ -1043,7 +1044,7 @@ search-textbox#search-box:hover {
   }
 
   #identity-box[pageproxystate="valid"] {
-    &:is(.verifiedDomain, .mixedActiveBlocked) #identity-icon {
+    &:is(.verifiedDomain) #identity-icon {
       fill: var(--md-text-primary) !important;
       filter: drop-shadow(0 0 2px var(--md-selection-background-color)) drop-shadow(0 0 1px var(--md-accent-color)) !important;
     }
@@ -1097,7 +1098,7 @@ search-textbox#search-box:hover {
 & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
   width: calc(var(--tab-min-height) - 11px) !important;
   height: calc(var(--tab-min-height) - 11px) !important;
-  padding: 8px !important;
+  padding: 7px !important;
   margin-inline-start: -3px !important;
   box-shadow: unset !important;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.40)) !important;
@@ -1315,6 +1316,12 @@ search-textbox#search-box:hover {
   background-color: color-mix(in srgb, #E81123 65%, transparent) !important;
 }
 
+#identity-box[pageproxystate="valid"]:is(.notSecure, .notSecureText, .mixedActiveContent, .httpsOnlyErrorPage, .weakCipher, .mixedDisplayContent, .mixedDisplayContentLoadedActiveBlocked, .certUserOverridden, #identity-box[pageproxystate="valid"].certErrorPage) #identity-icon-label {
+  display: none !important;
+  fill: red !important;
+}
+
+
 
 /*.urlbarView {
 	background-image: url("noise-512x512.png") !important;
@@ -1340,12 +1347,7 @@ treechildren::-moz-tree-image(title, open) {
   .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
 :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
   treechildren::-moz-tree-image(title, container, open) {
-  -moz-context-properties: fill, fill-opacity;
   list-style-image: url("folder-open.svg") !important;
-}
-
-:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu) .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"] {
-  -moz-context-properties: fill, fill-opacity !important;
   fill: var(--md-accent-color) !important;
 }
 
@@ -1488,7 +1490,7 @@ button:active {
 }
   */
 
-/* ----------------------------------------------- Downloads and History Window -------------------------------------------------- */
+/* --------------------------------------------- Downloads/History/Bookmarks Window ----------------------------------------------- */
 
   @-moz-document url(chrome://browser/content/places/places.xhtml) {
 

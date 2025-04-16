@@ -104,7 +104,7 @@
     --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #c0caf5 44%, transparent)) !important;
     --md-accent-color: #2ac3de;
     --md-tab-label-color: color-mix(in srgb, #c0caf5 65%, white) !important;
-    --md-background-color-0: #24283b;
+    --md-background-color-0: #202435;
     --md-background-color-50: color-mix(in srgb, var(--md-background-color-0) 93%, #7192db);
     --md-background-color-100: #323C59;
     /*--md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 32%, transparent); */

@@ -3,6 +3,7 @@
 *, html, body {
     font-smooth: always !important;
     text-rendering: optimizelegibility !important;
+    -webkit-font-smoothing: antialiased !important;
 }
 
 
