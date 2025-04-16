@@ -283,9 +283,9 @@ tooltip {
 #urlbar-input {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  font-family: "Inter" !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  font-family: "Segoe UI" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
 }
@@ -432,7 +432,7 @@ menuitem {
     padding-right: 0px !important;
 }
 
-#urlbar[pageproxystate="invalid"][focused] #identity-box {
+#urlbar[pageproxystate="invalid"]:is([focused]) #identity-box {
   padding-right: 10px !important;
   transition: none !important;
 }
