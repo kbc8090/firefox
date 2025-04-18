@@ -850,12 +850,34 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   box-shadow: 0 1px 4px #00000054 !important;
 }
 
-#urlbar[pageproxystate="invalid"]:is([focused],[usertyping]) {
+#urlbar[pageproxystate="invalid"]:is([focused],[usertyping],[searchmode]) {
+  #identity-box.chromeUI {
+    #identity-icon-box.identity-box-button {
+      padding-inline: 0px !important;
+    }
+  }
+}
+
+#urlbar[pageproxystate="invalid"] {
+  #identity-box.chromeUI {
+    #identity-icon-box.identity-box-button {
+      padding-inline: 0px !important;
+    }
+  }
+}
+
+#urlbar {
+  #identity-box.chromeUI {
+    #identity-icon-box.identity-box-button {
+      padding-inline: 8px !important;
+    }
+  }
+}
+
 #identity-box.chromeUI {
   #identity-icon-box.identity-box-button {
     padding-inline: 0px !important;
   }
-}
 }
 
 /*----------------========================------------------------===================== */
