@@ -437,6 +437,14 @@ menuitem {
   transition: none !important;
 }
 
+#urlbar[pageproxystate="invalid"]:is([focused]) #identity-box.chromeUI {
+  padding-right: 2px !important;
+  transition: none !important;
+}
+
+
+
+
 /* Colors the URL bar on mouseover 
 
 
@@ -840,6 +848,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 #urlbar[focused]:not([suppress-focus-border]) > #urlbar-background, #searchbar:focus {
   box-shadow: 0 1px 4px #00000054 !important;
+}
+
+#identity-box.chromeUI {
+  #identity-icon-box.identity-box-button {
+    padding-inline: 8px !important;
+  }
 }
 
 /*----------------========================------------------------===================== */
