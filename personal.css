@@ -438,7 +438,7 @@ menuitem {
 }
 
 #urlbar[pageproxystate="invalid"]:is([focused]) #identity-box.chromeUI {
-  padding-right: 2px !important;
+  padding-right: 10px !important;
   transition: none !important;
 }
 
@@ -850,10 +850,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   box-shadow: 0 1px 4px #00000054 !important;
 }
 
+#urlbar[pageproxystate="invalid"]:is([focused],[usertyping]) {
 #identity-box.chromeUI {
   #identity-icon-box.identity-box-button {
-    padding-inline: 8px !important;
+    padding-inline: 0px !important;
   }
+}
 }
 
 /*----------------========================------------------------===================== */
