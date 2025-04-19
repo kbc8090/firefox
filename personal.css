@@ -320,7 +320,7 @@ tooltip {
   #urlbar[open] .urlbarView,
   #urlbar[breakout][breakout-extend] > #urlbar-background {
     animation-name: fp-urlbar-animation !important;
-    animation-duration: 360ms !important;
+    animation-duration: 380ms !important;
     transform-origin: top !important;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) !important;
   }
@@ -339,8 +339,16 @@ tooltip {
 }
 
 #urlbar[open] #urlbar-background, #urlbar[open] #searchbar {
-  box-shadow: rgb(0, 0, 0, 0.65) 0px 14px 66px 4px !important;
-  margin-top: 2px !important;
+  box-shadow: rgb(0, 0, 0, 0.20) 0px 18px 18px 4px !important;
+  @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+    margin-top: 0px !important;
+    border: 1px solid !important;
+    border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
+    border-radius: 8px !important;
+  }
+  @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+    margin-top: 1px !important;
+  }
 }
 
 
@@ -620,7 +628,9 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 .tab-content {
     &::before,
     &::after {
-        width: 1px !important;
+      @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+        width: 2px !important;
+      }
         height: 18px !important;
     }
 }
@@ -854,6 +864,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   #identity-box.chromeUI {
     #identity-icon-box.identity-box-button {
       padding-inline: 0px !important;
+      outline: 1px solid var(--md-menu-border-color) !important;
     }
   }
 }
@@ -861,6 +872,25 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #urlbar[pageproxystate="invalid"] {
   #identity-box.chromeUI {
     #identity-icon-box.identity-box-button {
+      outline: 1px solid var(--md-menu-border-color) !important;
+      padding-inline: 0px !important;
+    }
+  }
+}
+
+#urlbar[pageproxystate="invalid"]:is([focused],[usertyping],[searchmode]) {
+  #identity-box {
+    #identity-icon-box.identity-box-button {
+      padding-inline: 0px !important;
+      outline: 1px solid var(--md-menu-border-color) !important;
+    }
+  }
+}
+
+#urlbar[pageproxystate="invalid"] {
+  #identity-box {
+    #identity-icon-box.identity-box-button {
+      outline: 1px solid var(--md-menu-border-color) !important;
       padding-inline: 0px !important;
     }
   }
@@ -870,6 +900,31 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   #identity-box.chromeUI {
     #identity-icon-box.identity-box-button {
       padding-inline: 8px !important;
+      outline: 1px solid var(--md-menu-border-color) !important;
+    }
+  }
+}
+
+#urlbar {
+  #identity-box.chromeUI {
+    #identity-icon-box.identity-box-button:hover {
+      outline: none !important;
+    }
+  }
+}
+
+#urlbar {
+  #identity-box {
+    #identity-icon-box.identity-box-button:hover {
+      outline: none !important;
+    }
+  }
+}
+
+#urlbar {
+  #identity-box {
+    #identity-icon-box.identity-box-button:active {
+      outline: none !important;
     }
   }
 }
@@ -877,8 +932,10 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #identity-box.chromeUI {
   #identity-icon-box.identity-box-button {
     padding-inline: 0px !important;
+    outline: 1px solid var(--md-menu-border-color) !important;
   }
 }
+
 
 /*----------------========================------------------------===================== */
 
@@ -1143,6 +1200,11 @@ search-textbox#search-box:hover {
   }
 }
 
+#identity-icon-box {
+  min-width: 24px !important;
+  outline: 1px solid var(--md-menu-border-color) !important;
+}
+
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
       margin-left: 9px !important;
@@ -1221,16 +1283,13 @@ search-textbox#search-box:hover {
       padding-bottom: 2px !important;
       padding-top: 2px !important;
       margin-inline-end: 4px !important;
-      margin-inline-start: 2px !important;
+      margin-inline-start: 3px !important;
 
       @media not (-moz-pref("userChrome.ui-force-old-icons")) {
         fill: var(--md-icon-color-primary) !important;
       }
     }
-  
-    #identity-icon-box {
-      min-width: 24px !important;
-    }
+
   
 
     #identity-box:not(.chromeUI) {
@@ -1318,13 +1377,20 @@ search-textbox#search-box:hover {
   }
 
 #urlbar-zoom-button {
-  border: 1px solid var(--md-menu-border-color) !important;
+  outline: 1px solid var(--md-menu-border-color) !important;
   font-weight: 600 !important;
   font-size: 12px !important;
+  margin-inline: 5px !important;
 }
 
+
+  #identity-permission-box.identity-box-button {
+    margin-left: 1px !important;
+  }
+
+
 #urlbar-zoom-button:hover {
-  border: 1px solid transparent !important;
+  outline: 1px solid var(--md-menu-background-color-hover) !important;
 }
 
 /* Fade in the minimize/maximize/close buttons */
