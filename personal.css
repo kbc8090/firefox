@@ -806,6 +806,14 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 }
 
 @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+  .tab-content {
+    padding-inline-end: 15px !important;
+  
+    #tabbrowser-tabs[closebuttons="activetab"][orient="horizontal"] &:not([selected]) {
+      padding-inline-end: 15px !important;
+    }
+  }
+
   .tab-close-button {
     margin-inline-end: calc(var(--tab-inline-padding) / -1.2) !important;
   }
