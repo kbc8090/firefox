@@ -223,7 +223,7 @@ tooltip {
 }
 
 #urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
-    background-color: color-mix(in srgb, var(--md-background-color-100) 84%, black) !important;
+    background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
     border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
 }
 
@@ -1070,7 +1070,8 @@ search-textbox#search-box {
 }
 
 search-textbox#search-box:hover {
-  background-color: color-mix(in srgb, var(--md-background-color-100) 84%, black) !important;
+  background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
+  border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
 }
 
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
@@ -1976,7 +1977,8 @@ button:active {
       }
       
       search-textbox#searchFilter:hover {
-        background-color: color-mix(in srgb, var(--md-background-color-100) 84%, black) !important;
+        background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
+        border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
       }
 
 

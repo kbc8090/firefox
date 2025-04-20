@@ -9,7 +9,7 @@
     --md-tab-separator-color: var(--md-content-separator-color) !important;
     --md-accent-color: #bd93f9;
     --md-background-color-0: #212533;
-    --md-background-color-50: #272a3a;
+    --md-background-color-50: #2b2f3e;
     --md-background-color-100: #3B3D51;
     /*--md-tab-background-color-hover: #2c3142; */
     --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
@@ -155,12 +155,12 @@
       --md-tab-opacity: 1.0;
       --md-background-color-0: color-mix(
         in srgb,
-        var(--md-grey-900) 85%,
+        var(--md-grey-900) 86%,
         var(--md-accent-color)
       );
       --md-background-color-50: color-mix(
         in srgb,
-        var(--md-grey-900-white-4-percent) 85%,
+        var(--md-grey-900) 81%,
         var(--md-accent-color)
       );
       --md-background-color-100: color-mix(
