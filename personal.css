@@ -223,7 +223,7 @@ tooltip {
 }
 
 #urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
-    background-color: color-mix(in srgb, var(--md-background-color-50) 50%, transparent) !important;
+    background-color: color-mix(in srgb, var(--md-background-color-100) 84%, black) !important;
     border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
 }
 
@@ -284,8 +284,8 @@ tooltip {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
   font-size: 15px !important;
-  font-weight: 600 !important;
-  font-family: "Segoe UI" !important;
+  font-weight: 500 !important;
+  font-family: "Inter" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
 }
@@ -746,8 +746,8 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   font-weight: 600 !important;
   padding-top: 2px !important;
   padding-bottom: 2px !important;
-  padding-left: 2px !important;
-  padding-right: 2px !important;
+  padding-left: 3px !important;
+  padding-right: 3px !important;
   border: 0px !important;
   border-radius: 4px !important;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35)) !important;
@@ -916,7 +916,8 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #urlbar {
   #identity-box.chromeUI {
     #identity-icon-box.identity-box-button:hover {
-      outline: none !important;
+      outline: 1px solid var(--md-menu-background-color-hover) !important;
+      
     }
   }
 }
@@ -924,7 +925,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #urlbar {
   #identity-box {
     #identity-icon-box.identity-box-button:hover {
-      outline: none !important;
+      outline: 1px solid var(--md-menu-background-color-hover) !important;
     }
   }
 }
@@ -932,7 +933,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #urlbar {
   #identity-box {
     #identity-icon-box.identity-box-button:active {
-      outline: none !important;
+      outline: 1px solid var(--md-menu-background-color-hover) !important;
     }
   }
 }
@@ -1069,7 +1070,7 @@ search-textbox#search-box {
 }
 
 search-textbox#search-box:hover {
-  background-color: color-mix(in srgb, var(--md-background-color-50) 95%, white) !important;
+  background-color: color-mix(in srgb, var(--md-background-color-100) 84%, black) !important;
 }
 
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
@@ -1143,7 +1144,7 @@ search-textbox#search-box:hover {
 
 #bookmarks-menu-button {
     fill: var(--md-accent-color) !important;
-    filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
+    filter: drop-shadow(0 0 1px var(--md-accent-color)) drop-shadow(0 0 2px var(--md-selection-background-color)) !important;
   }
 
   #identity-box[pageproxystate="valid"] {
@@ -1385,21 +1386,24 @@ search-textbox#search-box:hover {
   }
 
 #urlbar-zoom-button {
+  outline-offset: var(--toolbarbutton-outline-offset) !important;
   outline: 1px solid var(--md-menu-border-color) !important;
   font-weight: 600 !important;
-  font-size: 12px !important;
+  font-size: 11px !important;
+  font-family: "Inter" !important;
+  font-weight: 600 !important;
   margin-inline: 5px !important;
 }
-
-
-  #identity-permission-box.identity-box-button {
-    margin-left: 1px !important;
-  }
-
 
 #urlbar-zoom-button:hover {
   outline: 1px solid var(--md-menu-background-color-hover) !important;
 }
+
+
+#identity-permission-box.identity-box-button {
+  margin-left: 1px !important;
+}
+
 
 /* Fade in the minimize/maximize/close buttons */
 .titlebar-button:hover {
@@ -1431,6 +1435,12 @@ search-textbox#search-box:hover {
 #identity-box[pageproxystate="valid"]:is(.notSecure, .notSecureText, .mixedActiveContent, .httpsOnlyErrorPage, .weakCipher, .mixedDisplayContent, .mixedDisplayContentLoadedActiveBlocked, .certUserOverridden, #identity-box[pageproxystate="valid"].certErrorPage) #identity-icon-label {
   display: none !important;
   fill: red !important;
+}
+
+#identity-icon-label {
+  font-size: 12px !important;
+  font-family: "Inter" !important;
+  font-weight: 500 !important;
 }
 
 
@@ -1629,6 +1639,14 @@ button:active {
     :root {--focus-outline-width: 6px !important; }
     :root {--focus-outline-color: var(--md-text-primary) !important; }
     :root {--focus-outline: var(--focus-outline-width) solid var(--focus-outline-color) !important; }
+
+    .textbox-search-sign, .textbox-search-icon {
+      list-style-image: url(chrome://global/skin/icons/search-glass.svg) !important;
+      fill: var(--md-accent-color) !important;
+      -moz-context-properties: fill, fill-opacity !important;
+      fill-opacity: 1 !important;
+      filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
+    }
 
    /* Correct context menu padding in Library Window */
     @media (-moz-platform: windows), (-moz-platform: linux) {
@@ -1958,17 +1976,13 @@ button:active {
       }
       
       search-textbox#searchFilter:hover {
-        background-color: color-mix(in srgb, var(--md-background-color-50) 95%, white) !important;
+        background-color: color-mix(in srgb, var(--md-background-color-100) 84%, black) !important;
       }
 
-    /* Search Icon */
-    .textbox-search-sign {
-      filter: invert(56%) blue(80%) saturate(2591%) hue-rotate(81deg) brightness(118%) contrast(128%) !important
-    }
+
     /* Searchbox Focus */
     #searchFilter[focused] {
-      box-shadow: var(--input-field-focus-shadow) !important;
-      background-color: var(--odd-bg-row) !important;
+      background-color: var(--md-background-color-50) !important;
       color: var(--textcolor) !important;
     }
     /* Clear Text Icon (Not sure how to style this)

@@ -53,7 +53,7 @@
     --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 76%, var(--md-accent-color)));
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-menu-border-color: #3c434d;
-    --md-content-separator-color: var(--md-menu-border-color);
+    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 94%, white);
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 80%, black);
     --md-icon-color-secondary: var(--md-text-secondary);
@@ -165,7 +165,7 @@
       );
       --md-background-color-100: color-mix(
         in srgb,
-        var(--md-grey-900-white-5-percent) 85%,
+        var(--md-grey-900-white-5-percent) 80%,
         var(--md-accent-color)
       );
       /*--md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, var(--md-grey-800) 80%, var(--md-accent-color))); */
