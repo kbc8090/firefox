@@ -1229,7 +1229,8 @@ search-textbox#search-box:hover {
   */
 
   #tabs-newtab-button, #new-tab-button {
-    list-style-image: url(plus.svg) !important;
+    list-style-image: url("plus.svg") !important;
+    fill: var(--md-tab-label-color) !important;
   }
 
     #tabs-newtab-button,
@@ -1237,14 +1238,17 @@ search-textbox#search-box:hover {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
     width: calc(var(--tab-min-height) - 6px) !important;
     height: calc(var(--tab-min-height) - 6px) !important;
-    padding: 7px !important;
-    margin-inline-start: -1px !important;
-    border-radius: 4px !important;
+    padding: 6.5px !important;
+    margin-inline-start: -2px !important;
     margin-top: -1px !important;
     box-shadow: unset !important;
-    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.46)) !important;
     }
   }
+
+  #tabs-newtab-button, #new-tab-button{
+    --toolbarbutton-border-radius: 2px !important;
+  }
+  
 
     .tab-content {
       padding: 0 10px !important;
@@ -1596,10 +1600,6 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
 
-  #tabs-newtab-button, #new-tab-button{
-    --toolbarbutton-border-radius: 3px !important;
-  }
-
 #tabs-newtab-button:is(:active:hover, [checked], [open]):not([disabled])
 > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack),
 #new-tab-button:is(:active:hover, [checked], [open]):not([disabled])
@@ -1652,6 +1652,17 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   padding-right: 0px !important;
   padding-top: 14px !important;
   padding-bottom: 14px !important;
+}
+
+#PlacesToolbarItems>toolbarseparator {
+  padding-inline: 1px !important;
+  border-left: 1px solid var(--md-accent-color) !important;
+  filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
+  margin-left: 4px !important;
+  margin-right: 1px !important;
+  &::before {
+      margin-block: 10px 10px !important;
+  }
 }
 
 /*
