@@ -1202,7 +1202,7 @@ search-textbox#search-box:hover {
   #tabs-newtab-button,
   #new-tab-button {
 & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-  width: calc(var(--tab-min-height) - 2px) !important;
+  width: calc(var(--tab-min-height) - 11px) !important;
   height: calc(var(--tab-min-height) - 11px) !important;
   padding: 7px !important;
   margin-inline-start: -3px !important;
@@ -1640,13 +1640,18 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
 }
 
-.toolbar-menupopup :is(menu, menuitem), .subview-subheader, panelview .toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1 {
-  padding: 13px !important;
+[dir="ltr"] .toolbar-menupopup :is(menu, menuitem).bookmark-item {
+  padding-left: 9px !important;
+  padding-right: 0px !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
 }
 
-[dir="ltr"] .toolbar-menupopup :is(menu, menuitem).bookmark-item {
-  padding-left: 10px !important;
+[dir="ltr"] .toolbar-menupopup :is(menu, menuitem).openintabs-menuitem {
+  padding-left: 33px !important;
   padding-right: 0px !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important;
 }
 
 /*
