@@ -1633,13 +1633,21 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 }
 
 .textbox-search-sign, .textbox-search-icon {
-  list-style-image: url(chrome://global/skin/icons/search-glass.svg) !important;
+  list-style-image: url("chrome://global/skin/icons/search-glass.svg") !important;
   fill: var(--md-accent-color) !important;
   -moz-context-properties: fill, fill-opacity !important;
   fill-opacity: 1 !important;
   filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
 }
 
+.toolbar-menupopup :is(menu, menuitem), .subview-subheader, panelview .toolbarbutton-1, .subviewbutton, .widget-overflow-list .toolbarbutton-1 {
+  padding: 13px !important;
+}
+
+[dir="ltr"] .toolbar-menupopup :is(menu, menuitem).bookmark-item {
+  padding-left: 10px !important;
+  padding-right: 0px !important;
+}
 
 /*
 menuitem#context-copyimage .menu-text {
