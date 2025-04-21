@@ -339,7 +339,7 @@ tooltip {
 }
 
 #urlbar[open] #urlbar-background, #urlbar[open] #searchbar {
-  box-shadow: rgb(0, 0, 0, 0.20) 0px 18px 18px 4px !important;
+  box-shadow: rgb(0, 0, 0, 0.25) 0px 18px 18px 4px !important;
   @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     margin-top: 0px !important;
     border: 1px solid !important;
@@ -1036,6 +1036,7 @@ treechildren::-moz-tree-twisty(selected),
   border: var(--md-menu-border-size) !important;
   border-color: var(--md-menu-border-color) !important;
   max-height: 28px !important;
+  padding-left: 8px !important;
 }
 
 #viewButton:hover {
@@ -1201,7 +1202,7 @@ search-textbox#search-box:hover {
   #tabs-newtab-button,
   #new-tab-button {
 & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-  width: calc(var(--tab-min-height) - 11px) !important;
+  width: calc(var(--tab-min-height) - 2px) !important;
   height: calc(var(--tab-min-height) - 11px) !important;
   padding: 7px !important;
   margin-inline-start: -3px !important;
@@ -1216,6 +1217,7 @@ search-textbox#search-box:hover {
 }
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
       margin-left: 9px !important;
     }
@@ -1250,15 +1252,58 @@ search-textbox#search-box:hover {
 
     #alltabs-button {
       margin: 0 !important;
-      min-width: 36px !important;
-      max-width: 36px !important;
-      min-height: 36px !important;
-      max-height: 100% !important;
+      margin-top: 2px !important;
+      margin-left: 0px !important;
+      width: calc(var(--tab-min-height) - 6px) !important;
+      height: calc(var(--tab-min-height) - 6px) !important;
+
       box-shadow: unset !important;
       filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.50));
     
       justify-content: center !important;
       align-content: center !important;
+
+      .toolbarbutton-badge-stack {
+        background-color: color-mix(in srgb, var(--md-background-color-100) 13%, var(--md-accent-color)) !important;
+    
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--md-background-color-100) !important;
+        }
+      }
+    
+    
+      &:not(:active, [open="true"]):hover {
+        .toolbarbutton-badge-stack {
+          background-color: var(--md-tab-background-color-hover) !important;
+          box-shadow: unset !important;
+          filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.50));
+          outline-offset: -1px !important;
+          outline: 1px solid var(--md-menu-background-color-hover) !important;
+        }
+      }
+    
+    
+      &:active:hover,
+      &[open="true"] {
+        .toolbarbutton-badge-stack {
+          background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+          box-shadow: unset !important;
+          filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.50));
+          outline-offset: -1px !important;
+          outline: 1px solid var(--md-menu-background-color-hover) !important;
+    
+          @media (prefers-color-scheme: dark) {
+            background-color: get-var(alltabs-background-color-open) !important;
+          }
+        }
+      }
+    
+    
+    :root:-moz-window-inactive #navigator-toolbox {
+      #alltabs-button .toolbarbutton-badge-stack {
+        background-color: get-var("background-color-100") !important;
+      }
+    }
     
       .toolbarbutton-badge-stack {
         transform: translate(0px, 1px) !important;
@@ -1275,12 +1320,16 @@ search-textbox#search-box:hover {
         justify-content: center !important;
     
         overflow: hidden !important;
-        border-radius: 100px !important;
+        border-radius: 10px !important;
+        outline-offset: -1px !important;
+        outline: 1px solid var(--md-menu-border-color) !important;
       }
     
       .toolbarbutton-icon {
-        width: 16px !important;
-        height: 16px !important;
+        fill: var(--md-accent-color) !important;
+        filter: drop-shadow(0 0 1px var(--md-accent-color)) drop-shadow(0 0 2px var(--md-selection-background-color)) !important;
+        width: 14px !important;
+        height: 14px !important;
       }
     }
 
@@ -1581,6 +1630,14 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   .downloadProgress::-moz-progress-bar {
     --download-progress-fill-color: color-mix(in srgb, var(--md-background-color-0) 60%, var(--md-accent-color)) !important;
   }
+}
+
+.textbox-search-sign, .textbox-search-icon {
+  list-style-image: url(chrome://global/skin/icons/search-glass.svg) !important;
+  fill: var(--md-accent-color) !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill-opacity: 1 !important;
+  filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
 }
 
 
