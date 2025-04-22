@@ -1672,7 +1672,7 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   margin-left: 4px !important;
   margin-right: 1px !important;
   &::before {
-      margin-block: 10px 10px !important;
+      margin-block: 8px 10px !important;
   }
 }
 
