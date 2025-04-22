@@ -72,6 +72,10 @@
     display: none !important;
 }
 
+#placesContext_openSeparator {
+  display: none !important;
+ }
+
 
 /* Make background tabs not as vibrant as selected tab
 .tabbrowser-tab:not([selected=true]):not([multiselected=true]) .tab-background {
@@ -1019,21 +1023,25 @@ treechildren::-moz-tree-twisty(selected) {
 
 .sidebar-placesTree::-moz-tree-image,
 .sidebar-placesTreechildren::-moz-tree-image {
+  -moz-context-properties: fill, fill-opacity !important;
   fill: var(--md-text-secondary) !important;
+  fill-opacity: 1 !important;
 }
 
 .sidebar-placesTree treechildren::-moz-tree-cell-text(selected),
 treechildren::-moz-tree-image(selected),
 treechildren::-moz-tree-twisty(selected),
 .sidebar-placesTreechildren::-moz-tree-image(selected),
-.sidebar-placesTreechildren::-moz-tree-image(active) {
+.sidebar-placesTreechildren::-moz-tree-image(active, open) {
   color: var(--md-selection-text-color) !important;
   fill: var(--md-selection-text-color) !important;
+  fill-opacity: 1 !important;
 }
 
 #viewButton {
   border-radius: 4px !important;
-  border: var(--md-menu-border-size) !important;
+  outline-offset: -1px !important;
+  outline: 1px solid var(--md-menu-border-color) !important;
   border-color: var(--md-menu-border-color) !important;
   max-height: 28px !important;
   padding-left: 8px !important;
@@ -1041,10 +1049,14 @@ treechildren::-moz-tree-twisty(selected),
 
 #viewButton:hover {
   background-color: var(--md-menu-background-color-hover) !important;
+  outline-offset: -1px !important;
+  outline: 1px solid var(--md-menu-background-color-hover) !important;
 }
 
 #viewButton[open] {
   background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+  outline-offset: -1px !important;
+  outline: 1px solid var(--md-accent-color) !important;
 }
 
 @media not (forced-colors) {
@@ -1230,7 +1242,7 @@ search-textbox#search-box:hover {
 
   #tabs-newtab-button, #new-tab-button {
     list-style-image: url("plus.svg") !important;
-    fill: var(--md-tab-label-color) !important;
+    fill: var(--md-text-primary) !important;
   }
 
     #tabs-newtab-button,
@@ -1520,11 +1532,10 @@ treechildren::-moz-tree-image(title, open) {
 
 /* Standard Folder - Open */
 :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
-  .bookmark-item[container="true"]:not([query="true"], [tagContainer], [dayContainer])[open="true"],
+  .bookmark-item[container="true"]:not([query="true"], [tagContainer], [selected], [dayContainer])[open="true"],
 :-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
   treechildren::-moz-tree-image(title, container, open) {
   list-style-image: url("folder-open.svg") !important;
-  fill: var(--md-accent-color) !important;
 }
 
 tree {
