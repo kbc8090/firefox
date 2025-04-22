@@ -1536,6 +1536,21 @@ treechildren::-moz-tree-image(title, open) {
   list-style-image: url("folder.svg") !important;
 }
 
+#BMB_bookmarksPopup #BMB_viewBookmarksSidebar:not(.menuitem-iconic) {
+  padding: 13px !important;
+  padding-left: 33px !important;
+}
+
+#BMB_bookmarksPopup #BMB_searchBookmarks:not(.menuitem-iconic) {
+  padding: 13px !important;
+  padding-left: 33px !important;
+}
+
+#BMB_bookmarksPopup #BMB_bookmarksShowAllTop:not(.menuitem-iconic) {
+  padding: 13px !important;
+  padding-left: 33px !important;
+}
+
 /* Standard Folder - Open */
 :-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
   .bookmark-item[container="true"]:not([query="true"], [tagContainer], [selected], [dayContainer])[open="true"],
