@@ -192,8 +192,8 @@ tooltip {
     border-bottom: none !important;
     border-top: var(--md-menu-border-size) !important;
     border-color: var(--md-menu-border-color) !important;
-    border-radius: 0 8px 0px 0px !important;
-    padding: 5px !important;
+    border-radius: 0px 4px 0px 0px !important;
+    padding: 4px !important;
 }
 
 /* Change height of bookmark bar */
@@ -809,7 +809,13 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   margin-inline: 0px !important;
 }
 
+.titlebar-buttonbox-container {
+  margin: 0 0 0 20px !important;
+}
+
+
 @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+
   .tab-content {
     padding-inline-end: 15px !important;
   
@@ -1584,7 +1590,7 @@ tree {
 
 spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   border-color: var(--md-accent-color) !important;
-  filter: drop-shadow(0 0 3px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
+  filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
   border-bottom: none !important;
 }
 
@@ -1597,7 +1603,8 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   height: 18px !important;
   padding: 3px !important;
   &:hover {
-    outline: 0px !important;
+    outline-offset: -1px !important;
+    outline: 1px solid var(--md-menu-background-color-hover) !important;
     filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.65)) !important;
   }
 }
@@ -1606,6 +1613,10 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   .tab-close-button {
     display: flex !important;
   }
+}
+
+#tracking-protection-icon-container {
+  margin-top: -1px !important;
 }
 
 
