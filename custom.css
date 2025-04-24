@@ -5,7 +5,7 @@
   body {
     --md-text-primary: light-dark(color-mix(in srgb, #ddd8f8 70%, black), #ddd8f8) !important;
     --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #ddd8f8 44%, transparent)) !important;
-    --md-tab-label-color: color-mix(in srgb, #ddd8f8 80%, white) !important;
+    --md-tab-label-color: color-mix(in srgb, #ddd8f8 60%, white) !important;
     --md-tab-separator-color: var(--md-content-separator-color) !important;
     --md-accent-color: #bd93f9;
     --md-background-color-0: #212533;
