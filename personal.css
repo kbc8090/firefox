@@ -353,7 +353,7 @@ tooltip {
   @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     margin-top: 0px !important;
     border: 1px solid !important;
-    border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
+    border-color: var(--md-content-separator-color) !important;
     border-radius: 8px !important;
   }
   @media (-moz-pref("userChrome.ui-chrome-refresh")) {
@@ -451,12 +451,12 @@ menuitem {
 }
 
 #urlbar[pageproxystate="invalid"]:is([focused]) #identity-box {
-  padding-right: 10px !important;
+  padding-right: 9px !important;
   transition: none !important;
 }
 
 #urlbar[pageproxystate="invalid"]:is([focused]) #identity-box.chromeUI {
-  padding-right: 10px !important;
+  padding-right: 9px !important;
   transition: none !important;
 }
 
@@ -879,6 +879,9 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 /*.urlbar-input-container:active {
   border-color: red !important;
 } */
+.notification-anchor-icon {
+  padding: 4px !important;
+}
 
 .identity-box-button, #tracking-protection-icon-container {
   &:hover:active, &[open="true"] {
@@ -1617,6 +1620,12 @@ tree {
   }
 }
 
+#identity-box:is(.extensionPage) {
+  #identity-icon-box.identity-box-button {
+    padding-inline: 6px !important;
+  }
+}
+
 spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   border-color: var(--md-accent-color) !important;
   filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
@@ -1715,6 +1724,10 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
       margin-block: 8px 10px !important;
   }
 }
+
+.tab-stack::before {
+  opacity: 0 !important;
+ }
 
 /*
 menuitem#context-copyimage .menu-text {
