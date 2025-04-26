@@ -824,8 +824,20 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   margin: 0 0 0 20px !important;
 }
 
+.tab-content {
+  padding: 0 11px !important;
+}
+
 
 @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+
+  #nav-bar {
+    border-radius: 8px 8px 0 0 !important;
+  }
+
+  .tab-background {
+    border-radius: 10px !important;
+  }
 
   .tab-content {
     padding-inline-end: 15px !important;
@@ -843,6 +855,9 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-bottom: 0 !important;
+    .toolbarbutton-badge-stack {
+      border-radius: 10px !important;
+    }
   }
   .tabbrowser-tab:is([visuallyselected], [selected]) .tab-background {
     &::before {
@@ -1664,8 +1679,8 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 }
 
 .tabbrowser-tab[pinned] {
-  max-width: 44px !important;
-  min-width: 44px !important;
+  max-width: 46px !important;
+  min-width: 46px !important;
 }
 
 .tabbrowser-tab[pinned] .tab-content {
