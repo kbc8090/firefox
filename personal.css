@@ -667,8 +667,13 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   margin-inline-end: 6px !important;
 }
 
-.subviewbutton-iconic:not([class*="identity-color-"]) > .toolbarbutton-icon {
+.subviewbutton-iconic:not([class*="identity-color-"],[class*="all-tabs-button"],[class*="bookmark-item"]) > .toolbarbutton-icon {
   fill: var(--md-accent-color) !important;
+}
+
+.subviewbutton-iconic:is([class*="all-tabs-button"],[class*="bookmark-item"]) > .toolbarbutton-icon {
+  fill-opacity: 1 !important;
+  fill: var(--md-icon-color-secondary) !important;
 }
 
 /* Bookmark menu chevron overflow icon same as secondary text color */
@@ -831,7 +836,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   }
 
   .tab-close-button {
-    margin-inline-end: calc(var(--tab-inline-padding) / -1.2) !important;
+    margin-inline-end: calc(var(--tab-inline-padding) / -1.4) !important;
   }
   #alltabs-button {
     margin-top: -2px !important;
@@ -1037,6 +1042,7 @@ treechildren::-moz-tree-twisty(selected) {
 }
 
 .sidebar-placesTree treechildren::-moz-tree-cell-text {
+  padding-left: 4px !important;
   color: var(--md-tab-label-color) !important;
 }
 
@@ -1249,6 +1255,10 @@ search-textbox#search-box:hover {
 #identity-icon-box {
   min-width: 24px !important;
   outline: 1px solid var(--md-menu-border-color) !important;
+}
+
+.tab-icon-image {
+  fill: var(--md-icon-color-primary) !important;
 }
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
@@ -2027,6 +2037,11 @@ button:active {
   }
   
   /* Right side list text */
+
+
+  #placeContent treechildren::-moz-tree-cell-text {
+    padding-left: 6px !important;
+  }
   #placeContent treechildren::-moz-tree-cell-text(hover) {
     color: var(--hover-text-row) !important;
   }
@@ -2072,6 +2087,7 @@ button:active {
   
   /* Left side list Icons */
   #placesList treechildren::-moz-tree-image {
+    padding-right: 4px !important;
     fill-opacity: 1 !important;
     fill: var(--md-text-secondary) !important;
   }
