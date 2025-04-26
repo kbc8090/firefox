@@ -903,6 +903,20 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   padding: 4px !important;
 }
 
+#notification-popup-box {
+  margin-left: 2px !important;
+}
+
+#notification-popup-box:hover {
+  outline-offset: -1px !important;
+  outline: 1px solid var(--md-menu-background-color-hover) !important;
+}
+
+#identity-permission-box:hover {
+  outline-offset: -1px !important;
+  outline: 1px solid var(--md-menu-background-color-hover) !important;
+}
+
 .identity-box-button, #tracking-protection-icon-container {
   &:hover:active, &[open="true"] {
     outline-color: var(--md-menu-background-color-hover) !important;
@@ -1249,14 +1263,6 @@ search-textbox#search-box:hover {
 
   #tabs-newtab-button,
   #new-tab-button {
-    &:not([disabled]):hover
-      > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-      background-color: var(--md-tab-background-color-hover) !important;
-    }
-  }
-
-  #tabs-newtab-button,
-  #new-tab-button {
 & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
   width: calc(var(--tab-min-height) - 11px) !important;
   height: calc(var(--tab-min-height) - 11px) !important;
@@ -1266,6 +1272,14 @@ search-textbox#search-box:hover {
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.40)) !important;
   }
 }
+
+  #tabs-newtab-button,
+  #new-tab-button {
+    &:not([disabled]):hover
+      > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+      background-color: var(--md-tab-background-color-hover) !important;
+    }
+  }
 
 #identity-icon-box {
   min-width: 24px !important;
@@ -1515,7 +1529,7 @@ search-textbox#search-box:hover {
 
 
 #identity-permission-box.identity-box-button {
-  margin-left: 1px !important;
+  margin-left: 2px !important;
 }
 
 
