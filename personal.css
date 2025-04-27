@@ -478,12 +478,12 @@ menuitem {
 }
 
 #urlbar[pageproxystate="invalid"]:is([focused]) #identity-box {
-  padding-right: 9px !important;
+  padding-right: 11px !important;
   transition: none !important;
 }
 
 #urlbar[pageproxystate="invalid"]:is([focused]) #identity-box.chromeUI {
-  padding-right: 9px !important;
+  padding-right: 11px !important;
   transition: none !important;
 }
 
@@ -1719,9 +1719,18 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   }
 }
 
-.tabbrowser-tab[pinned] {
-  max-width: 46px !important;
-  min-width: 46px !important;
+@media (-moz-pref("userChrome.ui-chrome-refresh")) {
+  .tabbrowser-tab[pinned] {
+    max-width: 46px !important;
+    min-width: 46px !important;
+  }
+}
+
+@media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+  .tabbrowser-tab[pinned] {
+    max-width: 42px !important;
+    min-width: 42px !important;
+  }
 }
 
 .tabbrowser-tab[pinned] .tab-content {
