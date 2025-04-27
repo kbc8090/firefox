@@ -238,6 +238,33 @@ tooltip {
 }
 
 .urlbarView-row {
+  padding: 0px 0px !important;
+  border-left: 0px !important;
+  padding-left: 5px !important;
+  @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+    margin-inline: 3px !important;
+  }
+  border-radius: 0px !important;
+}
+
+.urlbarView-row[selected]::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+      left: 1px !important;
+    }
+    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+      left: 0px !important;
+    }
+    min-width: 4px !important;
+    max-width: 4px !important;
+    height: 40px !important;
+    background-color: var(--md-accent-color) !important;
+    clip-path: inset(0 0 0 0 round 0px 4px 4px 0px) !important;
+}
+
+.urlbarView-row {
   &[selected] {
     color: var(--md-tab-label-color) !important;
     text-shadow: 1px 1px 2px #000 !important;
@@ -247,8 +274,6 @@ tooltip {
 .urlbarView-row {
   &[selected]:active {
     background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
-    color: var(--md-tab-label-color) !important;
-    text-shadow: 1px 1px 2px #000 !important;
   }
 }
 
@@ -362,10 +387,8 @@ tooltip {
 }
 
 
-.urlbarView-row {
-  padding: 0px 0px !important;
-  border-left: solid 6px transparent !important;
-}
+
+
 
 /* Making the context and other mensu look a little better and even */
 @media (-moz-platform: windows), (-moz-platform: linux) {
@@ -1776,6 +1799,7 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 .tab-stack::before {
   opacity: 0 !important;
  }
+ 
 
 /*
 menuitem#context-copyimage .menu-text {
