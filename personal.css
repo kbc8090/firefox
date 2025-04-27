@@ -228,14 +228,16 @@ tooltip {
 #urlbar-background, #searchbar {
     background-color: var(--md-background-color-50) !important;
     transition-duration: 185ms !important;
-	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
-  border: 1px solid var(--md-menu-border-color) !important;
+	  transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+    border: 1px solid var(--md-menu-border-color) !important;
 }
 
 #urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
     background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
     border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
 }
+
+
 
 .urlbarView-row {
   padding: 0px 0px !important;
@@ -244,28 +246,30 @@ tooltip {
   @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     margin-inline: 3px !important;
   }
+  @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+    margin-inline: 2px !important;
+  }
   border-radius: 0px !important;
 }
 
-.urlbarView-row[selected]::before {
+.urlbarView-row-inner[selected]::before {
     content: "" !important;
     display: block !important;
     position: absolute !important;
-    @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
-      left: 1px !important;
-    }
-    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
-      left: 0px !important;
-    }
-    min-width: 4px !important;
-    max-width: 4px !important;
-    height: 40px !important;
+    left: 0px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    min-width: 5px !important;
+    max-width: 5px !important;
+    height: 100% !important;
     background-color: var(--md-accent-color) !important;
-    clip-path: inset(0 0 0 0 round 0px 4px 4px 0px) !important;
+    clip-path: inset(0 0 0 0 round 0px 5px 5px 0px) !important;
+    z-index: 1 !important;
 }
 
 .urlbarView-row {
   &[selected] {
+    position: relative !important;
     color: var(--md-tab-label-color) !important;
     text-shadow: 1px 1px 2px #000 !important;
   }
@@ -1001,10 +1005,10 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   #identity-box.chromeUI {
     #identity-icon-box.identity-box-button:hover {
       outline: 1px solid var(--md-menu-background-color-hover) !important;
-      
     }
   }
 }
+
 
 #urlbar {
   #identity-box {
