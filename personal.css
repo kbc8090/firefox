@@ -392,7 +392,7 @@ tooltip {
   @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     margin-top: 0px !important;
     border: 1px solid !important;
-    border-color: var(--md-content-separator-color) !important;
+    border-color: var(--md-menu-border-color) !important;
     border-radius: 8px !important;
   }
   @media (-moz-pref("userChrome.ui-chrome-refresh")) {
@@ -416,6 +416,12 @@ tooltip {
 menupopup, panel {
   &::part(content) {
     border-radius: 8px !important;
+  }
+}
+
+menupopup {
+  @media (-moz-windows-mica-popups) {
+      appearance: none !important;
   }
 }
 
@@ -481,21 +487,18 @@ menuitem {
     padding-right: 9px !important;
 } */
 
-#urlbar[pageproxystate="invalid"]:not([open]) #identity-box {
-  transition-duration: 70ms !important;
+#urlbar[pageproxystate="invalid"]:not([open]) .urlbar-input-box {
+  transition: padding-left !important;
+  transition-duration: 80ms !important;
   transition-timing-function: cubic-bezier(0, 0, .2, 1) !important;
-    padding-right: 0px !important;
+  padding-left: 0px !important;
 }
 
-#urlbar[pageproxystate="invalid"]:is([focused]) #identity-box {
-  padding-right: 11px !important;
+#urlbar[pageproxystate="invalid"]:is([focused]) .urlbar-input-box {
+  padding-left: 11px !important;
   transition: none !important;
 }
 
-#urlbar[pageproxystate="invalid"]:is([focused]) #identity-box.chromeUI {
-  padding-right: 11px !important;
-  transition: none !important;
-}
 
 
 
@@ -793,6 +796,10 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     margin: 0px !important;
 }
 
+#appMenu-report-broken-site-button {
+  display: none !important;
+}
+
 .toolbarbutton-badge {
   min-width: fit-content !important;
   color: var(--md-white) !important;
@@ -874,6 +881,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   padding: 0 11px !important;
 }
 
+.tab-close-button, .close-icon {
+  list-style-image: url("closetab.svg") !important;
+  fill-opacity: 1 !important;
+  -moz-context-properties: fill, fill-opacity !important;
+}
+
 
 @media (-moz-pref("userChrome.ui-chrome-refresh")) {
 
@@ -896,6 +909,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   .tab-close-button {
     margin-inline-end: calc(var(--tab-inline-padding) / -1.4) !important;
   }
+
   #alltabs-button {
     margin-top: -2px !important;
     margin-left: 0 !important;
@@ -1075,6 +1089,16 @@ findbar {
 
 .tabbrowser-tab:is([visuallyselected], [multiselected]):not([pinned]) {
 	min-width: 84px !important;
+}
+
+/* prevent audio playing tabs from modifying tab width */
+.tabbrowser-tab {
+  &:is([muted], [soundplaying], [activemedia-blocked]), .tabbrowser-tab:is([visuallyselected], [multiselected]) {
+      #tabbrowser-tabs[orient="horizontal"] &:not([pinned]) {
+          --tab-min-width: 104px !important;
+          min-width: var(--tab-min-width) !important;
+      }
+  }
 }
 
 #sidebar-header {
