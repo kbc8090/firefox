@@ -5,4 +5,18 @@ Installation should be pretty straightforward if you're reading this:
 2. install material-fox-updated by edelvarden
 3. download all the files in this directory and put them in your /chrome/ folder
 
-That's basically it.  You can look in the user.js at the userChrome.* options you can set.  I run the commented out settings.
+That's basically it.  You can look in the user.js at the userChrome.* options you can set.  I run the commented out settings.  Here they are also:
+
+``` js
+user_pref("userChrome.theme-dracula", false);
+user_pref("userChrome.theme-github", false);
+user_pref("userChrome.theme-material", false);
+user_pref("userChrome.theme-slate", false);
+user_pref("userChrome.theme-tokyonight", false);
+user_pref("userChrome.theme-system-accent", true);
+user_pref("userChrome.ui-chrome-refresh", false);
+user_pref("userChrome.ui-compact-url-bar", false);
+user_pref("userChrome.ui-context-menu-icons", false);
+user_pref("userChrome.ui-force-old-icons", false);
+user_pref("userChrome.ui-system-font", true);
+```
