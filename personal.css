@@ -881,7 +881,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   padding: 0 11px !important;
 }
 
-.tab-close-button, .close-icon {
+.tab-close-button {
   list-style-image: url("closetab.svg") !important;
   fill-opacity: 1 !important;
   -moz-context-properties: fill, fill-opacity !important;
