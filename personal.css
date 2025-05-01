@@ -1,3 +1,5 @@
+/* The smoothest fonts folks */
+
 *, html, body {
   text-rendering: optimizelegibility !important;
 	font-smooth: always !important;
@@ -238,7 +240,7 @@ tooltip {
 }
 
 
-
+/* Make the little inset border figure that chrome has on selected URLbar result, proud of this.  I make it 1px thicker than chrome does. */
 .urlbarView-row {
   padding: 0px 0px !important;
   border-left: 0px !important;
@@ -489,7 +491,7 @@ menuitem {
 
 #urlbar[pageproxystate="invalid"]:not([open]) .urlbar-input-box {
   transition: padding-left !important;
-  transition-duration: 80ms !important;
+  transition-duration: 70ms !important;
   transition-timing-function: cubic-bezier(0, 0, .2, 1) !important;
   padding-left: 0px !important;
 }
@@ -674,7 +676,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   fill: var(--md-text-primary) !important;
 }
 
-/* Tab separator 1px */
+/* Tab separator moved 1px left for chrome since it was mis-aligned */
 .tab-content {
   overflow: visible !important;
     &::before,
