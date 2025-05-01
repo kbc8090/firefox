@@ -7,6 +7,8 @@ Installation should be pretty straightforward if you're reading this:
 
 That's basically it.  You can look in the user.js at the userChrome.* options you can set.  I run the commented out settings.  Here they are also:
 
+You can play around with which theme you want just make sure to have only 1 on at a time.  Don't use compact URL.  Context menu icons are nice but I'm lazy to get every single one working so I disable them.  Non chrome refresh looks more like Edge.
+
 ``` js
 user_pref("userChrome.theme-dracula", false);
 user_pref("userChrome.theme-github", false);
