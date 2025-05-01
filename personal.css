@@ -915,6 +915,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     margin-left: 0 !important;
     margin-right: 0 !important;
     margin-bottom: 0 !important;
+    fill: var(--md-tab-label-color) !important;
     .toolbarbutton-badge-stack {
       border-radius: 10px !important;
     }
@@ -1630,11 +1631,6 @@ search-textbox#search-box:hover {
   background-color: color-mix(in srgb, #E81123 65%, transparent) !important;
 }
 
-#identity-box[pageproxystate="valid"]:is(.notSecure, .notSecureText, .mixedActiveContent, .httpsOnlyErrorPage, .weakCipher, .mixedDisplayContent, .mixedDisplayContentLoadedActiveBlocked, .certUserOverridden, #identity-box[pageproxystate="valid"].certErrorPage) #identity-icon-label {
-  display: none !important;
-  fill: red !important;
-}
-
 #identity-icon-label {
   font-size: 12px !important;
   font-family: "Inter" !important;
@@ -1729,10 +1725,8 @@ tree {
   }
 }
 
-#identity-box:is(.extensionPage) {
-  #identity-icon-box.identity-box-button {
-    padding-inline: 6px !important;
-  }
+#identity-box[pageproxystate="valid"]:is(.extensionPage, .notSecure, .notSecureText, .mixedActiveContent, .httpsOnlyErrorPage, .weakCipher, .mixedDisplayContent, .mixedDisplayContentLoadedActiveBlocked, .certUserOverridden, #identity-box[pageproxystate="valid"].certErrorPage) #identity-icon-box.identity-box-button {
+    padding-inline: 8px !important;
 }
 
 spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
