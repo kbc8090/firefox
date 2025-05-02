@@ -366,6 +366,9 @@ tooltip {
     padding-inline: 20px !important;
     }*/
 
+  #urlbar:is([open]) #urlbar-background {
+    background-color: var(--md-background-color-0) !important;
+  }
 /* Animate the search breakout window like FFPlus */
 @media not (prefers-reduced-motion: reduce) {
   #urlbar[open] .urlbarView,
@@ -1634,9 +1637,7 @@ search-textbox#search-box:hover {
 }
 
 #identity-icon-label {
-  font-size: 12px !important;
-  font-family: "Inter" !important;
-  font-weight: 500 !important;
+  font-size: 13px !important;
 }
 
 
@@ -1728,7 +1729,7 @@ tree {
 }
 
 #identity-box[pageproxystate="valid"]:is(.extensionPage, .notSecure, .notSecureText, .mixedActiveContent, .httpsOnlyErrorPage, .weakCipher, .mixedDisplayContent, .mixedDisplayContentLoadedActiveBlocked, .certUserOverridden, #identity-box[pageproxystate="valid"].certErrorPage) #identity-icon-box.identity-box-button {
-    padding-inline: 8px !important;
+    padding-inline: 6px !important;
 }
 
 spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {

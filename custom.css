@@ -139,13 +139,13 @@
     :root,
     html,
     body {
-      --md-text-primary: color-mix(in srgb, AccentColor 13%, white) !important;
-      --md-text-secondary: color-mix(in srgb, var(--md-tab-label-color) 44%, transparent) !important;
+      --md-text-primary: color-mix(in srgb, AccentColor 16%, white) !important;
+      --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 44%, transparent) !important;
       --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 72%, white) !important;
       --md-tab-separator-color: var(--md-content-separator-color) !important;
       --md-tab-label-color-inactive: var(--md-tab-label-color);
       --md-icon-color-primary: var(--md-tab-label-color);
-      --md-icon-color-secondary: var(--md-text-primary);
+      --md-icon-color-secondary: var(--md-text-secondary);
       --md-accent-color: color-mix(in srgb, var(--md-grey-200) 30%, AccentColor);
       --md-tab-background-color-hover: color-mix(
         in srgb,
@@ -160,7 +160,7 @@
       );
       --md-background-color-50: color-mix(
         in srgb,
-        var(--md-grey-900) 81%,
+        var(--md-grey-900) 82%,
         var(--md-accent-color)
       );
       --md-background-color-100: color-mix(
