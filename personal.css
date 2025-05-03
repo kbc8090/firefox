@@ -1404,6 +1404,10 @@ search-textbox#search-box:hover {
       padding: 0 10px !important;
     }
 
+    #alltabs-button .toolbarbutton-badge-stack {
+      transform: translate(0px, 1px) !important;
+    }
+
     #alltabs-button {
       margin: 0 !important;
       margin-top: 2px !important;
@@ -1416,7 +1420,7 @@ search-textbox#search-box:hover {
     
       justify-content: center !important;
       align-content: center !important;
-
+      
       .toolbarbutton-badge-stack {
         background-color: color-mix(in srgb, var(--md-background-color-100) 13%, var(--md-accent-color)) !important;
     
