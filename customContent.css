@@ -7,10 +7,22 @@
 }
 
 
-@-moz-document url("about:home"), url("about:newtab"), url("about:blank"), url(about:privatebrowsing) {
+@-moz-document url("about:home"), url("about:newtab"), url("about:blank"), url("about:privatebrowsing"), url("about:settings"), url("about:addons"), url("about:preferences") {
 body {
     background-color: var(--md-background-color-0) !important;
     }
+.sticky-inner-container {
+    background-color: var(--md-background-color-0) !important;
+    }
+.sticky-container {
+    background-color: var(--md-background-color-0) !important;
+    }
+.main-search {
+    background-color: var(--md-background-color-0) !important;
+}
+.main-heading {
+    background-color: var(--md-background-color-0) !important;
+}
 }
 
 @-moz-document url(about:privatebrowsing) {
