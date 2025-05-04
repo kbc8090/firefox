@@ -551,6 +551,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-category-socialblock,
 #protections-popup-category-fingerprinters,
 #protections-popup-category-cryptominers,
+#protections-popup-report-broken-site-button,
 #appMenu-library-recentlyClosedWindows > .restoreallitem,
 #appMenu-library-recentlyClosedTabs > .restoreallitem {
   -moz-context-properties: fill !important;
@@ -573,6 +574,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-category-socialblock:not([disabled]):hover,
 #protections-popup-category-fingerprinters:not([disabled]):hover,
 #protections-popup-category-cryptominers:not([disabled]):hover,
+#protections-popup-report-broken-site-button:not([disabled]):hover,
 #appMenu-library-recentlyClosedWindows > .restoreallitem:hover,
 #appMenu-library-recentlyClosedTabs > .restoreallitem:hover {
   & > .toolbarbutton-icon {
@@ -585,11 +587,25 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-category-trackers[disabled],
 #protections-popup-category-socialblock[disabled],
 #protections-popup-category-fingerprinters[disabled],
+#protections-popup-report-broken-site-button[disabled],
 #protections-popup-category-cryptominers[disabled] {
   & > .toolbarbutton-icon {
     -moz-context-properties: fill !important;
     fill: var(--md-text-secondary) !important;
   }  
+}
+
+#protections-popup-report-broken-site-button {
+  list-style-image: url("chrome://global/skin/icons/newsfeed.svg") !important;
+  -moz-context-properties: fill, fill-opacity !important;
+  fill: var(--md-tab-label-color) !important;
+}
+
+#protections-popup-report-broken-site-button:not([disabled]):hover {
+  & > .protections-popup-report-broken-site-icon {
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--md-accent-color) !important;
+  }
 }
 
 #protections-popup-settings-button > .protections-popup-settings-icon {
