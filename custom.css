@@ -133,6 +133,40 @@
   }
 }
 
+@media -moz-pref("userChrome.theme-darkblue") {
+  :root,
+  html,
+  body {
+    --md-text-primary: light-dark(color-mix(in srgb, #ced8e9 70%, black), #bfcbe3) !important;
+    --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #bfcbe3 44%, transparent)) !important;
+    --md-accent-color: #43a3e4;
+    --md-tab-label-color: color-mix(in srgb, #bfcbe3 65%, white) !important;
+    --md-tab-separator-color: var(--md-content-separator-color) !important;
+    --md-background-color-0: #052135;
+    --md-background-color-50: #0f293f;
+    --md-background-color-100: #193750;
+    /*--md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 32%, transparent); */
+    --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
+    --md-menu-background-color: var(--md-background-color-0);
+    /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
+    --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 70%, var(--md-accent-color)));
+    --md-tab-label-color-inactive: var(--md-tab-label-color);
+    --md-selection-text-color: var(--md-white);
+    --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 80%, black);
+    --md-menu-border-color: color-mix(in srgb, var(--md-background-color-100) 96%, white);
+    --md-icon-color-secondary: var(--md-text-secondary);
+    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 94%, white);
+    --md-menu-border-size: 1px solid;
+    --md-icon-color-primary: var(--md-tab-label-color);
+    --md-control-background-color: color-mix(in srgb, transparent 70%, var(--md-accent-color));
+    --md-control-border-color: red !important;
+    @media not -moz-pref("userChrome.ui-chrome-refresh") {
+      --tab-min-height: 34px !important;
+      --md-menu-border-size: 1px solid;
+    }
+  }
+}
+
 @media -moz-pref("userChrome.theme-system-accent") {
   /* use variables when dark mode */
   @media (prefers-color-scheme: dark) {

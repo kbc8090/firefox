@@ -436,9 +436,17 @@ menupopup {
         margin-inline-end: 0px !important;
         padding-block: 14px !important;
         color: light-dark(MenuText, var(--md-tab-label-color)) !important;
+        font-family: system-ui !important;
     }
 }
 
+#ContentSelectDropdown > menupopup > menucaption, #ContentSelectDropdown > menupopup > menuitem {
+  font-family: system-ui !important;
+}
+
+select menupopup, select menuitem, menulist menupopup, menulist menuitem, .expander-down menupopup, .expander-down menuitem, .expander-up menupopup, .expander-up menuitem, button[type="menu"] menupopup, button[type="menu"] menuitem {
+  line-height: normal !important;
+}
 
 /* Reduce padding on context menu separators */
 menuseparator::before {
@@ -597,8 +605,6 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 #protections-popup-report-broken-site-button {
   list-style-image: url("chrome://global/skin/icons/newsfeed.svg") !important;
-  -moz-context-properties: fill, fill-opacity !important;
-  fill: var(--md-tab-label-color) !important;
 }
 
 #protections-popup-report-broken-site-button:not([disabled]):hover {
@@ -611,7 +617,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-settings-button > .protections-popup-settings-icon {
   list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
   -moz-context-properties: fill, fill-opacity !important;
-  fill: var(--md-tab-label-color) !important;
+  fill: var(--md-text-primary) !important;
   margin-inline-end: 1em !important;
 }
 
@@ -625,7 +631,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-show-report-button > .protections-popup-show-report-icon {
   list-style-image: url("dashboard.svg") !important;
   -moz-context-properties: fill, fill-opacity !important;
-  fill: var(--md-tab-label-color) !important;
+  fill: var(--md-text-primary) !important;
   margin-inline-end: 1em !important;
 }
 
@@ -639,7 +645,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-trackersView-settings-button {
   list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
   -moz-context-properties: fill, fill-opacity !important;
-  fill: var(--md-tab-label-color) !important;
+  fill: var(--md-text-primary) !important;
 }
 
 #protections-popup-trackersView-settings-button:hover {
@@ -650,7 +656,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-fingerprintersView-settings-button {
   list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
   -moz-context-properties: fill, fill-opacity !important;
-  fill: var(--md-tab-label-color) !important;
+  fill: var(--md-text-primary) !important;
 }
 
 #protections-popup-fingerprintersView-settings-button:hover {
@@ -661,7 +667,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-socialblockView-settings-button {
   list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
   -moz-context-properties: fill, fill-opacity !important;
-  fill: var(--md-tab-label-color) !important;
+  fill: var(--md-text-primary) !important;
 }
 
 #protections-popup-socialblockView-settings-button:hover {
@@ -672,7 +678,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-cryptominersView-settings-button {
   list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
   -moz-context-properties: fill, fill-opacity !important;
-  fill: var(--md-tab-label-color) !important;
+  fill: var(--md-text-primary) !important;
 }
 
 #protections-popup-cryptominersView-settings-button:hover {
@@ -683,7 +689,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #protections-popup-cookiesView-settings-button {
   list-style-image: url("chrome://global/skin/icons/settings.svg") !important;
   -moz-context-properties: fill, fill-opacity !important;
-  fill: var(--md-tab-label-color) !important;
+  fill: var(--md-text-primary) !important;
 }
 
 #protections-popup-cookiesView-settings-button:hover {
@@ -1813,14 +1819,14 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 }
 
   .tab-background {
-    border-radius: 4px 4px 0 0 !important;
+    border-radius: 6px 6px 0 0 !important;
 
     &::before {
-      border-bottom-right-radius: 4px !important;
+      border-bottom-right-radius: 6px !important;
     }
 
     &::after {
-      border-bottom-left-radius: 4px !important;
+      border-bottom-left-radius: 6px !important;
     }
   }
 }
