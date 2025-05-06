@@ -32,8 +32,13 @@ user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("gfx.webrender.all", true);
 
 /** DISK CACHE ***/
-user_pref("browser.cache.disk.enable", false); // disable disk cache
+user_pref("browser.cache.disk.enable", false);
 user_pref("browser.cache.jsbc_compression_level", 3);
+
+/** MEMORY CACHE ***/
+user_pref("browser.cache.memory.capacity", 131072);
+user_pref("browser.cache.memory.max_entry_size", 20480);
+user_pref("browser.sessionhistory.max_total_viewers", 4);
 
 /** MEDIA CACHE ***/
 user_pref("media.memory_cache_max_size", 65536);
@@ -57,6 +62,9 @@ user_pref("network.ssl_tokens_cache_capacity", 10240);
 /** SPECULATIVE LOADING ***/
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
+user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("browser.places.speculativeConnect.enabled", false);
 user_pref("network.prefetch-next", false);
 user_pref("network.predictor.enabled", false);
 
@@ -150,6 +158,7 @@ user_pref("reader.parse-on-load.enabled", false);
 /** TELEMETRY ***/
 user_pref("datareporting.policy.dataSubmissionEnabled", false);
 user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.usage.uploadEnabled", false);
 user_pref("toolkit.telemetry.unified", false);
 user_pref("toolkit.telemetry.enabled", false);
 user_pref("toolkit.telemetry.server", "data:,");
@@ -187,6 +196,7 @@ user_pref("network.connectivity-service.enabled", false);
 /** MOZILLA UI ***/
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("extensions.getAddons.showPane", false);
+user_pref("extensions.getAddons.cache.enabled", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.discovery.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
@@ -195,6 +205,8 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("browser.tabs.cardPreview.enabled", true);
+user_pref("browser.tabs.hoverPreview.enabled", false);
+user_pref("browser.tabs.hoverPreview.showThumbnails", false);
 user_pref("browser.tabs.tabMinWidth", 84);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("general.warnOnAboutConfig", false);
@@ -216,14 +228,19 @@ user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 user_pref("ui.prefersReducedMotion", 1);
 
-/** USERCHROME CUSTOM OPTIONS
+/** MaterialFox CUSTOM OPTIONS -- Uncomment this section, run firefox, then comment it back out so it doesn't keep these defaults on each launch
+user_pref("userChrome.theme-darkblue", false);
 user_pref("userChrome.theme-dracula", false);
 user_pref("userChrome.theme-github", false);
+user_pref("userChrome.theme-material", false);
 user_pref("userChrome.theme-slate", false);
+user_pref("userChrome.theme-tokyonight", false);
 user_pref("userChrome.theme-system-accent", true);
 user_pref("userChrome.ui-chrome-refresh", false);
 user_pref("userChrome.ui-compact-url-bar", false);
 user_pref("userChrome.ui-context-menu-icons", false);
+user_pref("userChrome.ui-force-old-icons", false);
+user_pref("userChrome.ui-system-font", true);
 */
 
 /** COOKIE BANNER HANDLING ***/
