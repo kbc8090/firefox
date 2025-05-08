@@ -167,6 +167,74 @@
   }
 }
 
+@media -moz-pref("userChrome.theme-nord") {
+  :root,
+  html,
+  body {
+    --md-text-primary: light-dark(color-mix(in srgb, #ced8e9 70%, black), #d8eee9) !important;
+    --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #d8eee9 44%, transparent)) !important;
+    --md-accent-color: #81a1c1;
+    --md-tab-label-color: color-mix(in srgb, #d8eee9 65%, white) !important;
+    --md-tab-separator-color: var(--md-content-separator-color) !important;
+    --md-background-color-0: #313744;
+    --md-background-color-50: #373d49;
+    --md-background-color-100: #454e5f;
+    /*--md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 32%, transparent); */
+    --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
+    --md-menu-background-color: var(--md-background-color-0);
+    /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
+    --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 76%, var(--md-accent-color)));
+    --md-tab-label-color-inactive: var(--md-tab-label-color);
+    --md-selection-text-color: var(--md-white);
+    --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 80%, black);
+    --md-menu-border-color: color-mix(in srgb, var(--md-background-color-100) 96%, white);
+    --md-icon-color-secondary: var(--md-text-secondary);
+    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 94%, white);
+    --md-menu-border-size: 1px solid;
+    --md-icon-color-primary: var(--md-tab-label-color);
+    --md-control-background-color: color-mix(in srgb, transparent 46%, var(--md-accent-color));
+    --md-control-border-color: red !important;
+    @media not -moz-pref("userChrome.ui-chrome-refresh") {
+      --tab-min-height: 34px !important;
+      --md-menu-border-size: 1px solid;
+    }
+  }
+}
+
+@media -moz-pref("userChrome.theme-catppuccin") {
+  :root,
+  html,
+  body {
+    --md-text-primary: light-dark(color-mix(in srgb, #ced8e9 70%, black), #cdd6f4) !important;
+    --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #cdd6f4 44%, transparent)) !important;
+    --md-accent-color: #74c7ec;
+    --md-tab-label-color: color-mix(in srgb, #cdd6f4 65%, white) !important;
+    --md-tab-separator-color: var(--md-content-separator-color) !important;
+    --md-background-color-0: #282B3C;
+    --md-background-color-50: #313244;
+    --md-background-color-100: #45475a;
+    /*--md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 32%, transparent); */
+    --md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 28%, transparent);
+    --md-menu-background-color: var(--md-background-color-0);
+    /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
+    --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 76%, var(--md-accent-color)));
+    --md-tab-label-color-inactive: var(--md-tab-label-color);
+    --md-selection-text-color: var(--md-white);
+    --md-selection-background-color: color-mix(in srgb, var(--md-accent-color) 80%, black);
+    --md-menu-border-color: color-mix(in srgb, var(--md-background-color-100) 96%, white);
+    --md-icon-color-secondary: var(--md-text-secondary);
+    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 94%, white);
+    --md-menu-border-size: 1px solid;
+    --md-icon-color-primary: var(--md-tab-label-color);
+    --md-control-background-color: color-mix(in srgb, transparent 46%, var(--md-accent-color));
+    --md-control-border-color: red !important;
+    @media not -moz-pref("userChrome.ui-chrome-refresh") {
+      --tab-min-height: 34px !important;
+      --md-menu-border-size: 1px solid;
+    }
+  }
+}
+
 @media -moz-pref("userChrome.theme-system-accent") {
   /* use variables when dark mode */
   @media (prefers-color-scheme: dark) {

@@ -1418,7 +1418,7 @@ search-textbox#search-box:hover {
   }
 
   #tabs-newtab-button, #new-tab-button{
-    --toolbarbutton-border-radius: 2px !important;
+    --toolbarbutton-border-radius: 3px !important;
   }
   
 
