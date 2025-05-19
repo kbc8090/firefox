@@ -1149,6 +1149,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   }
 }
 
+#urlbar #identity-box.chromeUI #identity-icon-box.identity-box-button:active,
+#urlbar #identity-box.chromeUI #identity-icon-box.identity-box-button:focus,
+#urlbar #identity-box.chromeUI #identity-icon-box.identity-box-button[open] {
+  outline: 1px solid var(--md-menu-background-color-hover) !important;
+}
+
 #identity-box.chromeUI {
   #identity-icon-box.identity-box-button {
     padding-inline: 0px !important;
