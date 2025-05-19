@@ -204,7 +204,8 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", fa
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false);
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
-user_pref("browser.tabs.cardPreview.enabled", true);
+user_pref("browser.tabs.groups.enabled", false);
+user_pref("browser.tabs.cardPreview.enabled", false);
 user_pref("browser.tabs.hoverPreview.enabled", false);
 user_pref("browser.tabs.hoverPreview.showThumbnails", false);
 user_pref("browser.tabs.tabMinWidth", 84);
@@ -229,10 +230,12 @@ user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 user_pref("ui.prefersReducedMotion", 1);
 
 /** MaterialFox CUSTOM OPTIONS -- Uncomment this section, run firefox, then comment it back out so it doesn't keep these defaults on each launch
+user_pref("userChrome.theme-catppuccin", false);
 user_pref("userChrome.theme-darkblue", false);
 user_pref("userChrome.theme-dracula", false);
 user_pref("userChrome.theme-github", false);
 user_pref("userChrome.theme-material", false);
+user_pref("userChrome.theme-nord", false);
 user_pref("userChrome.theme-slate", false);
 user_pref("userChrome.theme-tokyonight", false);
 user_pref("userChrome.theme-system-accent", true);
