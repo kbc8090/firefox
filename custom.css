@@ -248,7 +248,8 @@
       --md-tab-label-color-inactive: var(--md-tab-label-color);
       --md-icon-color-primary: var(--md-tab-label-color);
       --md-icon-color-secondary: var(--md-text-secondary);
-      --md-accent-color: color-mix(in srgb, var(--md-grey-200) 30%, AccentColor);
+      --md-accent-color: color-mix(in srgb, var(--md-grey-200) 34%, AccentColor);
+      --md-accent-color2: color-mix(in srgb, var(--md-grey-200) 10%, AccentColor);
       --md-tab-background-color-hover: color-mix(
         in srgb,
         transparent 75%,
@@ -258,17 +259,17 @@
       --md-background-color-0: color-mix(
         in srgb,
         var(--md-grey-900) 86%,
-        var(--md-accent-color)
+        var(--md-accent-color2)
       );
       --md-background-color-50: color-mix(
         in srgb,
         var(--md-grey-900) 82%,
-        var(--md-accent-color)
+        var(--md-accent-color2)
       );
       --md-background-color-100: color-mix(
         in srgb,
         var(--md-grey-900-white-5-percent) 80%,
-        var(--md-accent-color)
+        var(--md-accent-color2)
       );
       /*--md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, var(--md-grey-800) 80%, var(--md-accent-color))); */
       --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 76%, var(--md-accent-color)));

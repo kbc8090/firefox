@@ -232,7 +232,7 @@ tooltip {
     transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
 	  /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important; */
     border: 1px solid var(--md-menu-border-color) !important;
-    transition-delay: 40ms !important;
+    transition-delay: 20ms !important;
 }
 
 #urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
@@ -1262,6 +1262,16 @@ treechildren::-moz-tree-twisty(selected),
   fill-opacity: 1 !important;
 }
 
+treechildren::-moz-tree-separator {
+  border-top: 2px solid var(--md-content-separator-color) !important;
+  border-bottom: none !important;
+}
+
+treechildren::-moz-tree-separator(selected) {
+  border-top: 2px solid var(--md-text-secondary) !important;
+  border-bottom: none !important;
+}
+
 #viewButton {
   border-radius: 4px !important;
   outline-offset: -1px !important;
@@ -1946,6 +1956,13 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   opacity: 0 !important;
  }
  
+#unified-extensions-button > image {
+  transform: scale(1.16) !important;
+}
+
+.translations-panel-header {
+  margin-left: 16px !important;
+}
 
 /*
 menuitem#context-copyimage .menu-text {
