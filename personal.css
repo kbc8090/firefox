@@ -1272,6 +1272,13 @@ treechildren::-moz-tree-separator(selected) {
   border-bottom: none !important;
 }
 
+treechildren::-moz-tree-separator(hover) {
+  border-top: 2px solid var(--md-text-secondary) !important;
+  border-bottom: none !important;
+}
+
+
+
 #viewButton {
   border-radius: 4px !important;
   outline-offset: -1px !important;
