@@ -157,6 +157,18 @@ panel#appMenu-popup {
   --arrowpanel-header-min-height: calc(var(--arrowpanel-header-back-icon-full-width) + (var(--panel-separator-margin-horizontal) - 4)) !important;
 }
 
+@media (-moz-platform: windows) {
+  #placesContext :is(menuitem, menu):not([image], .menu-iconic, .menuitem-iconic) {
+    padding-inline-start: 12px !important;
+  }
+}
+
+@media (-moz-platform: windows) {
+  #toolbar-context-menu :is(menuitem):not(.menu-iconic, .menuitem-iconic) {
+    padding-inline-start: 36px !important;
+  }
+}
+
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
     .menupopup-arrowscrollbox {
