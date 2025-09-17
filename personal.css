@@ -239,7 +239,7 @@ tooltip {
 }*/
 
 /* Make URL bar fade in and out on mouse hover like Chrome */
-#urlbar-background, #searchbar {
+.urlbar-background, #searchbar {
     background-color: var(--md-background-color-50) !important;
     transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
 	  /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important; */
@@ -247,12 +247,12 @@ tooltip {
     transition-delay: 20ms !important;
 }
 
-#urlbar:not([focused]):hover #urlbar-background, #searchbar:hover {
+#urlbar:not([focused]):hover .urlbar-background, #searchbar:hover {
     background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
     border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
 }
 
-#urlbar[focused]:not([suppress-focus-border]) > #urlbar-background, #searchbar:focus {
+#urlbar[focused]:not([suppress-focus-border]) > .urlbar-background, #searchbar:focus {
   box-shadow: 0 1px 4px #00000054 !important;
 }
 
@@ -384,13 +384,13 @@ tooltip {
     padding-inline: 20px !important;
     }*/
 
-  #urlbar:is([open]) #urlbar-background {
+  #urlbar:is([open]) .urlbar-background {
     background-color: var(--md-background-color-0) !important;
   }
 /* Animate the search breakout window like FFPlus */
 @media not (prefers-reduced-motion: reduce) {
   #urlbar[open] .urlbarView,
-  #urlbar[breakout][breakout-extend] > #urlbar-background {
+  #urlbar[breakout][breakout-extend] > .urlbar-background {
     animation-name: fp-urlbar-animation !important;
     animation-duration: 360ms !important;
     transform-origin: top !important;
@@ -410,7 +410,7 @@ tooltip {
 	}
 }
 
-#urlbar[open] #urlbar-background, #urlbar[open] #searchbar {
+#urlbar[open] .urlbar-background, #urlbar[open] #searchbar {
   box-shadow: rgb(0, 0, 0, 0.25) 0px 18px 18px 4px !important;
   @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     margin-top: 0px !important;
@@ -562,31 +562,31 @@ menuitem {
 }
 
 
-#urlbar:has(#identity-permission-box:hover) #urlbar-background {
+#urlbar:has(#identity-permission-box:hover) .urlbar-background {
   background-color: var(--md-background-color-50) !important; /* Replace 'your-preferred-color' with the desired color */
   transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
   transition-delay: 40ms !important;
 }
 
-#urlbar:has(#identity-icon-box:hover) #urlbar-background {
+#urlbar:has(#identity-icon-box:hover) .urlbar-background {
   background-color: var(--md-background-color-50) !important; /* Replace 'your-preferred-color' with the desired color */
   transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
   transition-delay: 40ms !important;
 }
 
-#urlbar:has(#page-action-buttons:hover) #urlbar-background {
+#urlbar:has(#page-action-buttons:hover) .urlbar-background {
   background-color: var(--md-background-color-50) !important; /* Replace 'your-preferred-color' with the desired color */
   transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
   transition-delay: 40ms !important;
 }
 
-#urlbar:has(#tracking-protection-icon-container:hover) #urlbar-background {
+#urlbar:has(#tracking-protection-icon-container:hover) .urlbar-background {
   background-color: var(--md-background-color-50) !important; /* Replace 'your-preferred-color' with the desired color */
   transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
   transition-delay: 40ms !important;
 }
 
-#urlbar:has(.notification-anchor-icon:hover) #urlbar-background {
+#urlbar:has(.notification-anchor-icon:hover) .urlbar-background {
   background-color: var(--md-background-color-50) !important; /* Replace 'your-preferred-color' with the desired color */
   transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
   transition-delay: 40ms !important;
