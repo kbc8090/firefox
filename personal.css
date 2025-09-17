@@ -49,6 +49,24 @@
     display: none !important;
 }
 
+#context-navigation > .menuitem-iconic {
+  & > .menu-icon {
+    padding: 0px !important;
+  }
+}
+
+#context-back {
+  --menuitem-icon: none !important;
+}
+
+#context-forward {
+  --menuitem-icon: none !important;
+}
+
+#context-reload {
+  --menuitem-icon: none !important;
+}
+
 /* Remove "Private Browsing Mode" text on top bar */
 #private-browsing-indicator-with-label > label {
 	display: none !important;
