@@ -67,6 +67,10 @@
   --menuitem-icon: none !important;
 }
 
+#context-stop {
+  --menuitem-icon: none !important;
+}
+
 /* Remove "Private Browsing Mode" text on top bar */
 #private-browsing-indicator-with-label > label {
 	display: none !important;
@@ -850,7 +854,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #PlacesChevron:not([collapsed]) .toolbarbutton-icon {
     fill: var(--md-text-primary) !important;
     fill-opacity: 1 !important;
-    width: calc(2 * var(--toolbarbutton-inner-padding) + 15px) !important;
+    width: calc(2 * var(--toolbarbutton-inner-padding) + 16px) !important;
     align-items: center !important;
     justify-content: center !important;
     /*filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 3px var(--md-selection-background-color)) !important; */
@@ -1977,6 +1981,10 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
   padding-right: 0px !important;
   padding-top: 14px !important;
   padding-bottom: 14px !important;
+}
+
+toolbarseparator {
+  padding-block: 0px !important;
 }
 
 #PlacesToolbarItems>toolbarseparator {
