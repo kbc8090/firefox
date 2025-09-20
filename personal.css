@@ -442,6 +442,9 @@ tooltip {
   }
   @media (-moz-pref("userChrome.ui-chrome-refresh")) {
     margin-top: 1px !important;
+    border: 0px !important;
+    border-color: var(--md-menu-border-color) !important;
+    border-radius: 14px !important;
   }
 }
 
