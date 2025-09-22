@@ -532,6 +532,7 @@ menuitem {
 
   /* Making mousehover on tabs not change the label fading thing in any way */
 .tabbrowser-tab {
+    position: static !important;
     --tab-label-mask-size: 20px !important;
     /* text-shadow: 1px 1px 2px #000 !important; */
 }

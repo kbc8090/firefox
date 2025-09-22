@@ -20,9 +20,9 @@ user_pref("content.notify.interval", 100000);
 
 /** GFX ***/
 user_pref("gfx.canvas.accelerated", true);
-user_pref("gfx.canvas.accelerated.cache-items", 8192);
-user_pref("gfx.canvas.accelerated.cache-size", 512);
-user_pref("gfx.content.skia-font-cache-size", 20);
+user_pref("gfx.canvas.accelerated.cache-items", 32768);
+user_pref("gfx.canvas.accelerated.cache-size", 4096);
+user_pref("gfx.content.skia-font-cache-size", 32);
 user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
@@ -62,10 +62,10 @@ user_pref("network.ssl_tokens_cache_capacity", 10240);
 /** SPECULATIVE LOADING ***/
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
-user_pref("network.http.speculative-parallel-limit", 0);
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
-user_pref("browser.places.speculativeConnect.enabled", false);
-user_pref("network.prefetch-next", false);
+user_pref("network.http.speculative-parallel-limit", 20);
+user_pref("browser.urlbar.speculativeConnect.enabled", true);
+user_pref("browser.places.speculativeConnect.enabled", true);
+user_pref("network.prefetch-next", true);
 user_pref("network.predictor.enabled", false);
 
 /** EXPERIMENTAL ***/
@@ -81,6 +81,8 @@ user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("browser.contentblocking.category", "strict");
 user_pref("urlclassifier.trackingSkipURLs", "*.reddit.com, *.twitter.com, *.twimg.com, *.tiktok.com");
 user_pref("urlclassifier.features.socialtracking.skipURLs", "*.instagram.com, *.twitter.com, *.twimg.com");
+user_pref("privacy.trackingprotection.allow_list.baseline.enabled", true);
+user_pref("privacy.trackingprotection.allow_list.convenience.enabled", true);
 user_pref("network.cookie.sameSite.noneRequiresSecure", true);
 user_pref("browser.download.start_downloads_in_tmp_dir", true);
 user_pref("browser.helperApps.deleteTempFileOnExit", true);
@@ -93,11 +95,14 @@ user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("dom.text_fragments.enabled", true);
 user_pref("default-browser-agent", false);
 user_pref("app.update.service.enabled", false);
+user_pref("browser.ml.enable", false);
+user_pref("browser.ml.chat.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
+user_pref("security.csp.reporting.enabled", false);
 
 /** SSL / TLS ***/
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
@@ -115,6 +120,7 @@ user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.suggest.recentsearches", false);
+user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 user_pref("browser.formfill.enable", true);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
@@ -205,6 +211,7 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
 user_pref("browser.preferences.moreFromMozilla", false);
 user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("browser.tabs.groups.enabled", false);
+user_pref("browser.tabs.groups.smart.enabled", false);
 user_pref("browser.tabs.cardPreview.enabled", false);
 user_pref("browser.tabs.hoverPreview.enabled", false);
 user_pref("browser.tabs.hoverPreview.showThumbnails", false);
@@ -273,6 +280,8 @@ user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
 user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false);
 user_pref("browser.newtabpage.activity-stream.showWeather", false);
 user_pref("browser.newtabpage.activity-stream.system.showWeather", false);
+user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 
 /*** POCKET ***/
 user_pref("extensions.pocket.enabled", false);
