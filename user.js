@@ -21,8 +21,8 @@ user_pref("content.notify.interval", 100000);
 /** GFX ***/
 user_pref("gfx.canvas.accelerated", true);
 user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
-user_pref("gfx.content.skia-font-cache-size", 32);
+user_pref("gfx.canvas.accelerated.cache-size", 1024);
+user_pref("gfx.content.skia-font-cache-size", 20);
 user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
@@ -36,12 +36,13 @@ user_pref("browser.cache.disk.enable", false);
 user_pref("browser.cache.jsbc_compression_level", 3);
 
 /** MEMORY CACHE ***/
-user_pref("browser.cache.memory.capacity", 131072);
+user_pref("browser.cache.memory.capacity", 65536);
 user_pref("browser.cache.memory.max_entry_size", 20480);
 user_pref("browser.sessionhistory.max_total_viewers", 4);
 
 /** MEDIA CACHE ***/
-user_pref("media.memory_cache_max_size", 65536);
+user_pref("media.memory_cache_max_size", 98304);
+user_pref("media.memory_caches_combined_limit_kb", 1048576);
 user_pref("media.cache_readahead_limit", 7200);
 user_pref("media.cache_resume_threshold", 3600);
 
@@ -57,7 +58,7 @@ user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheExpiration", 3600);
 user_pref("network.dns.max_high_priority_threads", 8);
-user_pref("network.ssl_tokens_cache_capacity", 10240);
+user_pref("network.ssl_tokens_cache_capacity", 6144);
 
 /** SPECULATIVE LOADING ***/
 user_pref("network.dns.disablePrefetch", true);
@@ -116,11 +117,16 @@ user_pref("browser.sessionstore.interval", 60000);
 /** SEARCH / URL BAR ***/
 user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.urlbar.update2.engineAliasRefresh", true);
+user_pref("browser.urlbar.fakespot.featureGate", false);
 user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
 user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.suggest.recentsearches", false);
 user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
+user_pref("browser.urlbar.yelp.featureGate", false);
+
+user_pref("browser.urlbar.weather.featureGate", false);
+user_pref("browser.urlbar.wikipedia.featureGate", false);
 user_pref("browser.formfill.enable", true);
 user_pref("security.insecure_connection_text.enabled", true);
 user_pref("security.insecure_connection_text.pbmode.enabled", true);
