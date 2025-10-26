@@ -57,7 +57,7 @@ user_pref("network.buffer.cache.count", 48);
 user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 10);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
-user_pref("network.http.request.max-start-delay", 5);
+user_pref("network.http.request.max-start-delay", 1);
 user_pref("network.http.pacing.requests.enabled", false);
 user_pref("network.dnsCacheEntries", 10000);
 user_pref("network.dnsCacheExpiration", 3600);
@@ -65,15 +65,17 @@ user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 10240);
 
 /** SPECULATIVE LOADING ***/
-user_pref("network.dns.disablePrefetch", false);
-user_pref("network.dns.disableIPv6", true);
+user_pref("network.predictor.enable-prefetch", true);
+user_pref("network.predictor.enabled", true);
+user_pref("network.predictor.enable-hover-on-ssl", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", false);
+user_pref("network.dns.disablePrefetch", false);
+user_pref("network.prefetch-next", true);
+user_pref("network.dns.disableIPv6", true);
+user_pref("network.connectivity-service.IPv6.url", "");
 user_pref("network.http.speculative-parallel-limit", 20);
 user_pref("browser.urlbar.speculativeConnect.enabled", true);
 user_pref("browser.places.speculativeConnect.enabled", true);
-user_pref("network.prefetch-next", true);
-user_pref("network.predictor.enable-prefetch", true);
-user_pref("network.predictor.enabled", true);
 
 /** EXPERIMENTAL ***/
 user_pref("dom.enable_web_task_scheduling", true);
@@ -240,6 +242,7 @@ user_pref("browser.tabs.dropToPin.enabled", false);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutwelcome.enabled", false);
+user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("devtools.accessibility.enabled", false);
 user_pref("devtools.debugger.prompt-connection", false);
 
