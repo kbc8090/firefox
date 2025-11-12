@@ -1200,6 +1200,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   }
 }
 
+#urlbar[focused]:not([suppress-focus-border]) > .urlbar-background,
+  #searchbar:focus-within {
+  outline: none !important;
+  border: 2px solid var(--md-accent-color) !important;
+} 
+
 
 /*----------------========================------------------------===================== */
 
