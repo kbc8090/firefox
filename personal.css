@@ -265,13 +265,13 @@ tooltip {
     background-color: var(--md-background-color-50) !important;
     transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
 	  /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important; */
-    border: 1px solid var(--md-menu-border-color) !important;
+    border: 1px solid var(--md-content-separator-color) !important;
     transition-delay: 20ms !important;
 }
 
 #urlbar:not([focused]):hover .urlbar-background, #searchbar:hover {
     background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
-    border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
+    border-color: color-mix(in srgb, var(--md-content-separator-color) 94%, white) !important;
 }
 
 #urlbar[focused]:not([suppress-focus-border]) > .urlbar-background, #searchbar:focus {
@@ -376,7 +376,7 @@ tooltip {
   padding-left: 2px !important;
   font-size: 15px !important;
   font-weight: 500 !important;
-  font-family: "Inter" !important;
+  font-family: "Golos Text" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
 }

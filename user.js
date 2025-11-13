@@ -112,6 +112,7 @@ user_pref("browser.ml.chat.menu", false);
 user_pref("browser.ml.chat.sidebar", false);
 user_pref("browser.ml.chat.page", false);
 user_pref("browser.tabs.groups.smart.enabled", false);
+user_pref("browser.taskbarTabs.enabled", false);
 user_pref("browser.ml.linkPreview.enabled", false);
 
 /** OCSP & CERTS / HPKP ***/

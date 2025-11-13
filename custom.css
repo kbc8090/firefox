@@ -75,11 +75,11 @@
     --md-text-primary: light-dark(color-mix(in srgb, #ced8e9 70%, black), #ced8e9) !important;
     --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #ced8e9 44%, transparent)) !important;
     --md-accent-color: #7ea7d6;
-    --md-tab-label-color: color-mix(in srgb, #ced8e9 75%, white) !important;
+    --md-tab-label-color: color-mix(in srgb, #ced8e9 45%, white) !important;
     --md-tab-separator-color: var(--md-content-separator-color) !important;
-    --md-background-color-0: #222c3b;
-    --md-background-color-50: #263041;
-    --md-background-color-100: #384558;
+    --md-background-color-0: #203448;
+    --md-background-color-50: #29425b;
+    --md-background-color-100: #345474;
     --md-tab-background-color-hover: #313d4e;
     --md-menu-background-color: var(--md-background-color-0);
     /* --md-menu-background-color-hover: color-mix(in srgb, var(--md-menu-background-color) 85%, white); */
@@ -87,9 +87,9 @@
     --md-tab-label-color-inactive: var(--md-tab-label-color);
     --md-selection-text-color: var(--md-white);
     --md-selection-background-color: #406fa5;
-    --md-menu-border-color: light-dark(MenuText, #415e74ab);
+    --md-menu-border-color: light-dark(MenuText, color-mix(in srgb, var(--md-background-color-100) 96%, white));
     --md-icon-color-secondary: var(--md-text-secondary);
-    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 94%, white);
+    --md-content-separator-color: color-mix(in srgb, var(--md-menu-border-color) 88%, white);
     --md-menu-border-size: 1px solid;
     --md-icon-color-primary: var(--md-tab-label-color);
     @media not -moz-pref("userChrome.ui-chrome-refresh") {
@@ -208,7 +208,7 @@
     --md-text-primary: light-dark(color-mix(in srgb, #ced8e9 70%, black), #cdd6f4) !important;
     --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #cdd6f4 44%, transparent)) !important;
     --md-accent-color: #74c7ec;
-    --md-tab-label-color: color-mix(in srgb, #cdd6f4 65%, white) !important;
+    --md-tab-label-color: color-mix(in srgb, #cdd6f4 35%, white) !important;
     --md-tab-separator-color: var(--md-content-separator-color) !important;
     --md-background-color-0: #282B3C;
     --md-background-color-50: #313244;
@@ -241,9 +241,9 @@
     :root,
     html,
     body {
-      --md-text-primary: color-mix(in srgb, AccentColor 16%, white) !important;
+      --md-text-primary: color-mix(in srgb, AccentColor 15%, white) !important;
       --md-text-secondary: color-mix(in srgb, var(--md-text-primary) 44%, transparent) !important;
-      --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 72%, white) !important;
+      --md-tab-label-color: color-mix(in srgb, var(--md-text-primary) 70%, white) !important;
       --md-tab-separator-color: var(--md-content-separator-color) !important;
       --md-tab-label-color-inactive: var(--md-tab-label-color);
       --md-icon-color-primary: var(--md-tab-label-color);
