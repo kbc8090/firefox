@@ -242,6 +242,7 @@ user_pref("browser.tabs.hoverPreview.enabled", false);
 user_pref("browser.tabs.hoverPreview.showThumbnails", false);
 user_pref("browser.tabs.tabMinWidth", 84);
 user_pref("browser.tabs.dropToPin.enabled", false);
+user_pref("browser.tabs.dragDrop.pinInteractionCue.delayMS", 50000);
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutwelcome.enabled", false);
