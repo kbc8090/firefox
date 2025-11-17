@@ -67,4 +67,8 @@
 
 h1 {
     font-family: unset !important;
-  }
+}
+
+.card {
+    background: var(--md-background-color-50) !important;
+}
