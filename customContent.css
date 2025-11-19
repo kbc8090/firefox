@@ -57,6 +57,9 @@
     .main-heading {
         background-color: var(--md-background-color-0) !important;
     }
+    .card {
+        background: var(--md-background-color-50) !important;
+    }
 }
 
 @-moz-document url(about:privatebrowsing) {
@@ -67,8 +70,4 @@
 
 h1 {
     font-family: unset !important;
-}
-
-.card {
-    background: var(--md-background-color-50) !important;
 }
