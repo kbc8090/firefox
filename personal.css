@@ -822,7 +822,6 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 }
 
 
-
 /* Bookmark folders same as secondary text color */
 .bookmark-item[container="true"] {
     fill: var(--md-text-secondary) !important;
@@ -1520,7 +1519,7 @@ search-textbox#search-box:hover {
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
 
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
-      margin-left: 8px !important;
+      margin-left: 11px !important;
     }
 
       /* Arrowpanel Menu Border size
@@ -1537,17 +1536,17 @@ search-textbox#search-box:hover {
     #tabs-newtab-button,
     #new-tab-button {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-    width: calc(var(--tab-min-height) - 6px) !important;
-    height: calc(var(--tab-min-height) - 6px) !important;
-    padding: 6.5px !important;
-    margin-inline-start: -2px !important;
-    margin-top: -1px !important;
+    width: calc(var(--tab-min-height) - 1px) !important;
+    height: calc(var(--tab-min-height) - 2px) !important;
+    padding: 8px !important;
+    margin-inline-start: 0px !important;
+    margin-top: -3px !important;
     box-shadow: unset !important;
     }
   }
 
   #tabs-newtab-button, #new-tab-button{
-    --toolbarbutton-border-radius: 2px !important;
+    --toolbarbutton-border-radius: 6px !important;
   }
   
 
@@ -1947,14 +1946,14 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 }
 
   .tab-background {
-    border-radius: 4px 4px 0 0 !important;
+    border-radius: 8px 8px 0 0 !important;
 
     &::before {
-      border-bottom-right-radius: 4px !important;
+      border-bottom-right-radius: 8px !important;
     }
 
     &::after {
-      border-bottom-left-radius: 4px !important;
+      border-bottom-left-radius: 8px !important;
     }
   }
 }
