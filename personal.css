@@ -1538,7 +1538,7 @@ search-textbox#search-box:hover {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
     width: calc(var(--tab-min-height) - 2px) !important;
     height: calc(var(--tab-min-height) - 2px) !important;
-    padding: 8px !important;
+    padding: 8.5px !important;
     margin-inline-start: 0px !important;
     margin-top: -3px !important;
     box-shadow: unset !important;
