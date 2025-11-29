@@ -374,11 +374,11 @@ tooltip {
 #urlbar-input {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
-  font-size: 15px !important;
+  /*font-size: 15px !important;
   font-weight: 500 !important;
   font-family: "Golos Text" !important;
   font-smooth: always !important;
-  text-rendering: optimizelegibility !important;
+  text-rendering: optimizelegibility !important; */
 }
 
 /*
@@ -409,16 +409,16 @@ tooltip {
   #urlbar:is([open]) .urlbar-background {
     background-color: var(--md-background-color-0) !important;
   }
-/* Animate the search breakout window like FFPlus */
+/* Animate the search breakout window like FFPlus
 @media not (prefers-reduced-motion: reduce) {
   #urlbar[open] .urlbarView,
   #urlbar[breakout][breakout-extend] > .urlbar-background {
     animation-name: fp-urlbar-animation !important;
-    animation-duration: 360ms !important;
+    animation-duration: 120ms !important;
     transform-origin: top !important;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1) !important;
   }
-}
+}*/
 
 @keyframes fp-urlbar-animation {
 	from {
@@ -544,16 +544,7 @@ menuitem {
     padding-right: 9px !important;
 } */
 
-#urlbar .urlbar-input-box {
-  transition-duration: 75ms !important;
-  transition-timing-function: cubic-bezier(0, 0, .2, 1) !important;
-  padding-left: 0px !important;
-}
 
-#urlbar[pageproxystate="invalid"]:is([focused]) .urlbar-input-box {
-  padding-left: 11px !important;
-  transition: none !important;
-}
 
 #identity-permission-box {
 
@@ -819,6 +810,15 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
         left: 0 !important;
       }
     }
+}
+
+.urlbar[breakout-extend][focused] {
+  & > .urlbar-input-container {
+    padding-inline: 11px !important;
+    .urlbar-input {
+      margin-left: 7px !important;
+    }
+  }
 }
 
 
@@ -1510,6 +1510,10 @@ search-textbox#search-box:hover {
 #identity-icon-box {
   min-width: 24px !important;
   outline: 1px solid var(--md-menu-border-color) !important;
+}
+
+.urlbar-input {
+  margin-left: 2px !important;
 }
 
 .tab-icon-image {

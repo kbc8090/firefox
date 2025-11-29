@@ -40,7 +40,7 @@
     --md-text-primary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), #d1d7e0) !important;
     --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #d1d7e0 44%, transparent)) !important;
     --md-accent-color: #2f81f7;
-    --md-tab-label-color: color-mix(in srgb, #d1d7e0 65%, white) !important;
+    --md-tab-label-color: color-mix(in srgb, #d1d7e0 25%, white) !important;
     --md-tab-separator-color: var(--md-content-separator-color) !important;
     --md-background-color-0: #222931;
     --md-background-color-50: #242c35;
@@ -106,7 +106,7 @@
     --md-text-primary: light-dark(color-mix(in srgb, #ced8e9 70%, black), #c0caf5) !important;
     --md-text-secondary: light-dark(color-mix(in srgb, #d1d7e0 70%, black), color-mix(in srgb, #c0caf5 44%, transparent)) !important;
     --md-accent-color: #2ac3de;
-    --md-tab-label-color: color-mix(in srgb, #c0caf5 65%, white) !important;
+    --md-tab-label-color: color-mix(in srgb, #c0caf5 45%, white) !important;
     --md-tab-separator-color: var(--md-content-separator-color) !important;
     --md-background-color-0: #202435;
     --md-background-color-50: color-mix(in srgb, var(--md-background-color-0) 93%, #7192db);
