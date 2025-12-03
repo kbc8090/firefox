@@ -266,7 +266,7 @@ tooltip {
     transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
 	  /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important; */
     border: 1px solid var(--md-content-separator-color) !important;
-    transition-delay: 20ms !important;
+    transition-delay: 25ms !important;
 }
 
 #urlbar:not([focused]):hover .urlbar-background, #searchbar:hover {
@@ -284,7 +284,7 @@ tooltip {
 .urlbarView-row {
   padding: 0px 0px !important;
   border-left: 0px !important;
-  padding-left: 5px !important;
+  padding-left: 3px !important;
   @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
     margin-inline: 3px !important;
   }
@@ -301,8 +301,8 @@ tooltip {
     left: 0px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
-    min-width: 5px !important;
-    max-width: 5px !important;
+    min-width: 4px !important;
+    max-width: 4px !important;
     height: 100% !important;
     background-color: var(--md-accent-color) !important;
     clip-path: inset(0 0 0 0 round 0px 5px 5px 0px) !important;
@@ -371,14 +371,24 @@ tooltip {
 }
 
 /* Make URLbar indent slightly and bold/bigger text */
-#urlbar-input {
+.urlbar-input {
   color: var(--md-tab-label-color) !important;
-  padding-left: 2px !important;
+  padding-left: 3px !important;
   /*font-size: 15px !important;
   font-weight: 500 !important;
   font-family: "Golos Text" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important; */
+}
+
+
+.urlbar[breakout-extend][focused] {
+  & > .urlbar-input-container {
+    padding-inline: 9px !important;
+    .urlbar-input {
+      margin-left: 7px !important;
+    }
+  }
 }
 
 /*
@@ -575,6 +585,7 @@ menuitem {
     margin-inline-start: 2px !important;
     opacity: 1 !important;
     transition: margin-inline-start 130ms cubic-bezier(0, 0, 0.2, 1) 60ms, opacity 180ms ease 60ms !important;
+    transition-delay: 400ms !important;
   }
 }
 
@@ -812,14 +823,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     }
 }
 
-.urlbar[breakout-extend][focused] {
-  & > .urlbar-input-container {
-    padding-inline: 11px !important;
-    .urlbar-input {
-      margin-left: 7px !important;
-    }
-  }
-}
+
 
 
 /* Bookmark folders same as secondary text color */
@@ -1018,8 +1022,23 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 
 @media (-moz-pref("userChrome.ui-chrome-refresh")) {
 
-  #nav-bar {
-    border-radius: 8px 8px 0 0 !important;
+  #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
+    margin-left: 6px !important;
+  }
+
+/* Default: rounded top corners */
+#nav-bar {
+  border-radius: 8px 8px 0 0 !important;
+}
+
+/* Square top-left when first non-pinned tab (in arrowscrollbox) is selected */
+#navigator-toolbox:has(#tabbrowser-arrowscrollbox > .tabbrowser-tab[selected="true"]:first-child) #nav-bar {
+  border-radius: 0px 8px 0 0 !important;
+}
+
+  #tabbrowser-tabs:not([overflow]) ~ #alltabs-button {
+    display: none !important;
+    margin-left: 0px !important;
   }
 
   .tab-background {
@@ -1140,6 +1159,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
       padding-inline: 0px !important;
       outline: 1px solid var(--md-menu-border-color) !important;
     }
+  }
+}
+
+#urlbar[pageproxystate="invalid"]:is([focused],[usertyping],[searchmode],[breakout-extend],[breakout]) {
+  #identity-icon {
+    filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 4px var(--md-selection-background-color)) !important;
   }
 }
 
@@ -1512,9 +1537,7 @@ search-textbox#search-box:hover {
   outline: 1px solid var(--md-menu-border-color) !important;
 }
 
-.urlbar-input {
-  margin-left: 2px !important;
-}
+
 
 .tab-icon-image {
   fill: var(--md-icon-color-primary) !important;
@@ -1524,6 +1547,16 @@ search-textbox#search-box:hover {
 
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
       margin-left: 11px !important;
+    }
+
+    /* Default: rounded top corners */
+    #nav-bar {
+      border-radius: 6px 6px 0 0 !important;
+    }
+
+    /* Square top-left when first non-pinned tab (in arrowscrollbox) is selected */
+    #navigator-toolbox:has(#tabbrowser-arrowscrollbox > .tabbrowser-tab[selected="true"]:first-child) #nav-bar {
+      border-radius: 0px 6px 0 0 !important;
     }
 
       /* Arrowpanel Menu Border size
@@ -1914,6 +1947,7 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 @media (-moz-pref("userChrome.ui-chrome-refresh")) {
   .tabbrowser-tab[pinned] {
+    margin-left: 6px !important;
     max-width: 46px !important;
     min-width: 46px !important;
   }
