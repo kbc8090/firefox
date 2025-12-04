@@ -25,5 +25,6 @@ user_pref("userChrome.ui-chrome-refresh", false);
 user_pref("userChrome.ui-compact-url-bar", false);
 user_pref("userChrome.ui-context-menu-icons", false);
 user_pref("userChrome.ui-force-old-icons", false);
+user_pref("userChrome.ui-rounded-corners", false);
 user_pref("userChrome.ui-system-font", true);
 ```
