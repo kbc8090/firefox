@@ -113,7 +113,7 @@
 
 /* Make unselected tabs foreground color a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
-      color: color-mix(in srgb, var(--md-text-primary) 86%, transparent) !important;
+      color: color-mix(in srgb, var(--md-text-primary) 89%, transparent) !important;
 }
 
 /* Make Selected tab brighter */
@@ -137,6 +137,7 @@
   box-shadow: unset !important;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.45));
 }
+
 
 /* Make unselected tab title color on hover the selected tab color 
 .tabbrowser-tab:hover:not([visuallyselected],[multiselected]) .tab-content
@@ -1027,14 +1028,23 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
   }
 
 /* Default: rounded top corners */
-#nav-bar {
-  border-radius: 8px 8px 0 0 !important;
-}
+    /* Default: rounded top corners */
+  #nav-bar {
+    border-radius: 8px 8px 0 0 !important;
+  }
 
-/* Square top-left when first non-pinned tab (in arrowscrollbox) is selected */
-#navigator-toolbox:has(#tabbrowser-arrowscrollbox > .tabbrowser-tab[selected="true"]:first-child) #nav-bar {
-  border-radius: 0px 8px 0 0 !important;
-}
+  /* Square top-left when first non-pinned tab (in arrowscrollbox) is selected
+     but only when there are no pinned tabs present. If pinned tabs exist,
+     prefer the pinned-tab rules. */
+  #navigator-toolbox:not(:has(#pinned-tabs-container > .tabbrowser-tab)):has(#tabbrowser-arrowscrollbox > .tabbrowser-tab[selected="true"]:first-child) #nav-bar {
+    border-radius: 0px 8px 0 0 !important;
+  }
+
+  /* Also square top-left when the first pinned tab is selected (pinned tabs
+     may live in `#pinned-tabs-container`). */
+  #navigator-toolbox:has(#pinned-tabs-container > .tabbrowser-tab[selected="true"]:first-child) #nav-bar {
+    border-radius: 0px 8px 0 0 !important;
+  }
 
   #tabbrowser-tabs:not([overflow]) ~ #alltabs-button {
     display: none !important;
@@ -1545,19 +1555,51 @@ search-textbox#search-box:hover {
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
 
+    /* Default: rounded top corners */
+  #nav-bar {
+    border-radius: 8px 8px 0 0 !important;
+  }
+
+  /* Square top-left when first non-pinned tab (in arrowscrollbox) is selected
+     but only when there are no pinned tabs present. If pinned tabs exist,
+     prefer the pinned-tab rules. */
+  #navigator-toolbox:not(:has(#pinned-tabs-container > .tabbrowser-tab)):has(#tabbrowser-arrowscrollbox > .tabbrowser-tab[selected="true"]:first-child) #nav-bar {
+    border-radius: 0px 8px 0 0 !important;
+  }
+
+  /* Also square top-left when the first pinned tab is selected (pinned tabs
+     may live in `#pinned-tabs-container`). */
+  #navigator-toolbox:has(#pinned-tabs-container > .tabbrowser-tab[selected="true"]:first-child) #nav-bar {
+    border-radius: 0px 8px 0 0 !important;
+  }
+
+  /* Hover rules: pinned-first hover always applies; arrowscrollbox-first hover
+     applies only when there are no pinned tabs. We split into two rules so
+     pinned tabs take precedence. */
+  #navigator-toolbox:has(#pinned-tabs-container > .tabbrowser-tab:first-child:hover,
+                         #pinned-tabs-container > .tabbrowser-tab:first-child :is(:hover)) #nav-bar {
+    border-radius: 0px 8px 0 0 !important;
+  }
+
+  #navigator-toolbox:not(:has(#pinned-tabs-container > .tabbrowser-tab)):has(
+    #tabbrowser-arrowscrollbox > .tabbrowser-tab:first-child:hover,
+    #tabbrowser-arrowscrollbox > .tabbrowser-tab:first-child :is(:hover)
+  ) #nav-bar {
+    border-radius: 0px 8px 0 0 !important;
+  }
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
       margin-left: 11px !important;
     }
 
-    /* Default: rounded top corners */
+    /* Default: rounded top corners
     #nav-bar {
-      border-radius: 6px 6px 0 0 !important;
+      border-radius: 8px 8px 0px 0px !important;
     }
 
-    /* Square top-left when first non-pinned tab (in arrowscrollbox) is selected */
+    /* Square top-left when first non-pinned tab (in arrowscrollbox) is selected
     #navigator-toolbox:has(#tabbrowser-arrowscrollbox > .tabbrowser-tab[selected="true"]:first-child) #nav-bar {
-      border-radius: 0px 6px 0 0 !important;
-    }
+      border-radius: 0px 8px 0px 0px !important;
+    } 
 
       /* Arrowpanel Menu Border size
   *[part="content"] {
@@ -1947,7 +1989,6 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 @media (-moz-pref("userChrome.ui-chrome-refresh")) {
   .tabbrowser-tab[pinned] {
-    margin-left: 6px !important;
     max-width: 46px !important;
     min-width: 46px !important;
   }
@@ -1955,8 +1996,8 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
   .tabbrowser-tab[pinned] {
-    max-width: 42px !important;
-    min-width: 42px !important;
+    max-width: 50px !important;
+    min-width: 50px !important;
   }
 }
 
@@ -2057,6 +2098,19 @@ toolbarseparator {
   margin-left: 16px !important;
 }
 
+@media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+  #pinned-tabs-container {
+    margin-left: 11px !important;
+    margin-right: -11px !important;
+  }
+}
+
+@media (-moz-pref("userChrome.ui-chrome-refresh")) {
+  #pinned-tabs-container {
+    margin-left: 6px !important;
+    margin-right: -6px !important;
+  }
+}
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
