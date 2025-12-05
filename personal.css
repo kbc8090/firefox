@@ -372,14 +372,14 @@ tooltip {
 }
 
 /* Make URLbar indent slightly and bold/bigger text */
-.urlbar-input {
+.urlbar-input, #urlbar-input, #searchbar {
   color: var(--md-tab-label-color) !important;
-  padding-left: 3px !important;
-  /*font-size: 15px !important;
+  padding-left: 2px !important;
+  font-size: 14px !important;
   font-weight: 500 !important;
   font-family: "Golos Text" !important;
   font-smooth: always !important;
-  text-rendering: optimizelegibility !important; */
+  text-rendering: optimizelegibility !important;
 }
 
 
@@ -2178,7 +2178,9 @@ toolbarseparator {
   /*
     MARK: Rc Browser
   */
+  
   #tabbrowser-tabbox .browserStack {
+    @media (-moz-pref("userChrome.ui-rounded-corners-flush-scrollbar")) {
     /* Keep 5px padding on the left, but make the right edge flush so the
        inset scrollbar remains visually inset while still being reachable at
        the screen edge. */
@@ -2191,6 +2193,12 @@ toolbarseparator {
      border-bottom-left-radius: var(--uc-tweak-rounded-corners-radius) !important;
     border-top-right-radius: calc(var(--uc-tweak-rounded-corners-radius) + 2px) !important;
     border-bottom-right-radius: calc(var(--uc-tweak-rounded-corners-radius) + 2px) !important;
+  }
+   @media not (-moz-pref("userChrome.ui-rounded-corners-flush-scrollbar")) {
+    margin-block-end: var(--uc-tweak-rounded-corners-padding) !important;
+      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
+      border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+   }
     box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
     background-color: var(--tabpanel-background-color) !important;
     position: relative !important;
@@ -2297,6 +2305,7 @@ toolbarseparator {
     background-color: transparent !important;
   }
 }
+
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
