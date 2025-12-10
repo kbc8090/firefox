@@ -190,6 +190,26 @@ panel#appMenu-popup {
   #toolbar-context-menu :is(menuitem):not(.menu-iconic, .menuitem-iconic) {
     padding-inline-start: 36px !important;
   }
+  
+  /* Radio buttons always use 12px (like Always Show, Never Show) */
+  #toolbar-context-menu menuitem[type="radio"] {
+    padding-inline-start: 12px !important;
+  }
+  
+  /* Checkbox items without icons use 12px */
+  #toolbar-context-menu menuitem[type="checkbox"]:not(:has(.menu-icon)),
+  #toolbar-context-menu menuitem[checked]:not([type]):not(:has(.menu-icon)) {
+    padding-inline-start: 12px !important;
+  }
+  
+  /* Checkbox items WITH icons - unchecked use 36px, checked use 12px */
+  #toolbar-context-menu menuitem[type="checkbox"]:has(.menu-icon):not([checked="true"]) {
+    padding-inline-start: 36px !important;
+  }
+  
+  #toolbar-context-menu menuitem[type="checkbox"]:has(.menu-icon)[checked="true"] {
+    padding-inline-start: 12px !important;
+  }
 }
 
 
@@ -271,7 +291,7 @@ tooltip {
 }
 
 #urlbar:not([focused]):hover .urlbar-background, #searchbar:hover {
-    background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
+    background-color: color-mix(in srgb, var(--md-background-color-100) 90%, black) !important;
     border-color: color-mix(in srgb, var(--md-content-separator-color) 94%, white) !important;
 }
 
@@ -375,11 +395,12 @@ tooltip {
 .urlbar-input, #urlbar-input, #searchbar {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  font-family: "Golos Text" !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  font-family: "Aptos" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 
@@ -1388,22 +1409,33 @@ treechildren::-moz-tree-separator(hover) {
 }
 
 
-search-textbox#search-box {
+#input {
   appearance: none !important;
   background-color: var(--md-background-color-50) !important;
-  border: var(--md-menu-border-size) !important;
-  border-color: var(--md-menu-border-color) !important;
+  border: 2px solid var(--md-menu-border-color) !important;
   color: var(--md-text-primary) !important;
-  padding: 6px !important;
   border-radius: 100px !important;
-  transition-property: background-color !important;
+  transition-property: background-color, border-color !important;
   transition-duration: 170ms !important;
-	transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+  transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+  box-sizing: border-box !important;
+  outline: none !important;
 }
 
-search-textbox#search-box:hover {
+#input:hover {
   background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
   border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
+}
+
+#input:focus {
+  border-color: var(--md-accent-color) !important;
+  outline: none !important;
+}
+
+#input {
+  &[type="search"] {
+      --input-background-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
+  }
 }
 
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
@@ -2112,6 +2144,7 @@ toolbarseparator {
   }
 }
 
+/* Rounded Corners like Edge */
 @media (-moz-pref("userChrome.ui-rounded-corners")) {
   /* Since Firefox 120, when the bookmarks bar is set to only open on new tabs,
    * the bookmarks bar overlaps the #browser element. */
@@ -2371,6 +2404,33 @@ button:active {
       filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
     }
 
+    @media (-moz-platform: windows) {
+  #placesContext :is(menuitem, menu):not([image], .menu-iconic, .menuitem-iconic) {
+    padding-inline-start: 36px !important;
+  }
+}
+
+@media (-moz-platform: windows) {
+  /* When no checkboxes are checked - no reserved space, use 36px for all */
+  #downloadsContextMenu:not(:has(menuitem[type="checkbox"][checked="true"])) menuitem {
+    padding-inline-start: 36px !important;
+  }
+  
+  /* When any checkbox IS checked - reserved space exists, use 12px for regular items */
+  #downloadsContextMenu:has(menuitem[type="checkbox"][checked="true"]) menuitem:not([type="checkbox"]) {
+    padding-inline-start: 12px !important;
+  }
+  
+  /* Unchecked checkboxes always use 36px */
+  #downloadsContextMenu menuitem[type="checkbox"]:not([checked="true"]) {
+    padding-inline-start: 36px !important;
+  }
+  
+  /* Checked checkboxes always use 12px */
+  #downloadsContextMenu menuitem[type="checkbox"][checked="true"] {
+    padding-inline-start: 12px !important;
+  }
+}
    /* Correct context menu padding in Library Window */
     @media (-moz-platform: windows), (-moz-platform: linux) {
       #placesMenu > menu {
@@ -2413,7 +2473,9 @@ button:active {
     #placesToolbar {
      background-color: var(--md-background-color-0) !important;
      border-bottom: 0px !important;
-     padding: 6px !important;
+     padding: 2px !important;
+     margin-left: 4px !important;
+     margin-right: -2px !important;
     }
     
     /* Forward and Back Buttons Disabled */
@@ -2689,25 +2751,7 @@ button:active {
     color: var(--md-selection-text-color) !important;
   }
     
-    /* Searchbox */
-    #searchFilter {
 
-        appearance: none !important;
-        background-color: var(--md-background-color-50) !important;
-        border: var(--md-menu-border-size) !important;
-        border-color: var(--md-menu-border-color) !important;
-        color: var(--md-text-primary) !important;
-        padding: 4px !important;
-        border-radius: 100px !important;
-        transition-property: background-color !important;
-        transition-duration: 170ms !important;
-        transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
-      }
-      
-      search-textbox#searchFilter:hover {
-        background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
-        border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
-      }
 
 
     /* Searchbox Focus */
