@@ -30,6 +30,8 @@ user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.layer-compositor", true);
+user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 user_pref("webgl.max-size", 16384);
 
 /** DISK CACHE ***/

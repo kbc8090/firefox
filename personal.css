@@ -184,7 +184,7 @@ panel#appMenu-popup {
   #placesContext :is(menuitem, menu):not([image], .menu-iconic, .menuitem-iconic) {
     padding-inline-start: 12px !important;
   }
-}
+
 
 @media (-moz-platform: windows) {
   #toolbar-context-menu :is(menuitem):not(.menu-iconic, .menuitem-iconic) {
@@ -208,6 +208,76 @@ panel#appMenu-popup {
   }
   
   #toolbar-context-menu menuitem[type="checkbox"]:has(.menu-icon)[checked="true"] {
+    padding-inline-start: 12px !important;
+  }
+}
+
+@media (-moz-platform: windows) {
+  /* Force small padding for all non-checkbox/radio items (including those with icons) */
+  #toolbar-context-manage-extensions menuitem:not([type="checkbox"], [type="radio"], [checked]) {
+    padding-inline-start: 12px !important;
+  }
+
+  /* Plain menuitems without icons - optional larger indent if desired (for alignment if no gutter needed) */
+  /* Comment out or remove if you prefer uniform small padding */
+  /*
+  #toolbar-context-manage-extensions menuitem:not(:has(.menu-icon), [type="checkbox"], [type="radio"], [checked]) {
+    padding-inline-start: 36px !important;
+  }
+  */
+
+  /* Radio buttons always small padding */
+  #toolbar-context-manage-extensions menuitem[type="radio"] {
+    padding-inline-start: 12px !important;
+  }
+
+  /* Checkbox items without icons */
+  #toolbar-context-manage-extensions menuitem[type="checkbox"]:not(:has(.menu-icon)) {
+    padding-inline-start: 12px !important;
+  }
+
+  /* Checked items without type (some toggles) and without icons */
+  #toolbar-context-manage-extensions menuitem[checked]:not([type]):not(:has(.menu-icon)) {
+    padding-inline-start: 12px !important;
+  }
+
+  /* Checkbox items WITH icons - unchecked: larger padding, checked: small */
+  #toolbar-context-manage-extensions menuitem[type="checkbox"]:has(.menu-icon):not([checked="true"]) {
+    padding-inline-start: 36px !important;
+  }
+
+  #toolbar-context-manage-extensions menuitem[type="checkbox"]:has(.menu-icon)[checked="true"] {
+    padding-inline-start: 12px !important;
+  }
+}
+
+@media (-moz-platform: windows) {
+  /* Plain menuitems (no icon, no checkbox/radio) - indent more for alignment */
+  #toolbar-context-move-to-panel menuitem:not(:has(.menu-icon), [type="checkbox"], [type="radio"], [checked]) {
+    padding-inline-start: 36px !important;
+  }
+
+  /* Radio buttons always small padding */
+  #toolbar-context-move-to-panel menuitem[type="radio"] {
+    padding-inline-start: 12px !important;
+  }
+
+  /* Checkbox items without icons */
+  #toolbar-context-move-to-panel menuitem[type="checkbox"]:not(:has(.menu-icon)) {
+    padding-inline-start: 12px !important;
+  }
+
+  /* Checked items without type (some toggles) and without icons */
+  #toolbar-context-move-to-panel menuitem[checked]:not([type]):not(:has(.menu-icon)) {
+    padding-inline-start: 12px !important;
+  }
+
+  /* Checkbox items WITH icons - unchecked: more padding, checked: small */
+  #toolbar-context-move-to-panel menuitem[type="checkbox"]:has(.menu-icon):not([checked="true"]) {
+    padding-inline-start: 36px !important;
+  }
+
+  #toolbar-context-move-to-panel menuitem[type="checkbox"]:has(.menu-icon)[checked="true"] {
     padding-inline-start: 12px !important;
   }
 }
@@ -1410,26 +1480,36 @@ treechildren::-moz-tree-separator(hover) {
 
 
 #input {
-  appearance: none !important;
-  background-color: var(--md-background-color-50) !important;
-  border: 2px solid var(--md-menu-border-color) !important;
-  color: var(--md-text-primary) !important;
-  border-radius: 100px !important;
-  transition-property: background-color, border-color !important;
-  transition-duration: 170ms !important;
-  transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
-  box-sizing: border-box !important;
-  outline: none !important;
+   &.with-icon {
+    appearance: none !important;
+    background-color: var(--md-background-color-50) !important;
+    border: 1px solid var(--md-content-separator-color) !important;
+    color: var(--md-text-primary) !important;
+    border-radius: 100px !important;
+    transition-property: background-color !important;
+    transition-duration: 170ms !important;
+    transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    background-size: unset !important;
+    -moz-context-properties: fill;
+    fill: var(--md-accent-color) !important;
+  }
 }
 
 #input:hover {
-  background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
-  border-color: color-mix(in srgb, var(--md-background-color-100) 94%, white) !important;
+   &.with-icon {
+    background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
+    border-color: color-mix(in srgb, var(--md-content-separator-color) 94%, white) !important;
+   }
 }
 
 #input:focus {
-  border-color: var(--md-accent-color) !important;
+  &.with-icon {
+  border: 2px solid var(--md-accent-color) !important;
   outline: none !important;
+  margin-left: -1px !important;
+  }
 }
 
 #input {
@@ -1860,7 +1940,6 @@ treechildren::-moz-tree-separator(hover) {
   font-weight: 600 !important;
   font-size: 11px !important;
   font-family: "Inter" !important;
-  font-weight: 600 !important;
   margin-inline: 5px !important;
 }
 
@@ -2339,6 +2418,11 @@ toolbarseparator {
   }
 }
 
+.sidebar-splitter {
+  --splitter-width: 0px !important;
+  background-color: var(--md-content-separator-color) !important;
+}
+
 /*
 menuitem#context-copyimage .menu-text {
   display: none;
@@ -2404,11 +2488,31 @@ button:active {
       filter: drop-shadow(0 0 2px var(--md-accent-color)) drop-shadow(0 0 1px var(--md-selection-background-color)) !important;
     }
 
-    @media (-moz-platform: windows) {
+@media (-moz-platform: windows) {
   #placesContext :is(menuitem, menu):not([image], .menu-iconic, .menuitem-iconic) {
     padding-inline-start: 36px !important;
   }
+      menupopup:has(menuitem[type="checkbox"][checked="true"]) menuitem:not([type="checkbox"]) {
+      padding-inline-start: 12px !important;
+    }
+    
+    /* When no checkboxes are checked - regular items use 36px */
+    menupopup:has(menuitem[type="checkbox"]):not(:has(menuitem[type="checkbox"][checked="true"])) menuitem:not([type="checkbox"]) {
+      padding-inline-start: 36px !important;
+    }
+    
+    /* ALL unchecked checkboxes use 36px - force override */
+    menupopup menuitem[type="checkbox"]:not([checked="true"]) {
+      padding-inline-start: 12px !important;
+    }
+    
+    /* ALL checked checkboxes use 12px */
+    menupopup menuitem[type="checkbox"][checked="true"] {
+      padding-inline-start: 12px !important;
+    }
 }
+
+
 
 @media (-moz-platform: windows) {
   /* When no checkboxes are checked - no reserved space, use 36px for all */
