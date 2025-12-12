@@ -31,8 +31,14 @@ user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.layer-compositor", true);
+user_pref("gfx.webrender.precache-shaders", true);
 user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 user_pref("webgl.max-size", 16384);
+user_pref("layers.acceleration.force-enabled", true);
+user_pref("dom.webgpu.enabled", true);
+user_pref("dom.media.webcodecs.h265.enabled", true);
+user_pref("media.wmf.hevc.enabled", true);
+
 
 /** DISK CACHE ***/
 user_pref("browser.cache.disk.enable", false);
@@ -84,8 +90,11 @@ user_pref("browser.places.speculativeConnect.enabled", true);
 user_pref("dom.enable_web_task_scheduling", true);
 user_pref("dom.battery.enabled", false);
 user_pref("dom.events.dataTransfer.imageAsFile.enabled", true);
+user_pref("dom.element.animate.enabled", true);
 user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("timer.auto_increase_timer_resolution", true);
+
 
 /****************************************************************************
  * SECTION: SECUREFOX                                                       *
@@ -330,7 +339,7 @@ user_pref("browser.bookmarks.showMobileBookmarks", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.word_select.eat_space_to_next_word", false);
-user_pref("nglayout.initialpaint.delay", 1);
+user_pref("nglayout.initialpaint.delay", 5);
 user_pref("nglayout.initialpaint.delay_in_oopif", 1);
 user_pref("nglayout.enable_drag_images", false);
 
