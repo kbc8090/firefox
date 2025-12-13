@@ -369,43 +369,120 @@ tooltip {
   box-shadow: 0 1px 4px #00000054 !important;
 }
 
-
-
-/* Make the little inset border figure that chrome has on selected URLbar result, proud of this.  I make it 1px thicker than chrome does. */
-.urlbarView-row {
-  padding: 0px 0px !important;
-  border-left: 0px !important;
-  padding-left: 3px !important;
-  @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
-    margin-inline: 3px !important;
-  }
-  @media (-moz-pref("userChrome.ui-chrome-refresh")) {
-    margin-inline: 2px !important;
-  }
-  border-radius: 0px !important;
+@keyframes urlbarSelectorGrow {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
 }
 
-.urlbarView-row-inner[selected]::before {
+/* --- Base Row Setup (Unchanged) --- */
+.urlbarView-row {
+    padding: 0px 0px !important;
+    border-left: 0px !important;
+    padding-left: 3px !important;
+    @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+        margin-inline: 3px !important;
+    }
+    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+        margin-inline: 2px !important;
+    }
+    border-radius: 0px !important;
+    position: relative !important;
+}
+
+/* --- Base Row Setup (Unchanged) --- */
+.urlbarView-row {
+    padding: 0px 0px !important;
+    border-left: 0px !important;
+    padding-left: 3px !important;
+    @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+        margin-inline: 3px !important;
+    }
+    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+        margin-inline: 2px !important;
+    }
+    border-radius: 0px !important;
+    position: relative !important;
+}
+
+/* --- Base Row Setup (Unchanged) --- */
+.urlbarView-row {
+    padding: 0px 0px !important;
+    border-left: 0px !important;
+    padding-left: 3px !important;
+    @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+        margin-inline: 3px !important;
+    }
+    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+        margin-inline: 2px !important;
+    }
+    border-radius: 0px !important;
+    position: relative !important;
+}
+
+/* 🚀 The Element to be Animated (urlbarView-row-inner::before) */
+.urlbarView-row-inner::before {
     content: "" !important;
     display: block !important;
     position: absolute !important;
     left: 0px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
+    
+    /* Full Height Definition */
+    top: 0px !important;
+    height: 100% !important;
+
+    /* Sizing and Appearance */
     min-width: 4px !important;
     max-width: 4px !important;
-    height: 100% !important;
     background-color: var(--md-accent-color) !important;
+    
+    /* REVERTED: Use your original clip-path definition for the full shape */
     clip-path: inset(0 0 0 0 round 0px 5px 5px 0px) !important;
+    
     z-index: 1 !important;
+    
+    /* INITIAL (UNSELECTED) STATE: Hidden */
+    transform-origin: center !important;
+    transform: scaleY(0) !important;
+    
+    /* TRANSITION OUT (Instant Disappearance) */
+    transition: transform 0s !important; 
 }
 
-.urlbarView-row {
-  &[selected] {
-    position: relative !important;
+/* 🖱️ NEW FIX: HOVER STATE (Clip-Path Override for Fixed Radius) */
+.urlbarView-row-inner:hover::before {
+    /* Set the smooth transition (100ms) ONLY when hovering IN */
+    transition: transform 120ms ease-out !important; 
+    
+    /* BORDER RADIUS FIX: Use clip-path to visually shrink the bar.
+       We want 40% height, so we hide 30% from the top and 30% from the bottom.
+       (100% - 40% = 60%; 60% / 2 = 30%)
+    */
+    clip-path: inset(30% 0 30% 0 round 0px 5px 5px 0px) !important;
+    
+    /* Make sure the element is visible */
+    transform: scaleY(1) !important;
+}
+
+/* 🌟 Selected State: Full size and the longer IN animation */
+.urlbarView-row-inner[selected]::before {
+    /* TRANSITION IN (Selected): Override the 0s transition with the smooth animation time. */
+    transition: transform 240ms cubic-bezier(0,0,0,1) !important;
+    
+    /* FINAL (SELECTED) STATE: Visible (full size) */
+    transform: scaleY(1) !important;
+    
+    /* CRITICAL: Must revert the clip-path to show the full height (0% inset) */
+    clip-path: inset(0 0 0 0 round 0px 5px 5px 0px) !important;
+}
+
+/* --- Selected Row Styling (Unchanged) --- */
+.urlbarView-row[selected] {
     color: var(--md-tab-label-color) !important;
     text-shadow: 1px 1px 2px #000 !important;
-  }
 }
 
 .urlbarView-row {
