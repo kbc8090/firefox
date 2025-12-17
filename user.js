@@ -258,6 +258,8 @@ user_pref("browser.aboutConfig.showWarning", false);
 user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutwelcome.enabled", false);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
+user_pref("browser.urlbar.trimHttps", true);
+user_pref("browser.urlbar.trimURLs", true);
 user_pref("devtools.accessibility.enabled", false);
 user_pref("devtools.debugger.prompt-connection", false);
 
