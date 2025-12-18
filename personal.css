@@ -461,7 +461,7 @@ tooltip {
        We want 40% height, so we hide 30% from the top and 30% from the bottom.
        (100% - 40% = 60%; 60% / 2 = 30%)
     */
-    clip-path: inset(30% 0 30% 0 round 0px 5px 5px 0px) !important;
+    clip-path: inset(25% 0 25% 0 round 0px 5px 5px 0px) !important;
     
     /* Make sure the element is visible */
     transform: scaleY(1) !important;
@@ -992,8 +992,107 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     }
 }
 
+/* --- Material-Fox Pinned to Unpinned Separator --- */
 
+/* 1. Create the separator ONLY if pinned tabs exist in the bar */
+#tabbrowser-tabs:has(.tabbrowser-tab[pinned]) .tabbrowser-tab:not([pinned]):first-of-type .tab-content::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    background-color: var(--md-content-separator-color) !important;
+    opacity: var(--tab-separator-opacity, 1) !important;
+    width: 1px !important;
+    height: 18px !important;
+    left: -1px !important;
+    top: calc((var(--tab-min-height) - 18px) / 2) !important;
+    pointer-events: none !important;
+    visibility: visible !important;
+}
 
+/* 2. Refresh UI adjustments */
+@media (-moz-pref("userChrome.ui-chrome-refresh")) {
+    #tabbrowser-tabs:has(.tabbrowser-tab[pinned]) .tabbrowser-tab:not([pinned]):first-of-type .tab-content::before {
+        left: -1px !important;
+        width: 2px !important;
+        height: 16px !important;
+        top: calc((var(--tab-min-height) - 16px) / 2) !important;
+    }
+}
+
+/* 3. Interaction Hide Logic */
+#tabbrowser-tabs:has(.tabbrowser-tab:not([pinned]):first-of-type:is(:hover, [selected], [visuallyselected], [multiselected])) 
+.tabbrowser-tab:not([pinned]):first-of-type .tab-content::before,
+#tabbrowser-tabs:has(.tabbrowser-tab[pinned]:last-of-type:is(:hover, [selected], [visuallyselected], [multiselected])) 
+.tabbrowser-tab:not([pinned]):first-of-type .tab-content::before {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* 4. THE FIX: Only hide the FIRST separator if no pinned tabs exist */
+/* This leaves the standard separators between your other tabs alone */
+#tabbrowser-tabs:not(:has(.tabbrowser-tab[pinned])) .tabbrowser-tab:first-of-type .tab-content::before {
+    display: none !important;
+}
+
+@media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+/* --- Final Tab to New Tab Button Separator --- */
+
+/* 1. Base Definition */
+#tabs-newtab-button::before,
+#TabsToolbar #new-tab-button::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    background-color: var(--md-content-separator-color) !important;
+    opacity: var(--tab-separator-opacity, 1) !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    width: 1px !important;
+    height: 18px !important;
+    left: 2px !important; 
+    top: calc((var(--tab-min-height) - 18px) / 2) !important;
+    z-index: 10 !important;
+}
+
+/* 2. Refresh UI Adjustments */
+@media (-moz-pref("userChrome.ui-chrome-refresh")) {
+    #tabs-newtab-button::before,
+    #TabsToolbar #new-tab-button::before {
+        width: 2px !important;
+        height: 16px !important;
+        left: 1px !important; 
+        top: calc((var(--tab-min-height) - 16px) / 2) !important;
+    }
+}
+
+/* 3. High-Priority Hide Logic */
+
+/* A. Hide when the New Tab Button itself is hovered */
+/* --- High-Priority Hide Logic (Pinned-Safe) --- */
+
+/* A. Hide when the New Tab Button itself is hovered */
+#tabs-newtab-button:hover::before,
+#new-tab-button:hover::before {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* B. Surgical Hide: Only triggers if the last tab is NOT PINNED */
+#tabbrowser-tabs:has(> #tabbrowser-arrowscrollbox .tabbrowser-tab[last-visible-tab]:not([pinned]):hover) #tabs-newtab-button::before,
+#tabbrowser-tabs:has(> #tabbrowser-arrowscrollbox .tabbrowser-tab[last-visible-tab]:not([pinned])[selected]) #tabs-newtab-button::before,
+#tabbrowser-tabs:has(> #tabbrowser-arrowscrollbox .tabbrowser-tab[last-visible-tab]:not([pinned])[visuallyselected]) #tabs-newtab-button::before,
+#tabbrowser-tabs:has(> #tabbrowser-arrowscrollbox .tabbrowser-tab[last-visible-tab]:not([pinned])[multiselected]) #tabs-newtab-button::before {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* C. Fallback for overflow (ensure it's not a pinned tab) */
+#tabbrowser-tabs:has(.tabbrowser-tab:last-of-type:not([pinned]):hover) #tabs-newtab-button::before,
+#tabbrowser-tabs:has(.tabbrowser-tab:last-of-type:not([pinned])[selected]) #tabs-newtab-button::before {
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+}
 
 /* Bookmark folders same as secondary text color */
 .bookmark-item[container="true"] {
@@ -2184,8 +2283,8 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
   .tabbrowser-tab[pinned] {
-    max-width: 50px !important;
-    min-width: 50px !important;
+    max-width: 48px !important;
+    min-width: 48px !important;
   }
 }
 
