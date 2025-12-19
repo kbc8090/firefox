@@ -357,12 +357,18 @@ tooltip {
     transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
 	  /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important; */
     border: 1px solid var(--md-content-separator-color) !important;
+    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+      border: 0px solid transparent !important;
+      }
     transition-delay: 25ms !important;
 }
 
 #urlbar:not([focused]):hover .urlbar-background, #searchbar:hover {
-    background-color: color-mix(in srgb, var(--md-background-color-100) 90%, black) !important;
+    background-color: color-mix(in srgb, var(--md-background-color-100) 85%, black) !important;
     border-color: color-mix(in srgb, var(--md-content-separator-color) 94%, white) !important;
+    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+      border-color: transparent !important;
+    }
 }
 
 #urlbar[focused]:not([suppress-focus-border]) > .urlbar-background, #searchbar:focus {
@@ -1034,7 +1040,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     display: none !important;
 }
 
-@media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+
 /* --- Final Tab to New Tab Button Separator --- */
 
 /* 1. Base Definition */
@@ -1092,7 +1098,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     opacity: 0 !important;
     visibility: hidden !important;
 }
-}
+
 
 /* --- New Tab Button Fix for Pinned-Only State --- */
 
@@ -1332,6 +1338,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     /* Default: rounded top corners */
   #nav-bar {
     border-radius: 8px 8px 0 0 !important;
+    min-height: 45px !important;
   }
 
   /* Square top-left when first non-pinned tab (in arrowscrollbox) is selected
