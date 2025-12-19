@@ -1094,6 +1094,40 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 }
 }
 
+/* --- New Tab Button Fix for Pinned-Only State --- */
+
+/* 1. Move the Button Right (6px shift as requested) */
+/* Targets the button only when no unpinned tabs exist */
+#tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))) #tabs-newtab-button,
+#tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))) #new-tab-button {
+  @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+    margin-inline-start: 4px !important; 
+  }
+  @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+  margin-inline-start: 9px !important; 
+  }
+}
+
+/* 2. Hide Separator when the Last Pinned Tab is Active */
+/* This works even if the button and tabs are in different internal containers */
+
+/* If the last-of-type pinned tab is Hovered */
+#tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))):has(.tabbrowser-tab[pinned]:last-of-type:hover) #tabs-newtab-button::before,
+#tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))):has(.tabbrowser-tab[pinned]:last-of-type:hover) #new-tab-button::before,
+
+/* If the last-of-type pinned tab is Selected */
+#tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))):has(.tabbrowser-tab[pinned]:last-of-type[selected]) #tabs-newtab-button::before,
+#tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))):has(.tabbrowser-tab[pinned]:last-of-type[selected]) #new-tab-button::before,
+
+/* If the last-of-type pinned tab is Visually Selected (Theme state) */
+#tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))):has(.tabbrowser-tab[pinned]:last-of-type[visuallyselected]) #tabs-newtab-button::before,
+#tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))):has(.tabbrowser-tab[pinned]:last-of-type[visuallyselected]) #new-tab-button::before {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    display: none !important;
+}
+
+
 /* Bookmark folders same as secondary text color */
 .bookmark-item[container="true"] {
     fill: var(--md-text-secondary) !important;
