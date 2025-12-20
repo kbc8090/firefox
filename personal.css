@@ -717,9 +717,38 @@ menuitem {
 
   /* Making mousehover on tabs not change the label fading thing in any way */
 .tabbrowser-tab {
-    position: static !important;
     --tab-label-mask-size: 20px !important;
     /* text-shadow: 1px 1px 2px #000 !important; */
+}
+
+#tabbrowser-arrowscrollbox-periphery {
+    left: 0px !important;
+    position: relative !important;
+    margin-inline-start: 0px !important;
+}
+
+.tabbrowser-tab[placeholder] {
+    display: none !important;
+    width: 0px !important;
+    min-width: 0px !important;
+    max-width: 0px !important;
+    flex-basis: 0px !important;
+}
+
+.tabbrowser-tab {
+  position: static !important;
+}
+
+.tabbrowser-tab[selected][moving] {
+    left: auto !important;
+    position: relative !important;
+    z-index: 100 !important;
+    opacity: 1 !important;
+}
+
+#tabbrowser-arrowscrollbox {
+    --scrollbox-padding-inline-end: 0px !important;
+    padding-inline-end: 0px !important;
 }
 
 /* Indent the search to match the breakout box indentation like Chrome
@@ -1860,6 +1889,7 @@ treechildren::-moz-tree-separator(hover) {
   margin-inline-start: -3px !important;
   box-shadow: unset !important;
   filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.40)) !important;
+  fill: var(--md-text-primary) !important;
   }
 }
 
@@ -1938,7 +1968,6 @@ treechildren::-moz-tree-separator(hover) {
 
   #tabs-newtab-button, #new-tab-button {
     list-style-image: url("plus.svg") !important;
-    fill: var(--md-text-primary) !important;
   }
 
     #tabs-newtab-button,
