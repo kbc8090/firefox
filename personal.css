@@ -321,10 +321,15 @@ tooltip {
     color: var(--md-text-primary) !important;
     background-color: var(--md-background-color-50) !important;
     border-left: none !important;
-    border-right: var(--md-menu-border-size) !important;
+    @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+      border-right: var(--md-menu-border-size) !important;
+      border-top: var(--md-menu-border-size) !important;
+      border-color: var(--md-menu-border-color) !important;
+    }
+    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+      border-color: transparent !important;
+    }
     border-bottom: none !important;
-    border-top: var(--md-menu-border-size) !important;
-    border-color: var(--md-menu-border-color) !important;
     border-radius: 0px 4px 0px 0px !important;
     padding: 4px !important;
 }
