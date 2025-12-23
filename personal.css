@@ -757,7 +757,26 @@ menuitem {
     padding-inline-end: 0px !important;
 }
 
+@media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+  html,
+  body {
+    --tab-vertical-padding: 4px !important;
+  }
 
+  .tabbrowser-tab,
+  .tabbrowser-tab[pinned] {
+    .tab-stack {
+      min-height: var(--tab-min-height) !important;
+      max-height: var(--tab-min-height) !important;
+    }
+  }
+
+  .tab-background {
+    margin-top: var(--tab-vertical-padding) !important;
+    min-height: calc(var(--tab-min-height) - var(--tab-vertical-padding)) !important;
+    max-height: calc(var(--tab-min-height) - var(--tab-vertical-padding)) !important;
+  }
+}
 
 /* Indent the search to match the breakout box indentation like Chrome
 #urlbar[pageproxystate="invalid"] #identity-box {
@@ -1029,7 +1048,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
       }
       @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
         width: 1px !important;
-        height: 18px !important;
+        height: 20px !important;
         left: 0 !important;
       }
     }
@@ -1091,9 +1110,9 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     visibility: visible !important;
     pointer-events: none !important;
     width: 1px !important;
-    height: 18px !important;
+    height: 20px !important;
     left: 2px !important; 
-    top: calc((var(--tab-min-height) - 18px) / 2) !important;
+    top: calc((var(--tab-min-height) - 20px) / 2) !important;
     z-index: 10 !important;
 }
 
@@ -1955,7 +1974,7 @@ treechildren::-moz-tree-separator(hover) {
     border-radius: 0px 8px 0 0 !important;
   }
     #tabbrowser-arrowscrollbox .tabbrowser-tab:is(:first-child) {
-      margin-left: 11px !important;
+      margin-left: 10px !important;
     }
 
     /* Default: rounded top corners
@@ -1981,11 +2000,11 @@ treechildren::-moz-tree-separator(hover) {
     #tabs-newtab-button,
     #new-tab-button {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-    width: calc(var(--tab-min-height) - 2px) !important;
-    height: calc(var(--tab-min-height) - 2px) !important;
+    width: calc(var(--tab-min-height) - 6px) !important;
+    height: calc(var(--tab-min-height) - 6px) !important;
     padding: 8.5px !important;
-    margin-inline-start: 0px !important;
-    margin-top: -3px !important;
+    margin-inline-start: 2px !important;
+    margin-top: 1px !important;
     box-shadow: unset !important;
     }
   }
@@ -2361,8 +2380,8 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
   .tabbrowser-tab[pinned] {
-    max-width: 48px !important;
-    min-width: 48px !important;
+    max-width: 52px !important;
+    min-width: 52px !important;
   }
 }
 
@@ -2465,8 +2484,8 @@ toolbarseparator {
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
   #pinned-tabs-container {
-    margin-left: 11px !important;
-    margin-right: -11px !important;
+    margin-left: 10px !important;
+    margin-right: -10px !important;
   }
 }
 

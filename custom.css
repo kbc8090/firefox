@@ -308,7 +308,7 @@
       --md-control-background-color: color-mix(in srgb, transparent 76%, var(--md-accent-color));
       --md-menu-border-size: 1px solid;
       @media not -moz-pref("userChrome.ui-chrome-refresh") {
-        --tab-min-height: 34px !important;
+        --tab-min-height: 40px !important;
         --md-menu-border-size: 1px solid;
       }
     }
