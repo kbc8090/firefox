@@ -164,6 +164,7 @@
     --panel-subview-body-padding-block: 4px !important;
     --arrowpanel-menuitem-margin-inline: 4px !important;
     /*--arrowpanel-header-min-height: 0px !important; */
+    /* --panel-separator-padding: 0px !important; */
     --button-background-color-ghost-hover: var(--md-menu-background-color-hover) !important;
     --toolbarbutton-hover-background: var(--md-menu-background-color-hover) !important;
 }
@@ -755,6 +756,8 @@ menuitem {
     --scrollbox-padding-inline-end: 0px !important;
     padding-inline-end: 0px !important;
 }
+
+
 
 /* Indent the search to match the breakout box indentation like Chrome
 #urlbar[pageproxystate="invalid"] #identity-box {
@@ -2672,6 +2675,10 @@ toolbarseparator {
 .sidebar-splitter {
   --splitter-width: 0px !important;
   background-color: var(--md-content-separator-color) !important;
+}
+
+.urlbarView-url {
+  font-size: unset !important;
 }
 
 /*
