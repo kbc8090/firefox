@@ -278,7 +278,9 @@ user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
 user_pref("ui.prefersReducedMotion", 0);
 
 /** MaterialFox CUSTOM OPTIONS -- Uncomment this section, run firefox, then comment it back out so it doesn't keep these defaults on each launch
+user_pref("userChrome.theme-blurple", false);
 user_pref("userChrome.theme-catppuccin", false);
+user_pref("userChrome.theme-customcolor", false);
 user_pref("userChrome.theme-darkblue", false);
 user_pref("userChrome.theme-dracula", false);
 user_pref("userChrome.theme-github", false);
@@ -291,6 +293,8 @@ user_pref("userChrome.ui-chrome-refresh", false);
 user_pref("userChrome.ui-compact-url-bar", false);
 user_pref("userChrome.ui-context-menu-icons", false);
 user_pref("userChrome.ui-force-old-icons", false);
+user_pref("userChrome.ui-rounded-corners", false);
+user_pref("userChrome.ui-rounded-corners-flush-scrollbar", true);
 user_pref("userChrome.ui-system-font", true);
 */
 
