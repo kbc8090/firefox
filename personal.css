@@ -753,12 +753,6 @@ menuitem {
     min-height: calc(var(--tab-min-height) - var(--tab-vertical-padding)) !important;
     max-height: calc(var(--tab-min-height) - var(--tab-vertical-padding)) !important;
   }
-
-    .tab-content {
-    place-content: center !important;
-    place-items: center !important;
-    justify-content: center !important;
-  }
 }
 
 /* Indent the search to match the breakout box indentation like Chrome
@@ -1983,10 +1977,10 @@ treechildren::-moz-tree-separator(hover) {
     #tabs-newtab-button,
     #new-tab-button {
   & > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-    width: calc(var(--tab-min-height) - 6px) !important;
-    height: calc(var(--tab-min-height) - 6px) !important;
-    padding: 8.5px !important;
-    margin-inline-start: 2px !important;
+    width: calc(var(--tab-min-height) - 7px) !important;
+    height: calc(var(--tab-min-height) - 7px) !important;
+    padding: 8px !important;
+    margin-inline-start: 3px !important;
     margin-top: 1px !important;
     box-shadow: unset !important;
     }
