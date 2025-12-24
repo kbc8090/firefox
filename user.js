@@ -275,7 +275,7 @@ user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
-user_pref("ui.prefersReducedMotion", 1);
+user_pref("ui.prefersReducedMotion", 0);
 
 /** MaterialFox CUSTOM OPTIONS -- Uncomment this section, run firefox, then comment it back out so it doesn't keep these defaults on each launch
 user_pref("userChrome.theme-catppuccin", false);
