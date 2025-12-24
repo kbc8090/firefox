@@ -554,8 +554,8 @@ tooltip {
 .urlbar-input, #urlbar-input, #searchbar {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
   font-family: system-ui !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
@@ -727,34 +727,11 @@ menuitem {
     /* text-shadow: 1px 1px 2px #000 !important; */
 }
 
+.tabbrowser-tab {
+  position: unset !important;
+}
 #tabbrowser-arrowscrollbox-periphery {
     left: 0px !important;
-    position: relative !important;
-    margin-inline-start: 0px !important;
-}
-
-.tabbrowser-tab[placeholder] {
-    display: none !important;
-    width: 0px !important;
-    min-width: 0px !important;
-    max-width: 0px !important;
-    flex-basis: 0px !important;
-}
-
-.tabbrowser-tab {
-  position: static !important;
-}
-
-.tabbrowser-tab[selected][moving] {
-    left: auto !important;
-    position: relative !important;
-    z-index: 100 !important;
-    opacity: 1 !important;
-}
-
-#tabbrowser-arrowscrollbox {
-    --scrollbox-padding-inline-end: 0px !important;
-    padding-inline-end: 0px !important;
 }
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
@@ -775,6 +752,12 @@ menuitem {
     margin-top: var(--tab-vertical-padding) !important;
     min-height: calc(var(--tab-min-height) - var(--tab-vertical-padding)) !important;
     max-height: calc(var(--tab-min-height) - var(--tab-vertical-padding)) !important;
+  }
+
+    .tab-content {
+    place-content: center !important;
+    place-items: center !important;
+    justify-content: center !important;
   }
 }
 
@@ -2223,7 +2206,7 @@ treechildren::-moz-tree-separator(hover) {
 
 /* Fade in the minimize/maximize/close buttons */
 .titlebar-button:hover {
-  transition: background-color 0.20s ease !important;
+  transition: background-color 0.18s ease !important;
 }
 
 .titlebar-button {
@@ -2246,6 +2229,16 @@ treechildren::-moz-tree-separator(hover) {
 
 .titlebar-close:active {
   background-color: color-mix(in srgb, #E81123 65%, transparent) !important;
+}
+
+.titlebar-restore {
+    content: "\e923" !important;
+    font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets" !important;
+}
+
+.titlebar-max {
+    content: "\e922" !important;
+    font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets" !important;
 }
 
 #identity-icon-label {
