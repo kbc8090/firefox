@@ -293,9 +293,9 @@
         var(--md-accent-color)
       );
       --md-tab-opacity: 1.0;
-      --md-background-color-0: color-mix(in srgb, var(--md-background-color-100) 46%, black);
-      --md-background-color-50: color-mix(in srgb, var(--md-background-color-100) 65%, black);
-      --md-background-color-100: #1b24a1;
+      --md-background-color-0: color-mix(in srgb, var(--md-background-color-100) 50%, black);
+      --md-background-color-50: color-mix(in srgb, var(--md-background-color-100) 66%, black);
+      --md-background-color-100: #2E3192;
       /*--md-background-color-100: #2B249E; */      
       /*--md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, var(--md-grey-800) 80%, var(--md-accent-color))); */
       --md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, transparent 76%, var(--md-accent-color)));

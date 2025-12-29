@@ -370,15 +370,14 @@ tooltip {
 }
 
 #urlbar:not([focused]):hover .urlbar-background, #searchbar:hover {
-    background-color: color-mix(in srgb, var(--md-background-color-100) 85%, black) !important;
-    border-color: color-mix(in srgb, var(--md-content-separator-color) 94%, white) !important;
+    background-color: color-mix(in srgb, var(--md-background-color-50) 64%, var(--md-background-color-100)) !important;
     @media (-moz-pref("userChrome.ui-chrome-refresh")) {
       border-color: transparent !important;
     }
 }
 
 #urlbar[focused]:not([suppress-focus-border]) > .urlbar-background, #searchbar:focus {
-  box-shadow: 0 1px 4px #00000054 !important;
+  box-shadow: 0 1px 5px #00000054 !important;
 }
 
 @keyframes urlbarSelectorGrow {
@@ -554,7 +553,7 @@ tooltip {
 .urlbar-input, #urlbar-input, #searchbar {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
-  font-size: 13px !important;
+  font-size: 14px !important;
   font-weight: 400 !important;
   font-family: system-ui !important;
   font-smooth: always !important;
@@ -1140,7 +1139,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))) #tabs-newtab-button,
 #tabbrowser-tabs:not(:has(.tabbrowser-tab:not([pinned]))) #new-tab-button {
   @media (-moz-pref("userChrome.ui-chrome-refresh")) {
-    margin-inline-start: 4px !important; 
+    margin-inline-start: 3px !important; 
   }
   @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
   margin-inline-start: 9px !important; 
@@ -1884,18 +1883,7 @@ treechildren::-moz-tree-separator(hover) {
     margin-inline: 6px 0px !important;
   }
 
-  #tabs-newtab-button,
-  #new-tab-button {
-& > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
-  width: calc(var(--tab-min-height) - 11px) !important;
-  height: calc(var(--tab-min-height) - 11px) !important;
-  padding: 7px !important;
-  margin-inline-start: -3px !important;
-  box-shadow: unset !important;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.40)) !important;
-  fill: var(--md-text-primary) !important;
-  }
-}
+
 
   #tabs-newtab-button,
   #new-tab-button {
@@ -2685,6 +2673,47 @@ toolbarseparator {
 
 .urlbarView-url {
   font-size: unset !important;
+}
+
+
+  #tabs-newtab-button,
+  #new-tab-button {
+& > :is(.toolbarbutton-icon, .toolbarbutton-badge-stack) {
+  box-shadow: unset !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.40)) !important;
+  fill: var(--md-text-primary) !important;
+  }
+}
+/* Decrease the "pill" circle size specifically for Chrome Refresh */
+@media (-moz-pref("userChrome.ui-chrome-refresh")) {
+  
+  /* 1. Target the internal stack where the circle background is often applied */
+  #tabs-newtab-button .toolbarbutton-badge-stack,
+  #TabsToolbar #new-tab-button .toolbarbutton-badge-stack {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-width: 28px !important; /* Chrome's exact pill size */
+    min-height: 28px !important;
+    max-width: 28px !important;
+    max-height: 28px !important;
+    border-radius: 50% !important;
+  }
+
+  /* 2. Target the icon to ensure it doesn't expand the circle */
+  #tabs-newtab-button .toolbarbutton-icon,
+  #TabsToolbar #new-tab-button .toolbarbutton-icon {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 7px !important; /* This controls the size of the '+' sign inside the circle */
+    background: none !important; /* Prevents double-circles if background is on icon */
+  }
+
+  /* 3. Adjust the button container to remove the extra 2px padding you mentioned */
+  #tabs-newtab-button, 
+  #TabsToolbar #new-tab-button {
+    padding-inline: 0px !important;
+    margin-inline-start: -3px !important; /* Reverts the -2px on line 85 for this mode */
+  }
 }
 
 /*
