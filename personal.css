@@ -1,6 +1,9 @@
 /* The smoothest fonts folks */
 
 *, html, body {
+    font-family: "Segoe UI Variable Display";
+    font-size: 12px;
+    font-weight: 400 !important;
   text-rendering: optimizelegibility !important;
 	font-smooth: always !important;
   -webkit-font-smoothing: antialiased !important;
@@ -113,7 +116,7 @@
 
 /* Make unselected tabs foreground color a little less bright */
 .tabbrowser-tab:not([selected]) .tab-content {
-      color: color-mix(in srgb, var(--md-text-primary) 89%, transparent) !important;
+      color: var(--md-text-primary) !important;
 }
 
 /* Make Selected tab brighter */
@@ -370,10 +373,7 @@ tooltip {
 }
 
 #urlbar:not([focused]):hover .urlbar-background, #searchbar:hover {
-    background-color: color-mix(in srgb, var(--md-background-color-50) 64%, var(--md-background-color-100)) !important;
-    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
-      border-color: transparent !important;
-    }
+    background-color: color-mix(in srgb, var(--md-background-color-50) 61%, var(--md-background-color-100)) !important;
 }
 
 #urlbar[focused]:not([suppress-focus-border]) > .urlbar-background, #searchbar:focus {
@@ -554,8 +554,8 @@ tooltip {
   color: var(--md-tab-label-color) !important;
   padding-left: 2px !important;
   font-size: 14px !important;
-  font-weight: 400 !important;
-  font-family: system-ui !important;
+  font-weight: 500 !important;
+  font-family: "Segoe UI Variable Display" !important;
   font-smooth: always !important;
   text-rendering: optimizelegibility !important;
   -webkit-font-smoothing: antialiased !important;
@@ -570,7 +570,9 @@ tooltip {
     }
   }
 }
-
+.tabbrowser-tab:is([image], [pinned]) > .tab-stack > .tab-content[attention]:not([selected]), .tabbrowser-tab > .tab-stack > .tab-content[pinned][titlechanged]:not([selected]), #tabbrowser-tabs[orient="vertical"] .tabbrowser-tab > .tab-stack > .tab-content[titlechanged]:not([selected]) {
+  background-image: radial-gradient(circle, var(--md-accent-color), var(--md-accent-color) 2px, transparent 2px) !important;
+}
 /*
 .urlbar-input {
     #urlbar[focused] > .urlbar-input-container > .urlbar-input-box > & {
@@ -1702,8 +1704,10 @@ treechildren::-moz-tree-separator(hover) {
   outline-offset: -1px !important;
   outline: 1px solid var(--md-menu-border-color) !important;
   border-color: var(--md-menu-border-color) !important;
-  max-height: 28px !important;
+  max-height: 32px !important;
+  height: 32px !important;
   padding-left: 8px !important;
+  margin-left: 10px !important;
 }
 
 #viewButton:hover {
@@ -1748,8 +1752,7 @@ treechildren::-moz-tree-separator(hover) {
 
 #input:hover {
    &.with-icon {
-    background-color: color-mix(in srgb, var(--md-background-color-100) 88%, black) !important;
-    border-color: color-mix(in srgb, var(--md-content-separator-color) 94%, white) !important;
+    background-color: color-mix(in srgb, var(--md-background-color-50) 61%, var(--md-background-color-100)) !important;
    }
 }
 
@@ -2172,13 +2175,23 @@ treechildren::-moz-tree-separator(hover) {
     }
   }
 
+  /* Zoom Button Font Fix */
 #urlbar-zoom-button {
   outline-offset: var(--toolbarbutton-outline-offset) !important;
   outline: 1px solid var(--md-menu-border-color) !important;
-  font-weight: 600 !important;
-  font-size: 11px !important;
-  font-family: "Inter" !important;
   margin-inline: 5px !important;
+  
+  /* Force the font on the button itself */
+  font-family: "Inter" !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* TARGET THE INTERNAL LABEL: This is usually what resists the font change */
+#urlbar-zoom-button .toolbarbutton-text {
+  font-family: inherit !important; /* Forces it to use the "Inter" from the parent */
+  font-size: inherit !important;   /* Forces it to use the "9px" from the parent */
+  font-weight: inherit !important; 
 }
 
 #urlbar-zoom-button:hover {
@@ -2213,14 +2226,13 @@ treechildren::-moz-tree-separator(hover) {
   background-color: color-mix(in srgb, #E81123 65%, transparent) !important;
 }
 
-.titlebar-restore {
-    content: "\e923" !important;
-    font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets" !important;
-}
-
-.titlebar-max {
-    content: "\e922" !important;
-    font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets" !important;
+/* 2. Specific Override for Titlebar Glyph Icons */
+/* We target the icon and the internal stack to force the font change */
+.titlebar-button > .toolbarbutton-icon,
+.titlebar-button > .toolbarbutton-badge-stack {
+  font-family: "Segoe Fluent Icons", "Segoe MDL2 Assets" !important;
+  font-weight: normal !important; /* Icons break if forced to Aptos's 400 weight */
+  font-size: unset !important;
 }
 
 #identity-icon-label {
@@ -2332,7 +2344,7 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 .tab-close-button,
 .messageCloseButton>.toolbarbutton-icon {
   height: 18px !important;
-  padding: 3px !important;
+  padding: 2.5px !important;
   &:hover {
     outline-offset: -1px !important;
     outline: 1px solid var(--md-menu-background-color-hover) !important;

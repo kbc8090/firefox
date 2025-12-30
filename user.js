@@ -153,6 +153,7 @@ user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.suggest.recentsearches", false);
 user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 user_pref("browser.urlbar.yelp.featureGate", false);
+user_pref("browser.urlbar.formatting.enabled", true);
 
 user_pref("browser.urlbar.weather.featureGate", false);
 user_pref("browser.urlbar.wikipedia.featureGate", false);
