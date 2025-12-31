@@ -1847,7 +1847,6 @@ treechildren::-moz-tree-separator(hover) {
   #identity-box[pageproxystate="valid"] {
     &:is(.verifiedDomain) #identity-icon {
       fill: var(--md-text-primary) !important;
-      filter: drop-shadow(0 0 2px var(--md-selection-background-color)) drop-shadow(0 0 1px var(--md-accent-color)) !important;
     }
   }
   
@@ -2343,8 +2342,13 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 .tab-close-button,
 .messageCloseButton>.toolbarbutton-icon {
-  height: 18px !important;
-  padding: 2.5px !important;
+  height: 19px !important;
+  @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+    padding: 4px !important;
+  }
+  @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+    padding: 3px !important;
+  }
   &:hover {
     outline-offset: -1px !important;
     outline: 1px solid var(--md-menu-background-color-hover) !important;
