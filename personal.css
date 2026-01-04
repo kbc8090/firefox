@@ -1,4 +1,4 @@
-/* The smoothest fonts folks */
+/* The smoothest fonts folks
 
 *, html, body {
     font-family: "Segoe UI Variable Display";
@@ -8,6 +8,8 @@
 	font-smooth: always !important;
   -webkit-font-smoothing: antialiased !important;
 }
+
+*/
 
 /* Disabled add search engine context menu item */
 .menuitem-iconic.context-menu-add-engine,
@@ -312,7 +314,7 @@ panel#appMenu-popup {
 tooltip {
     appearance: none !important;
     -moz-appearance: none !important;
-    border-radius: 8px !important;
+    border-radius: 4px !important;
     border: var(--md-menu-border-size) !important;
     background-color: var(--md-background-color-0) !important;
     border-color: var(--md-menu-border-color) !important;
@@ -2182,7 +2184,7 @@ treechildren::-moz-tree-separator(hover) {
   
   /* Force the font on the button itself */
   font-family: "Inter" !important;
-  font-size: 11px !important;
+  font-size: 12px !important;
   font-weight: 600 !important;
 }
 
