@@ -2276,13 +2276,24 @@ treechildren::-moz-tree-image(title, open) {
   padding-left: 33px !important;
 }
 
-/* Standard Folder - Open */
-:-moz-any(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu)
-  .bookmark-item[container="true"]:not([query="true"], [tagContainer], [selected], [dayContainer])[open="true"],
-:-moz-any(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent)
-  treechildren::-moz-tree-image(title, container, open) {
+/* 1. Sidebar & Library (Tree-based) - No changes here */
+:is(#bookmarks-view, #historyTree, #editBMPanel_folderTree, #placesList, #placeContent) 
+treechildren::-moz-tree-image(title, container, open) {
   list-style-image: url("folder-open.svg") !important;
+  -moz-context-properties: fill !important;
+  fill: var(--md-accent-color) !important;
 }
+
+/* 2. Toolbar & Menu Folders - STRICT Selector */
+/* The '>' symbol prevents this from affecting items INSIDE the folder */
+:is(#PlacesToolbar, #BMB_bookmarksPopup, #bookmarksMenu) 
+.bookmark-item[container][open] > :is(.menu-icon, .toolbarbutton-icon) {
+  list-style-image: url("folder-open.svg") !important;
+  content: url("folder-open.svg") !important;
+  -moz-context-properties: fill !important;
+  fill: var(--md-accent-color) !important;
+}
+
 
 tree {
   color: var(--md-text-primary) !important;
