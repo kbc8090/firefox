@@ -1169,6 +1169,38 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     display: none !important;
 }
 
+/* 1. Base State (Mouse Exit): Snap-in then slow-bleed opacity */
+.tab-content::before, 
+.tab-content::after, 
+#tabs-newtab-button::before, 
+#new-tab-button::before {
+  /* This bezier curve makes it pop in slightly then take its time fading the rest of the way */
+  transition: 
+    opacity 1800ms cubic-bezier(0.1, 0.9, 0.2, 1), 
+    visibility 1800ms !important;
+}
+
+/* 2. Hover Entry: Snap to instant disappearance (0ms) */
+
+/* A. Standard Tabs */
+.tabbrowser-tab:is(:hover, [selected], [multiselected]) .tab-content::before,
+.tabbrowser-tab:is(:hover, [selected], [multiselected]) .tab-content::after,
+.tabbrowser-tab:is(:hover, [selected], [multiselected]) + .tabbrowser-tab .tab-content::before,
+
+/* B. New Tab Button Fix */
+#tabs-newtab-button:hover::before,
+#new-tab-button:hover::before,
+#tabbrowser-tabs:has(.tabbrowser-tab[last-visible-tab]:is(:hover, [selected], [multiselected])) #tabs-newtab-button::before,
+#tabbrowser-tabs:has(.tabbrowser-tab[last-visible-tab]:is(:hover, [selected], [multiselected])) #new-tab-button::before,
+#tabbrowser-tabs:has(.tabbrowser-tab:last-of-type:is(:hover, [selected], [multiselected])) #tabs-newtab-button::before,
+#tabbrowser-tabs:has(.tabbrowser-tab:last-of-type:is(:hover, [selected], [multiselected])) #new-tab-button::before,
+
+/* C. Pinned-to-Unpinned Boundary */
+#tabbrowser-tabs:has(.tabbrowser-tab[pinned]:last-of-type:is(:hover, [selected], [multiselected])) .tabbrowser-tab:not([pinned]):first-of-type .tab-content::before,
+#tabbrowser-tabs:has(.tabbrowser-tab:not([pinned]):first-of-type:is(:hover, [selected], [multiselected])) .tabbrowser-tab:not([pinned]):first-of-type .tab-content::before {
+  transition: none !important;
+}
+
 
 /* Bookmark folders same as secondary text color */
 .bookmark-item[container="true"] {
@@ -2755,19 +2787,14 @@ toolbarseparator {
 :root:-moz-window-inactive #TabsToolbar :is(#tabs-newtab-button, #new-tab-button, #alltabs-button),
 :root:-moz-window-inactive .titlebar-buttonbox-container,
 :root:-moz-window-inactive .tabbrowser-tab[selected] .tab-content {
-  opacity: 0.75 !important;
+  opacity: 0.80 !important;
 }
 
-/* 3. Lock the Selected Tab Background (Solid and Color) */
-:root:-moz-window-inactive .tabbrowser-tab[selected] {
-  opacity: 1 !important;
+:root:-moz-window-inactive #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.30)) !important;
 }
 
-:root:-moz-window-inactive .tabbrowser-tab[selected] .tab-background {
-  opacity: 1 !important;
-  background-color: var(--md-background-color-100) !important;
-  background-image: none !important;
-}
+
 
 /*
 menuitem#context-copyimage .menu-text {
