@@ -2042,7 +2042,7 @@ treechildren::-moz-tree-separator(hover) {
     
     :root:-moz-window-inactive #navigator-toolbox {
       #alltabs-button .toolbarbutton-badge-stack {
-        background-color: get-var("background-color-100") !important;
+        background-color: var(--md-background-color-100) !important;
       }
     }
     
@@ -2743,6 +2743,30 @@ toolbarseparator {
     padding-inline: 0px !important;
     margin-inline-start: -3px !important; /* Reverts the -2px on line 85 for this mode */
   }
+}
+
+/* 1. Prevent global dimming on the Tabs Toolbar */
+:root:-moz-window-inactive #TabsToolbar {
+  opacity: 1 !important;
+}
+
+/* 2. Group all elements that should be dimmed (0.75 opacity) */
+:root:-moz-window-inactive #TabsToolbar .tabbrowser-tab:not([selected]),
+:root:-moz-window-inactive #TabsToolbar :is(#tabs-newtab-button, #new-tab-button, #alltabs-button),
+:root:-moz-window-inactive .titlebar-buttonbox-container,
+:root:-moz-window-inactive .tabbrowser-tab[selected] .tab-content {
+  opacity: 0.75 !important;
+}
+
+/* 3. Lock the Selected Tab Background (Solid and Color) */
+:root:-moz-window-inactive .tabbrowser-tab[selected] {
+  opacity: 1 !important;
+}
+
+:root:-moz-window-inactive .tabbrowser-tab[selected] .tab-background {
+  opacity: 1 !important;
+  background-color: var(--md-background-color-100) !important;
+  background-image: none !important;
 }
 
 /*
