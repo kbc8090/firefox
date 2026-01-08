@@ -28,6 +28,9 @@ user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.font_rendering.directwrite.use_gdi_table_loading", false);
 user_pref("gfx.font_rendering.cleartype_params.cleartype_level", 100);
 user_pref("gfx.font_rendering.cleartype_params.enhanced_contrast", 100);
+user_pref("gfx.font_loader.delay", -1);
+user_pref("gfx.font_rendering.fallback.always_use_cmaps", true);
+user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.layer-compositor", true);
@@ -38,6 +41,8 @@ user_pref("layers.acceleration.force-enabled", true);
 user_pref("dom.webgpu.enabled", true);
 user_pref("dom.media.webcodecs.h265.enabled", true);
 user_pref("media.wmf.hevc.enabled", true);
+user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false);
+
 
 
 /** DISK CACHE ***/
@@ -276,7 +281,7 @@ user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
-user_pref("ui.prefersReducedMotion", 0);
+user_pref("ui.prefersReducedMotion", 1);
 
 /** MaterialFox CUSTOM OPTIONS -- Uncomment this section, run firefox, then comment it back out so it doesn't keep these defaults on each launch
 user_pref("userChrome.theme-blurple", false);
