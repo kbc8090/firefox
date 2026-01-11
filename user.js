@@ -44,8 +44,11 @@ user_pref("webgl.max-size", 16384);
 user_pref("layers.acceleration.force-enabled", true);
 user_pref("dom.webgpu.enabled", true);
 user_pref("dom.media.webcodecs.h265.enabled", true);
+user_pref("dom.timeout.budget_throttling_max_delay", -1);
 user_pref("media.wmf.hevc.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false);
+user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
+
 
 
 
@@ -102,6 +105,7 @@ user_pref("dom.events.dataTransfer.imageAsFile.enabled", true);
 user_pref("dom.element.animate.enabled", true);
 user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
+user_pref("layout.frame_rate", -1);
 user_pref("timer.auto_increase_timer_resolution", true);
 
 

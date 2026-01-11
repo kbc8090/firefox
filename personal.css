@@ -1176,8 +1176,8 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #new-tab-button::before {
   /* This bezier curve makes it pop in slightly then take its time fading the rest of the way */
   transition: 
-    opacity 1800ms cubic-bezier(0.1, 0.9, 0.2, 1), 
-    visibility 1800ms !important;
+    opacity 1000ms cubic-bezier(0.1, 0.9, 0.2, 1), 
+    visibility 1000ms !important;
 }
 
 /* 2. Hover Entry: Snap to instant disappearance (0ms) */
@@ -2495,6 +2495,25 @@ toolbarseparator {
   padding-block: 0px !important;
 }
 
+.panel-header {
+  & > h1 > span {
+    padding-block: 4px !important;
+  }
+}
+
+panel toolbarseparator {
+  padding: 0px !important;
+}
+
+#downloadsFooterButtons > toolbarseparator {
+  margin: 0px !important;
+  padding-block: 4px !important;
+}
+
+#widget-overflow-mainView > toolbarseparator, #widget-overflow-mainView > .panel-subview-body > toolbarseparator, .PanelUI-subView toolbarseparator, #unified-extensions-panel toolbarseparator, #permission-popup-mainView > toolbarseparator, #editBookmarkPanel toolbarseparator, .cui-widget-panel toolbarseparator {
+  margin: 4px 4px !important;
+}
+
 #PlacesToolbarItems>toolbarseparator {
   padding-inline: 1px !important;
   border-left: 1px solid var(--md-accent-color) !important;
@@ -2791,7 +2810,7 @@ toolbarseparator {
 }
 
 :root:-moz-window-inactive #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.30)) !important;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.35)) !important;
 }
 
 
