@@ -1878,11 +1878,16 @@ treechildren::-moz-tree-separator(hover) {
     filter: drop-shadow(0 0 1px var(--md-accent-color)) drop-shadow(0 0 2px var(--md-selection-background-color)) !important;
   }
 
+  @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
   #identity-box[pageproxystate="valid"] {
     &:is(.verifiedDomain) #identity-icon {
-      fill: var(--md-text-primary) !important;
+      list-style-image: url("security.svg") !important;
+      -moz-context-properties: fill, fill-opacity !important;
+      fill-opacity: 1 !important;
+      fill: var(--md-tab-label-color) !important;
     }
   }
+}
   
   @media (-moz-pref("userChrome.ui-chrome-refresh")) {
     .tabbrowser-tab[visuallyselected]:not([usercontextid]) .tab-background
@@ -2498,6 +2503,28 @@ toolbarseparator {
 .panel-header {
   & > h1 > span {
     padding-block: 4px !important;
+    /* This creates the 360-degree fade from center to edges */
+    background: radial-gradient(circle, var(--md-menu-border-color) 0%, var(--md-background-color-0) 100%) !important;
+    display: inline-block; /* Ensures padding and background render correctly */
+    width: 100%; /* Optional: ensures the gradient spans the full width */
+    font-size: 1.1em !important;
+  }
+}
+
+.panel-info-button {
+  & > image {
+    fill: var(--md-accent-color) !important;
+  }
+}
+
+.panel-info-button {
+  /* Hover, Active (click), and Selected (open/toggled) */
+  &:hover,
+  &:active,
+  &[selected="true"],
+  &[open],
+  &[checked] {
+    border-radius: 100px !important;
   }
 }
 
@@ -2810,7 +2837,7 @@ panel toolbarseparator {
 }
 
 :root:-moz-window-inactive #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.35)) !important;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.25)) !important;
 }
 
 
