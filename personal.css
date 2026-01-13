@@ -2609,12 +2609,12 @@ panel toolbarseparator {
     MARK: Rc Variables
   */
   #main-window:not([chromehidden~="toolbar"]) {
-    --uc-tweak-rounded-corners-padding: 5px;
+    --uc-tweak-rounded-corners-padding: 4px;
     --uc-tweak-rounded-corners-radius: 6px;
     --uc-tweak-rounded-corners-shadow:
-      0 -.8px 0 0 rgb(0 0 0 / 0.02),
-      0 0.5px 1px 1px rgb(0 0 0 / 0.06),
-      0 1px 1px rgb(0 0 0 / 0.1);
+      0 -.8px 0 0 rgb(0 0 0 / 0.01),
+      0 0.5px 1px 1px rgb(0 0 0 / 0.01),
+      0 1px 1px rgb(0 0 0 / 0.01);
     --browser-frame-bgcolor: var(--toolbar-bgcolor, var(--lwt-accent-color));
 
     /* Different shadow for higher resolution displays. */
@@ -2746,6 +2746,10 @@ panel toolbarseparator {
   }
 
   /* Responsive design mode. */
+  .browserContainer {
+  background: var(--md-background-color-100) !important;
+}
+
   .browserContainer.responsive-mode {
     background-color: transparent !important;
 
