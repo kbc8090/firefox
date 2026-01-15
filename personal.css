@@ -1770,14 +1770,14 @@ treechildren::-moz-tree-separator(hover) {
    &.with-icon {
     appearance: none !important;
     background-color: var(--md-background-color-50) !important;
-    border: 1px solid var(--md-content-separator-color) !important;
+    border: none !important;
     color: var(--md-text-primary) !important;
     border-radius: 100px !important;
     transition-property: background-color !important;
     transition-duration: 170ms !important;
     transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important;
     box-sizing: border-box !important;
-    outline: none !important;
+    outline: 1px solid var(--md-content-separator-color) !important;
     background-size: unset !important;
     -moz-context-properties: fill;
     fill: var(--md-accent-color) !important;
@@ -1792,9 +1792,9 @@ treechildren::-moz-tree-separator(hover) {
 
 #input:focus {
   &.with-icon {
-  border: 2px solid var(--md-accent-color) !important;
-  outline: none !important;
-  margin-left: -1px !important;
+  border: none !important;
+  outline: 2px solid var(--md-accent-color) !important;
+  outline-offset: -1px !important;F
   }
 }
 
@@ -1802,6 +1802,16 @@ treechildren::-moz-tree-separator(hover) {
   &[type="search"] {
       --input-background-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
   }
+}
+
+input[type="search"]::-moz-search-clear-button {
+    fill: var(--md-text-primary) !important;
+    -moz-context-properties: fill, fill-opacity !important;
+    fill-opacity: 1 !important;
+    border-radius: 100px !important;
+    width: 14px !important;
+    height: 14px !important;
+    transform: translateX(-3px) !important; 
 }
 
 #downloadsPanel-blockedSubview, #downloadsPanel-mainView {
@@ -1884,7 +1894,7 @@ treechildren::-moz-tree-separator(hover) {
       list-style-image: url("security.svg") !important;
       -moz-context-properties: fill, fill-opacity !important;
       fill-opacity: 1 !important;
-      fill: var(--md-tab-label-color) !important;
+      fill: var(--md-text-primary) !important;
     }
   }
 }
@@ -2610,7 +2620,7 @@ panel toolbarseparator {
   */
   #main-window:not([chromehidden~="toolbar"]) {
     --uc-tweak-rounded-corners-padding: 4px;
-    --uc-tweak-rounded-corners-radius: 6px;
+    --uc-tweak-rounded-corners-radius: 8px;
     --uc-tweak-rounded-corners-shadow:
       0 -.8px 0 0 rgb(0 0 0 / 0.01),
       0 0.5px 1px 1px rgb(0 0 0 / 0.01),
@@ -2843,6 +2853,7 @@ panel toolbarseparator {
 :root:-moz-window-inactive #tabbrowser-tabs:not([noshadowfortests]) .tab-background:is([selected], [multiselected]) {
   filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.25)) !important;
 }
+
 
 
 
