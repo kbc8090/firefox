@@ -13,6 +13,7 @@ You can play around with which theme you want just make sure to have only 1 on a
 ``` js
 user_pref("userChrome.theme-blurple", false);
 user_pref("userChrome.theme-catppuccin", false);
+user_pref("userChrome.theme-customcolor", false);
 user_pref("userChrome.theme-darkblue", false);
 user_pref("userChrome.theme-dracula", false);
 user_pref("userChrome.theme-github", false);
