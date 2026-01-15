@@ -4,6 +4,25 @@
     font-smooth: always !important;
     text-rendering: optimizelegibility !important;
     -webkit-font-smoothing: antialiased !important;
+    --in-content-item-hover: var(--md-menu-background-color-hover) !important;
+}
+
+:root {
+    --background-color-canvas: var(--md-background-color-0) !important;
+    --table-row-background-color-alternate: var(--md-background-color-50) !important;
+    --prefs-table-border-width: 1px;
+    --prefs-table-border: var(--prefs-table-border-width) solid var(--md-menu-border-color) !important;
+}
+
+#prefs {
+  border: var(--prefs-table-border-width) solid var(--md-menu-border-color) !important;
+}
+
+#about-config-search {
+  -moz-context-properties: fill, fill-opacity;
+  fill: var(--md-accent-color) !important;
+  opacity: 1 !important;
+  fill-opacity: 1 !important;
 }
 
 @-moz-document url-prefix(about:about),
