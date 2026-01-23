@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name           Edge Scrollbar - Maximum Performance
-// @description    Optimized for smoothest possible scrolling
+// @name           Edge Scrollbar - Working Version (Prefs Support)
+// @description    Optimized for smoothest possible scrolling + Preference Support
 // @author         Your Name + performance optimizations
 // @include        main
 // ==/UserScript==
@@ -8,8 +8,23 @@
 (function() {
   'use strict';
 
+  // --- PREFERENCE CHECK 1: Global Kill Switch ---
+  try {
+    if (!Services.prefs.getBoolPref("userChrome.ui-rounded-corners", true)) {
+      return; 
+    }
+  } catch (e) {}
+
+  // --- PREFERENCE CHECK 2: Flush Mode ---
+  // If TRUE: Right side becomes transparent to mouse (native hover works).
+  // If FALSE: Right side acts as the script's scrollbar (Solid Drag).
+  let flushMode = false;
+  try {
+    flushMode = Services.prefs.getBoolPref("userChrome.ui-rounded-corners-flush-scrollbar", false);
+  } catch (e) {}
+
   const EDGE_WIDTH = 4;
-  const WHEEL_SCALE = 18.66;
+  const WHEEL_SCALE = 17.06;
   const MIN_THUMB = 30;
   const THUMB_TOLERANCE = 80;
   const PAGE_JUMP = 0.9;
@@ -377,7 +392,15 @@
     const overlay = document.createXULElement('box');
     overlay.id = id;
     const pos = side === 'left' ? 'left:0' : 'right:0';
-    overlay.style.cssText = 'position:fixed;top:0;' + pos + ';width:' + EDGE_WIDTH + 'px;z-index:2147483647;background:transparent;pointer-events:auto;will-change:transform';
+    
+    // LOGIC: If this is the RIGHT overlay AND flushMode is on -> pointer-events: none.
+    // This makes the right side "invisible" to the mouse, letting native hover/click work.
+    let pe = 'auto';
+    if (side === 'right' && flushMode) {
+      pe = 'none';
+    }
+
+    overlay.style.cssText = 'position:fixed;top:0;' + pos + ';width:' + EDGE_WIDTH + 'px;z-index:2147483647;background:transparent;pointer-events:' + pe + ';will-change:transform';
     return overlay;
   }
 
@@ -421,23 +444,26 @@
     leftOverlay.addEventListener('wheel', handleWheel, opts);
     rightOverlay.addEventListener('wheel', handleWheel, opts);
     
-    rightOverlay.addEventListener('mousedown', function(e) {
-      if (e.button !== 0 || isFullscreen) return;
-      mouseIsDown = true;
-      
-      const rect = browserBox.getBoundingClientRect();
-      cachedTop = rect.top;
-      cachedHeight = browserBox.clientHeight;
-      
-      const browser = gBrowser.selectedBrowser;
-      if (!browser || !browser.messageManager) return;
-      
-      browser.messageManager.sendAsyncMessage("EdgeScroll:CheckThumb", { 
-        cy: e.clientY - cachedTop, 
-        wh: cachedHeight 
-      });
-      e.preventDefault();
-    }, true);
+    // LOGIC: Only attach the 'mousedown' (Solid Drag) listener to the right side if FLUSH mode is OFF.
+    if (!flushMode) {
+      rightOverlay.addEventListener('mousedown', function(e) {
+        if (e.button !== 0 || isFullscreen) return;
+        mouseIsDown = true;
+        
+        const rect = browserBox.getBoundingClientRect();
+        cachedTop = rect.top;
+        cachedHeight = browserBox.clientHeight;
+        
+        const browser = gBrowser.selectedBrowser;
+        if (!browser || !browser.messageManager) return;
+        
+        browser.messageManager.sendAsyncMessage("EdgeScroll:CheckThumb", { 
+          cy: e.clientY - cachedTop, 
+          wh: cachedHeight 
+        });
+        e.preventDefault();
+      }, true);
+    }
 
     browserBox.appendChild(leftOverlay);
     browserBox.appendChild(rightOverlay);
