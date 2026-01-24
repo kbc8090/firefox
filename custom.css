@@ -295,7 +295,7 @@
       --md-tab-opacity: 1.0;
       --md-background-color-0: color-mix(in srgb, var(--md-background-color-100) 54%, black);
       --md-background-color-50: color-mix(in srgb, var(--md-background-color-100) 70%, black);
-      --md-background-color-100: #434DA6;
+      --md-background-color-100: #3C409A;
       /*--md-background-color-100: #2B249E; */      
       /*--md-menu-background-color-hover: light-dark(AccentColor, color-mix(in srgb, var(--md-grey-800) 80%, var(--md-accent-color))); */
       --md-menu-background-color: var(--md-background-color-0);

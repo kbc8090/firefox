@@ -335,6 +335,9 @@ tooltip {
     @media (-moz-pref("userChrome.ui-chrome-refresh")) {
       border-color: transparent !important;
     }
+    @media (-moz-pref("userChrome.ui-rounded-corners")) {
+      border-color: transparent !important;
+    }    
     border-bottom: none !important;
     border-radius: 0px 4px 0px 0px !important;
     padding: 4px !important;
@@ -1944,10 +1947,13 @@ input[type="search"]::-moz-search-clear-button {
     }
   }
 
-#identity-icon-box {
-  min-width: 24px !important;
-  outline: 1px solid var(--md-menu-border-color) !important;
-}
+  #identity-icon-box {
+    min-width: 24px !important;
+    @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
+    outline: 1px solid var(--md-menu-border-color) !important;
+    }
+  }
+
 
 
 
@@ -2756,6 +2762,16 @@ panel toolbarseparator {
   }
 
   /* Responsive design mode. */
+  .browserContainer {
+	outline: none !important;
+	box-shadow: none !important;
+	@media -moz-pref("sidebar.revamp") {
+		& {
+			outline: none !important;
+			box-shadow: none !important;
+		}
+	}
+}
   .browserContainer {
   background: var(--md-background-color-100) !important;
 }
