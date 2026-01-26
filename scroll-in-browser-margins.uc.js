@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name           Edge Scrollbar - Working Version (Prefs Support)
-// @description    Optimized for smoothest possible scrolling + Preference Support
+// @name           Edge Scrollbar - Bottom Edge Support
+// @description    Left + Bottom Edge Scrolling, with Prefs Support for Right Side.
 // @author         Your Name + performance optimizations
 // @include        main
 // ==/UserScript==
@@ -391,16 +391,20 @@
   function createOverlay(id, side) {
     const overlay = document.createXULElement('box');
     overlay.id = id;
-    const pos = side === 'left' ? 'left:0' : 'right:0';
     
-    // LOGIC: If this is the RIGHT overlay AND flushMode is on -> pointer-events: none.
-    // This makes the right side "invisible" to the mouse, letting native hover/click work.
-    let pe = 'auto';
-    if (side === 'right' && flushMode) {
-      pe = 'none';
+    // NEW LOGIC: Handle bottom bar vs vertical bars
+    if (side === 'bottom') {
+      // Bottom: Fixed to bottom, Left 0, Right 4px (to avoid right scrollbar/drag area)
+      overlay.style.cssText = 'position:fixed;bottom:0;left:0;right:' + EDGE_WIDTH + 'px;height:' + EDGE_WIDTH + 'px;z-index:2147483647;background:transparent;pointer-events:auto;will-change:transform';
+    } else {
+      // Vertical: Left/Right
+      const pos = side === 'left' ? 'left:0' : 'right:0';
+      let pe = 'auto';
+      if (side === 'right' && flushMode) {
+        pe = 'none';
+      }
+      overlay.style.cssText = 'position:fixed;top:0;' + pos + ';width:' + EDGE_WIDTH + 'px;z-index:2147483647;background:transparent;pointer-events:' + pe + ';will-change:transform';
     }
-
-    overlay.style.cssText = 'position:fixed;top:0;' + pos + ';width:' + EDGE_WIDTH + 'px;z-index:2147483647;background:transparent;pointer-events:' + pe + ';will-change:transform';
     return overlay;
   }
 
@@ -410,6 +414,7 @@
     
     const leftOverlay = createOverlay('edge-scroll-left', 'left');
     const rightOverlay = createOverlay('edge-scroll-right', 'right');
+    const bottomOverlay = createOverlay('edge-scroll-bottom', 'bottom'); // New Bottom Bar
     
     let posRaf = null;
     const updatePositions = function() {
@@ -420,8 +425,12 @@
         cachedHeight = rect.height;
         const t = cachedTop + 'px';
         const h = cachedHeight + 'px';
+        
+        // Vertical bars get Top/Height
         leftOverlay.style.top = rightOverlay.style.top = t;
         leftOverlay.style.height = rightOverlay.style.height = h;
+        
+        // Bottom bar uses CSS "bottom:0" so it doesn't need dynamic updates
         posRaf = null;
       });
     };
@@ -433,7 +442,7 @@
     const handleFullscreen = function() {
       isFullscreen = !!(document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement);
       const display = isFullscreen ? 'none' : '';
-      leftOverlay.style.display = rightOverlay.style.display = display;
+      leftOverlay.style.display = rightOverlay.style.display = bottomOverlay.style.display = display;
     };
     
     document.addEventListener('fullscreenchange', handleFullscreen);
@@ -443,8 +452,8 @@
     const opts = { passive: false, capture: true };
     leftOverlay.addEventListener('wheel', handleWheel, opts);
     rightOverlay.addEventListener('wheel', handleWheel, opts);
+    bottomOverlay.addEventListener('wheel', handleWheel, opts); // Enable Wheel on Bottom
     
-    // LOGIC: Only attach the 'mousedown' (Solid Drag) listener to the right side if FLUSH mode is OFF.
     if (!flushMode) {
       rightOverlay.addEventListener('mousedown', function(e) {
         if (e.button !== 0 || isFullscreen) return;
@@ -467,6 +476,7 @@
 
     browserBox.appendChild(leftOverlay);
     browserBox.appendChild(rightOverlay);
+    browserBox.appendChild(bottomOverlay);
 
     window.addEventListener('mouseup', function() {
       mouseIsDown = false;
