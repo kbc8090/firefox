@@ -172,10 +172,12 @@
     /* --panel-separator-padding: 0px !important; */
     --button-background-color-ghost-hover: var(--md-menu-background-color-hover) !important;
     --toolbarbutton-hover-background: var(--md-menu-background-color-hover) !important;
+    --tabpanel-background-color: var(--md-background-color-50) !important;
 }
 
 body {
     --arrowpanel-color: var(--md-tab-label-color) !important;
+    --tabpanel-background-color: var(--md-background-color-50) !important;
 }
 
 panel {
