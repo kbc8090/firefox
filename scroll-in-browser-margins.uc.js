@@ -10,8 +10,14 @@
 
   // --- PREFERENCE CHECK 1: Global Kill Switch ---
   try {
+    // 1. Exit if the user specifically enabled top-corners
+    if (Services.prefs.getBoolPref("userChrome.ui-rounded-top-corners", false)) {
+      return;
+    }
+
+    // 2. Exit if the original rounded-corners is disabled
     if (!Services.prefs.getBoolPref("userChrome.ui-rounded-corners", true)) {
-      return; 
+      return;
     }
   } catch (e) {}
 

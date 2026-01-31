@@ -2628,7 +2628,7 @@ panel toolbarseparator {
   */
   #main-window:not([chromehidden~="toolbar"]) {
     --uc-tweak-rounded-corners-padding: 4px;
-    --uc-tweak-rounded-corners-radius: 8px;
+    --uc-tweak-rounded-corners-radius: 7px;
     --uc-tweak-rounded-corners-shadow:
       0 -.8px 0 0 rgb(0 0 0 / 0.01),
       0 0.5px 1px 1px rgb(0 0 0 / 0.01),
@@ -2676,14 +2676,20 @@ panel toolbarseparator {
        right-side radii to 20px for a more pronounced rounded edge. */
      border-top-left-radius: var(--uc-tweak-rounded-corners-radius) !important;
      border-bottom-left-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    border-top-right-radius: calc(var(--uc-tweak-rounded-corners-radius) + 2px) !important;
-    border-bottom-right-radius: calc(var(--uc-tweak-rounded-corners-radius) + 2px) !important;
+    border-top-right-radius: var(--uc-tweak-rounded-corners-radius) !important;
+    border-bottom-right-radius: var(--uc-tweak-rounded-corners-radius) !important;
   }
-   @media not (-moz-pref("userChrome.ui-rounded-corners-flush-scrollbar")) {
-    margin-block-end: var(--uc-tweak-rounded-corners-padding) !important;
-      margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
-      border-radius: var(--uc-tweak-rounded-corners-radius) !important;
-   }
+  @media (-moz-pref("userChrome.ui-rounded-top-corners")) {
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+    margin-block-end: 0 !important;
+     /* Keep left-side corner radius from the variable but increase the
+       right-side radii to 20px for a more pronounced rounded edge. */
+     border-top-left-radius: 9px !important;
+     border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 9px !important;
+    border-bottom-right-radius: 0 !important;
+  }
     box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
     background-color: var(--tabpanel-background-color) !important;
     position: relative !important;
