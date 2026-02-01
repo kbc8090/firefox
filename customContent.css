@@ -68,6 +68,24 @@
         background-color: var(--md-background-color-50) !important;
         font-family: "Aptos" !important;
     }
+    #categories {
+		margin: 10px 0 0 !important;
+	}
+	#categories > .category {
+        margin-inline-start: 17px !important;
+		height: 32px !important;
+		background-size: 16px !important;
+		background-position-y: center !important;
+		margin-right: 18px !important;
+	}
+	#categories .category-name {
+		padding-inline-start: 10px !important;
+		font-size: 16px !important;
+	}
+	.category-icon {
+		height: 18px !important;
+		width: 18px !important;
+	}
     .sticky-inner-container {
         background-color: var(--md-background-color-50) !important;
     }
@@ -81,7 +99,9 @@
         background-color: var(--md-background-color-50) !important;
     }
     .card {
+        border: 1px solid var(--md-background-color-100) !important;
         background: var(--md-background-color-0) !important;
+        border-radius: 8px !important;
     }
     .navigation {
         background-color: var(--md-background-color-0) !important;
@@ -127,7 +147,6 @@ checkbox .checkbox-check {
     border: 1px solid var(--md-content-separator-color) !important;
     border-radius: 4px !important;
     background-color: var(--md-background-color-0) !important;
-    
     position: relative;
     cursor: pointer;
     vertical-align: middle !important;
@@ -135,19 +154,19 @@ checkbox .checkbox-check {
     justify-content: center !important;
 }
 
-/* Hover State for both */
-input[type="checkbox"]:hover,
-checkbox:hover .checkbox-check {
-    appearance: none !important;
+/* Hover State: Only trigger if NOT disabled (XUL uses [disabled="true"]) */
+input[type="checkbox"]:not(:disabled):hover,
+checkbox:not([disabled="true"]):hover .checkbox-check {
     border-color: var(--md-accent-color) !important;
 }
 
-/* Checked State for both */
-input[type="checkbox"]:checked,
-checkbox[checked="true"] .checkbox-check {
-    appearance: none !important;
-    background-color: var(--md-accent-color) !important;
-    border-color: var(--md-accent-color) !important;
+/* Explicitly prevent hover effects and fix cursor on Disabled Checkboxes */
+input[type="checkbox"]:disabled,
+checkbox[disabled="true"],
+checkbox[disabled="true"] .checkbox-check {
+    cursor: default !important;
+    border-color: var(--md-content-separator-color) !important; /* Keep the original border color */
+    opacity: 0.7 !important;
 }
 
 
@@ -157,33 +176,52 @@ input[type="radio"],
 radio .radio-check {
     appearance: none !important;
     -moz-appearance: none !important;
-
-    width: 22px !important;
-    height: 22px !important;
+    width: 18px !important;
+    height: 18px !important;
     border: 1px solid var(--md-menu-border-color) !important;
-    /* Circular shape */
     border-radius: 100px !important; 
     background-color: var(--md-background-color-0) !important;
-
     position: relative;
     cursor: pointer;
     vertical-align: middle;
 }
 
-/* Radio Hover State */
-input[type="radio"]:hover,
-radio:hover .radio-check {
-    appearance: none !important;
+input[type="radio"]:not(.wallpaper-input), .radio-check {
+  appearance: none !important;
+      border: 1px solid var(--md-menu-border-color) !important;
+    border-radius: 100px !important; 
+    background-color: var(--md-background-color-0) !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* Radio Hover State: Only trigger if NOT disabled */
+input[type="radio"]:not(:disabled):hover,
+radio:not([disabled="true"]):hover .radio-check {
     border-color: var(--md-accent-color) !important;
 }
 
-/* Radio Checked State (Filled Circle) */
+/* Explicitly prevent hover effects and fix cursor on Disabled Radios */
+input[type="radio"]:disabled,
+radio[disabled="true"],
+radio[disabled="true"] .radio-check {
+    cursor: default !important;
+    border-color: var(--md-menu-border-color) !important;
+    opacity: 0.7 !important;
+}
+
+/* Checked State for both */
+input[type="checkbox"]:checked,
+checkbox[checked="true"] .checkbox-check,
 input[type="radio"]:checked,
 radio[selected="true"] .radio-check {
-    appearance: none !important;
     background-color: var(--md-accent-color) !important;
     border-color: var(--md-accent-color) !important;
-    /* Optional: create a "dot" effect by adding a thick white border */
+}
+
+/* Radio Specific Checked Dot (The "WinUI" Look) */
+input[type="radio"]:checked,
+radio[selected="true"] .radio-check {
     border: 4px solid var(--md-background-color-0) !important;
 }
 /* 1. Target ACTIVE (Enabled) Buttons with the Glow */
@@ -224,17 +262,25 @@ radio[selected="true"] .radio-check {
 }
 
 h1 {
-    font-size: 26px !important;
+    font-size: 28px !important;
     font-family: unset !important;
     font-weight: bold !important;
+    text-shadow: 1px 1px 3px #000 !important;
 }
 
 h2 {
     color: var(--md-text-primary) !important;
-    font-size: 20px !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 3px #000 !important;
 }
 
-ul|menulist > xul|menupopup > xul|menu:not([disabled="true"])[selected="true"], xul|menulist > xul|menupopup > xul|menuitem:not([disabled="true"])[selected="true"] {
+#sidebar {
+  background-color: var(--md-background-color-0) !important;
+}
+
+
+menuitem:not([disabled="true"])[selected="true"] {
   background-color: var(--md-accent-color) !important;
 }
 
@@ -304,3 +350,8 @@ radio:active::after {
 }
 
 
+@-moz-document url-prefix(about:support) {
+td {
+  background-color: var(--md-background-color-0) !important;
+}
+}
