@@ -193,8 +193,6 @@ panel#appMenu-popup {
     padding-inline-start: 12px !important;
   }
 
-
-@media (-moz-platform: windows) {
   #toolbar-context-menu :is(menuitem):not(.menu-iconic, .menuitem-iconic) {
     padding-inline-start: 36px !important;
   }
@@ -2685,9 +2683,9 @@ panel toolbarseparator {
     margin-block-end: 0 !important;
      /* Keep left-side corner radius from the variable but increase the
        right-side radii to 20px for a more pronounced rounded edge. */
-     border-top-left-radius: 9px !important;
+     border-top-left-radius: var(--uc-tweak-rounded-corners-radius) !important;
      border-bottom-left-radius: 0 !important;
-    border-top-right-radius: 9px !important;
+    border-top-right-radius: var(--uc-tweak-rounded-corners-radius) !important;
     border-bottom-right-radius: 0 !important;
   }
     box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
@@ -3408,3 +3406,10 @@ button:active {
     }
     
   }
+
+  /* Target only windows where the toolbar is supposed to be hidden */
+#main-window[chromehidden~="toolbar"] #nav-bar,
+#main-window[chromehidden~="toolbar"] #PersonalToolbar,
+#main-window[chromehidden~="toolbar"] #toolbar {
+    display: none !important;
+}

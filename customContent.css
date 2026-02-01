@@ -12,6 +12,9 @@
     --table-row-background-color-alternate: var(--md-background-color-50) !important;
     --prefs-table-border-width: 1px;
     --prefs-table-border: var(--prefs-table-border-width) solid var(--md-menu-border-color) !important;
+    --color-gray-80: var(--md-background-color-0) !important;
+    --color-gray-70: var(--md-menu-border-color) !important;
+    --color-gray-50: var(--md-menu-border-color) !important;
 }
 
 #prefs {
@@ -62,23 +65,236 @@
  url-prefix(about:blank),
  url-prefix(about:newtab) {
     html, body, header, #toolbar {
-        background-color: var(--md-background-color-0) !important;
+        background-color: var(--md-background-color-50) !important;
+        font-family: "Aptos" !important;
     }
     .sticky-inner-container {
-        background-color: var(--md-background-color-0) !important;
+        background-color: var(--md-background-color-50) !important;
     }
     .sticky-container {
-        background-color: var(--md-background-color-0) !important;
+        background-color: var(--md-background-color-50) !important;
     }
     .main-search {
-        background-color: var(--md-background-color-0) !important;
+        background-color: var(--md-background-color-50) !important;
     }
     .main-heading {
-        background-color: var(--md-background-color-0) !important;
+        background-color: var(--md-background-color-50) !important;
     }
     .card {
-        background: var(--md-background-color-50) !important;
+        background: var(--md-background-color-0) !important;
     }
+    .navigation {
+        background-color: var(--md-background-color-0) !important;
+    }
+#input {
+    &[type="search"] {
+        background-color: var(--md-background-color-0) !important;
+        --input-background-icon: url(chrome://global/skin/icons/search-glass.svg) !important;
+        fill: var(--md-accent-color) !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        box-shadow: none !important;
+        outline: none !important;
+        border: 1px solid var(--md-menu-border-color) !important;
+        padding-block: 8px !important;
+        &:focus {
+            border-color: var(--md-accent-color) !important;
+            
+            /* If you want that border-only glow we created for the buttons: */
+            box-shadow: 0 0 2px var(--md-accent-color), 
+                        0 0 4px var(--md-selection-background-color) !important;
+        }
+    }
+}
+	input[type="checkbox"]:-moz-focusring {
+		outline: none !important;
+	}
+
+    .container {
+        background-color: var(--md-background-color-50) !important;
+    }
+    .dialogBox {
+        background-color: var(--md-background-color-0) !important;
+    }
+    /* Target checkboxes specifically */
+/* --- CHECKBOXES (HTML & XUL) --- */
+
+/* Targets standard HTML inputs AND the internal box of Firefox XUL checkboxes */
+input[type="checkbox"],
+checkbox .checkbox-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+    border: 1px solid var(--md-content-separator-color) !important;
+    border-radius: 4px !important;
+    background-color: var(--md-background-color-0) !important;
+    
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Hover State for both */
+input[type="checkbox"]:hover,
+checkbox:hover .checkbox-check {
+    appearance: none !important;
+    border-color: var(--md-accent-color) !important;
+}
+
+/* Checked State for both */
+input[type="checkbox"]:checked,
+checkbox[checked="true"] .checkbox-check {
+    appearance: none !important;
+    background-color: var(--md-accent-color) !important;
+    border-color: var(--md-accent-color) !important;
+}
+
+
+/* --- RADIO BUTTONS --- */
+
+input[type="radio"],
+radio .radio-check {
+    appearance: none !important;
+    -moz-appearance: none !important;
+
+    width: 22px !important;
+    height: 22px !important;
+    border: 1px solid var(--md-menu-border-color) !important;
+    /* Circular shape */
+    border-radius: 100px !important; 
+    background-color: var(--md-background-color-0) !important;
+
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* Radio Hover State */
+input[type="radio"]:hover,
+radio:hover .radio-check {
+    appearance: none !important;
+    border-color: var(--md-accent-color) !important;
+}
+
+/* Radio Checked State (Filled Circle) */
+input[type="radio"]:checked,
+radio[selected="true"] .radio-check {
+    appearance: none !important;
+    background-color: var(--md-accent-color) !important;
+    border-color: var(--md-accent-color) !important;
+    /* Optional: create a "dot" effect by adding a thick white border */
+    border: 4px solid var(--md-background-color-0) !important;
+}
+/* 1. Target ACTIVE (Enabled) Buttons with the Glow */
+:not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):not([disabled], :disabled) {
+    border: 1px solid var(--md-accent-color) !important;
+    border-radius: 8px !important;
+    
+    /* Glow on the border only (no text effect) */
+    box-shadow: 0 0 2px var(--md-accent-color), 
+                0 0 7px var(--md-selection-background-color) !important;
+    
+    filter: none !important;
+}
+
+/* 2. Hover state - Only for ENABLED buttons */
+:not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):not([disabled], :disabled):hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    border-color: var(--md-accent-color) !important; /* Ensures border stays lit on hover */
+}
+
+/* 3. Handle DISABLED Buttons (No glow, no hover, muted colors) */
+:not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):is([disabled], :disabled) {
+    border: 1px solid var(--md-menu-border-color) !important; /* Fallback to muted border */
+    box-shadow: none !important; /* Kill the glow */
+    opacity: 0.5 !important;    /* Visually dim the button */
+    cursor: default !important; /* No pointer finger */
+    background-color: transparent !important;
+}
+
+/* 4. Kill the hover effect for DISABLED buttons specifically */
+:not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):is([disabled], :disabled):hover {
+    background-color: transparent !important;
+    border-color: var(--md-menu-border-color) !important;
+}
+
+.action-box {
+  background-color: var(--md-background-color-0) !important;
+}
+
+h1 {
+    font-size: 26px !important;
+    font-family: unset !important;
+    font-weight: bold !important;
+}
+
+h2 {
+    color: var(--md-text-primary) !important;
+    font-size: 20px !important;
+}
+
+ul|menulist > xul|menupopup > xul|menu:not([disabled="true"])[selected="true"], xul|menulist > xul|menupopup > xul|menuitem:not([disabled="true"])[selected="true"] {
+  background-color: var(--md-accent-color) !important;
+}
+
+treecol, .tree-columnpicker-button {
+  border-inline-start: 1px solid var(--md-menu-border-color) !important;
+  box-shadow: inset 0 -1px var(--md-menu-border-color) !important;
+  background-color: var(--md-background-color-0) !important;
+}
+
+/* --- UNIVERSAL WINUI HALO (32px) --- */
+
+/* 1. Prep the elements to act as anchors for the halo */
+
+input[type="checkbox"], 
+input[type="radio"] {
+    position: relative !important;
+    /* Ensure the halo can 'glow' outside the 16px box */
+    overflow: visible !important; 
+}
+
+/* 2. Create the Halo for all types */
+
+input[type="checkbox"]::after,
+input[type="radio"]::after {
+    content: "" !important;
+    position: absolute !important;
+    
+    /* The new 32px size */
+    width: 32px !important;
+    height: 32px !important;
+    
+    /* Centering logic: (32px halo - 16px box) / 2 = 8px offset */
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    
+    border-radius: 50% !important;
+    z-index: -1 !important; /* Place it BEHIND the checkbox */
+    
+    /* Transitions only when coming from inactive/active per your preference */
+    background-color: transparent !important;
+}
+
+checkbox::after,
+radio::after {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* Ensure it doesn't reappear on hover/active states */
+checkbox:hover::after,
+radio:hover::after,
+checkbox:active::after,
+radio:active::after {
+    content: none !important;
+    background-color: transparent !important;
+}
+
 }
 
 @-moz-document url(about:privatebrowsing) {
@@ -87,6 +303,4 @@
     }
 }
 
-h1 {
-    font-family: unset !important;
-}
+
