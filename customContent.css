@@ -8,6 +8,10 @@
 }
 
 :root {
+    --button-background-color-primary: var(--md-accent-color) !important;
+    --button-background-color-primary-hover: color-mix(in srgb, var(--md-accent-color) 86%, white) !important;
+    --color-accent-primary-selected: var(--md-accent-color) !important;
+    --focus-outline: var(--md-accent-color) !important;
     --background-color-canvas: var(--md-background-color-0) !important;
     --table-row-background-color-alternate: var(--md-background-color-50) !important;
     --prefs-table-border-width: 1px;
@@ -27,6 +31,8 @@
   opacity: 1 !important;
   fill-opacity: 1 !important;
 }
+
+
 
 @-moz-document url-prefix(about:about),
  url-prefix(about:addons),
@@ -63,10 +69,15 @@
  url-prefix(about:webrtc),
  url-prefix(about:welcome),
  url-prefix(about:blank),
- url-prefix(about:newtab) {
+ url-prefix(about:newtab),
+ regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!(blank|devtools)).*") {
     html, body, header, #toolbar {
         background-color: var(--md-background-color-50) !important;
         font-family: "Aptos" !important;
+    }
+    separator.groove {
+        border-top: 1px solid var(--md-menu-border-color) !important;
+        border-bottom: none !important;
     }
     #categories {
 		margin: 10px 0 0 !important;
@@ -106,6 +117,12 @@
     .navigation {
         background-color: var(--md-background-color-0) !important;
     }
+
+
+
+menuitem:not([disabled="true"])[selected="true"] {
+  background-color: var(--md-accent-color) !important;
+}
 #input {
     &[type="search"] {
         background-color: var(--md-background-color-0) !important;
@@ -340,6 +357,35 @@ radio:active::after {
     content: none !important;
     background-color: transparent !important;
 }
+
+html|button[autofocus], html|button[type="submit"], xul|button[default], button.primary {
+  background-color: var(--md-accent-color) !important;
+}
+
+.dialogTitle {
+  font-size: larger !important;
+  text-shadow: 1px 1px 3px #000 !important;
+}
+
+	.dialogBox, .container[role="dialog"] {
+		background-color: var(--md-background-color-0) !important;
+		outline: 1px solid var(--md-menu-border-color) !important;
+		border: none !important;
+		animation: fadeInScale 320ms !important;
+		border-radius: 8px !important;
+		overflow: hidden !important;
+	}
+
+    @keyframes fadeInScale {
+        0% {
+            opacity: 0;
+            transform: scale(115%,115%);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(100%, 100%);
+        }
+    }
 
 }
 
