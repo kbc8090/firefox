@@ -75,6 +75,9 @@
         background-color: var(--md-background-color-50) !important;
         font-family: "Aptos" !important;
     }
+    .info-box-container {
+        font-size: unset !important;
+    }
     separator.groove {
         border-top: 1px solid var(--md-menu-border-color) !important;
         border-bottom: none !important;
@@ -118,7 +121,29 @@
         background-color: var(--md-background-color-0) !important;
     }
 
+    .button-background {
+    box-shadow: 0 1px 5px #00000060 !important;
+    }
 
+    #trackingProtectionShield {
+    fill: var(--md-accent-color) !important;
+    fill-opacity: 1.00 !important;
+    }
+
+    select, menulist, .expander-down, .expander-up, button[type="menu"] {
+        border-radius: 8px !important;
+    }
+
+    richlistbox[seltype="multiple"]:focus > richlistitem[current="true"][selected="true"], richlistbox.theme-listbox:focus > richlistitem[current="true"][selected="true"] {
+  outline-color: transparent !important;
+}
+richlistbox[seltype="multiple"]:focus > richlistitem[current="true"], richlistbox.theme-listbox:focus > richlistitem[current="true"] {
+  outline: none !important;
+}
+
+button:enabled[selected] {
+  background-color: var(--md-accent-color) !important;
+}
 
 menuitem:not([disabled="true"])[selected="true"] {
   background-color: var(--md-accent-color) !important;
@@ -169,6 +194,7 @@ checkbox .checkbox-check {
     vertical-align: middle !important;
     align-items: center !important;
     justify-content: center !important;
+    box-shadow: 0 1px 5px #00000070 !important;
 }
 
 /* Hover State: Only trigger if NOT disabled (XUL uses [disabled="true"]) */
@@ -201,6 +227,7 @@ radio .radio-check {
     position: relative;
     cursor: pointer;
     vertical-align: middle;
+    box-shadow: 0 1px 5px #00000070 !important;
 }
 
 input[type="radio"]:not(.wallpaper-input), .radio-check {
@@ -210,6 +237,7 @@ input[type="radio"]:not(.wallpaper-input), .radio-check {
     background-color: var(--md-background-color-0) !important;
   width: 18px !important;
   height: 18px !important;
+  box-shadow: 0 1px 5px #00000070 !important;
 }
 
 /* Radio Hover State: Only trigger if NOT disabled */
@@ -240,29 +268,31 @@ radio[selected="true"] .radio-check {
 input[type="radio"]:checked,
 radio[selected="true"] .radio-check {
     border: 4px solid var(--md-background-color-0) !important;
+    outline: 1px solid var(--md-accent-color) !important;
+    outline-offset: -1px !important;
 }
 /* 1. Target ACTIVE (Enabled) Buttons with the Glow */
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):not([disabled], :disabled) {
-    border: 1px solid var(--md-accent-color) !important;
+    border: none !important;
+    color: var(--md-tab-label-color) !important;
+    background-color: var(--button-background-color) !important;
     border-radius: 8px !important;
-    
-    /* Glow on the border only (no text effect) */
-    box-shadow: 0 0 2px var(--md-accent-color), 
-                0 0 7px var(--md-selection-background-color) !important;
-    
+    box-shadow: 0 1px 5px #00000060 !important;
     filter: none !important;
+    font-weight: 600 !important;
 }
 
 /* 2. Hover state - Only for ENABLED buttons */
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):not([disabled], :disabled):hover {
-    background-color: rgba(255, 255, 255, 0.05) !important;
+    background-color: var(--button-background-color-hover) !important;
     border-color: var(--md-accent-color) !important; /* Ensures border stays lit on hover */
 }
 
 /* 3. Handle DISABLED Buttons (No glow, no hover, muted colors) */
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):is([disabled], :disabled) {
-    border: 1px solid var(--md-menu-border-color) !important; /* Fallback to muted border */
-    box-shadow: none !important; /* Kill the glow */
+    border: 1px solid var(--md-background-color-100) !important; /* Fallback to muted border */
+    border-radius: 8px !important;
+    box-shadow: 0 1px 5px #00000082 !important;
     opacity: 0.5 !important;    /* Visually dim the button */
     cursor: default !important; /* No pointer finger */
     background-color: transparent !important;
@@ -271,7 +301,7 @@ radio[selected="true"] .radio-check {
 /* 4. Kill the hover effect for DISABLED buttons specifically */
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):is([disabled], :disabled):hover {
     background-color: transparent !important;
-    border-color: var(--md-menu-border-color) !important;
+    border-color: var(--md-background-color-100) !important;
 }
 
 .action-box {
@@ -362,29 +392,29 @@ html|button[autofocus], html|button[type="submit"], xul|button[default], button.
   background-color: var(--md-accent-color) !important;
 }
 
-.dialogTitle {
-  font-size: larger !important;
-  text-shadow: 1px 1px 3px #000 !important;
-}
-
-	.dialogBox, .container[role="dialog"] {
-		background-color: var(--md-background-color-0) !important;
-		outline: 1px solid var(--md-menu-border-color) !important;
-		border: none !important;
-		animation: fadeInScale 320ms !important;
-		border-radius: 8px !important;
-		overflow: hidden !important;
-	}
-
     @keyframes fadeInScale {
         0% {
             opacity: 0;
-            transform: scale(115%,115%);
+            transform: scale(110%,110%);
         }
         100% {
             opacity: 1;
             transform: scale(100%, 100%);
         }
+    }
+
+    .dialogTitle {
+    font-size: larger !important;
+    text-shadow: 1px 1px 3px #000 !important;
+    }
+
+    .dialogBox, .container[role="dialog"] {
+        background-color: var(--md-background-color-0) !important;
+        outline: 1px solid var(--md-menu-border-color) !important;
+        border: none !important;
+        animation: fadeInScale 320ms !important;
+        border-radius: 8px !important;
+        overflow: hidden !important;
     }
 
 }
@@ -397,7 +427,7 @@ html|button[autofocus], html|button[type="submit"], xul|button[default], button.
 
 
 @-moz-document url-prefix(about:support) {
-td {
-  background-color: var(--md-background-color-0) !important;
-}
+    td {
+        background-color: var(--md-background-color-0) !important;
+    }
 }
