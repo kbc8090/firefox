@@ -82,6 +82,10 @@
         font-size: unset !important;
         border-radius: 8px !important;
     }
+label[is="moz-label"] {
+  display: flex !important;
+  align-items: center !important;  /* Vertically aligns checkbox and text */
+}
     separator.groove {
         border-top: 1px solid var(--md-menu-border-color) !important;
         border-bottom: none !important;
@@ -216,8 +220,8 @@ input[type="checkbox"],
 checkbox .checkbox-check {
     appearance: none !important;
     -moz-appearance: none !important;
-        width: 18px !important;
-    height: 18px !important;
+    width: 20px !important;
+    height: 20px !important;
     border: 1px solid var(--md-content-separator-color) !important;
     border-radius: 4px !important;
     background-color: var(--md-background-color-0) !important;
@@ -227,6 +231,7 @@ checkbox .checkbox-check {
     align-items: center !important;
     justify-content: center !important;
     box-shadow: 0 1px 5px #00000070 !important;
+    transition: background-color, border 60ms linear !important;
 }
 
 /* --- Restore Checkmarks for XUL Checkboxes --- */
@@ -279,8 +284,8 @@ input[type="radio"],
 radio .radio-check {
     appearance: none !important;
     -moz-appearance: none !important;
-    width: 18px !important;
-    height: 18px !important;
+    width: 20px !important;
+    height: 20px !important;
     border: 1px solid var(--md-menu-border-color) !important;
     border-radius: 100px !important; 
     background-color: var(--md-background-color-0) !important;
@@ -288,6 +293,7 @@ radio .radio-check {
     cursor: pointer;
     vertical-align: middle;
     box-shadow: 0 1px 5px #00000070 !important;
+    transition: background-color, border 60ms linear !important;
 }
 
 input[type="radio"]:not(.wallpaper-input), .radio-check {
