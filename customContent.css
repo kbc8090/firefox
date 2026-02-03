@@ -82,10 +82,17 @@
         font-size: unset !important;
         border-radius: 8px !important;
     }
-label[is="moz-label"] {
-  display: flex !important;
-  align-items: center !important;  /* Vertically aligns checkbox and text */
-}
+    label[is="moz-label"] {
+        display: inline-flex !important;
+        align-items: center !important;  /* Vertically aligns checkbox and text */
+        vertical-align: middle !important;
+    }
+    label span.accesskey {
+        text-decoration: none !important;
+    }
+    html|a, .text-link, ::part(support-link) {
+        margin-left: 4px !important;
+    }
     separator.groove {
         border-top: 1px solid var(--md-menu-border-color) !important;
         border-bottom: none !important;
