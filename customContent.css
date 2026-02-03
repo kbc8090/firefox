@@ -90,7 +90,7 @@
     label span.accesskey {
         text-decoration: none !important;
     }
-    html|a, .text-link, ::part(support-link) {
+    a, .text-link, ::part(support-link) {
         margin-left: 4px !important;
     }
     separator.groove {
