@@ -8,8 +8,10 @@
 }
 
 :root {
+    --addon-icon-size: 38px !important;
     --button-background-color-primary: var(--md-accent-color) !important;
     --button-background-color-primary-hover: color-mix(in srgb, var(--md-accent-color) 86%, white) !important;
+    --button-background-color-primary-active: color-mix(in srgb, var(--md-accent-color) 66%, white) !important;
     --color-accent-primary-selected: var(--md-accent-color) !important;
     --focus-outline: var(--md-accent-color) !important;
     --background-color-canvas: var(--md-background-color-0) !important;
@@ -19,6 +21,7 @@
     --color-gray-80: var(--md-background-color-0) !important;
     --color-gray-70: var(--md-menu-border-color) !important;
     --color-gray-50: var(--md-menu-border-color) !important;
+    --panel-border-radius: 8px !important;
 }
 
 #prefs {
@@ -77,6 +80,7 @@
     }
     .info-box-container {
         font-size: unset !important;
+        border-radius: 8px !important;
     }
     separator.groove {
         border-top: 1px solid var(--md-menu-border-color) !important;
@@ -91,15 +95,41 @@
 		background-size: 16px !important;
 		background-position-y: center !important;
 		margin-right: 18px !important;
+        border-radius: 10px !important;
 	}
 	#categories .category-name {
-		padding-inline-start: 10px !important;
+		padding-inline-start: 14px !important;
 		font-size: 16px !important;
 	}
 	.category-icon {
 		height: 18px !important;
 		width: 18px !important;
 	}
+    /* Target all category buttons within the categories container */
+    #categories button[is="category-button"] .category-name {
+        padding-inline-start: 8px !important;
+    }
+    .category[name="extension"] {
+        background-image: url("chrome://mozapps/skin/extensions/category-extensions.svg") !important;
+    }
+    .addons-icon {
+        list-style-image: url("chrome://mozapps/skin/extensions/extension.svg") !important;
+    }
+    .sidebar-footer-link {
+        margin-inline-start: -17px !important;
+        height: 46px !important;
+        background-size: 16px !important;
+        background-position-y: center !important;
+        margin-right: 18px !important;
+        border-radius: 10px !important;
+        font-size: larger !important;
+    }
+    menupopup, panel {
+  &::part(content) {
+            border-radius: 8px !important;
+            border: 1px solid var(--md-menu-border-color) !important;
+        }
+    }
     .sticky-inner-container {
         background-color: var(--md-background-color-50) !important;
     }
@@ -141,7 +171,7 @@ richlistbox[seltype="multiple"]:focus > richlistitem[current="true"], richlistbo
   outline: none !important;
 }
 
-button:enabled[selected] {
+xul|button[default]:not([disabled="true"]) {
   background-color: var(--md-accent-color) !important;
 }
 
@@ -186,6 +216,8 @@ input[type="checkbox"],
 checkbox .checkbox-check {
     appearance: none !important;
     -moz-appearance: none !important;
+        width: 18px !important;
+    height: 18px !important;
     border: 1px solid var(--md-content-separator-color) !important;
     border-radius: 4px !important;
     background-color: var(--md-background-color-0) !important;
@@ -195,6 +227,34 @@ checkbox .checkbox-check {
     align-items: center !important;
     justify-content: center !important;
     box-shadow: 0 1px 5px #00000070 !important;
+}
+
+/* --- Restore Checkmarks for XUL Checkboxes --- */
+
+/* This targets the internal image class you provided in your HTML */
+checkbox[checked="true"] .checkbox-check {
+    background-image: url("chrome://global/skin/icons/check.svg") !important;
+    background-size: 14px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    /* Use -moz-context-properties to allow the accent color to fill the SVG check */
+    -moz-context-properties: fill !important;
+    fill: var(--md-background-color-0) !important; /* Makes the check white/background color against your accent background */
+}
+
+/* Ensure the check icon doesn't show when unchecked */
+checkbox:not([checked="true"]) .checkbox-check {
+    background-image: none !important;
+}
+
+/* Apply similar logic for standard HTML inputs if they are also empty */
+input[type="checkbox"]:checked {
+    background-image: url("chrome://global/skin/icons/check.svg") !important;
+    background-size: 14px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    -moz-context-properties: fill !important;
+    fill: var(--md-background-color-0) !important;
 }
 
 /* Hover State: Only trigger if NOT disabled (XUL uses [disabled="true"]) */
@@ -288,12 +348,17 @@ radio[selected="true"] .radio-check {
     border-color: var(--md-accent-color) !important; /* Ensures border stays lit on hover */
 }
 
+:not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):not([disabled], :disabled):hover:active {
+    background-color: var(--button-background-color-active) !important;
+    color: var(--button-text-color-active) !important;
+}
+
 /* 3. Handle DISABLED Buttons (No glow, no hover, muted colors) */
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):is([disabled], :disabled) {
     border: 1px solid var(--md-background-color-100) !important; /* Fallback to muted border */
     border-radius: 8px !important;
     box-shadow: 0 1px 5px #00000082 !important;
-    opacity: 0.5 !important;    /* Visually dim the button */
+    opacity: 0.4 !important;    /* Visually dim the button */
     cursor: default !important; /* No pointer finger */
     background-color: transparent !important;
 }
