@@ -141,6 +141,44 @@
             border: 1px solid var(--md-menu-border-color) !important;
         }
     }
+    /* Align the search row perfectly with the heading row below it */
+    .main-search {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        gap: 6px !important;
+                margin-top: 10px !important;
+            margin-bottom: 30px !important;
+        /* Remove extra horizontal padding so it hits the same 'wall' as the heading */
+        padding-inline: 0 !important; 
+        padding-block: 10px !important;
+        
+        /* This ensures it respects the same margins as the main heading */
+        margin-inline: 20px !important; 
+    }
+
+    /* Ensure the search box itself doesn't have stray margins */
+    search-addons {
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+    }
+
+    /* Fix for the 'More Options' alignment */
+    .page-options-menu {
+        margin-inline-end: 8px !important; /* Ensure no extra offset on the bottom button */
+    }
+
+    /* Ensure the input field wrapper doesn't act like a block */
+    moz-input-search {
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    .main-search .search-label {
+        margin: 0 !important; /* Remove any default margins pushing them apart */
+        white-space: nowrap !important;
+    }
     .sticky-inner-container {
         background-color: var(--md-background-color-50) !important;
     }
