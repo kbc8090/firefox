@@ -2663,44 +2663,40 @@ panel toolbarseparator {
   */
   
   #tabbrowser-tabbox .browserStack {
-    @media (-moz-pref("userChrome.ui-rounded-corners-flush-scrollbar")) {
-    /* Keep 5px padding on the left, but make the right edge flush so the
-       inset scrollbar remains visually inset while still being reachable at
-       the screen edge. */
-    margin-inline-start: var(--uc-tweak-rounded-corners-padding) !important;
-    margin-inline-end: 0 !important;
+    
+    /* 0. BASE / STANDARD VERSION (Default State)
+       This applies when neither Flush nor Top-Only is enabled. 
+       It creates the "Floating" look with a border all the way around. */
+    margin-inline: var(--uc-tweak-rounded-corners-padding) !important;
     margin-block-end: var(--uc-tweak-rounded-corners-padding) !important;
-     /* Keep left-side corner radius from the variable but increase the
-       right-side radii to 20px for a more pronounced rounded edge. */
-     border-top-left-radius: var(--uc-tweak-rounded-corners-radius) !important;
-     border-bottom-left-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    border-top-right-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    border-bottom-right-radius: var(--uc-tweak-rounded-corners-radius) !important;
-  }
-  @media (-moz-pref("userChrome.ui-rounded-top-corners")) {
-    margin-inline-start: 0 !important;
-    margin-inline-end: 0 !important;
-    margin-block-end: 0 !important;
-     /* Keep left-side corner radius from the variable but increase the
-       right-side radii to 20px for a more pronounced rounded edge. */
-     border-top-left-radius: var(--uc-tweak-rounded-corners-radius) !important;
-     border-bottom-left-radius: 0 !important;
-    border-top-right-radius: var(--uc-tweak-rounded-corners-radius) !important;
-    border-bottom-right-radius: 0 !important;
-  }
+    border-radius: var(--uc-tweak-rounded-corners-radius) !important;
+
+    /* 1. FLUSH SCROLLBAR OVERRIDE
+       Only changes the right margin to 0. */
+    @media (-moz-pref("userChrome.ui-rounded-corners-flush-scrollbar")) {
+      margin-inline-end: 0 !important;
+    }
+
+    /* 2. TOP CORNERS ONLY OVERRIDE
+       Removes the side/bottom margins and the bottom rounding. */
+    @media (-moz-pref("userChrome.ui-rounded-top-corners")) {
+      margin-inline: 0 !important;
+      margin-block-end: 0 !important;
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+
+    /* Shared properties for all versions */
     box-shadow: var(--uc-tweak-rounded-corners-shadow) !important;
     background-color: var(--tabpanel-background-color) !important;
     position: relative !important;
 
-    /* Use pseudo element overlay to simulate rounded corners, similar to the
-     * tab corners, fixes bug with backdrop-filter. */
+    /* The "Edge" frame effect */
     &::after {
       content: "";
       position: absolute;
       inset: 0;
-      border-radius: inherit;
-      /* Draw toolbar background on the negative corner space, then draw the
-       * same shadow from the browser window on top. */
+      border-radius: inherit; /* Takes the radius from the overrides above */
       box-shadow:
         var(--uc-tweak-rounded-corners-shadow, 0 0 transparent),
         0 0 0 16px var(--browser-frame-bgcolor) !important;
@@ -3408,8 +3404,7 @@ button:active {
   }
 
   /* Target only windows where the toolbar is supposed to be hidden */
-#main-window[chromehidden~="toolbar"] #nav-bar,
-#main-window[chromehidden~="toolbar"] #PersonalToolbar,
-#main-window[chromehidden~="toolbar"] #toolbar {
+#main-window[chromehidden~="toolbar"] #nav-bar {
     display: none !important;
+    visibility: collapse !important;
 }
