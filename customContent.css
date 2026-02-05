@@ -9,6 +9,7 @@
 
 :root {
     --addon-icon-size: 38px !important;
+    --button-background-color-hover: var(--md-menu-background-color-hover) !important;
     --button-background-color-primary: var(--md-accent-color) !important;
     --button-background-color-primary-hover: color-mix(in srgb, var(--md-accent-color) 86%, white) !important;
     --button-background-color-primary-active: color-mix(in srgb, var(--md-accent-color) 66%, white) !important;
@@ -16,7 +17,7 @@
     --focus-outline: var(--md-accent-color) !important;
     --background-color-canvas: var(--md-background-color-0) !important;
     --table-row-background-color-alternate: var(--md-background-color-50) !important;
-    --prefs-table-border-width: 1px;
+    --prefs-table-border-width: 1px !important;
     --prefs-table-border: var(--prefs-table-border-width) solid var(--md-menu-border-color) !important;
     --color-gray-80: var(--md-background-color-0) !important;
     --color-gray-70: var(--md-menu-border-color) !important;
@@ -37,47 +38,31 @@
 
 
 
-@-moz-document url-prefix(about:about),
- url-prefix(about:addons),
- url-prefix(about:buildconfig),
- url-prefix(about:certificate),
- url-prefix(about:compat),
- url-prefix(about:config),
- url-prefix(about:crashes),
- url-prefix(about:debugging),
- url-prefix(about:devtools),
- url-prefix(about:downloads),
- url-prefix(about:home),
- url-prefix(about:license),
- url-prefix(about:logins),
- url-prefix(about:networking),
- url-prefix(about:performance),
- url-prefix(about:plugins),
- url-prefix(about:policies),
- url-prefix(about:privatebrowsing),
- url-prefix(about:preferences),
- url-prefix(about:processes),
- url-prefix(about:profiles),
- url-prefix(about:profiling),
- url-prefix(about:protections),
- url-prefix(about:rights),
- url-prefix(about:robots),
- url-prefix(about:serviceworkers),
- url-prefix(about:settings),
- url-prefix(about:studies),
- url-prefix(about:support),
- url-prefix(about:sync-log),
- url-prefix(about:telemetry),
- url-prefix(about:url-classifier),
- url-prefix(about:webrtc),
- url-prefix(about:welcome),
- url-prefix(about:blank),
- url-prefix(about:newtab),
- regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!(blank|devtools)).*") {
+@-moz-document 
+    regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!(blank|devtools)).*") {
     html, body, header, #toolbar {
         background-color: var(--md-background-color-50) !important;
         font-family: "Aptos" !important;
     }
+    .panel-list {
+        border-radius: 8px !important;
+    }
+    moz-button[data-l10n-id="addons-heading-search-button"] {
+        content: url(chrome://global/skin/icons/search-glass.svg) !important;
+        -moz-context-properties: fill !important;
+        fill: var(--md-tab-label-color) !important;
+        margin-top: 5px !important;
+        margin-left: 8px !important;
+        padding: 8px 8px !important;
+        border-radius: 8px !important;
+        background-color: var(--button-background-color) !important;
+    }
+    moz-button[data-l10n-id="addons-heading-search-button"]:hover {
+        background-color: var(--button-background-color-hover) !important;
+    }
+    moz-button[data-l10n-id="addons-heading-search-button"]:active {
+        background-color: var(--button-background-color-active) !important;
+    }    
     .info-box-container {
         font-size: unset !important;
         border-radius: 8px !important;
@@ -136,9 +121,10 @@
         font-size: larger !important;
     }
     menupopup, panel {
-  &::part(content) {
+        &::part(content) {
             border-radius: 8px !important;
             border: 1px solid var(--md-menu-border-color) !important;
+            background-color: var(--md-background-color-0) !important;
         }
     }
     /* Align the search row perfectly with the heading row below it */
@@ -246,6 +232,13 @@ menuitem:not([disabled="true"])[selected="true"] {
                         0 0 4px var(--md-selection-background-color) !important;
         }
     }
+}
+input:where([type="email"], [type="tel"], [type="text"], [type="password"], [type="url"], [type="number"]):focus, textarea:focus, tree:focus-visible, richlistbox:focus-visible {
+            border-color: var(--md-accent-color) !important;
+            
+            /* If you want that border-only glow we created for the buttons: */
+            box-shadow: 0 0 2px var(--md-accent-color), 
+                        0 0 4px var(--md-selection-background-color) !important;
 }
 	input[type="checkbox"]:-moz-focusring {
 		outline: none !important;
