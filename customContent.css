@@ -75,7 +75,7 @@
     label span.accesskey {
         text-decoration: none !important;
     }
-    a, .text-link, ::part(support-link) {
+    a.learnMore, .text-link, ::part(support-link), [is="moz-support-link"] {
         margin-left: 4px !important;
     }
     separator.groove {
