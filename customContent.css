@@ -52,6 +52,7 @@
         -moz-context-properties: fill !important;
         fill: var(--md-tab-label-color) !important;
         margin-top: 5px !important;
+        cursor: pointer !important;
         margin-left: 8px !important;
         padding: 8px 8px !important;
         border-radius: 8px !important;
@@ -75,8 +76,13 @@
     label span.accesskey {
         text-decoration: none !important;
     }
-    a.learnMore, .text-link, ::part(support-link), [is="moz-support-link"] {
-        margin-left: 4px !important;
+    [is="moz-support-link"] {
+        /* 1. Force the element to act like a box so it can have a margin */
+        display: inline-flex !important; 
+        /* 2. Use both for maximum compatibility */
+        margin-inline-start: 4px !important;
+        /* 3. Prevent the parent flexbox from squishing the margin to 0 */
+        flex-shrink: 0 !important;
     }
     separator.groove {
         border-top: 1px solid var(--md-menu-border-color) !important;

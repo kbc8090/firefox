@@ -3408,3 +3408,50 @@ button:active {
     display: none !important;
     visibility: collapse !important;
 }
+
+@-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
+  #aboutDialogContainer {
+    background-color: var(--md-background-color-0) !important;
+  }
+
+  #rightBox {
+    background-image: none !important;
+  }
+  #rightBox::before {
+    content: url("chrome://branding/content/about-wordmark.svg") !important;
+    margin-top: -38px !important;
+  }
+
+  #bottomBox {
+    background-color: var(--md-background-color-50) !important;
+    padding: 19px 10px 11px !important;
+    border-top: 1px solid var(--footerBorder) !important;
+    
+    & description {
+      color: var(--textTertiary) !important;
+    }
+  }
+
+  #updateButton {
+    box-shadow: none !important;
+    appearance: none !important;
+    -moz-appearance: none !important;
+    padding: 8px 8px !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    background-color: var(--accentAuto) !important;
+    color: var(--textAccentPrimary) !important;
+    border: 1px solid var(--md-menu-border-color) !important;
+    border-bottom-color: light-dark(rgba(0,0,0,.4), rgba(0,0,0,.14)) !important;
+    font-weight: normal !important;
+
+    &:hover {
+      background-color: var(--accentHover) !important;
+      box-shadow: none !important;
+    }
+    &:active {
+      background-color: var(--accentPressed) !important;
+      box-shadow: none !important;
+    }
+  }
+}
