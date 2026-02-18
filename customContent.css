@@ -4,45 +4,44 @@
     font-smooth: always !important;
     text-rendering: optimizelegibility !important;
     -webkit-font-smoothing: antialiased !important;
-    --in-content-item-hover: var(--md-menu-background-color-hover) !important;
 }
-
-:root {
-    --addon-icon-size: 38px !important;
-    --button-background-color-hover: var(--md-menu-background-color-hover) !important;
-    --button-background-color-primary: var(--md-accent-color) !important;
-    --button-background-color-primary-hover: color-mix(in srgb, var(--md-accent-color) 86%, white) !important;
-    --button-background-color-primary-active: color-mix(in srgb, var(--md-accent-color) 66%, white) !important;
-    --color-accent-primary-selected: var(--md-accent-color) !important;
-    --focus-outline: var(--md-accent-color) !important;
-    --background-color-canvas: var(--md-background-color-0) !important;
-    --table-row-background-color-alternate: var(--md-background-color-50) !important;
-    --prefs-table-border-width: 1px !important;
-    --prefs-table-border: var(--prefs-table-border-width) solid var(--md-menu-border-color) !important;
-    --color-gray-80: var(--md-background-color-0) !important;
-    --color-gray-70: var(--md-menu-border-color) !important;
-    --color-gray-50: var(--md-menu-border-color) !important;
-    --panel-border-radius: 8px !important;
-}
-
-#prefs {
-  border: var(--prefs-table-border-width) solid var(--md-menu-border-color) !important;
-}
-
-#about-config-search {
-  -moz-context-properties: fill, fill-opacity;
-  fill: var(--md-accent-color) !important;
-  opacity: 1 !important;
-  fill-opacity: 1 !important;
-}
-
-
 
 @-moz-document 
     regexp("chrome:\/\/(?!devtools).*"), regexp("about:(?!(blank|devtools)).*") {
-    html, body, header, #toolbar {
-        background-color: var(--md-background-color-50) !important;
+    :root {
+        --addon-icon-size: 38px !important;
+        --button-background-color-hover: var(--md-menu-background-color-hover) !important;
+        --button-background-color-primary: var(--md-accent-color) !important;
+        --button-background-color-primary-hover: color-mix(in srgb, var(--md-accent-color) 86%, white) !important;
+        --button-background-color-primary-active: color-mix(in srgb, var(--md-accent-color) 66%, white) !important;
+        --color-accent-primary-selected: var(--md-accent-color) !important;
+        --focus-outline: var(--md-accent-color) !important;
+        --background-color-canvas: var(--md-background-color-0) !important;
+        --table-row-background-color-alternate: var(--md-background-color-50) !important;
+        --prefs-table-border-width: 1px !important;
+        --prefs-table-border: var(--prefs-table-border-width) solid var(--md-menu-border-color) !important;
+        --color-gray-80: var(--md-background-color-0) !important;
+        --color-gray-70: var(--md-menu-border-color) !important;
+        --color-gray-50: var(--md-menu-border-color) !important;
+        --panel-border-radius: 8px !important;
+    }
+
+    #prefs {
+    border: var(--prefs-table-border-width) solid var(--md-menu-border-color) !important;
+    }
+
+    #about-config-search {
+    -moz-context-properties: fill, fill-opacity;
+    fill: var(--md-accent-color) !important;
+    opacity: 1 !important;
+    fill-opacity: 1 !important;
+    }
+    * {
         font-family: "Aptos" !important;
+    }
+    html, body, header, #toolbar {
+        --in-content-item-hover: var(--md-menu-background-color-hover) !important;
+        background-color: var(--md-background-color-50) !important;
     }
     .panel-list {
         border-radius: 8px !important;
@@ -510,7 +509,7 @@ html|button[autofocus], html|button[type="submit"], xul|button[default], button.
     @keyframes fadeInScale {
         0% {
             opacity: 0;
-            transform: scale(110%,110%);
+            transform: scale(112%,112%);
         }
         100% {
             opacity: 1;
@@ -527,7 +526,7 @@ html|button[autofocus], html|button[type="submit"], xul|button[default], button.
         background-color: var(--md-background-color-0) !important;
         outline: 1px solid var(--md-menu-border-color) !important;
         border: none !important;
-        animation: fadeInScale 320ms !important;
+        animation: fadeInScale 260ms !important;
         border-radius: 8px !important;
         overflow: hidden !important;
     }
