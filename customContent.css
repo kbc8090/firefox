@@ -509,7 +509,7 @@ html|button[autofocus], html|button[type="submit"], xul|button[default], button.
     @keyframes fadeInScale {
         0% {
             opacity: 0;
-            transform: scale(112%,112%);
+            transform: scale(108%,108%);
         }
         100% {
             opacity: 1;
@@ -526,7 +526,7 @@ html|button[autofocus], html|button[type="submit"], xul|button[default], button.
         background-color: var(--md-background-color-0) !important;
         outline: 1px solid var(--md-menu-border-color) !important;
         border: none !important;
-        animation: fadeInScale 260ms !important;
+        animation: fadeInScale 285ms !important;
         border-radius: 8px !important;
         overflow: hidden !important;
     }
