@@ -20,8 +20,8 @@ user_pref("content.notify.interval", 100000);
 
 /** GFX ***/
 user_pref("gfx.canvas.accelerated", true);
-user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
+user_pref("gfx.canvas.accelerated.cache-items", 4096);
+user_pref("gfx.canvas.accelerated.cache-size", 256);
 user_pref("gfx.content.skia-font-cache-size", 32);
 user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
@@ -36,8 +36,6 @@ user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.layer-compositor", true);
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.software", false);
-user_pref("gfx.canvas.accelerated.cache-items", 32768);
-user_pref("gfx.canvas.accelerated.cache-size", 4096);
 user_pref("gfx.canvas.max-size", 16384);
 user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 user_pref("webgl.max-size", 16384);
@@ -46,19 +44,19 @@ user_pref("dom.webgpu.enabled", true);
 user_pref("dom.media.webcodecs.h265.enabled", true);
 user_pref("dom.timeout.budget_throttling_max_delay", -1);
 user_pref("media.wmf.hevc.enabled", true);
-user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false);
+user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", true);
 user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 
 
 
 
 /** DISK CACHE ***/
-user_pref("browser.cache.disk.enable", false);
+user_pref("browser.cache.disk.enable", true);
 user_pref("browser.cache.jsbc_compression_level", 3);
 
 /** MEMORY CACHE ***/
 user_pref("browser.cache.memory.capacity", 131072);
-user_pref("browser.cache.memory.max_entry_size", 20480);
+user_pref("browser.cache.memory.max_entry_size", 20480); 
 user_pref("browser.sessionhistory.max_total_viewers", 4);
 
 /** MEDIA CACHE ***/
@@ -130,6 +128,12 @@ user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("dom.text_fragments.enabled", true);
 user_pref("default-browser-agent", false);
 user_pref("app.update.service.enabled", false);
+user_pref("browser.ai.control.default", "blocked");
+user_pref("browser.ai.control.linkPreviewKeyPoints", "blocked");
+user_pref("browser.ai.control.pdfjsAltText", "blocked");
+user_pref("browser.ai.control.sidebarChatbot", "blocked");
+user_pref("browser.ai.control.smartTabGroups", "blocked");
+user_pref("browser.ai.control.translations", "blocked");
 user_pref("browser.ml.enable", false);
 user_pref("browser.ml.chat.enabled", false);
 user_pref("browser.ml.chat.menu", false);
@@ -138,6 +142,10 @@ user_pref("browser.ml.chat.page", false);
 user_pref("browser.tabs.groups.smart.enabled", false);
 user_pref("browser.taskbarTabs.enabled", false);
 user_pref("browser.ml.linkPreview.enabled", false);
+user_pref("browser.urlbar.groupLabels.enabled", false);
+user_pref("browser.startup.blankWindow", false);
+user_pref("browser.startup.preXulSkeletonUI", false);
+
 
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
