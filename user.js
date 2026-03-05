@@ -20,8 +20,6 @@ user_pref("content.notify.interval", 100000);
 
 /** GFX ***/
 user_pref("gfx.canvas.accelerated", true);
-user_pref("gfx.canvas.accelerated.cache-items", 4096);
-user_pref("gfx.canvas.accelerated.cache-size", 256);
 user_pref("gfx.content.skia-font-cache-size", 32);
 user_pref("gfx.font_rendering.cleartype_params.gamma", 2200);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
@@ -33,13 +31,14 @@ user_pref("gfx.font_rendering.fallback.always_use_cmaps", true);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("gfx.webrender.all", true);
-user_pref("gfx.webrender.layer-compositor", true);
+//user_pref("gfx.webrender.layer-compositor", true);
+//user_pref("gfx.webrender.layer-compositor-force-composition-surface", true);
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.software", false);
 user_pref("gfx.canvas.max-size", 16384);
 user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 user_pref("webgl.max-size", 16384);
-user_pref("layers.acceleration.force-enabled", true);
+//user_pref("layers.acceleration.force-enabled", true);
 user_pref("dom.webgpu.enabled", true);
 user_pref("dom.media.webcodecs.h265.enabled", true);
 user_pref("dom.timeout.budget_throttling_max_delay", -1);
@@ -54,14 +53,14 @@ user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 user_pref("browser.cache.disk.enable", true);
 user_pref("browser.cache.jsbc_compression_level", 3);
 
-/** MEMORY CACHE ***/
-user_pref("browser.cache.memory.capacity", 131072);
+/** MEMORY CACHE
+user_pref("browser.cache.memory.capacity", 131072); 
 user_pref("browser.cache.memory.max_entry_size", 20480); 
-user_pref("browser.sessionhistory.max_total_viewers", 4);
+user_pref("browser.sessionhistory.max_total_viewers", 4); ***/
 
-/** MEDIA CACHE ***/
+/** MEDIA CACHE
 user_pref("media.memory_cache_max_size", 262144);
-user_pref("media.memory_caches_combined_limit_kb", 1048576);
+user_pref("media.memory_caches_combined_limit_kb", 1048576); ***/
 user_pref("media.cache_readahead_limit", 600);
 user_pref("media.cache_resume_threshold", 300);
 
