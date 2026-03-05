@@ -1027,7 +1027,7 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
       @media (-moz-pref("userChrome.ui-chrome-refresh")) {
         width: 2px !important;
         height: 16px !important;
-        left: -2px !important;
+        left: -1px !important;
       }
       @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
         width: 1px !important;
@@ -1047,9 +1047,12 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
     background-color: var(--md-content-separator-color) !important;
     opacity: var(--tab-separator-opacity, 1) !important;
     width: 1px !important;
-    height: 18px !important;
-    left: -1px !important;
-    top: calc((var(--tab-min-height) - 18px) / 2) !important;
+    height: 20px !important;
+    left: 0px !important;
+    @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+      left: -1px !important;
+    }
+    top: calc((var(--tab-min-height) - 20px) / 2) !important;
     pointer-events: none !important;
     visibility: visible !important;
 }
@@ -1950,7 +1953,7 @@ input[type="search"]::-moz-search-clear-button {
   #identity-icon-box {
     min-width: 24px !important;
     @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
-    outline: 1px solid var(--md-menu-border-color) !important;
+      outline: 1px solid var(--md-menu-border-color) !important;
     }
   }
 
@@ -2437,8 +2440,8 @@ spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
 
 @media not (-moz-pref("userChrome.ui-chrome-refresh")) {
   .tabbrowser-tab[pinned] {
-    max-width: 52px !important;
-    min-width: 52px !important;
+    max-width: 51px !important;
+    min-width: 51px !important;
   }
 }
 
