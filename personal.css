@@ -2628,8 +2628,8 @@ panel toolbarseparator {
     MARK: Rc Variables
   */
   #main-window:not([chromehidden~="toolbar"]) {
-    --uc-tweak-rounded-corners-padding: 4px;
-    --uc-tweak-rounded-corners-radius: 7px;
+    --uc-tweak-rounded-corners-padding: 3px;
+    --uc-tweak-rounded-corners-radius: 8px;
     --uc-tweak-rounded-corners-shadow:
       0 -.8px 0 0 rgb(0 0 0 / 0.01),
       0 0.5px 1px 1px rgb(0 0 0 / 0.01),
@@ -2702,10 +2702,21 @@ panel toolbarseparator {
       border-radius: inherit; /* Takes the radius from the overrides above */
       box-shadow:
         var(--uc-tweak-rounded-corners-shadow, 0 0 transparent),
-        0 0 0 16px var(--browser-frame-bgcolor) !important;
+        0 0 0 16px var(--browser-frame-bgcolor),
+        inset 0 1px 0 0 var(--md-content-separator-color),
+        inset 1px 0 0 0 color-mix(in srgb, var(--md-content-separator-color) 90%, transparent),
+        inset -1px 0 0 0 color-mix(in srgb, var(--md-content-separator-color) 90%, transparent),
+        inset 0 -1px 0 0 color-mix(in srgb, var(--md-content-separator-color) 78%, transparent) !important;
       clip-path: inset(0);
       pointer-events: none;
     }
+  }
+
+    /* Hide border in fullscreen */
+  :root[inFullscreen] #tabbrowser-tabbox .browserStack::after,
+  :root[inDOMFullscreen] #tabbrowser-tabbox .browserStack::after {
+    box-shadow: none !important;
+    display: none !important;
   }
 
   /* Prevent status panel corners and shadow from appearing outside the browser. */
@@ -3412,7 +3423,7 @@ button:active {
     visibility: collapse !important;
 }
 
-@-moz-document url("chrome://browser/content/aboutDialog.xhtml") {
+@-moz-document url("chrome://browser/content/aboutDialog.xhtml") { 
   #aboutDialogContainer {
     background-color: var(--md-background-color-0) !important;
   }
