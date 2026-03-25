@@ -557,7 +557,7 @@ tooltip {
 /* Make URLbar indent slightly and bold/bigger text */
 .urlbar-input, #urlbar-input, #searchbar {
   color: var(--md-tab-label-color) !important;
-  padding-left: 0px !important;
+  padding-left: -2px !important;
   font-size: 14px !important;
   font-weight: 500 !important;
   font-family: "Segoe UI Variable Display" !important;
@@ -571,7 +571,7 @@ tooltip {
   & > .urlbar-input-container {
     padding-inline: 9px !important;
     .urlbar-input {
-      margin-left: 7px !important;
+      margin-left: 5px !important;
     }
   }
 }
@@ -814,9 +814,22 @@ menuitem {
     display: none !important;
   }
 
- #trust-icon-container {
+#trust-icon-container {
+  /* 1. Hover State (Not Open) */
   &:hover:not([open="true"]) {
-    background-color: var(--md-control-background-color) !important;
+    background-color: color-mix(in srgb, var(--md-menu-background-color-hover) 86%, white) !important;
+  }
+
+  /* 2. Active State (The click/press) */
+  &:active {
+    background-color: color-mix(in srgb, var(--md-menu-background-color-active) 80%, white) !important;
+  }
+
+  /* 3. Open State (When the panel/identity-popup is visible) */
+  &[open="true"] {
+    background-color: var(--md-accent-color) !important; /* or your preferred active color */
+    fill: var(--md-text-on-accent) !important;
+    outline: none !important; /* Often helpful to remove outline when open */
   }
 }
 
@@ -1381,19 +1394,19 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #context-forward,
 .subviewbutton-back,
 .identity-popup-expander {
-  list-style-image: url("Back.svg") !important;
+  list-style-image: url("back-mac.svg") !important;
 }
 
 
 .unified-nav-forward[_moz-menuactive]:-moz-locale-dir(ltr),
 .unidied-nav-back[_moz-menuactive]:-moz-locale-dir(rtl) {
-  list-style-image: url("Forward.svg") !important;
+  list-style-image: url("forward-mac.svg") !important;
 }
 
 
 .unified-nav-back[_moz-menuactive]:-moz-locale-dir(ltr),
 .unidied-nav-forward[_moz-menuactive]:-moz-locale-dir(rtl) {
-  list-style-image: url("Back.svg") !important;
+  list-style-image: url("back-mac.svg") !important;
 }
 
 :is(panelview .toolbarbutton-1, toolbarbutton.subviewbutton, .widget-overflow-list .toolbarbutton-1, .toolbaritem-combined-buttons:is(:not([cui-areatype="toolbar"]), [overflowedItem="true"]) > toolbarbutton) {
@@ -1586,6 +1599,9 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
 #urlbar[pageproxystate="invalid"]:is([focused],[usertyping],[searchmode]) {
   #identity-box {
     #identity-icon-box.identity-box-button {
+       @media (-moz-pref("userChrome.ui-chrome-refresh")) {
+          margin-left: 1px !important;
+       }
       padding-inline: 0px !important;
       outline: 1px solid var(--md-menu-border-color) !important;
     }
@@ -3083,13 +3099,13 @@ button:active {
     
     /* Forward and Back Buttons */
     #placesToolbar > #back-button > .toolbarbutton-icon {
-      list-style-image: url("Back.svg") !important;
+      list-style-image: url("back-mac.svg") !important;
       fill: var(--iconcolor) !important;
       padding: 3px !important;
     }
 
     #placesToolbar > #forward-button > .toolbarbutton-icon {
-      list-style-image: url("Forward.svg") !important;
+      list-style-image: url("forward-mac.svg") !important;
       fill: var(--iconcolor) !important;
       padding: 3px !important;
     }
