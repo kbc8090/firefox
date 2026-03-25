@@ -178,7 +178,7 @@
     --md-accent-color: #39abf7;
     --md-tab-label-color: color-mix(in srgb, var(--md-accent-color) 8%, white) !important;
     --md-tab-separator-color: var(--md-content-separator-color) !important;
-    --md-background-color-0: #1c1841;
+    --md-background-color-0: #1e1a44;
     --md-background-color-50: #24215a;
     --md-background-color-100: #312d7c;
     /*--md-tab-background-color-hover: color-mix(in srgb, var(--md-accent-color) 32%, transparent); */
