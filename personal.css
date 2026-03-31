@@ -645,9 +645,30 @@ tooltip {
   }
 }
 
+#trustpanel-blocker-section {
+  background: var(--md-background-color-100) !important;
+  border: 1px solid var(--md-menu-border-color) !important;
+}
 
+#trustpanel-popup {
+  &[tracking-protection="enabled"] {
+    & #trustpanel-graphic-section {
+      background: var(--md-background-color-50) !important;
+    }
+  }
+}
 
+#trustpanel-graphic-section {
+  border: 1px solid var(--md-menu-border-color) !important;
+}
 
+#trustpanel-graphic-image {
+  display: none !important;
+}
+
+#trustpanel-graphic-section-text {
+  display: none !important;
+}
 
 /* Making the context and other mensu look a little better and even */
 @media (-moz-platform: windows), (-moz-platform: linux) {
