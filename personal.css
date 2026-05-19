@@ -301,6 +301,8 @@ panel#appMenu-popup {
   [part="content"] {
     border-width: unset !important;
     border: var(--md-menu-border-size) var(--md-menu-border-color) !important;
+    background: var(--md-background-color-0) !important;
+    background-color: var(--md-background-color-0) !important;
   }
 
 
@@ -371,6 +373,7 @@ tooltip {
     transition: background-color 320ms cubic-bezier(0, 0, .2, 1) !important; /* Add a transition effect */
 	  /*transition-timing-function: linear, cubic-bezier(0, 0, .2, 1), linear !important; */
     border: 1px solid var(--md-content-separator-color) !important;
+    border-radius: 100px !important;
     @media (-moz-pref("userChrome.ui-chrome-refresh")) {
       border: 0px solid transparent !important;
       }
@@ -682,6 +685,8 @@ tooltip {
 menupopup, panel {
   &::part(content) {
     border-radius: 8px !important;
+    background: var(--md-background-color-0) !important;
+    --background-color-canvas: red !important;
   }
 }
 
@@ -938,6 +943,8 @@ toolbarbutton.bookmark-item > .toolbarbutton-text {
         fill: var(--md-text-primary) !important;
     }
 }
+
+
 
 #allTabsMenu-containerTabsButton,
 #allTabsMenu-searchTabs,
