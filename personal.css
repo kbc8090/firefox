@@ -2306,6 +2306,7 @@ input[type="search"]::-moz-search-clear-button {
 
   /* Zoom Button Font Fix */
 #urlbar-zoom-button {
+  background-color: var(--md-background-color-100) !important;
   outline-offset: var(--toolbarbutton-outline-offset) !important;
   outline: 1px solid var(--md-menu-border-color) !important;
   margin-inline: 5px !important;
