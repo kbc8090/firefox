@@ -153,7 +153,7 @@
 
 
     #search-container {
-        background-color: var(--md-background-color-50);
+        background-color: var(--md-background-color-50) !important;
         padding-top: 0px !important;
     }
 
@@ -205,6 +205,12 @@ xul|button[default]:not([disabled="true"]) {
 menuitem:not([disabled="true"])[selected="true"] {
   background-color: var(--md-accent-color) !important;
 }
+
+.primary-nav-group, #secondary-nav-group {
+  gap: .5em !important;
+  margin-left: 8px !important;
+}
+
 #input {
     &[type="search"] {
         background-color: var(--md-background-color-0) !important;
@@ -242,131 +248,133 @@ input:where([type="email"], [type="tel"], [type="text"], [type="password"], [typ
     .dialogBox {
         background-color: var(--md-background-color-0) !important;
     }
-    /* Target checkboxes specifically */
-/* --- CHECKBOXES (HTML & XUL) --- */
 
-/* Targets standard HTML inputs AND the internal box of Firefox XUL checkboxes */
-input[type="checkbox"],
-checkbox .checkbox-check {
-    appearance: none !important;
-    -moz-appearance: none !important;
-    width: 20px !important;
-    height: 20px !important;
-    border: 1px solid var(--md-content-separator-color) !important;
-    border-radius: 4px !important;
-    background-color: var(--md-background-color-0) !important;
-    position: relative;
-    cursor: pointer;
-    vertical-align: middle !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-shadow: 0 1px 5px #00000070 !important;
-    transition: background-color, border 60ms linear !important;
-}
+/* --- FIXED CHECKBOXES (HTML & XUL) --- */
 
-/* --- Restore Checkmarks for XUL Checkboxes --- */
+    /* Targets standard HTML inputs AND the internal box of Firefox XUL checkboxes */
+    input[type="checkbox"],
+    checkbox .checkbox-check {
+        appearance: none !important;
+        -moz-appearance: none !important;
+        width: 20px !important;
+        height: 20px !important;
+        border: 1px solid var(--md-content-separator-color) !important;
+        border-radius: 4px !important;
+        background-color: var(--md-background-color-0) !important;
+        position: relative;
+        cursor: pointer;
+        vertical-align: middle !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-shadow: 0 1px 5px #00000070 !important;
+        transition: background-color, border 60ms linear !important;
+    }
 
-/* This targets the internal image class you provided in your HTML */
-checkbox[checked="true"] .checkbox-check {
-    background-image: url("chrome://global/skin/icons/check.svg") !important;
-    background-size: 14px !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    /* Use -moz-context-properties to allow the accent color to fill the SVG check */
-    -moz-context-properties: fill !important;
-    fill: var(--md-background-color-0) !important; /* Makes the check white/background color against your accent background */
-}
+    /* Hover State: Only trigger if NOT disabled */
+    input[type="checkbox"]:not(:disabled):hover,
+    checkbox:not([disabled]):not([disabled="true"]):not(:disabled):hover .checkbox-check {
+        border-color: var(--md-accent-color) !important;
+    }
 
-/* Ensure the check icon doesn't show when unchecked */
-checkbox:not([checked="true"]) .checkbox-check {
-    background-image: none !important;
-}
-
-/* Apply similar logic for standard HTML inputs if they are also empty */
-input[type="checkbox"]:checked {
-    background-image: url("chrome://global/skin/icons/check.svg") !important;
-    background-size: 14px !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    -moz-context-properties: fill !important;
-    fill: var(--md-background-color-0) !important;
-}
-
-/* Hover State: Only trigger if NOT disabled (XUL uses [disabled="true"]) */
-input[type="checkbox"]:not(:disabled):hover,
-checkbox:not([disabled="true"]):hover .checkbox-check {
-    border-color: var(--md-accent-color) !important;
-}
-
-/* Explicitly prevent hover effects and fix cursor on Disabled Checkboxes */
-input[type="checkbox"]:disabled,
-checkbox[disabled="true"],
-checkbox[disabled="true"] .checkbox-check {
-    cursor: default !important;
-    border-color: var(--md-content-separator-color) !important; /* Keep the original border color */
-    opacity: 0.7 !important;
-}
+    /* Explicitly prevent hover effects and fix cursor on Disabled Checkboxes */
+    input[type="checkbox"]:disabled,
+    checkbox[disabled] .checkbox-check,
+    checkbox[disabled="true"] .checkbox-check,
+    checkbox:disabled .checkbox-check {
+        cursor: default !important;
+        border-color: var(--md-content-separator-color) !important;
+        opacity: 0.5 !important;
+    }
 
 
-/* --- RADIO BUTTONS --- */
+    /* --- FIXED RADIO BUTTONS --- */
 
-input[type="radio"],
-radio .radio-check {
-    appearance: none !important;
-    -moz-appearance: none !important;
-    width: 20px !important;
-    height: 20px !important;
-    border: 1px solid var(--md-menu-border-color) !important;
-    border-radius: 100px !important; 
-    background-color: var(--md-background-color-0) !important;
-    position: relative;
-    cursor: pointer;
-    vertical-align: middle;
-    box-shadow: 0 1px 5px #00000070 !important;
-    transition: background-color, border 60ms linear !important;
-}
+    input[type="radio"],
+    radio .radio-check {
+        appearance: none !important;
+        -moz-appearance: none !important;
+        width: 20px !important;
+        height: 20px !important;
+        border: 1px solid var(--md-menu-border-color) !important;
+        border-radius: 100px !important; 
+        background-color: var(--md-background-color-0) !important;
+        position: relative;
+        cursor: pointer;
+        vertical-align: middle;
+        box-shadow: 0 1px 5px #00000070 !important;
+        transition: background-color, border 60ms linear !important;
+    }
 
-input[type="radio"]:not(.wallpaper-input), .radio-check {
-  appearance: none !important;
-      border: 1px solid var(--md-menu-border-color) !important;
-    border-radius: 100px !important; 
-    background-color: var(--md-background-color-0) !important;
-  width: 18px !important;
-  height: 18px !important;
-  box-shadow: 0 1px 5px #00000070 !important;
-}
+    /* Radio Hover State: Only trigger if NOT disabled */
+    input[type="radio"]:not(:disabled):hover,
+    radio:not([disabled]):not([disabled="true"]):not(:disabled):hover .radio-check {
+        border-color: var(--md-accent-color) !important;
+    }
 
-/* Radio Hover State: Only trigger if NOT disabled */
-input[type="radio"]:not(:disabled):hover,
-radio:not([disabled="true"]):hover .radio-check {
-    border-color: var(--md-accent-color) !important;
-}
+    /* Explicitly prevent hover effects and fix cursor on Disabled Radios */
+    input[type="radio"]:disabled,
+    radio[disabled] .radio-check,
+    radio[disabled="true"] .radio-check,
+    radio:disabled .radio-check {
+        cursor: default !important;
+        border-color: var(--md-menu-border-color) !important;
+        opacity: 0.5 !important;
+    }
 
-/* Explicitly prevent hover effects and fix cursor on Disabled Radios */
-input[type="radio"]:disabled,
-radio[disabled="true"],
-radio[disabled="true"] .radio-check {
-    cursor: default !important;
-    border-color: var(--md-menu-border-color) !important;
-    opacity: 0.7 !important;
-}
 
-/* Checked State for both */
-input[type="checkbox"]:checked,
-checkbox[checked="true"] .checkbox-check,
-input[type="radio"]:checked,
-radio[selected="true"] .radio-check {
-    background-color: var(--md-accent-color) !important;
-    border-color: var(--md-accent-color) !important;
-}
+    /* --- CHECKED STATE BACKGROUNDS --- */
 
-/* Radio Specific Checked Dot (The "WinUI" Look) */
-input[type="radio"]:checked,
-radio[selected="true"] .radio-check {
-    border: 4px solid var(--md-background-color-0) !important;
-    outline: 1px solid var(--md-accent-color) !important;
-    outline-offset: -1px !important;
-}
+    input[type="checkbox"]:checked,
+    checkbox[checked] .checkbox-check,
+    checkbox[checked="true"] .checkbox-check,
+    checkbox:checked .checkbox-check,
+    .checkbox-check[checked],
+    input[type="radio"]:checked,
+    radio[selected] .radio-check,
+    radio[selected="true"] .radio-check,
+    radio:checked .radio-check,
+    .radio-check[selected] {
+        background-color: var(--md-accent-color) !important;
+        border-color: var(--md-accent-color) !important;
+    }
+
+    /* Radio Specific Checked Dot (The "WinUI" Look) */
+    input[type="radio"]:checked,
+    radio[selected] .radio-check,
+    radio[selected="true"] .radio-check,
+    radio:checked .radio-check,
+    .radio-check[selected] {
+        border: 4px solid var(--md-background-color-0) !important;
+        outline: 1px solid var(--md-accent-color) !important;
+        outline-offset: -1px !important;
+    }
+
+
+    /* --- BULLETPROOF ICON RESTORATION --- */
+
+    input[type="checkbox"]:checked,
+    checkbox[checked] .checkbox-check,
+    checkbox[checked="true"] .checkbox-check,
+    checkbox:checked .checkbox-check,
+    .checkbox-check[checked] {
+        background-image: url("chrome://global/skin/icons/check.svg") !important;
+        background-size: 14px !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        -moz-context-properties: fill !important;
+        fill: var(--md-background-color-0) !important; 
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* Ensure the check icon doesn't show when unchecked */
+    input[type="checkbox"]:not(:checked),
+    checkbox:not([checked]):not([checked="true"]):not(:checked) .checkbox-check {
+        background-image: none !important;
+    }
+
+
 /* 1. Target ACTIVE (Enabled) Buttons with the Glow */
 :not(dialog, .dialogBox) :not(button-group) > button:is([accesskey], .accessory-button, [dlgtype="cancel"], .disco-cta-button, [data-l10n-id="translations-manage-language-download-button"]):not(button[type="menu"]):not([disabled], :disabled) {
     border: none !important;

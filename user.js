@@ -31,7 +31,7 @@ user_pref("gfx.font_rendering.fallback.always_use_cmaps", true);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.quality.force-subpixel-aa-where-possible", true);
 user_pref("gfx.webrender.all", true);
-//user_pref("gfx.webrender.layer-compositor", false);
+user_pref("gfx.webrender.layer-compositor", false);
 //user_pref("gfx.webrender.layer-compositor-force-composition-surface", false);
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.software", false);
@@ -203,6 +203,7 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 user_pref("privacy.userContext.ui.enabled", true);
 
 /** WEBRTC ***/
+user_pref("media.peerconnection.enabled", false);
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
