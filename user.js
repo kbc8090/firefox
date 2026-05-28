@@ -259,6 +259,7 @@ user_pref("network.connectivity-service.enabled", false);
 ****************************************************************************/
 /** MOZILLA UI ***/
 user_pref("browser.privatebrowsing.vpnpromourl", "");
+user_pref("browser.vpn_promo.enabled", false);
 user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.getAddons.cache.enabled", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
