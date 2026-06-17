@@ -305,6 +305,13 @@ panel#appMenu-popup {
     background-color: var(--md-background-color-0) !important;
   }
 
+.browser-toolbar {
+  @media not -moz-pref("sidebar.verticalTabs") {
+    &:not(.browser-titlebar) {
+      background-color: var(--md-background-color-100) !important;
+    }
+  }
+}
 
 @media (-moz-platform: windows), (-moz-platform: linux) {
   menu:where([_moz-menuactive="true"]):not([disabled="true"]), menuitem:where([_moz-menuactive="true"]):not([disabled="true"]) {
@@ -657,6 +664,15 @@ tooltip {
   &[tracking-protection="enabled"] {
     & #trustpanel-graphic-section {
       background: var(--md-background-color-50) !important;
+    }
+  }
+}
+
+#trustpanel-popup {
+  &[tracking-protection="disabled"] {
+    & #trustpanel-graphic-section {
+      background: var(--md-background-color-50) !important;
+      display: none !important;
     }
   }
 }
