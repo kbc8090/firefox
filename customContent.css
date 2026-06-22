@@ -24,6 +24,8 @@
         --color-gray-70: var(--md-menu-border-color) !important;
         --color-gray-50: var(--md-menu-border-color) !important;
         --panel-border-radius: 8px !important;
+		--card-border-color: var(--md-menu-border-color) !important;
+		--card-border-radius: 10px !important;
     }
 
     #prefs {
