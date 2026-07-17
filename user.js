@@ -358,7 +358,7 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredCheckboxes", false);
 user_pref("extensions.pocket.enabled", false);
 
 /** DOWNLOADS ***/
-user_pref("browser.download.useDownloadDir", false);
+user_pref("browser.download.useDownloadDir", true);
 user_pref("browser.download.always_ask_before_handling_new_types", true);
 user_pref("browser.download.manager.addToRecentDocs", false);
 
@@ -390,7 +390,7 @@ user_pref("nglayout.enable_drag_images", false);
 // visit https://github.com/yokoffing/Betterfox/blob/main/Smoothfox.js
 // Enter your scrolling overrides below this line:
 
-user_pref("mousewheel.default.delta_multiplier_y", 200);
+user_pref("mousewheel.default.delta_multiplier_y", 185);
 user_pref("mousewheel.system_scroll_override_on_root_content.horizontal.factor", 175);
 user_pref("mousewheel.system_scroll_override_on_root_content.vertical.factor", 175);
 
@@ -401,7 +401,7 @@ user_pref("general.smoothScroll.lines.durationMinMS", 125);
 user_pref("general.smoothScroll.mouseWheel.durationMinMS", 100);
 user_pref("general.smoothScroll.mouseWheel.migrationPercent", 0);
 user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
-user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 1000);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 825);
 user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 4500);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 50);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio", "0.4");
