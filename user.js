@@ -69,6 +69,7 @@ user_pref("media.cache_resume_threshold", 1800);
 /** IMAGE CACHE ***/
 user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 32768);
+user_pref("image.decode-immediately.enabled", true);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 65535);
@@ -100,6 +101,7 @@ user_pref("browser.places.speculativeConnect.enabled", true);
 
 /** EXPERIMENTAL ***/
 user_pref("dom.enable_web_task_scheduling", true);
+user_pref("dom.event.clipboardevents.enabled", true);
 user_pref("dom.battery.enabled", false);
 user_pref("dom.events.dataTransfer.imageAsFile.enabled", true);
 user_pref("dom.element.animate.enabled", true);
@@ -275,9 +277,9 @@ user_pref("browser.tabs.tabmanager.enabled", false);
 user_pref("browser.tabs.groups.enabled", false);
 user_pref("browser.tabs.groups.smart.enabled", false);
 user_pref("browser.tabs.cardPreview.enabled", false);
-user_pref("browser.tabs.hoverPreview.enabled", false);
+user_pref("browser.tabs.hoverPreview.enabled", true);
 user_pref("browser.tabs.hoverPreview.showThumbnails", false);
-user_pref("browser.tabs.tabMinWidth", 84);
+user_pref("browser.tabs.tabMinWidth", 76);
 user_pref("browser.tabs.dropToPin.enabled", false);
 user_pref("browser.tabs.dragDrop.pinInteractionCue.delayMS", 50000);
 user_pref("browser.aboutConfig.showWarning", false);
@@ -301,7 +303,8 @@ user_pref("browser.display.focus_ring_style", 0);
 user_pref("browser.display.focus_ring_width", 0);
 user_pref("layout.css.prefers-color-scheme.content-override", 2);
 user_pref("browser.privateWindowSeparation.enabled", false); // WINDOWS
-user_pref("ui.prefersReducedMotion", 1);
+user_pref("ui.prefersReducedMotion", 0);
+user_pref("ui.tooltip.delay_ms", 750);
 
 /** MaterialFox CUSTOM OPTIONS -- Uncomment this section, run firefox, then comment it back out so it doesn't keep these defaults on each launch
 user_pref("userChrome.theme-blurple", false);
