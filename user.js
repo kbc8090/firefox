@@ -36,8 +36,9 @@ user_pref("gfx.webrender.layer-compositor", false);
 //user_pref("gfx.webrender.layer-compositor-force-composition-surface", false);
 user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.software", false);
-user_pref("gfx.canvas.max-size", 16384);
-user_pref("gfx.canvas.accelerated.cache-size", 512);
+user_pref("gfx.canvas.max-size", 65535);
+user_pref("gfx.canvas.accelerated.cache-items", 8192);
+user_pref("gfx.canvas.accelerated.cache-size", 1024);
 user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 user_pref("webgl.max-size", 16384);
 //user_pref("layers.acceleration.force-enabled", false);
@@ -45,8 +46,11 @@ user_pref("dom.webgpu.enabled", true);
 user_pref("dom.media.webcodecs.h265.enabled", true);
 user_pref("dom.timeout.budget_throttling_max_delay", -1);
 user_pref("media.wmf.hevc.enabled", true);
-user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", true);
+user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false);
 user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
+user_pref("dom.ipc.processCount", 6);
+user_pref("dom.ipc.processCount.webIsolated", 4);
+user_pref("dom.ipc.processPrelaunch.fission.number", 1);
 
 
 
@@ -68,14 +72,14 @@ user_pref("media.cache_resume_threshold", 1800);
 
 /** IMAGE CACHE ***/
 user_pref("image.cache.size", 10485760);
-user_pref("image.mem.decode_bytes_at_a_time", 32768);
+user_pref("image.mem.decode_bytes_at_a_time", 65536);
 user_pref("image.decode-immediately.enabled", true);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 65535);
 user_pref("network.buffer.cache.count", 48);
 user_pref("network.http.max-connections", 1800);
-user_pref("network.http.max-persistent-connections-per-server", 10);
+user_pref("network.http.max-persistent-connections-per-server", 12);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.request.max-start-delay", 1);
 user_pref("network.http.pacing.requests.enabled", false);
@@ -86,6 +90,7 @@ user_pref("network.dns.max_high_priority_threads", 8);
 user_pref("network.ssl_tokens_cache_capacity", 10240);
 
 /** SPECULATIVE LOADING ***/
+user_pref("dom.prefetch_dns_for_anchor_https_document", true);
 user_pref("network.predictor.enable-prefetch", true);
 user_pref("network.predictor.enabled", true);
 user_pref("network.predictor.enable-hover-on-ssl", true);
@@ -95,7 +100,9 @@ user_pref("network.prefetch-next", true);
 user_pref("network.dns.disableIPv6", true);
 user_pref("network.dns.skip_ipv6_when_no_addresses", true);
 user_pref("network.connectivity-service.IPv6.url", "");
+user_pref("network.early-hints.preconnect.max_connections", 20);
 user_pref("network.http.speculative-parallel-limit", 20);
+user_pref("network.notify.checkForProxies", false);
 user_pref("browser.urlbar.speculativeConnect.enabled", true);
 user_pref("browser.places.speculativeConnect.enabled", true);
 
@@ -143,7 +150,6 @@ user_pref("browser.ml.chat.enabled", false);
 user_pref("browser.ml.chat.menu", false);
 user_pref("browser.ml.chat.sidebar", false);
 user_pref("browser.ml.chat.page", false);
-user_pref("browser.tabs.groups.smart.enabled", false);
 user_pref("browser.taskbarTabs.enabled", false);
 user_pref("browser.ml.linkPreview.enabled", false);
 user_pref("browser.urlbar.groupLabels.enabled", false);
@@ -173,13 +179,19 @@ user_pref("browser.urlbar.update2.engineAliasRefresh", true);
 user_pref("browser.urlbar.fakespot.featureGate", false);
 user_pref("browser.search.suggest.enabled", true);
 user_pref("browser.search.visualSearch.featureGate", true);
-user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
-user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);
 user_pref("browser.urlbar.suggest.recentsearches", false);
 user_pref("browser.urlbar.scotchBonnet.enableOverride", false);
 user_pref("browser.urlbar.yelp.featureGate", false);
 user_pref("browser.urlbar.formatting.enabled", true);
-
+user_pref("browser.urlbar.suggest.calculator", true);
+user_pref("browser.urlbar.unitConversion.enabled", true);
+user_pref("browser.urlbar.trending.featureGate", false);
+user_pref("browser.urlbar.suggest.engines", false);
+user_pref("browser.urlbar.suggest.openpage", false);
+user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);	
+user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
+user_pref("browser.urlbar.suggest.topsites", false);
+user_pref("browser.urlbar.oneOffSearches", false);
 user_pref("browser.urlbar.weather.featureGate", false);
 user_pref("browser.urlbar.wikipedia.featureGate", false);
 user_pref("browser.formfill.enable", true);
@@ -265,9 +277,6 @@ user_pref("network.connectivity-service.enabled", false);
 /** MOZILLA UI ***/
 user_pref("browser.privatebrowsing.vpnpromourl", "");
 user_pref("browser.vpn_promo.enabled", false);
-user_pref("extensions.getAddons.showPane", false);
-user_pref("extensions.getAddons.cache.enabled", false);
-user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("browser.discovery.enabled", false);
 user_pref("browser.discovery.containers.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
@@ -284,13 +293,16 @@ user_pref("browser.tabs.tabMinWidth", 76);
 user_pref("browser.tabs.dropToPin.enabled", false);
 user_pref("browser.tabs.dragDrop.pinInteractionCue.delayMS", 50000);
 user_pref("browser.aboutConfig.showWarning", false);
-user_pref("general.warnOnAboutConfig", false);
 user_pref("browser.aboutwelcome.enabled", false);
 user_pref("browser.startup.homepage_override.mstone", "ignore");
 user_pref("browser.urlbar.trimHttps", true);
 user_pref("browser.urlbar.trimURLs", true);
+user_pref("general.warnOnAboutConfig", false);
 user_pref("devtools.accessibility.enabled", false);
 user_pref("devtools.debugger.prompt-connection", false);
+user_pref("extensions.getAddons.showPane", false);
+user_pref("extensions.getAddons.cache.enabled", false);
+user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 
 /** THEME ADJUSTMENTS ***/
 user_pref("widget.non-native-theme.scrollbar.style", 1);
@@ -338,17 +350,6 @@ user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.delay", -1);
 user_pref("full-screen-api.warning.timeout", 0);
-
-/** URL BAR ***/
-user_pref("browser.urlbar.suggest.calculator", true);
-user_pref("browser.urlbar.unitConversion.enabled", true);
-user_pref("browser.urlbar.trending.featureGate", false);
-user_pref("browser.urlbar.suggest.engines", false);
-user_pref("browser.urlbar.suggest.openpage", false);
-user_pref("browser.urlbar.suggest.quicksuggest.nonsponsored", false);	
-user_pref("browser.urlbar.suggest.quicksuggest.sponsored", false);
-user_pref("browser.urlbar.suggest.topsites", false);
-user_pref("browser.urlbar.oneOffSearches", false);
 
 /** NEW TAB PAGE ***/
 user_pref("browser.newtabpage.activity-stream.feeds.topsites", false);
