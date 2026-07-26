@@ -112,6 +112,8 @@ user_pref("dom.event.clipboardevents.enabled", true);
 user_pref("dom.battery.enabled", false);
 user_pref("dom.events.dataTransfer.imageAsFile.enabled", true);
 user_pref("dom.element.animate.enabled", true);
+user_pref("dom.fs.enabled", false);
+user_pref("dom.push.enabled", false);
 user_pref("layout.css.has-selector.enabled", true);
 user_pref("layout.css.grid-template-masonry-value.enabled", true);
 user_pref("layout.frame_rate", -1);
@@ -139,6 +141,7 @@ user_pref("dom.private-attribution.submission.enabled", false);
 user_pref("dom.text_fragments.enabled", true);
 user_pref("default-browser-agent", false);
 user_pref("app.update.service.enabled", false);
+user_pref("app.update.BITS.enabled", false);
 user_pref("browser.ai.control.default", "blocked");
 user_pref("browser.ai.control.linkPreviewKeyPoints", "blocked");
 user_pref("browser.ai.control.pdfjsAltText", "blocked");
@@ -255,6 +258,7 @@ user_pref("toolkit.coverage.endpoint.base", "");
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
+user_pref("browser.search.serpEventTelemetryCategorization.enabled", false);
 
 /** EXPERIMENTS ***/
 user_pref("app.shield.optoutstudies.enabled", false);
