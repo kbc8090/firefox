@@ -1,12 +1,3 @@
-//
-/* You may copy+paste this file and use it as it is.
- *
- * If you make changes to your about:config while the program is running, the
- * changes will be overwritten by the user.js when the application restarts.
- *
- * To make lasting changes to preferences, you will have to edit the user.js.
- */
-
 /****************************************************************************
  * Betterfox                                                                *
  * url: https://github.com/yokoffing/Betterfox                              *
@@ -51,8 +42,6 @@ user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
 user_pref("dom.ipc.processCount", 6);
 user_pref("dom.ipc.processCount.webIsolated", 4);
 user_pref("dom.ipc.processPrelaunch.fission.number", 1);
-
-
 
 
 /** DISK CACHE ***/
@@ -293,7 +282,7 @@ user_pref("browser.tabs.groups.smart.enabled", false);
 user_pref("browser.tabs.cardPreview.enabled", false);
 user_pref("browser.tabs.hoverPreview.enabled", true);
 user_pref("browser.tabs.hoverPreview.showThumbnails", false);
-user_pref("browser.tabs.tabMinWidth", 76);
+user_pref("browser.tabs.tabMinWidth", 66);
 user_pref("browser.tabs.dropToPin.enabled", false);
 user_pref("browser.tabs.dragDrop.pinInteractionCue.delayMS", 50000);
 user_pref("browser.aboutConfig.showWarning", false);
@@ -383,15 +372,6 @@ user_pref("layout.word_select.eat_space_to_next_word", false);
 user_pref("nglayout.initialpaint.delay", 5);
 user_pref("nglayout.initialpaint.delay_in_oopif", 1);
 user_pref("nglayout.enable_drag_images", false);
-
-/****************************************************************************
- * START: MY OVERRIDES                                                      *
-****************************************************************************/
-// visit https://github.com/yokoffing/Betterfox/wiki/Common-Overrides
-// visit https://github.com/yokoffing/Betterfox/wiki/Optional-Hardening
-// Enter your personal overrides below this line:
-
-
 
 /****************************************************************************
  * SECTION: SMOOTHFOX                                                       *
