@@ -213,7 +213,7 @@ user_pref("network.http.referer.XOriginTrimmingPolicy", 2);
 user_pref("privacy.userContext.ui.enabled", true);
 
 /** WEBRTC ***/
-user_pref("media.peerconnection.enabled", false);
+user_pref("media.peerconnection.enabled", true);
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true);
 user_pref("media.peerconnection.ice.default_address_only", true);
 
