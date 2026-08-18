@@ -35,6 +35,8 @@ user_pref("webgl.max-size", 16384);
 //user_pref("layers.acceleration.force-enabled", false);
 user_pref("dom.webgpu.enabled", true);
 user_pref("dom.media.webcodecs.h265.enabled", true);
+user_pref("dom.lazy-loading.margin.bottom", 6000);
+user_pref("dom.lazy-loading.margin.top", 6000);
 user_pref("dom.timeout.budget_throttling_max_delay", -1);
 user_pref("media.wmf.hevc.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false);
