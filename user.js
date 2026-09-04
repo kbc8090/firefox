@@ -35,8 +35,8 @@ user_pref("webgl.max-size", 16384);
 //user_pref("layers.acceleration.force-enabled", false);
 user_pref("dom.webgpu.enabled", true);
 user_pref("dom.media.webcodecs.h265.enabled", true);
-user_pref("dom.lazy-loading.margin.bottom", 6000);
-user_pref("dom.lazy-loading.margin.top", 6000);
+user_pref("dom.lazy-loading.margin.bottom", 1000);
+user_pref("dom.lazy-loading.margin.top", 1000);
 user_pref("dom.timeout.budget_throttling_max_delay", -1);
 user_pref("media.wmf.hevc.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false);
@@ -70,8 +70,8 @@ user_pref("image.jxl.enabled", true);
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 65535);
 user_pref("network.buffer.cache.count", 48);
-user_pref("network.http.max-connections", 1800);
-user_pref("network.http.max-persistent-connections-per-server", 12);
+user_pref("network.http.max-connections", 900);
+user_pref("network.http.max-persistent-connections-per-server", 8);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.request.max-start-delay", 1);
 user_pref("network.http.pacing.requests.enabled", false);
@@ -168,7 +168,7 @@ user_pref("privacy.antitracking.isolateContentScriptResources", true);
 /** SSL / TLS ***/
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
-user_pref("security.tls.enable_0rtt_data", false);
+user_pref("security.tls.enable_0rtt_data", true);
 
 /** DISK AVOIDANCE ***/
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
