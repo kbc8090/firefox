@@ -29,14 +29,14 @@ user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.software", false);
 user_pref("gfx.canvas.max-size", 65535);
 user_pref("gfx.canvas.accelerated.cache-items", 8192);
-user_pref("gfx.canvas.accelerated.cache-size", 1024);
+user_pref("gfx.canvas.accelerated.cache-size", 512);
 user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 user_pref("webgl.max-size", 16384);
 //user_pref("layers.acceleration.force-enabled", false);
 user_pref("dom.webgpu.enabled", true);
 user_pref("dom.media.webcodecs.h265.enabled", true);
-user_pref("dom.lazy-loading.margin.bottom", 1000);
-user_pref("dom.lazy-loading.margin.top", 1000);
+user_pref("dom.lazy-loading.margin.bottom", 1400.0);
+user_pref("dom.lazy-loading.margin.top", 1400.0);
 user_pref("dom.timeout.budget_throttling_max_delay", -1);
 user_pref("media.wmf.hevc.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false);
@@ -65,17 +65,16 @@ user_pref("media.cache_resume_threshold", 1800);
 user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 65536);
 user_pref("image.decode-immediately.enabled", true);
-user_pref("image.jxl.enabled", true);
+user_pref("image.jxl.enabled", false);
 
 /** NETWORK ***/
 user_pref("network.buffer.cache.size", 65535);
 user_pref("network.buffer.cache.count", 48);
-user_pref("network.http.max-connections", 900);
-user_pref("network.http.max-persistent-connections-per-server", 8);
+user_pref("network.http.max-connections", 1800);
+user_pref("network.http.max-persistent-connections-per-server", 12);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
 user_pref("network.http.request.max-start-delay", 1);
 user_pref("network.http.pacing.requests.enabled", false);
-user_pref("network.pacing.active", false);
 user_pref("network.http.http3.enable", true);
 user_pref("network.http.http3.enabled", true);
 user_pref("network.http.happy_eyeballs_enabled", true);
@@ -157,7 +156,6 @@ user_pref("browser.urlbar.groupLabels.enabled", false);
 user_pref("browser.startup.blankWindow", false);
 user_pref("browser.startup.preXulSkeletonUI", false);
 
-
 /** OCSP & CERTS / HPKP ***/
 user_pref("security.OCSP.enabled", 0);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
@@ -168,7 +166,7 @@ user_pref("privacy.antitracking.isolateContentScriptResources", true);
 /** SSL / TLS ***/
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 user_pref("browser.xul.error_pages.expert_bad_cert", true);
-user_pref("security.tls.enable_0rtt_data", true);
+user_pref("security.tls.enable_0rtt_data", false);
 
 /** DISK AVOIDANCE ***/
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true);
@@ -264,7 +262,7 @@ user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
 
 /** CRASH REPORTS ***/
-user_pref("breakpad.reportURL", "");
+/* user_pref("breakpad.reportURL", ""); */
 user_pref("browser.tabs.crashReporting.sendReport", false);
 user_pref("browser.crashReports.unsubmittedCheck.autoSubmit2", false);
 
@@ -379,8 +377,8 @@ user_pref("browser.bookmarks.showMobileBookmarks", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.word_select.eat_space_to_next_word", false);
-user_pref("nglayout.initialpaint.delay", 0);
-user_pref("nglayout.initialpaint.delay_in_oopif", 0);
+user_pref("nglayout.initialpaint.delay", 5);
+user_pref("nglayout.initialpaint.delay_in_oopif", 5);
 user_pref("nglayout.enable_drag_images", false);
 
 /****************************************************************************
