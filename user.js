@@ -29,7 +29,7 @@ user_pref("gfx.webrender.precache-shaders", true);
 user_pref("gfx.webrender.software", false);
 user_pref("gfx.canvas.max-size", 65535);
 user_pref("gfx.canvas.accelerated.cache-items", 8192);
-user_pref("gfx.canvas.accelerated.cache-size", 512);
+user_pref("gfx.canvas.accelerated.cache-size", 256);
 user_pref("media.wmf.zero-copy-nv12-textures-force-enabled", true);
 user_pref("webgl.max-size", 16384);
 //user_pref("layers.acceleration.force-enabled", false);
@@ -41,10 +41,10 @@ user_pref("dom.timeout.budget_throttling_max_delay", -1);
 user_pref("media.wmf.hevc.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.urlbar-button.enabled", false);
 user_pref("dom.ipc.processPriorityManager.backgroundUsesEcoQoS", false);
-user_pref("dom.ipc.processCount", 6);
-user_pref("dom.ipc.processCount.webIsolated", 4);
+user_pref("dom.ipc.processCount", 4);
+user_pref("dom.ipc.processCount.webIsolated", 3);
 user_pref("dom.ipc.processPrelaunch.fission.number", 1);
-
+user_pref("dom.security.sanitizer.while-parsing", true);
 
 /** DISK CACHE ***/
 user_pref("browser.cache.disk.enable", true);
@@ -65,11 +65,11 @@ user_pref("media.cache_resume_threshold", 1800);
 user_pref("image.cache.size", 10485760);
 user_pref("image.mem.decode_bytes_at_a_time", 65536);
 user_pref("image.decode-immediately.enabled", true);
-user_pref("image.jxl.enabled", false);
+user_pref("image.jxl.enabled", true);
 
 /** NETWORK ***/
-user_pref("network.buffer.cache.size", 65535);
-user_pref("network.buffer.cache.count", 48);
+user_pref("network.buffer.cache.size", 262144);
+user_pref("network.buffer.cache.count", 128);
 user_pref("network.http.max-connections", 1800);
 user_pref("network.http.max-persistent-connections-per-server", 12);
 user_pref("network.http.max-urgent-start-excessive-connections-per-host", 5);
@@ -377,8 +377,8 @@ user_pref("browser.bookmarks.showMobileBookmarks", false);
 user_pref("browser.menu.showViewImageInfo", true);
 user_pref("findbar.highlightAll", true);
 user_pref("layout.word_select.eat_space_to_next_word", false);
-user_pref("nglayout.initialpaint.delay", 5);
-user_pref("nglayout.initialpaint.delay_in_oopif", 5);
+user_pref("nglayout.initialpaint.delay", 1);
+user_pref("nglayout.initialpaint.delay_in_oopif", 1);
 user_pref("nglayout.enable_drag_images", false);
 
 /****************************************************************************
