@@ -1,4 +1,982 @@
-@import "user-chrome.css";
-@import "theme-material-blue.css";
-@import "personal.css";
-@import "custom.css";
+/* The smoothest fonts folks
+*, html, body {
+    font-family: "Golos Text";
+    font-size: 12px;
+    font-weight: 400 !important;
+	text-rendering: optimizelegibility !important;
+	font-smooth: always !important;
+	-webkit-font-smoothing: antialiased !important;
+}
+*/
+
+:root {
+    --chrome-content-separator-color: color-mix(in srgb, var(--toolbar-background-color), white 11%) !important;
+    --tab-min-height: 27px !important; /* Locks your preferred tab height */
+	--arrowpanel-menuitem-border-radius: 4px !important;
+	--menuitem-border-radius: 4px !important;
+	--urlbarview-background-color-selected: var(--lwt-popup-highlight, color-mix(in srgb, rgb(from var(--toolbar-field-border-color-focus, var(--focus-outline-color)) r g b / 1) 66%, black)) !important;
+	--button-border-radius: 6px !important;
+	--uei-button-hover-bgcolor: var(--toolbarbutton-background-color-hover, color-mix(in srgb, currentColor 17%, transparent)) !important;
+	--uei-button-active-bgcolor: var(--toolbarbutton-background-color-hover, color-mix(in srgb, currentColor 30%, transparent)) !important;
+	--button-background-color-ghost-hover: var(--toolbarbutton-background-color-hover, color-mix(in srgb, currentColor 17%, transparent)) !important;
+	--button-background-color-ghost-active: var(--toolbarbutton-background-color-active, color-mix(in srgb, currentColor 30%, transparent)) !important;
+	--button-background-color-menu-hover: var(--toolbarbutton-background-color-hover, color-mix(in srgb, currentColor 17%, transparent)) !important;
+	--button-background-color-menu-active: var(--toolbarbutton-background-color-active, color-mix(in srgb, currentColor 30%, transparent)) !important;	
+    --default-focusring-width: 0px !important;
+    --default-focusring: var(--default-focusring-width) solid !important;
+}
+
+/* Nova Rounding Adjustments */
+:root {
+	@media -moz-pref("browser.nova.enabled") {
+		--urlbar-border-radius: 8px !important;
+		--urlbar-inner-border-radius: 6px !important;
+		--urlbarview-border-radius: 8px !important;
+		--urlbar-selection-border-radius: 8px !important;
+		--urlbar-input-container-padding: 2px !important;
+		--panel-menuitem-border-radius: 4px !important;
+		--urlbar-input-container-outline-breakout-focused: none !important;
+		--border-radius-circle: 8px !important;
+		--border-radius-xsmall: 2px !important; /* Nova Default: 4px, Proton Default: 2px */
+		--border-radius-small: 4px !important; /* Nova Default: 8px, Proton Default: 4px */
+		--border-radius-medium: 8px !important; /* Nova Default: 12px, Proton Default: 8px */
+		--border-radius-large: 16px !important; /* Proton Default: 16px, [Undefined in Nova] */
+		--border-radius-xlarge: 24px !important; /* Nova Default: 24px, [Undefined in Proton] */
+		
+		
+	}
+	/*
+	--tab-border-radius: var(--border-radius-small) !important;
+
+	--button-border-radius: var(--border-radius-small) !important;
+	--toolbarbutton-border-radius: var(--border-radius-small) !important;
+
+	--card-border-radius: var(--border-radius-small) !important;
+	--card-border-radius-compact: var(--border-radius-small) !important;
+	--card-cover-image-border-radius: var(--border-radius-small) !important;
+
+	--input-text-border-radius: var(--border-radius-small) !important;
+
+	--menuitem-border-radius: var(--border-radius-small) !important;
+
+	--popup-border-radius: var(--border-radius-small) !important;
+
+	--panel-border-radius: var(--border-radius-small) !important;
+	--panel-menuitem-border-radius: var(--border-radius-small) !important;
+	*/
+}
+
+/* Adjust favicon to the left by 3px to align correctly */
+.tab-throbber, .tab-icon-pending, .tab-icon-image, .tab-sharing-icon-overlay, .tab-icon-overlay {
+  #tabbrowser-tabs[orient="horizontal"] &:not([pinned]), :root:not([sidebar-expand-on-hover]) #tabbrowser-tabs[orient="vertical"][expanded] &:not([pinned]) {
+    margin-inline-start: -1px !important;
+  }
+}
+
+/* Disabled add search engine context menu item */
+.menuitem-iconic.context-menu-add-engine,
+.menuseparator-add-engine {
+    display: none !important;
+}
+
+/* Disabled strip on share context menu item */
+#strip-on-share {
+    display: none !important;
+}
+
+/* Hide Search with Google or enter address in url bar */
+#urlbar-input::placeholder {
+    opacity: 0 !important;
+}
+
+#allTabsMenu-syncedTabs {
+  display: none !important;
+}
+
+#appMenu-referrals-separator,
+#appMenu-referrals-button {
+  display: none !important;
+}
+
+/* Hide Various other context menu items that are stupid */
+#context-sendpagetodevice,
+#context-sep-sendpagetodevice,
+#context-sendlinktodevice,
+#context-sep-sendlinktodevice,
+#context_sendTabToDevice,
+#context_sendTabToDevice_separator,
+#context_shareSelectedTabsSeparator,
+#context_sendTabToDeviceSeparator,
+#context-stripOnShareLink {
+    display: none !important;
+}
+
+/* Remove "Share" from tab context menu */
+#tabContextMenu .share-tab-url-item {
+    display: none !important;
+}
+
+/* Delete "Email Image" in right click context menu */
+#context-sendimage {
+    display: none !important;
+}
+
+#placesContext_openSeparator {
+  display: none !important;
+ }
+
+.tabbrowser-tab {
+    margin-top: -1px !important;
+	padding: 0 1.5px !important;
+}
+
+#urlbar-container {
+  --urlbar-container-height: 34px !important; /* Set to 28px to make it look like Helium with proper color scheme */
+}
+
+/* --- THE DRAG HEIGHT & CLEARANCE FIX --- */
+/* 1. Increased parent height to 30px to guarantee ample vertical padding under the tabs */
+#tabbrowser-tabs,
+#tabbrowser-tabs[movingtab] {
+	margin-inline-start: 1px !important;
+    --tab-min-height: 27px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+}
+
+#TabsToolbar,
+#TabsToolbar[movingtab] {
+    height: 32px !important;
+    min-height: 32px !important;
+    max-height: 32px !important;
+}
+
+/* 2. Keep the dragged tab background identical at 22px (26px tab - 4px margin) */
+.tabbrowser-tab[dragging="true"] .tab-background,
+.tabbrowser-tab[movingtab] .tab-background {
+    height: 22px !important;
+    min-height: 22px !important;
+    max-height: 22px !important;
+    margin-bottom: 4px !important; /* Matches the new 4px spacing */
+}
+
+/* 1. Increased bottom margin to 4px to lift the tabs away from the nav-bar */
+.tab-background {
+    margin-bottom: 4px !important;
+    border-radius: 6px !important; 
+}
+
+/* 3. Prevent layout padding/margin shifts on the tab bar when dragging */
+#navigator-toolbox[movingtab] #tabbrowser-tabs {
+    padding-bottom: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+#tabbrowser-tabs {
+  &[orient="horizontal"] {
+    --tab-max-width: 207px !important;
+  }
+}
+
+
+/* --------------------------------------- */
+
+/* Round the top left and right edges of the navigation bar for a cleaner look to match the rest of the browser */
+#nav-bar {
+	margin-top: 1px !important;
+	border-top: none !important;
+    border-radius: 6px 6px 0 0 !important;
+}
+
+/* Match Audio Icon Size to the close tab button */
+.tab-audio-button {
+  --button-size-icon-small: 20px !important;
+  --button-min-height-small: 20px !important;
+}
+
+/* Hide the "Playing" and "Muted" text on media tabs */
+.tab-secondary-label {
+    display: none !important;
+}
+
+/* Lock the text container's layout properties so it doesn't shift on hover */
+.tabbrowser-tab:hover .tab-label-container {
+    --tab-label-mask-size: 1em !important;
+    padding-inline-end: 0px !important;
+    margin-inline-end: 0px !important;
+}
+
+/* Ensure the overall tab content spacing doesn't change on hover 
+.tabbrowser-tab:hover .tab-content {
+    padding-inline-end: 8px !important;
+} */
+
+/* 1. Shrink the invisible bounding box (the touch target/blank space) */
+.tab-close-button {
+    padding: 4px !important;               /* Strip the blank space entirely */
+    width: 20px !important;                /* Hard lock the container's width */
+    height: 20px !important;               /* Hard lock the container's height */
+    margin-inline-start: 2px !important;   /* Tighten the gap next to the text */
+    align-self: center !important;
+	border-radius: var(--border-radius-small) !important;
+}
+
+@media not (forced-colors) {
+  .close-icon:hover {
+    background-color: var(--toolbarbutton-background-color-hover) !important;
+  }
+}
+
+@media not (forced-colors) {
+  .close-icon:active {
+    background-color: var(--toolbarbutton-background-color-active) !important;
+  }
+}
+
+
+
+/* 2. Force the vertical alignment of the tab content */
+.tab-content {
+    display: flex !important;
+    align-items: center !important;
+    /* This pushes the text down. Adjust to 2px if you need it lower, or 0px if too low */
+    padding-top: 0px !important;   
+    padding-bottom: 1px !important; 
+}
+
+/* 3. Keep the text label container locked and centered */
+.tab-label-container {
+    --tab-label-mask-size: 1em !important;
+    padding-inline-end: 0px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 1. Adjust the outer bookmark bar container padding */
+#PersonalToolbar {
+    /* Shave padding off the top, add a bit extra to the bottom */
+	margin-top: -2px !important;
+    padding-top: 0px !important;
+    padding-bottom: 1px !important;
+}
+
+/* Proper spacing for the bookmark bar items */
+#PersonalToolbar .bookmark-item {
+    /* The first number (2px) is vertical padding, the second (8px) is horizontal padding */
+    padding-inline: 5px !important; 
+}
+
+/* Make unselected tabs foreground color a little less bright */
+.tabbrowser-tab:not([selected]) .tab-content {
+      color: color-mix(in srgb, var(--tab-selected-textcolor) 85%, var(--lwt-accent-color)) !important;
+}
+
+/* Remove border/outline from the active tab background */
+.tabbrowser-tab[selected] .tab-background {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Change URL bar height so the contents of it are even inside it */
+
+:root[uidensity="compact"] {
+  --urlbar-height: max(28px, 1.4em) !important;
+}
+
+/* Make the badges on addons look better (i.e. ublock Origin block number) */
+.toolbarbutton-badge {
+  color: var(--tab-selected-textcolor) !important;
+/* This forces the variable to be 100% opaque, ignoring its alpha channel */
+  background-color: color-mix(in srgb, rgb(from var(--toolbar-field-border-color-focus, var(--focus-outline-color)) r g b / 1) 66%, black) !important;
+  text-shadow: 1px 1px 2px black !important;
+  font-family: "Inter" !important;
+  font-smooth: always !important;
+  text-rendering: optimizelegibility !important;
+  font-size: 9px !important;
+  text-align: center !important;
+  justify-content: center !important;
+  font-weight: 600 !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  padding-left: 1px !important;
+  padding-right: 1px !important;
+  border: 0px !important;
+  border-radius: 4px !important;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35)) !important;
+}
+
+#urlbar-zoom-button {
+  font-family: "Inter" !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+}
+
+/* Better separator colors for the bookmark bar */
+#PlacesToolbarItems>toolbarseparator {
+  color: color-mix(in srgb, var(--chrome-content-separator-color) 65%, var(--tab-selected-textcolor)) !important;
+  padding-block: 5px !important;
+}
+
+/* Moves newtab button to the left by 1px */
+#tabs-newtab-button {
+	margin-inline-start: 0px !important;
+}
+
+/* Better styling of the bottom left link loading thing to match other stuff */
+#statuspanel-label {
+    background-color: var(--lwt-accent-color, Menu) !important;
+	border-color: var(--chrome-content-separator-color) !important;
+    border-left: none !important;
+    border-bottom: none !important;
+    border-radius: 0px 6px 0px 0px !important;
+    padding: 2px !important;
+	padding-inline: 6px !important;
+}
+
+
+
+
+menuseparator {
+  &::before {
+    border-top: 1px solid var(--chrome-content-separator-color, ThreeDShadow) !important;
+  }
+}
+
+toolbarseparator {
+  color: var(--chrome-content-separator-color, ThreeDShadow) !important;
+}
+
+/* More consistent context menus with the current theme */
+menupopup,panel {
+  --panel-background-color: var(--lwt-accent-color, Menu) !important;
+  --panel-border-color: var(--chrome-content-separator-color, ThreeDShadow) !important;
+}
+
+menu, menuitem {
+  &:where([_moz-menuactive]:not([disabled])) {
+	background-color: var(--toolbarbutton-background-color-hover, color-mix(in srgb, currentColor 17%, transparent)) !important;
+	}
+}
+
+menuitem {
+    &[_moz-menuactive]:not([disabled="true"]):active {
+      background-color: var(--toolbarbutton-background-color-active, color-mix(in srgb, currentColor 30%, transparent)) !important;
+    }
+  }
+  
+  /* Make the menu separators more even */
+  menuseparator {
+    padding: 0 !important;
+    margin-inline: 0px !important;
+    margin-block: 4px !important; /* Adjust this to control vertical spacing above/below the line */
+}
+
+#mainPopupSet menuitem,
+#mainPopupSet menu,
+menupopup menuitem,
+menupopup menu {
+    border-radius: 4px !important;
+}
+  
+/* Target disabled menu items regardless of whether the attribute value is empty or "true" */
+#mainPopupSet menuitem[disabled][_moz-menuactive="true"],
+#mainPopupSet menuitem[disabled],
+menuitem[disabled] {
+    background: transparent !important;
+    background-color: transparent !important;
+}
+
+/* Making the context and other mensu look a little better and even */
+@media (-moz-platform: windows), (-moz-platform: linux) {
+    menupopup, panel:not(#autoscroller) {
+        --panel-border-radius: 8px !important;
+        border-radius: var(--panel-border-radius) !important;
+    }
+}
+/* =========================================================
+   URL BAR HOVER TRANSITIONS (CHROME MD3 EASING CURVE)
+   ========================================================= */
+
+/* 1. Base / Idle state transition */
+#urlbar:not([open]) .urlbar-background, 
+#searchbar:not([open]) {
+  background-color: var(--toolbar-field-background-color) !important;
+  transition: background-color 360ms cubic-bezier(0.08, 0, 0, 1) !important; 
+}
+
+/* 2. Main URL bar hover state */
+#urlbar:not([focused]):hover .urlbar-background, 
+#searchbar:hover {
+  background-color: color-mix(in srgb, var(--toolbar-background-color), rgb(255 255 255 / 18%) 50%) !important;
+}
+
+/* 3. Icon hover state (Consolidated) */
+#urlbar:has(
+  #identity-permission-box:hover,
+  #trust-icon-container:hover,
+  #identity-icon-box:hover,
+  #page-action-buttons:hover,
+  #tracking-protection-icon-container:hover,
+  .notification-anchor-icon:hover
+) .urlbar-background {
+  background-color: var(--toolbar-field-background-color) !important;
+	transition: background-color 360ms cubic-bezier(0.08, 0, 0, 1) !important; 
+}
+
+/* 4. Instant snap when clicked or expanded */
+#urlbar[open][breakout][breakout-extend] .urlbar-background {
+  transition: none !important;
+}
+
+/* Change border color of the breakout urlbar to be a proper color */
+@media not -moz-pref("browser.nova.enabled") {
+  [open] > .urlbar-background {
+    border-color: var(--chrome-content-separator-color) !important;
+  }
+}
+
+/* Force the background and text color for the popup itself */
+#ContentSelectDropdownPopup {
+    --panel-background-color: -moz-Field !important;
+    background-color: -moz-Field !important;
+}
+
+#ContentSelectDropdownPopup menuitem:where([_moz-menuactive]:not([disabled])) {
+    background-color: Highlight !important;
+}
+
+#ContentSelectDropdownPopup menuitem:where([_moz-menuactive]:not([disabled])) label {
+    color: HighlightText !important;
+}
+
+/* Hide all tab tooltips */
+#tab-tooltip {
+    display: none !important;
+    visibility: collapse !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Hide the tab hover preview panel */
+#tab-preview-panel {
+    display: none !important;
+}
+
+/* Color the browser container using the active UI theme variables */
+#appcontent, tabpanels, browser {
+    background-color: var(--lwt-accent-color, var(--toolbar-background-color)) !important;
+}
+
+/* =========================================================
+   REFINED FINDBAR (Native Theme Variables & Instant States)
+   ========================================================= */
+
+/* Findbar Animations (Only active when opening/closing) */
+@keyframes findbar-scale-in {
+    0% { transform: scaleY(0); }
+    100% { transform: scaleY(1); }
+}
+
+@keyframes findbar-scale-out {
+    0% { transform: scaleY(1); }
+    100% { transform: scaleY(0); }
+}
+
+.browserContainer > findbar {
+    position: fixed !important;
+    contain: content !important;
+    top: -1px !important;
+    right: 18px !important;
+    margin: 4px 0px 0 5px !important;
+    transform-origin: top right;
+    border-radius: 6px !important;
+    padding-inline-start: 4px;
+	
+	/* Kill native animation lag for instant open/close */
+    animation: none !important;
+    transition: none !important;
+    
+    /* Mapped to native theme variables */
+    color: var(--lwt-text-color, var(--arrowpanel-color)) !important;
+    background: var(--toolbar-background-color, var(--lwt-accent-color, -moz-dialog)) !important;
+    border: 1px solid var(--chrome-content-separator-color, var(--panel-border-color)) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+ }
+
+/* Hide unused findbar checkboxes */
+checkbox[anonid='find-case-sensitive'],
+checkbox[anonid='find-match-diacritics'],
+checkbox[anonid='find-entire-word'],
+checkbox[anonid='highlight'] {
+    display: none !important;
+}
+
+/* Findbar Container & Flex Order */
+.findbar-container {
+    display: flex;
+    align-items: center !important;
+    gap: 1px !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+    height: 30px !important; /* Allows breathing room for 22px buttons */
+    flex-wrap: wrap !important;
+}
+
+.findbar-container > * {
+    margin-inline-end: 0 !important;
+}
+
+/* Explicit ordering */
+label.findbar-label { order: 1; margin-inline-start: 8px !important; }
+description.findbar-label { order: 2; margin-inline-start: 8px !important; }
+[anonid='findbar-textbox-wrapper'] { order: 3; height: 100% !important; }
+/*
+checkbox[anonid='highlight'] { order: 4; }
+checkbox[anonid='find-case-sensitive'] { order: 5; }
+checkbox[anonid='find-match-diacritics'] { order: 6; }
+checkbox[anonid='find-entire-word'] { order: 7; }
+*/
+
+description.findbar-label:empty {
+    display: none !important;
+}
+
+/* Textbox (Shaded, No Border) */
+.findbar-textbox {
+	min-height: 29px !important;
+    background-color: var(--toolbar-field-background-color, color-mix(in srgb, currentColor 6%, transparent)) !important;
+	border: 2px solid transparent !important;
+    border-radius: 8px !important;
+    outline: none !important;
+	margin-inline-start: 2px !important;
+    margin-inline-end: 8px !important;
+    padding-inline: 8px !important; 
+    box-shadow: none !important;
+	transition: background-color 206ms cubic-bezier(0, 0, .2, 1) !important; 
+    transition-delay: 10ms !important;
+}
+
+.findbar-textbox:focus,
+.findbar-textbox:focus-visible,
+findbar:focus-within .findbar-textbox {
+	border-color: var(--toolbar-field-border-color-focus) !important;
+    background-color: var(--toolbar-field-background-color) !important;
+    box-shadow: none !important;
+	transition: none !important;
+}
+
+/* Instant Textbox Hover */
+.findbar-textbox:not(:focus):hover {
+	background-color: color-mix(in srgb, var(--toolbar-background-color), white 6%) !important;
+}
+
+/* Mapped "notfound" background */
+.findbar-textbox[status="notfound"], 
+.findbar-textbox[status="notfound"]:focus,
+findbar:focus-within .findbar-textbox[status="notfound"] {
+    background-color: color-mix(in srgb, red 20%, var(--toolbar-field-background-color)) !important;
+    /* Red error border removed to keep it borderless */
+}
+
+/* Prev/Next Buttons and Close Button */
+.findbar-closebutton,
+.findbar-find-previous,
+.findbar-find-next {
+    border-radius: 4px !important; /* Changed from 50% to softly rounded squares */
+    padding: 2px !important;
+    max-height: 24px !important;
+    max-width: 24px !important;
+    min-height: 24px !important;
+    min-width: 24px !important;
+    background-color: transparent !important;
+    color: inherit !important;
+}
+
+/* Instant Button Hover States */
+.findbar-closebutton:hover,
+.findbar-find-previous:hover,
+.findbar-find-next:hover {
+    background-color: var(--toolbarbutton-hover-background, color-mix(in srgb, currentColor 12%, transparent)) !important;
+}
+
+/* Instant Button Active (Click) States */
+.findbar-closebutton:active,
+.findbar-find-previous:active,
+.findbar-find-next:active {
+    background-color: var(--toolbarbutton-active-background, color-mix(in srgb, currentColor 25%, transparent)) !important;
+}
+
+[anonid="findbar-textbox-wrapper"] > toolbarbutton {
+    margin: auto 0 !important;
+}
+
+.findbar-closebutton > .toolbarbutton-icon,
+.findbar-find-previous > .toolbarbutton-icon,
+.findbar-find-next > .toolbarbutton-icon {
+    display: flex !important;
+    max-height: 22px !important;
+    max-width: 22px !important;
+    min-height: 22px !important;
+    min-width: 22px !important;
+    padding: 4px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.findbar-closebutton > .toolbarbutton-icon {
+    padding: 4px !important; /* Shrunk padding to fit 22px limit */
+}
+
+.findbar-closebutton {
+	fill: var(--tab-selected-textcolor) !important;
+    margin-inline-end: 6px !important;
+}
+
+/* Native Vector Icons */
+.findbar-find-previous {
+    list-style-image: url("chrome://global/skin/icons/arrow-up.svg") !important;
+}
+
+.findbar-find-next {
+    list-style-image: url("chrome://global/skin/icons/arrow-down.svg") !important;
+}
+
+/* Checkboxes */
+findbar checkbox {
+    padding: 3px 6px;
+    border: 1px solid transparent;
+    border-radius: var(--toolbarbutton-border-radius, 4px);
+    color: inherit !important; 
+    background-color: transparent !important;
+}
+
+/* Instant Checkbox Hover */
+findbar checkbox:hover {
+    background-color: var(--toolbarbutton-hover-background, color-mix(in srgb, currentColor 12%, transparent)) !important;
+}
+
+/* Checkbox Checked State (Forced Visibility) */
+findbar checkbox[checked="true"],
+findbar checkbox[checked] {
+    /* Mixes the theme's text color with 20% opacity for a guaranteed visible shade */
+    background-color: color-mix(in srgb, currentColor 20%, transparent) !important;
+    color: inherit !important;
+}
+
+findbar checkbox .checkbox-check {
+    display: none !important;
+}
+
+/* Hide extra text info */
+.findbar-find-status {
+    display: none !important;
+}
+
+/* Matches text alignment */
+.found-matches {
+padding-right: 5px !important;
+    white-space: nowrap;
+}
+
+/* RTL Support */
+[dir="rtl"] findbar {
+    left: 0 !important;
+    right: unset !important;
+}
+
+[dir="rtl"] .findbar-textbox {
+    border-left: 1px solid var(--chrome-content-separator-color) !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+}
+
+/* Hide checkboxes on extra small window sizes */
+@media only screen and (max-width: 550px) { 
+    .findbar-container checkbox {
+        display: none !important;
+    }
+}
+
+/* ==========================================================================
+   Tab Separators - Pseudo-Element Method (Supports 700ms Fade)
+   ========================================================================== */
+
+/* 1. Base / Inactive State: Smooth 700ms fade back in */
+.tabbrowser-tab::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  right: -1px !important;
+  top: calc(25% + 1px) !important;
+  height: 50% !important; /* Matches your 25% to 75% gradient fill */
+  width: 1px !important;
+  background-color: color-mix(in srgb, var(--lwt-tab-text, currentColor) 35%, transparent) !important;
+  
+  opacity: 1 !important;
+  transition: opacity 60ms cubic-bezier(0.55, 0.55, 0, 1) !important;
+}
+
+/* 2. Active Interaction State: Instant snap-out (no transition) */
+.tabbrowser-tab:is([selected], [multiselected], :hover)::after,
+.tabbrowser-tab:has(+ .tabbrowser-tab:is([selected], [multiselected], :hover))::after {
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+#tabbrowser-tabs:has(.tabbrowser-tab:not([pinned]):first-of-type:is([selected], [multiselected], :hover)) .tabbrowser-tab[pinned]:last-of-type::after {
+  opacity: 0 !important;
+  transition: none !important;
+}
+
+/* Nudge the final separator left, but explicitly ignore pinned tabs
+.tabbrowser-tab:not([pinned]):last-of-type::after {
+  transform: translateX(-2px) !important;
+} */
+
+tab-split-view-wrapper{
+  background-size: 1px 100%;
+}
+@media -moz-pref("sidebar.verticalTabs"){
+  #tabbrowser-tabs{
+    --uc-vertical-tabs-expanded-separator: linear-gradient(to right,
+      transparent 10cqw,
+      color-mix(in srgb, currentColor 30%, transparent) 10cqw,
+      color-mix(in srgb, currentColor 30%, transparent) 90cqw,
+      transparent 90cqw
+    );
+  }
+  :where(.tabbrowser-tab){
+    background-image: linear-gradient(color-mix(in srgb, currentColor 20%, transparent));
+    background-size: 60% 1px;
+    background-position-x: center;
+  }
+  :where(#tabbrowser-tabs[expanded] .tabbrowser-tab){
+    background-image: var(--uc-vertical-tabs-expanded-separator);
+    background-size: 90cqw 1px;
+  }
+  #tabbrowser-tabs[expanded] > #pinned-tabs-container > .tabbrowser-tab{
+    background-image: none;
+  }
+  tab-split-view-wrapper{
+    background-size: 90cqw 1px;
+  }
+  #tabbrowser-tabs[expanded] tab-split-view-wrapper >.tabbrowser-tab:last-child{
+    background-size: 90cqw 1px;
+    background-image: var(--uc-vertical-tabs-expanded-separator);
+    @container vertical-tabs-container (min-width: 210px){
+      background-size: inherit;
+    }
+  }
+}
+tab-split-view-wrapper > .tabbrowser-tab{
+  background-size: inherit;
+}
+tab-split-view-wrapper > .tabbrowser-tab:last-child{
+  background-image: none;
+}
+tab-group > slot + :is(tab-split-view-wrapper,.tabbrowser-tab),
+tab-group[collapsed] + :is(tab-split-view-wrapper,.tabbrowser-tab),
+:is(tab-split-view-wrapper,.tabbrowser-tab):is([selected],[multiselected],[hasactivetab],:hover),
+:is(tab-split-view-wrapper,.tabbrowser-tab):is([selected],tab[multiselected],[hasactivetab],:hover) + :is(tab-split-view-wrapper,.tabbrowser-tab),
+tab-split-view-wrapper:has( > [multiselected]:last-child) + :is(tab-split-view-wrapper,.tabbrowser-tab),
+tab-group:has(> :last-of-type:is(:hover,[selected],[multiselected],[hasactivetab]) + vbox) + :is(tab-split-view-wrapper,.tabbrowser-tab),
+#pinned-tabs-container > :first-child,
+#pinned-tabs-container:empty ~ arrowscrollbox > :first-child,
+#tabbrowser-arrowscrollbox[overflowing] > :first-child,
+#pinned-tabs-container:has( > :last-child:is(:hover,[selected],[multiselected])) ~ arrowscrollbox > :first-child,
+#vertical-pinned-tabs-splitter:not([hidden]) ~ arrowscrollbox[orient="vertical"] > :first-child{
+  background-size: 0 0;
+}
+
+/* Fixing Download Panel Menu Spacing */
+#downloadsPanel-blockedSubview, #downloadsPanel-mainView {
+	toolbarseparator {
+		margin-inline-start: -4px !important;
+		margin-inline-end: -4px !important;
+		padding: 4px !important;
+	}
+  min-width: 37em;
+  padding: 4px !important;
+  border-radius: 8px !important;
+}
+
+/* Add looping animation like Chrome for tab loading */
+.tab-throbber,
+.tab-throbber[connecting],
+.tab-throbber[progress] {
+  opacity: 1 !important;
+}
+
+.tab-throbber[busy]::before {
+  background-image: none !important;
+  content: "" !important;
+  display: block !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+
+  /* 1. Track: 30% opacity of a 50/50 blend of currentColor & focus color */
+  border: 2px solid color-mix(
+    in srgb, 
+    color-mix(in srgb, currentColor 70%, rgb(from var(--toolbar-field-border-color-focus, var(--focus-outline-color)) r g b / 1)) 30%, 
+    transparent
+  ) !important;
+
+  /* 2. Leading edge: Full-vibrancy theme focus color */
+  border-top-color: rgb(from var(--toolbar-field-border-color-focus, var(--focus-outline-color)) r g b / 1) !important;
+
+  animation: uc-spin 0.7s linear infinite !important;
+}
+
+@keyframes uc-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 1. Force icon to stay in layout during load so CSS transitions can track starting values */
+.tabbrowser-tab[busy] .tab-icon-image {
+  display: flex !important; /* Overrides Firefox's native display:none on busy icons */
+  opacity: 0 !important;
+  transform: scale(0.5) !important;
+  transition: none !important;
+}
+
+/* 2. Pop-in transition when page finishes loading ([busy] attribute is removed) */
+.tabbrowser-tab:not([busy]) .tab-icon-image {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: transform 0.45s cubic-bezier(0.34, 1.50, 0.64, 1), opacity 0.45s ease !important;
+}
+
+/* 3. Freeze transitions while moving tabs so dragging never triggers a pop */
+#tabbrowser-tabs[movingtab] .tab-icon-image,
+.tabbrowser-tab[movingtab] .tab-icon-image {
+  transition: none !important;
+}
+
+/* Hide the native static hourglass icon when reduced motion is enabled */
+.tab-throbber[busy] {
+  background-image: none !important;
+}
+
+/* Change font of the urlbar
+.urlbar-input, #urlbar-input, #searchbar {
+  font-family: "Inter";
+  font-size: 14px !important;
+  font-weight: 400 !important;
+} 
+*/
+
+/* Align url input better with the dropdown box like it used to be */
+.urlbar[breakout-extend][focused] {
+  & > .urlbar-input-container {
+    padding-inline: 12px !important;
+    .urlbar-input {
+      margin-inline-start: 3px !important;
+    }
+  }
+}
+
+/* Keep inactive tabs completely clean until hovered */
+.tabbrowser-tab:not([selected]):not(:hover) .tab-close-button {
+    display: none !important;
+}
+
+/* --- BACK BUTTONS --- */
+#back-button .toolbarbutton-icon,
+#context-back .menu-iconic-icon,
+.subviewbutton-back .toolbarbutton-icon,
+.identity-popup-expander .toolbarbutton-icon {
+  list-style-image: url("Back.svg") !important;
+}
+
+/* --- FORWARD BUTTONS --- */
+#forward-button .toolbarbutton-icon,
+#context-forward .menu-iconic-icon {
+  list-style-image: url("Forward.svg") !important;
+}
+
+/* --- BACK/FORWARD HISTORY DROPDOWN ITEMS (LTR / RTL) --- */
+.unified-nav-back:dir(ltr) .menu-iconic-icon,
+.unified-nav-forward:dir(rtl) .menu-iconic-icon {
+  list-style-image: url("Back.svg") !important;
+}
+
+.unified-nav-forward:dir(ltr) .menu-iconic-icon,
+.unified-nav-back:dir(rtl) .menu-iconic-icon {
+  list-style-image: url("Forward.svg") !important;
+}
+
+/* Bookmark and History scrollbar colors in the Arrowpanel menu */
+.panel-subview-body {
+    scrollbar-color: var(--chrome-content-separator-color) var(--lwt-accent-color) !important;
+}
+.panel-subview-body:hover {
+    scrollbar-color: var(--chrome-content-separator-color) var(--lwt-accent-color) !important;
+}
+.panel-subview-body:active {
+    scrollbar-color: var(--button-background-color-ghost-active) var(--lwt-accent-color) !important;
+}
+
+#editBookmarkPanel html|input:where(:not([type="radio" i], [type="checkbox" i], [type="range" i])),
+#editBookmarkPanel html|textarea {
+  background-color: var(--toolbar-field-background-color) !important;   /* replace with your urlbar color */
+}
+
+/* --------------------------------------------- Downloads/History/Bookmarks Window ----------------------------------------------- */
+
+  @-moz-document url(chrome://browser/content/places/places.xhtml) {
+
+    /* Re-mapped root variables utilizing native Firefox System Colors */
+    :root { 
+      --default-focusring-width: 0px !important;
+      --default-focusring: var(--default-focusring-width) solid !important;
+      --focus-outline-width: 6px !important;
+      --focus-outline-color: AccentColor !important; 
+      --focus-outline: var(--focus-outline-width) solid var(--focus-outline-color) !important; 
+    }
+	
+	#downloadsListBox:focus > richlistitem[selected] {
+		border: 0px !important;
+		outline: none !important;
+		border-radius: 0px !important;
+		background-image: none !important;
+		background-color: #00DDFF !important;
+		color: #1C1B22 !important;
+    }
+	
+        #downloadsRichListBox > richlistitem[selected] {
+		outline: 0px !important;
+		outline-offset: 0px !important;
+		-moz-outline-radius: 0 !important;
+		border: 0px !important;
+    }
+	
+    /* Clear Downloads Button */
+    #clearDownloadsButton[disabled] {
+      color: color-mix(in srgb, currentColor 60%, transparent) !important;
+      padding: 8px !important;
+      opacity: 1 !important;
+    } 
+ 
+    #clearDownloadsButton {
+      list-style-image: url("chrome://global/skin/icons/delete.svg") !important;
+      color: currentColor !important;
+      padding-left: 5px !important;
+      padding-right: 7px !important;
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+    }
+ 
+    #clearDownloadsButton > .toolbarbutton-icon {
+      display: inline-flex !important;
+      display: -moz-inline-box !important;
+      margin-inline-end: 4px !important;
+    }   
+    
+  }
