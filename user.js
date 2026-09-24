@@ -45,6 +45,9 @@ user_pref("dom.ipc.processCount", 4);
 user_pref("dom.ipc.processCount.webIsolated", 3);
 user_pref("dom.ipc.processPrelaunch.fission.number", 1);
 user_pref("dom.security.sanitizer.while-parsing", true);
+user_pref("dom.gamepad.enabled", false);
+user_pref("dom.gamepad.extensions.enabled", false);
+user_pref("dom.gamepad.haptic_feedback.enabled", false);
 
 /** DISK CACHE ***/
 user_pref("browser.cache.disk.enable", true);
