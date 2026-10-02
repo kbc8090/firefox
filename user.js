@@ -48,6 +48,7 @@ user_pref("dom.security.sanitizer.while-parsing", true);
 user_pref("dom.gamepad.enabled", false);
 user_pref("dom.gamepad.extensions.enabled", false);
 user_pref("dom.gamepad.haptic_feedback.enabled", false);
+user_pref("sidebar.revamp", true);
 
 /** DISK CACHE ***/
 user_pref("browser.cache.disk.enable", true);
@@ -232,6 +233,9 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 /** MOZILLA ***/
 user_pref("geo.enabled", false);
 user_pref("geo.provider.ms-windows-location", false);
+user_pref("geo.provider.network.url", "https://api.beacondb.net/v1/geolocate");
+user_pref("geo.provider.use_geoclue", false);
+user_pref("geo.provider.network.logging.enabled", false);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("permissions.manager.defaultsUrl", "");
@@ -263,6 +267,7 @@ user_pref("browser.search.serpEventTelemetryCategorization.enabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.normandy.api_url", "");
+user_pref("nimbus.rollouts.enabled", false);
 
 /** CRASH REPORTS ***/
 /* user_pref("breakpad.reportURL", ""); */
